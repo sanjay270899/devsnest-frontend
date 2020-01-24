@@ -11,7 +11,7 @@ const theme = createMuiTheme({
     }
 });
 
-const  ClassShitApp: React.FC = () => {
+const  AppShell: React.FC = () => {
     return (
         <MuiThemeProvider theme={theme}>
             <Header/>
@@ -19,4 +19,4 @@ const  ClassShitApp: React.FC = () => {
     );
 };
 
-export default ClassShitApp;
+export default AppShell;

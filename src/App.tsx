@@ -1,10 +1,17 @@
 import React from 'react';
 import './App.css';
-import ClassShitApp from "./app/index";
+import AppShell from "./app/index";
+import Login from "./Login";
+import {SessionProvider} from "./session/index";
 
-const App: React.FC = () => {
+const App: React.ElementType = () => {
   return (
-  <ClassShitApp/>
+      <>
+        <AppShell/>
+        <SessionProvider>
+         <Login/>
+        </SessionProvider>
+        </>
 )};
 
 export default App;
