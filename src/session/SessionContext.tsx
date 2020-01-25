@@ -5,12 +5,14 @@ export type SessionContextType = {
     login?: (userCredentials: LoginParams) =>  Promise<boolean| Error>
     session: Object| null,
     loading: boolean,
+    error: null| string
 };
 
 
 const defaultState= {
     session: null,
-    loading: false
+    loading: false,
+    error: null
 };
 
 const Context = React.createContext<SessionContextType>(defaultState);

@@ -19,6 +19,9 @@ const LoginForm: React.ElementType = (({login, loading, session, error}) => {
     if (session && session.token) {
         return <Redirect to={"/"}/>;
     }
+    if(error){
+
+    }
 
     return (
         <Grid
