@@ -21,7 +21,7 @@ const App: React.ElementType = () => {
             <MuiThemeProvider theme={theme}>
             <Router>
             <Switch>
-                <Route exact path={"/login"} component={Login}/>
+                <Route exact path={"/login"} component={AppShell}/>
                 <AuthenticatedRoutes component={AppShell}/>
             </Switch>
             </Router>
