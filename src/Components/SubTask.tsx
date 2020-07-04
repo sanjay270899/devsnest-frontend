@@ -13,11 +13,23 @@ import Typography from '@material-ui/core/Typography';
 
 import { Grid } from '@material-ui/core';
 
-function SubTask({id}) {
+interface Number{
+  id: number
+}
+function SubTask({text,key}) {
     let token = localStorage.getItem("Token")
     const [subTask,setSubTask] = useState([{}])
-    const fetchDetails =async ()=>{
-        const res= await Axios.get("http://localhost:3000/api/tasks/id",{
+    const [checked, setChecked] = useState(false);
+    const handleSubTask =()=>{
+      Axios.put(`http://localhost:3000/api/tasks/${key}/subtasks`, {key},headers:{
+        'Authorization':'Bearer'+' '+token}
+        )
+      .then( (response)=> {
+          console.log(response)
+      })
+      .catch((error)=> {
+          console.log(error)
+      }),{
           headers:{
             'Authorization':'Bearer'+' '+token
           }
@@ -34,8 +46,11 @@ function SubTask({id}) {
         setSubTask([...subTask,SubTask])
       }
       useEffect(() => {
-        fetchDetails()
-      }, [])
+        handleSubTask()
+      }, [checked])
+      const handleChange = (event:any) => {
+        setChecked(event.target.checked);
+      };
     return (
         <div>
           
@@ -45,13 +60,13 @@ function SubTask({id}) {
           <Grid item md={6}>
           <CardContent>
           <Typography >
-          <h4>SubTask Name</h4>
+          <h4>{text}</h4>
 
         </Typography>
-        <Typography variant="body1" gutterBottom>
+        {/* <Typography variant="body1" gutterBottom>
          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
         unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, 
-      </Typography>
+      </Typography> */}
       </CardContent>
           </Grid>
           <Grid item style={{alignSelf:"center",padding:"20px"}}>

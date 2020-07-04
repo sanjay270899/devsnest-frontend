@@ -15,13 +15,17 @@ import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
 
 
-function Task() {
+function Task(props) {
   const [expanded, setExpanded] =useState(true)
   const [checked, setChecked] = useState(false);
   const [task,setTask] = useState([{}])
   const handleExpandClick = () => {
     setExpanded(!expanded);
   }
+
+  const id = props.match.params.id;
+
+  
   const handleChange = (event:any) => {
     setChecked(event.target.checked);
   };
@@ -29,7 +33,7 @@ function Task() {
   console.log('Bearer'+' '+token)
 
   const fetchDetails =async ()=>{
-    const res= await Axios.get("http://localhost:3000/api/tasks",{
+    const res= await Axios.get(`http://localhost:3000/api/tasks/${id}`,{
       headers:{
         'Authorization':'Bearer'+' '+token
       }
@@ -38,8 +42,8 @@ function Task() {
     const Task = data.data.map((item:any)=>{
       const task = {
         id:item.id,
-        name:item.name,
-        description:item.description,
+        text:item.text,
+        link:item.link,
       }
     })
     setTask([...task,Task])
@@ -77,7 +81,16 @@ function Task() {
           </Grid>
         </Grid>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-      <SubTask id={task.id}/>
+        {task.map(item=>{
+          return(
+            <SubTask 
+            key={item.id}
+            link={item.link}
+            text={item.text}
+            />
+          )
+        })}
+      
       </Collapse>
     </Card>
     </div>
