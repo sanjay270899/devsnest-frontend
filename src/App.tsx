@@ -1,32 +1,28 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
-import AppShell from "./app/index";
-import Login from "./Login";
-import {SessionProvider} from "./session/index";
-import AuthenticatedRoutes from "./AuthenticatedRoutes";
-import {createMuiTheme, MuiThemeProvider} from "@material-ui/core";
-const theme = createMuiTheme({
-    palette: {
-        primary: {
-            main: '#2196f3'
-        }
-    }
-});
+import Home from './Components/Home'
+import Login from './Components/Login'
+import SignUp from './Components/SignUp'
+import Curriculum from './Components/Curriculum';
+import Task from './Components/Task'
 
 
 const App: React.ElementType = () => {
   return (
-        <SessionProvider>
-            <MuiThemeProvider theme={theme}>
-            <Router>
-            <Switch>
-                <Route exact path={"/login"} component={AppShell}/>
-                <AuthenticatedRoutes component={AppShell}/>
-            </Switch>
-            </Router>
-            </MuiThemeProvider>
-        </SessionProvider>
+    <div >
+    <Router>
+    <Switch>
+    <Route exact path="/" component={Home} />
+    <Route exact path="/login" component={Login} />
+    <Route exact path="/signup" component={SignUp} />
+    <Route exact path="/curriculum" component={Curriculum} />
+    <Route exact path="/task" component={Task} />
+
+  </Switch>
+  </Router>
+  </div>
+  
 )};
 
 export default App;
