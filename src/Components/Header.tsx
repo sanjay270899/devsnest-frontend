@@ -82,7 +82,7 @@ export default function MenuAppBar() {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={()=>localStorage.clear()}>Logout</MenuItem>
               </Menu>
             </div>
           )}

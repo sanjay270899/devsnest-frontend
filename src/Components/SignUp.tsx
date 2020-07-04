@@ -15,8 +15,8 @@ function SignUp() {
     const handleSignup = ()=>{
         Axios.post('http://localhost:3000/api/auth/signup', userSignUp)
           .then( (response)=> {
-              console.log(response)
-              localStorage.setItem('Token', JSON.stringify(response.data.jwtToken));
+              console.log(response.data.data.jwtToken)
+              localStorage.setItem('Token', response.data.data.jwtToken)
               setIsSignUp(!isSignUp)
           })
           .catch((error)=> {
