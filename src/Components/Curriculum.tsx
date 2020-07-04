@@ -2,9 +2,13 @@ import React,{useState,useEffect} from 'react'
 import { Grid } from '@material-ui/core';
 import Axios from 'axios';
 import CurriculumCard from './CurriculumCard';
+import {resolveNaptr} from "dns";
+
+type TaskType = any;
 
 function Curriculum() {
-  const [task, setTask] = useState([{}]);
+  const [task, setTask] = useState([{
+  }]);
   const token = localStorage.getItem("Token")
   const fetchDetails =async ()=>{
     const res= await Axios.get("http://localhost:3000/api/tasks",{
@@ -21,14 +25,14 @@ function Curriculum() {
       }
       setTask([...task,tasks])
     })
-    
+
   }
   useEffect(() => {
     fetchDetails()
   }, [])
     return (
         <div className="container">
-            {task.map((card)=>{
+            {task.map((card: TaskType)=>{
                 return(
                     <Grid container spacing={2} >
                         <Grid item md={6} >
@@ -42,8 +46,8 @@ function Curriculum() {
 
                 )
             })}
-           
-               
+
+
         </div>
     )
 }

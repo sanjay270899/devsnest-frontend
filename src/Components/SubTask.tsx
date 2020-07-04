@@ -16,35 +16,35 @@ import { Grid } from '@material-ui/core';
 interface Number{
   id: number
 }
-function SubTask({text,key}) {
+function SubTask({text,key}: any) {
     let token = localStorage.getItem("Token")
     const [subTask,setSubTask] = useState([{}])
     const [checked, setChecked] = useState(false);
     const handleSubTask =()=>{
-      Axios.put(`http://localhost:3000/api/tasks/${key}/subtasks`, {key},headers:{
+      Axios.put(`http://localhost:3000/api/tasks/${key}/subtasks`,
+          {key},
+          {
+              headers:{
         'Authorization':'Bearer'+' '+token}
-        )
+    })
       .then( (response)=> {
-          console.log(response)
+          console.log(response);
+          const {data} =response;
+          console.log(data)
+          const SubTask = data.data.map((item:any)=>{
+              const task = {
+                  id:item.id,
+                  text:item.text,
+                  link:item.link,
+              }
+          })
+          setSubTask([...subTask,SubTask])
       })
       .catch((error)=> {
           console.log(error)
-      }),{
-          headers:{
-            'Authorization':'Bearer'+' '+token
-          }
-        })
-        const {data} =res;
-        console.log(data)
-        const SubTask = data.data.map((item:any)=>{
-          const task = {
-            id:item.id,
-            text:item.text,
-            link:item.link,
-          }
-        })
-        setSubTask([...subTask,SubTask])
-      }
+      });
+
+      };
       useEffect(() => {
         handleSubTask()
       }, [checked])
@@ -53,7 +53,7 @@ function SubTask({text,key}) {
       };
     return (
         <div>
-          
+
 <Grid container direction="row"
         justify="space-between"
         alignItems="flex-end">
@@ -65,7 +65,7 @@ function SubTask({text,key}) {
         </Typography>
         {/* <Typography variant="body1" gutterBottom>
          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, 
+        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus,
       </Typography> */}
       </CardContent>
           </Grid>
@@ -76,7 +76,7 @@ function SubTask({text,key}) {
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
           </Grid>
-          </Grid>  
+          </Grid>
         </div>
     )
 }

@@ -12,12 +12,12 @@ import {Redirect} from 'react-router-dom';
 
 
 
-function CurriculumCard({key,name,duration}) {
+function CurriculumCard({key,name,duration}: any) {
   // const handleClick=()=>{
   //   <Redirect to=`/task/${key}`/>
   // }
     return (
-     
+
     <Card className="card">
         <Grid container>
       <Grid item md={6}>
@@ -41,7 +41,7 @@ function CurriculumCard({key,name,duration}) {
          <Grid item md={6}>
             <CardContent>
                 <Typography gutterBottom  component="h6">
-                    Estimated Duration : {duration} 
+                    Estimated Duration : {duration}
                 </Typography>
             </CardContent>
          </Grid>
@@ -52,10 +52,10 @@ function CurriculumCard({key,name,duration}) {
             </Button>
             </CardActions>
          </Grid>
-     
+
      </Grid>
     </Card>
-        
+
     )
 }
 

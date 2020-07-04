@@ -15,7 +15,7 @@ import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
 
 
-function Task(props) {
+function Task(props: any) {
   const [expanded, setExpanded] =useState(true)
   const [checked, setChecked] = useState(false);
   const [task,setTask] = useState([{}])
@@ -25,7 +25,7 @@ function Task(props) {
 
   const id = props.match.params.id;
 
-  
+
   const handleChange = (event:any) => {
     setChecked(event.target.checked);
   };
@@ -70,9 +70,9 @@ function Task(props) {
       </CardContent>
           </Grid>
           <Grid item style={{alignSelf:"center",padding:"20px"}}>
-         
+
             <Checkbox
-                       
+
             aria-expanded={expanded}
             onClick={handleExpandClick}
             color="primary"
@@ -81,22 +81,23 @@ function Task(props) {
           </Grid>
         </Grid>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
+        // @ts-ignore
         {task.map(item=>{
           return(
-            <SubTask 
+            <SubTask
             key={item.id}
             link={item.link}
             text={item.text}
             />
           )
         })}
-      
+
       </Collapse>
     </Card>
     </div>
         )
       })}
-      
+
     </>
   );
 
