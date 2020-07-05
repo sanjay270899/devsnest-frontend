@@ -11,6 +11,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -26,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function MenuAppBar() {
+export default function Header() {
   const classes = useStyles();
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -43,7 +45,10 @@ export default function MenuAppBar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+const handleClick=()=>{
+  localStorage.clear()
+    
+}
   return (
     <div >
       
@@ -81,8 +86,8 @@ export default function MenuAppBar() {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={()=>localStorage.clear()}>Logout</MenuItem>
+                <MenuItem onClick={handleClose} style={{color:'#000'}}>Profile</MenuItem>
+                <MenuItem onClick={handleClick}><Link to="/login" style={{color:'#000',textDecoration: 'none'}}>Logout</Link></MenuItem>
               </Menu>
             </div>
           )}

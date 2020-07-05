@@ -18,7 +18,6 @@ interface Number{
 }
 function SubTask({text,key}: any) {
     let token = localStorage.getItem("Token")
-    const [subTask,setSubTask] = useState([{}])
     const [checked, setChecked] = useState(false);
     const handleSubTask =()=>{
       Axios.put(`http://localhost:3000/api/tasks/${key}/subtasks`,
@@ -29,16 +28,6 @@ function SubTask({text,key}: any) {
     })
       .then( (response)=> {
           console.log(response);
-          const {data} =response;
-          console.log(data)
-          const SubTask = data.data.map((item:any)=>{
-              const task = {
-                  id:item.id,
-                  text:item.text,
-                  link:item.link,
-              }
-          })
-          setSubTask([...subTask,SubTask])
       })
       .catch((error)=> {
           console.log(error)
@@ -48,6 +37,7 @@ function SubTask({text,key}: any) {
       useEffect(() => {
         handleSubTask()
       }, [checked])
+
       const handleChange = (event:any) => {
         setChecked(event.target.checked);
       };

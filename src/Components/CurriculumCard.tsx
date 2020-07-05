@@ -7,18 +7,16 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
-import {Redirect} from 'react-router-dom';
+import {Redirect,Link} from 'react-router-dom';
 
 
 
 
 function CurriculumCard({key,name,duration}: any) {
-  // const handleClick=()=>{
-  //   <Redirect to=`/task/${key}`/>
-  // }
+  
     return (
 
-    <Card className="card">
+    <Card className="card" key={key}>
         <Grid container>
       <Grid item md={6}>
       <CardMedia
@@ -47,8 +45,9 @@ function CurriculumCard({key,name,duration}: any) {
          </Grid>
          <Grid item md={6}>
             <CardActions>
-            <Button variant="contained" color="primary" onClick={(key)=>(<Redirect to="/task:{key}" />)}>
-                Tasks
+            <Button variant="contained" color="primary" >
+                
+                <Link to={`/task/:${key}`} style={{color:'#fff',textDecoration: 'none'}}>Tasks</Link>
             </Button>
             </CardActions>
          </Grid>

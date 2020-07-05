@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import { Grid } from '@material-ui/core';
 import Axios from 'axios';
 import CurriculumCard from './CurriculumCard';
+import Header from './Header'
 import {resolveNaptr} from "dns";
 
 type TaskType = any;
@@ -31,6 +32,8 @@ function Curriculum() {
     fetchDetails()
   }, [])
     return (
+      <>
+      <Header/>
         <div className="container">
             {task.map((card: TaskType)=>{
                 return(
@@ -49,6 +52,7 @@ function Curriculum() {
 
 
         </div>
+        </>
     )
 }
 
