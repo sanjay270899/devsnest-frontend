@@ -17,12 +17,12 @@ const App: React.ElementType = () => {
     <Route exact path="/login" component={Login} />
     <Route exact path="/signup" component={SignUp} />
     <Route exact path="/curriculum" component={Curriculum} />
-    <Route exact path="/task:id" component={Task} />
+    <Route exact path="/task/:id" component={Task} />
 
   </Switch>
   </Router>
   </div>
-  
+
 )};
 
 export default App;

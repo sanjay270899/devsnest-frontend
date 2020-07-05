@@ -12,8 +12,10 @@ import {Redirect,Link} from 'react-router-dom';
 
 
 
-function CurriculumCard({key,name,duration}: any) {
-  
+function CurriculumCard(props:any) {
+    console.log("Props", props);
+    const{ key, taskId, name, duration} = props;
+    console.log("Taskid", taskId);
     return (
 
     <Card className="card" key={key}>
@@ -46,8 +48,8 @@ function CurriculumCard({key,name,duration}: any) {
          <Grid item md={6}>
             <CardActions>
             <Button variant="contained" color="primary" >
-                
-                <Link to={`/task/:${key}`} style={{color:'#fff',textDecoration: 'none'}}>Tasks</Link>
+
+                <Link to={`/task/${taskId}`} style={{color:'#fff',textDecoration: 'none'}}>Tasks</Link>
             </Button>
             </CardActions>
          </Grid>

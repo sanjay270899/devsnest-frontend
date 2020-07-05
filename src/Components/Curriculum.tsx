@@ -3,30 +3,28 @@ import { Grid } from '@material-ui/core';
 import Axios from 'axios';
 import CurriculumCard from './CurriculumCard';
 import Header from './Header'
-import {resolveNaptr} from "dns";
 
 type TaskType = any;
 
 function Curriculum() {
-  const [task, setTask] = useState([{
-  }]);
-  const token = localStorage.getItem("Token")
+  const [task, setTask] = useState([[]]);
+  const token = localStorage.getItem("Token");
   const fetchDetails =async ()=>{
     const res= await Axios.get("http://localhost:3000/api/tasks",{
       headers:{
         'Authorization':'Bearer'+' '+token
       }
-    })
+    });
     const {data} =res;
-    data.data.map((item:any)=>{
-      const tasks = {
-        id:item.id,
-        name:item.name,
-        duration:item.duration,
-      }
-      setTask([...task,tasks])
-    })
 
+      setTask( data.data.map((item:any)=>{
+          const tasks = {
+              id:item.id,
+              name:item.name,
+              duration:item.duration,
+          };
+          return tasks;
+      }));
   }
   useEffect(() => {
     fetchDetails()
@@ -36,11 +34,13 @@ function Curriculum() {
       <Header/>
         <div className="container">
             {task.map((card: TaskType)=>{
+                console.log("Card ----", card);
                 return(
                     <Grid container spacing={2} >
                         <Grid item md={6} >
                             <CurriculumCard
-                            key={card.id}
+                            key={card.id+"#"}
+                            taskId={card.id}
                             name={card.name}
                             duration={card.duration}
                             />

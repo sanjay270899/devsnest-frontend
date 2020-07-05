@@ -18,7 +18,7 @@ import { Grid } from '@material-ui/core';
 function Task(props: any) {
   const [expanded, setExpanded] =useState(true)
   const [checked, setChecked] = useState(false);
-  const [task,setTask] = useState([{}])
+  const [task,setTask] = useState([[]]);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   }
@@ -39,25 +39,27 @@ function Task(props: any) {
       }
     })
     const {data} =res;
-    const Task = data.data.map((item:any)=>{
+    const allSubTasks = data.data.map((item:any)=>{
+      console.log("Invidual item", item);
       const task = {
         id:item.id,
         text:item.text,
         link:item.link,
       }
-    })
-    setTask([...task,Task])
-  }
+      return task;
+    });
+    setTask(allSubTasks);
+  };
   useEffect(() => {
     fetchDetails()
   }, [])
-
+    console.log("Tasks", task);
     return (
       <>
       <Header/>
-      {task.map(task=>{
+      {task.map((task: any)=>{
         return(
-          <div className="container">
+          <div className="container" key={task.id}>
       <Card  style={{boxShadow:' 4px 4px 8px 4px rgba(0,0,0,0.2)'}}>
         <Grid container  direction="row"
         justify="space-between"
@@ -65,7 +67,7 @@ function Task(props: any) {
           <Grid item >
           <CardContent>
           <Typography >
-          <h2> Name</h2>
+          <h2> {task? task.text: null}</h2>
         </Typography>
       </CardContent>
           </Grid>
@@ -81,16 +83,7 @@ function Task(props: any) {
           </Grid>
         </Grid>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        // @ts-ignore
-        {task.map(item=>{
-          return(
-            <SubTask
-            key={item.id}
-            link={item.link}
-            text={item.text}
-            />
-          )
-        })}
+
 
       </Collapse>
     </Card>
