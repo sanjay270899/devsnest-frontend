@@ -12,7 +12,7 @@ import {Redirect,Link} from 'react-router-dom';
 
 
 
-function CurriculumCard(props:any) {
+function TaskCard(props:any) {
     console.log("Props", props);
     const{ key, taskId, name, duration,slug} = props;
     console.log("Taskid", taskId);
@@ -60,4 +60,4 @@ function CurriculumCard(props:any) {
     )
 }
 
-export default CurriculumCard
+export default TaskCard

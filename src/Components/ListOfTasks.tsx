@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from 'react'
 import { Grid } from '@material-ui/core';
 import Axios from 'axios';
-import CurriculumCard from './CurriculumCard';
+import TaskCard from './TaskCard';
 import Header from './Header'
 
 type TaskType = any;
 
-function Curriculum() {
+function ListOfTasks() {
   const [task, setTask] = useState([[]]);
   const token = localStorage.getItem("Token");
   const fetchDetails =async ()=>{
@@ -39,7 +39,7 @@ function Curriculum() {
                 return(
                     <Grid container spacing={2} >
                         <Grid item md={6} >
-                            <CurriculumCard
+                            <TaskCard
                             key={card.id+"#"}
                             taskId={card.id}
                             name={card.name}
@@ -58,4 +58,4 @@ function Curriculum() {
     )
 }
 
-export default Curriculum
+export default ListOfTasks

@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import Card from '@material-ui/core/Card';
+import List from '@material-ui/core/List';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -18,16 +19,10 @@ import { Grid } from '@material-ui/core';
 
 
 function Task(props: any) {
-  const [expanded, setExpanded] =useState(false)
-  const [task,setTask] = useState([[]]);
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  }
+  const [subTasks,setSubTasks] = useState([[]]);
 
-  const id = props.match.params.id;  
+  const id = props.match.params.id;
   let token = localStorage.getItem("Token")
-  console.log('Bearer'+' '+token)
-
   const fetchDetails =async ()=>{
     const res= await Axios.get(`http://localhost:3000/api/tasks/${id}`,{
       headers:{
@@ -35,50 +30,34 @@ function Task(props: any) {
       }
     })
     const {data} =res;
-    const allSubTasks = data.data.map((item:any)=>{
-      console.log("Invidual item", item);
+     let allSubTasks = data.data.map((item:any)=>{
+       console.log("Item", item.metaData);
       const task = {
         id:item.id,
         text:item.text,
         link:item.link,
+        taskId: item.task_id,
+        tutorials: !item.metaData ? null: item.metaData.tutorials
       }
+      console.log("Task", task);
       return task;
     });
-    setTask(allSubTasks);
+    setSubTasks(allSubTasks);
   };
   useEffect(() => {
     fetchDetails()
-  }, [])
-    console.log("Tasks", task);
+  }, []);
+  console.log("All subtasks", subTasks);
     return (
       <>
       <Header/>
-      {task.map((task: any)=>{
+      {subTasks.map((task: any)=>{
         return(
-          <div className="container" key={task.id}>
-            <Card  style={{boxShadow:' 4px 4px 8px 4px rgba(0,0,0,0.2)'}}>
-              <Grid container  direction="row"
-              justify="space-between"
-              alignItems="flex-end">
-                <Grid item >
-                  <CardContent>
-                    <Typography >
-                      <h2> {task? task.text: null}</h2>
-                    </Typography>
-                  </CardContent>
-                </Grid>
-              <Grid item style={{alignSelf:"center",padding:"20px"}} onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="show more">
-              <ExpandMoreIcon />
-              </Grid>
-        </Grid>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <SubTask key={task?task.id:null}/>
-
-      </Collapse>
-    </Card>
-    </div>
+            <>
+              <SubTask
+              task={task}
+              />
+              </>
         )
       })}
 
