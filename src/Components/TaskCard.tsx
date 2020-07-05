@@ -20,7 +20,7 @@ function TaskCard(props:any) {
     return (
 
     <Card className="card" key={key}>
-        <Grid container>
+        <Grid container direction="row"  justify="space-between" alignItems="flex-end">
       <Grid item md={4}>
       <CardMedia
           image={url}
@@ -37,7 +37,7 @@ function TaskCard(props:any) {
           </Typography>
         </CardContent>
         
-        </Grid>]
+        </Grid>
         <Grid item md={4}>
           {status 
           ?<Checkbox

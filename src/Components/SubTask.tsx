@@ -56,13 +56,16 @@ function SubTask({task}: any) {
                                     <CardContent>
                                         <Typography >
                                             <h2> {task? task.text: null}</h2>
+                                            <span onClick={handleExpandClick} style={{alignSelf:"center",padding:"20px"}} ><ExpandMoreIcon /></span>
                                         </Typography>
                                     </CardContent>
                                 </Grid>
-                                <Grid item style={{alignSelf:"center",padding:"20px"}} onClick={handleExpandClick}
-                                      aria-expanded={expanded}
-                                      aria-label="show more">
-                                    <ExpandMoreIcon />
+                                <Grid item >
+                                <Checkbox
+                                                onClick={handleDone}
+                                                color="primary"
+                                                inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                            />
                                 </Grid>
                             </Grid>
                             <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -83,11 +86,9 @@ function SubTask({task}: any) {
                                                                 <>
                                                                     <Typography gutterBottom  component="h6" >
                                                                         {tutorail.description? tutorail.description: null}
+                                                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                                                        {tutorail.link? <a href="tutorail.link">TaskLink</a>: null}
                                                                     </Typography>
-                                                                    <Typography gutterBottom  component="h6">
-                                                                    {tutorail.link? <a href="tutorail.link">Go</a>: null}
-                                                                    </Typography>
-                                                                    
 
                                                                 </>
                                                             );
@@ -96,11 +97,7 @@ function SubTask({task}: any) {
                                             </CardContent>
                                         </Grid>
                                         <Grid item style={{alignSelf:"center",padding:"20px"}}>
-                                            <Checkbox
-                                                onClick={handleDone}
-                                                color="primary"
-                                                inputProps={{ 'aria-label': 'secondary checkbox' }}
-                                            />
+                                            
                                         </Grid>
                                     </Grid>
                                 </div>
