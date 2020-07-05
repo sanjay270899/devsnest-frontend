@@ -16,7 +16,7 @@ import { Grid } from '@material-ui/core';
 interface Number{
   id: number
 }
-function SubTask({text,key}: any) {
+function SubTask({link,key}: any) {
     let token = localStorage.getItem("Token")
     const [checked, setChecked] = useState(false);
     const handleSubTask =()=>{
@@ -50,13 +50,10 @@ function SubTask({text,key}: any) {
           <Grid item md={6}>
           <CardContent>
           <Typography >
-          <h4>{text}</h4>
+          <h4>{link}</h4>
 
         </Typography>
-        {/* <Typography variant="body1" gutterBottom>
-         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus,
-      </Typography> */}
+        
       </CardContent>
           </Grid>
           <Grid item style={{alignSelf:"center",padding:"20px"}}>

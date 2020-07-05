@@ -14,7 +14,7 @@ import {Redirect,Link} from 'react-router-dom';
 
 function CurriculumCard(props:any) {
     console.log("Props", props);
-    const{ key, taskId, name, duration} = props;
+    const{ key, taskId, name, duration,slug} = props;
     console.log("Taskid", taskId);
     return (
 
@@ -32,7 +32,7 @@ function CurriculumCard(props:any) {
             {name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident necessitatibus corporis facere temporibus rem animi, doloribus sint? Praesentium, itaque autem nobis amet dolorem, minima expedita, est explicabo quae eos voluptatibus.
+            {slug}
           </Typography>
         </CardContent>
         </Grid>

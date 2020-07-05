@@ -22,6 +22,7 @@ function Curriculum() {
               id:item.id,
               name:item.name,
               duration:item.duration,
+              slug:item.slug,
           };
           return tasks;
       }));
@@ -43,6 +44,7 @@ function Curriculum() {
                             taskId={card.id}
                             name={card.name}
                             duration={card.duration}
+                            slug = {card.slug}
                             />
                         </Grid>
                     </Grid>
