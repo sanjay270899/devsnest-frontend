@@ -4,7 +4,6 @@ import List from '@material-ui/core/List';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import Checkbox from '@material-ui/core/Checkbox';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';

@@ -23,6 +23,8 @@ function ListOfTasks() {
               name:item.name,
               duration:item.duration,
               slug:item.slug,
+              url:item.url,
+              status:item.status
           };
           return tasks;
       }));
@@ -45,6 +47,8 @@ function ListOfTasks() {
                             name={card.name}
                             duration={card.duration}
                             slug = {card.slug}
+                            url = {card.url}
+                            status = {card.status}
                             />
                         </Grid>
                     </Grid>

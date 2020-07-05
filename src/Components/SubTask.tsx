@@ -6,17 +6,44 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 import { Grid } from '@material-ui/core';
-import ExpandMoreIcon from "@material-ui/core/SvgIcon/SvgIcon";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
+import Axios from 'axios';
+
 
 interface Number{
   id: number
 }
+
 function SubTask({task}: any) {
     const [expanded, setExpanded] =useState(false)
+    const [done, setDone] = useState(false)
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
+    const handleDone = () => {
+        setDone(!done);
+        console.log(!done)
+
+    };
+    let token = localStorage.getItem("Token")
+    const changeStatus=()=>{
+        Axios.put(`http://localhost:3000/api/tasks/${task.id}/subtasks`,{"subtaskId":task.id},{
+            headers:{
+              'Authorization':'Bearer'+' '+token
+            }
+          })
+              .then( (response)=> {
+                  console.log(response)
+              })
+              .catch((error)=> {
+                  console.log(error)
+              })
+    }
+    
+    useEffect(() => {
+        changeStatus()
+      }, [done]);
     console.log("Subtask", task);
     return (
         <>
@@ -54,10 +81,13 @@ function SubTask({task}: any) {
                                                             console.log("Tutorial", tutorail);
                                                             return (
                                                                 <>
-                                                                    <Typography >
+                                                                    <Typography gutterBottom  component="h6" >
                                                                         {tutorail.description? tutorail.description: null}
-                                                                        {tutorail.link? tutorail.link: null}
                                                                     </Typography>
+                                                                    <Typography gutterBottom  component="h6">
+                                                                    {tutorail.link? <a href="tutorail.link">Go</a>: null}
+                                                                    </Typography>
+                                                                    
 
                                                                 </>
                                                             );
@@ -67,9 +97,7 @@ function SubTask({task}: any) {
                                         </Grid>
                                         <Grid item style={{alignSelf:"center",padding:"20px"}}>
                                             <Checkbox
-                                                onClick={() => {
-                                                    console.log("Hello")
-                                                }}
+                                                onClick={handleDone}
                                                 color="primary"
                                                 inputProps={{ 'aria-label': 'secondary checkbox' }}
                                             />

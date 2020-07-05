@@ -8,25 +8,26 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
 import {Redirect,Link} from 'react-router-dom';
+import Checkbox from '@material-ui/core/Checkbox';
 
 
 
 
 function TaskCard(props:any) {
     console.log("Props", props);
-    const{ key, taskId, name, duration,slug} = props;
+    const{ key, taskId, name, duration,slug,url,status} = props;
     console.log("Taskid", taskId);
     return (
 
     <Card className="card" key={key}>
         <Grid container>
-      <Grid item md={6}>
+      <Grid item md={4}>
       <CardMedia
-          image="#"
-          title="Contemplative Reptile"
+          image={url}
+          title={name}
         />
       </Grid>
-        <Grid item md={6}>
+        <Grid item md={4}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {name}
@@ -35,6 +36,21 @@ function TaskCard(props:any) {
             {slug}
           </Typography>
         </CardContent>
+        
+        </Grid>]
+        <Grid item md={4}>
+          {status 
+          ?<Checkbox
+            defaultChecked
+            color="primary"
+            inputProps={{ 'aria-label': 'secondary checkbox' }}
+        />
+        :<Checkbox
+            color="primary"
+            inputProps={{ 'aria-label': 'secondary checkbox' }}
+          />
+          }
+        
         </Grid>
      </Grid>
      <Grid container>
