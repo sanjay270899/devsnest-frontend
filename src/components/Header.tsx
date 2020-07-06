@@ -6,12 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import Switch from '@material-ui/core/Switch';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -45,13 +41,13 @@ export default function Header() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-const handleClick=()=>{
-  localStorage.clear()
-    
-}
+  const handleClick = () => {
+    localStorage.clear()
+
+  }
   return (
     <div >
-      
+
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
@@ -86,8 +82,8 @@ const handleClick=()=>{
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose} style={{color:'#000'}}>Profile</MenuItem>
-                <MenuItem onClick={handleClick}><Link to="/login" style={{color:'#000',textDecoration: 'none'}}>Logout</Link></MenuItem>
+                <MenuItem onClick={handleClose} style={{ color: '#000' }}>Profile</MenuItem>
+                <MenuItem onClick={handleClick}><Link to="/login" style={{ color: '#000', textDecoration: 'none' }}>Logout</Link></MenuItem>
               </Menu>
             </div>
           )}
