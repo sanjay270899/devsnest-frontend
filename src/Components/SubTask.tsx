@@ -40,7 +40,7 @@ function SubTask({task}: any) {
                   console.log(error)
               })
     }
-    
+
     useEffect(() => {
         changeStatus()
       }, [done]);
@@ -53,19 +53,25 @@ function SubTask({task}: any) {
                                   justify="space-between"
                                   alignItems="flex-end">
                                 <Grid item >
-                                    <CardContent>
+                                    <CardContent style={{display: 'flex'}}>
                                         <Typography >
-                                            <h2> {task? task.text: null}</h2>
-                                            <span onClick={handleExpandClick} style={{alignSelf:"center",padding:"20px"}} ><ExpandMoreIcon /></span>
+                                            <h2 > {task? task.text: null}
+
+                                            </h2>
                                         </Typography>
-                                    </CardContent>
-                                </Grid>
-                                <Grid item >
-                                <Checkbox
+
+                                        <CardContent>
+                                            <Checkbox
                                                 onClick={handleDone}
                                                 color="primary"
                                                 inputProps={{ 'aria-label': 'secondary checkbox' }}
                                             />
+                                            <span onClick={handleExpandClick} style={{alignSelf:"center",padding:"20px"}} ><ExpandMoreIcon /></span>
+                                        </CardContent>
+                                    </CardContent>
+                                </Grid>
+                                <Grid>
+
                                 </Grid>
                             </Grid>
                             <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -97,7 +103,7 @@ function SubTask({task}: any) {
                                             </CardContent>
                                         </Grid>
                                         <Grid item style={{alignSelf:"center",padding:"20px"}}>
-                                            
+
                                         </Grid>
                                     </Grid>
                                 </div>
