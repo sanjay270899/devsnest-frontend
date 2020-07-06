@@ -3,35 +3,43 @@ import { Grid } from '@material-ui/core';
 import axios from '../config/axios.config';
 import TaskCard from './TaskCard';
 import Header from './Header'
+import {Redirect} from "react-router";
 
 type TaskType = any;
 
 function ListOfTasks() {
   const [task, setTask] = useState([[]]);
   const token: string = localStorage.getItem("Token") || '';
-  const fetchDetails = async () => {
-    const res = await axios.get("api/tasks", {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    });
-    const { data } = res;
 
-    setTask(data.data.map((item: any) => {
-      const tasks = {
-        id: item.id,
-        name: item.name,
-        duration: item.duration,
-        slug: item.slug,
-        url: item.url,
-        status: item.status
-      };
-      return tasks;
-    }));
-  }
+  const fetchDetails = async () => {
+    if(token != ''){
+      const res = await axios.get("api/tasks", {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      const { data } = res;
+
+      setTask(data.data.map((item: any) => {
+        const tasks = {
+          id: item.id,
+          name: item.name,
+          duration: item.duration,
+          slug: item.slug,
+          url: item.url,
+          status: item.status
+        };
+        return tasks;
+      }));
+    }
+    }
+
   useEffect(() => {
     fetchDetails()
-  }, [])
+  }, []);
+  if(token == ''){
+    return <Redirect to={"/login"}/>;
+  }
   return (
     <>
       <Header />
@@ -55,7 +63,6 @@ function ListOfTasks() {
 
           )
         })}
-
 
       </div>
     </>

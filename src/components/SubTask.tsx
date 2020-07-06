@@ -9,41 +9,46 @@ import { Grid } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 import axios from '../config/axios.config';
+import {Redirect} from "react-router";
 
 
 interface Number {
     id: number
 }
 
-function SubTask({ task }: any) {
-    const [expanded, setExpanded] = useState(false)
-    // const [done, setDone] = useState(false)
+function SubTask({ task, updateAllTasks }: any) {
+    const [expanded, setExpanded] = useState(false);
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
-    // const handleDone = () => {
-    //     setDone(!done);
-    //     console.log(!done)
 
-    // };
     let token: string = localStorage.getItem("Token") || '';
     const changeStatus = () => {
-        axios.put(`api/tasks/${task.taskId}/subtasks`, { "subtaskId": task.id }, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-            .then((response) => {
-                console.log(response)
+        if(token == ''){
+            axios.put(`api/tasks/${task.taskId}/subtasks`, { "subtaskId": task.id }, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
             })
-            .catch((error) => {
-                console.log(error)
-            })
+                .then((response) => {
+                    console.log(response);
+                    if(response.data){
+                        updateAllTasks();
+                    }
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        }
+
     }
 
-    // useEffect(() => {
-    //     changeStatus()
-    // }, []);
+    useEffect(() => {
+
+    }, [task.status]);
+    if(token == ''){
+        return <Redirect to={"/login"}/>;
+    }
     console.log("Subtask", task);
     return (
         <>

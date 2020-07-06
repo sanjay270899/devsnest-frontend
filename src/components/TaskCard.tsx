@@ -37,14 +37,14 @@ function TaskCard(props: any) {
           </CardContent>
 
         </Grid>
-        <Grid item md={4}>
-          <Checkbox
-            defaultChecked
-            color="primary"
-            inputProps={{ 'aria-label': 'secondary checkbox' }}
-            checked={status === "DONE" ? true : false}
-          />
-        </Grid>
+        {/*<Grid item md={4}>*/}
+        {/*  <Checkbox*/}
+        {/*    defaultChecked*/}
+        {/*    color="primary"*/}
+        {/*    inputProps={{ 'aria-label': 'secondary checkbox' }}*/}
+        {/*    checked={status === "DONE" ? true : false}*/}
+        {/*  />*/}
+        {/*</Grid>*/}
       </Grid>
       <Grid container>
         <Grid item md={6}>
