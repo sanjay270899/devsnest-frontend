@@ -9,7 +9,7 @@ import { Grid } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 import axios from '../config/axios.config';
-import {Redirect} from "react-router";
+import { Redirect } from "react-router";
 
 
 interface Number {
@@ -24,7 +24,7 @@ function SubTask({ task, updateAllTasks }: any) {
 
     let token: string = localStorage.getItem("Token") || '';
     const changeStatus = () => {
-        if(token == ''){
+        if (token !== '') {
             axios.put(`api/tasks/${task.taskId}/subtasks`, { "subtaskId": task.id }, {
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -32,7 +32,7 @@ function SubTask({ task, updateAllTasks }: any) {
             })
                 .then((response) => {
                     console.log(response);
-                    if(response.data){
+                    if (response.data) {
                         updateAllTasks();
                     }
                 })
@@ -46,8 +46,8 @@ function SubTask({ task, updateAllTasks }: any) {
     useEffect(() => {
 
     }, [task.status]);
-    if(token == ''){
-        return <Redirect to={"/login"}/>;
+    if (token == '') {
+        return <Redirect to={"/login"} />;
     }
     console.log("Subtask", task);
     return (
