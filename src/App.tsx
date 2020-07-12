@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Home from './components/Home'
-import Login from './components/Login'
-import SignUp from './components/SignUp'
-import ListOfTasks from './components/ListOfTasks';
-import Task from './components/Task'
+import Home from './romponents/Home'
+import Login from './romponents/Login'
+import SignUp from './romponents/SignUp'
+import ListOfCurriculum from './romponents/ListOfCurriculum';
+import Curriculum from './romponents/Curriculum'
 
 
 const App: React.ElementType = () => {
@@ -13,11 +13,10 @@ const App: React.ElementType = () => {
     <div >
       <Router>
         <Switch>
-          <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/curriculum" component={ListOfTasks} />
-          <Route exact path="/task/:id" component={Task} />
+          <Route exact path="/curriculum" component={ListOfCurriculum} />
+          <Route exact path="/curriculum/:id" component={Curriculum} />
 
         </Switch>
       </Router>
