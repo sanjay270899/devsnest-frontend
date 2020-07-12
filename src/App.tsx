@@ -15,7 +15,7 @@ const App: React.ElementType = () => {
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/curriculum" component={ListOfCurriculum} />
+          <Route exact path="/" component={ListOfCurriculum} />
           <Route exact path="/curriculum/:id" component={Curriculum} />
 
         </Switch>

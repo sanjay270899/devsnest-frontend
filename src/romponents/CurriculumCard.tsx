@@ -19,6 +19,7 @@ function CurriculumCard(props: any) {
         <Grid container direction="row" justify="space-between" alignItems="flex-end">
           <Grid item md={4}>
             <CardMedia
+                component={"img"}
                 image={url}
                 title={name}
             />

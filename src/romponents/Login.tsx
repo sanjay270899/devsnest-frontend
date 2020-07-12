@@ -30,7 +30,7 @@ function Login() {
     handleSignup()
   }
   if (isLogin) {
-    return <Redirect to="/curriculum" />
+    return <Redirect to="/" />
   }
   const handleChange = (event: any) => {
     setUserLogin({ ...userLogin, [event.target.name]: event.target.value })
