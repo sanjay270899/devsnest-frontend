@@ -10,31 +10,60 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 import axios from '../config/axios.config';
 import { Redirect } from "react-router";
+import {createDeflateRaw} from "zlib";
 
 
 interface Number {
     id: number
 }
 
-function SubTask({ task, updateAllTasks }: any) {
+function Chapter({ task, updateAllTasks }: any) {
     const [expanded, setExpanded] = useState(false);
+    const [subTasks, setSubTasks] = useState([]);
+    console.log("Tasky", task);
+    const {id: chapterId } = task;
+
+
     const handleExpandClick = () => {
+        getAllTasks();
         setExpanded(!expanded);
     };
 
     let token: string = localStorage.getItem("Token") || '';
-    const changeStatus = () => {
+    const getAllTasks = () => {
+        axios.get(`api/chapters/${chapterId}/tasks`,{
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }).then(response => {
+            console.log("Response", response);
+            let tempSubTasks = [];
+            tempSubTasks = response.data.data.map((sT: any) => {
+                return {
+                    id: sT.id,
+                    status: sT.status,
+                    type: sT.type,
+                    name: sT.name,
+                    slug: sT.slug,
+                    url: sT.url
+                }});
+            setSubTasks(tempSubTasks);
+        }).catch(e => {
+            console.log(e);
+        })
+    }
+    const changeStatus = (subTaskId: any, newStatus: any) => {
         if (token !== '') {
-            axios.put(`api/tasks/${task.taskId}/subtasks`, { "subtaskId": task.id }, {
+            axios.put(`api/tasks/${subTaskId}`, {
+                "status": newStatus
+            }, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             })
                 .then((response) => {
                     console.log(response);
-                    if (response.data) {
-                        updateAllTasks();
-                    }
+                       getAllTasks();
                 })
                 .catch((error) => {
                     console.log(error)
@@ -66,12 +95,6 @@ function SubTask({ task, updateAllTasks }: any) {
                                 </Typography>
 
                                 <CardContent>
-                                    <Checkbox
-                                        onClick={changeStatus}
-                                        color="primary"
-                                        inputProps={{ 'aria-label': 'secondary checkbox' }}
-                                        checked={task.status === "DONE" ? true : false}
-                                    />
                                     <span onClick={handleExpandClick} style={{ alignSelf: "center", padding: "20px" }} ><ExpandMoreIcon /></span>
                                 </CardContent>
                             </CardContent>
@@ -90,18 +113,24 @@ function SubTask({ task, updateAllTasks }: any) {
                                 <Grid item md={6}>
                                     <CardContent>
                                         {
-                                            task.tutorials ?
+                                            subTasks ?
 
-                                                (task.tutorials.map((tutorail: any) => {
-                                                    console.log("Tutorial", tutorail);
+                                                (subTasks.map((subTask: any) => {
                                                     return (
                                                         <>
                                                             <Typography gutterBottom component="h6" >
-                                                                {tutorail.description ? tutorail.description : null}
-                                                                        &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                        {tutorail.link ? <a href="tutorail.link">TaskLink</a> : null}
+                                                                <b>{subTask.type}</b>
+                                                                &nbsp;&nbsp;&nbsp;
+                                                                {subTask.name}
+                                                                &nbsp;&nbsp;&nbsp;
+                                                                {subTask.url && <a href={subTask.url}>Link</a>}
+                                                                <Checkbox
+                                                                    onClick={() => changeStatus(subTask.id, subTask.status === "DONE" ? "UNDONE" : "DONE")}
+                                                                    color="primary"
+                                                                    inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                                                    checked={subTask.status === "DONE" ? true : false}
+                                                                />
                                                             </Typography>
-
                                                         </>
                                                     );
                                                 })) : null
@@ -121,7 +150,7 @@ function SubTask({ task, updateAllTasks }: any) {
     )
 };
 
-export default SubTask
+export default Chapter
 
 
 

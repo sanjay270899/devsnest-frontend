@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { Grid } from '@material-ui/core';
 import axios from '../config/axios.config';
-import TaskCard from './TaskCard';
-import Header from './Header'
+import CurriculumCard from './CurriculumCard';
+import Header from './Header';
 import {Redirect} from "react-router";
 
 type TaskType = any;
 
-function ListOfTasks() {
+function ListOfCurriculum(){
   const [task, setTask] = useState([[]]);
   const token: string = localStorage.getItem("Token") || '';
 
   const fetchDetails = async () => {
     if(token != ''){
-      const res = await axios.get("api/tasks", {
+      const res = await axios.get("/api/curriculums", {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -49,9 +49,9 @@ function ListOfTasks() {
           return (
             <Grid container spacing={2} >
               <Grid item md={6} >
-                <TaskCard
+                <CurriculumCard
                   key={card.id + "#"}
-                  taskId={card.id}
+                  curriculumId={card.id}
                   name={card.name}
                   duration={card.duration}
                   slug={card.slug}
@@ -69,4 +69,4 @@ function ListOfTasks() {
   )
 }
 
-export default ListOfTasks
+export default ListOfCurriculum
