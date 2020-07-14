@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
-import Card from "@material-ui/core/Card";
-import Checkbox from "@material-ui/core/Checkbox";
-import CardContent from "@material-ui/core/CardContent";
-import { Pie } from "react-chartjs-2";
-import Typography from "@material-ui/core/Typography";
+import React, { useEffect, useState } from 'react';
+import Card from '@material-ui/core/Card';
+import Checkbox from '@material-ui/core/Checkbox';
+import CardContent from '@material-ui/core/CardContent';
+import { Pie } from 'react-chartjs-2';
+import Typography from '@material-ui/core/Typography';
 
-import { Grid } from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import ExpandLessIcon from "@material-ui/icons/ExpandLess";
-import Collapse from "@material-ui/core/Collapse";
-import axios from "../config/axios.config";
-import { Redirect } from "react-router";
-import { createDeflateRaw } from "zlib";
+import { Grid } from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import Collapse from '@material-ui/core/Collapse';
+import axios from '../config/axios.config';
+import { Redirect } from 'react-router';
+import { createDeflateRaw } from 'zlib';
 
 export interface Props {
   percentageCompleted: number;
@@ -29,7 +29,7 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
     setExpanded(!expanded);
   };
 
-  let token: string = localStorage.getItem("Token") || "";
+  let token: string = localStorage.getItem('Token') || '';
   const getAllTasks = () => {
     axios
       .get(`api/chapters/${chapterId}/tasks`, {
@@ -38,7 +38,7 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
         },
       })
       .then((response) => {
-        console.log("Response", response);
+        console.log('Response', response);
         let tempSubTasks = [];
         tempSubTasks = response.data.data.map((sT: any) => {
           return {
@@ -57,7 +57,7 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
       });
   };
   const changeStatus = (subTaskId: any, newStatus: any) => {
-    if (token !== "") {
+    if (token !== '') {
       axios
         .put(
           `api/tasks/${subTaskId}`,
@@ -81,8 +81,8 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
   };
 
   useEffect(() => {}, [task.status]);
-  if (token == "") {
-    return <Redirect to={"/login"} />;
+  if (token == '') {
+    return <Redirect to={'/login'} />;
   }
 
   const total: number = 100;
@@ -90,7 +90,7 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
   const state = {
     datasets: [
       {
-        backgroundColor: ["#ffffff", "#4B77F5"],
+        backgroundColor: ['#ffffff', '#4B77F5'],
         data: [total - percentageCompleted, percentageCompleted],
       },
     ],
@@ -98,7 +98,7 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
   return (
     <>
       <div className="container" key={task.id}>
-        <Card style={{ boxShadow: " 4px 4px 8px 4px rgba(0,0,0,0.2)" }}>
+        <Card style={{ boxShadow: ' 4px 4px 8px 4px rgba(0,0,0,0.2)' }}>
           <Grid
             container
             direction="row"
@@ -106,7 +106,7 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
             alignItems="flex-end"
           >
             <Grid item>
-              <CardContent style={{ display: "flex" }}>
+              <CardContent style={{ display: 'flex' }}>
                 <Typography>
                   <h2> {task ? task.text : null}</h2>
                 </Typography>
@@ -114,7 +114,7 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                 <CardContent>
                   <span
                     onClick={handleExpandClick}
-                    style={{ alignSelf: "center", padding: "20px" }}
+                    style={{ alignSelf: 'center', padding: '20px' }}
                   >
                     {expanded ? <ExpandMoreIcon /> : <ExpandLessIcon />}
                   </span>
@@ -129,9 +129,9 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                 options={{
                   legend: {
                     display: true,
-                    position: "left",
+                    position: 'left',
                     labels: {
-                      fontColor: "#000",
+                      fontColor: '#000',
                     },
                   },
                   maintainAspectRatio: false,
@@ -163,17 +163,17 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                                   onClick={() =>
                                     changeStatus(
                                       subTask.id,
-                                      subTask.status === "DONE"
-                                        ? "UNDONE"
-                                        : "DONE"
+                                      subTask.status === 'DONE'
+                                        ? 'UNDONE'
+                                        : 'DONE'
                                     )
                                   }
                                   color="primary"
                                   inputProps={{
-                                    "aria-label": "secondary checkbox",
+                                    'aria-label': 'secondary checkbox',
                                   }}
                                   checked={
-                                    subTask.status === "DONE" ? true : false
+                                    subTask.status === 'DONE' ? true : false
                                   }
                                 />
                               </Typography>
@@ -185,7 +185,7 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                 </Grid>
                 <Grid
                   item
-                  style={{ alignSelf: "center", padding: "20px" }}
+                  style={{ alignSelf: 'center', padding: '20px' }}
                 ></Grid>
               </Grid>
             </div>
