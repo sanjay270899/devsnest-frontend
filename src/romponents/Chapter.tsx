@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import Card from '@material-ui/core/Card';
 import Checkbox from '@material-ui/core/Checkbox';
 import CardContent from '@material-ui/core/CardContent';
-
+import {Pie} from 'react-chartjs-2';
 import Typography from '@material-ui/core/Typography';
 
 import { Grid } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import Collapse from '@material-ui/core/Collapse';
 import axios from '../config/axios.config';
 import { Redirect } from "react-router";
@@ -17,7 +18,7 @@ interface Number {
     id: number
 }
 
-function Chapter({ task, updateAllTasks }: any) {
+function Chapter({ task, updateAllTasks,completed }: any) {
     const [expanded, setExpanded] = useState(false);
     const [subTasks, setSubTasks] = useState([]);
     console.log("Tasky", task);
@@ -79,6 +80,21 @@ function Chapter({ task, updateAllTasks }: any) {
         return <Redirect to={"/login"} />;
     }
     console.log("Subtask", task);
+
+    const total=100;
+
+    const state = {
+        datasets: [
+          {
+            backgroundColor: [
+              '#ffffff',
+              '#4B77F5',   
+            ],
+            
+            data: [total - completed,completed]
+          }
+        ]
+      }
     return (
         <>
             <div className="container" key={task.id}>
@@ -95,11 +111,25 @@ function Chapter({ task, updateAllTasks }: any) {
                                 </Typography>
 
                                 <CardContent>
-                                    <span onClick={handleExpandClick} style={{ alignSelf: "center", padding: "20px" }} ><ExpandMoreIcon /></span>
+                                    <span onClick={handleExpandClick} style={{ alignSelf: "center", padding: "20px" }} >{expanded ? <ExpandMoreIcon /> : <ExpandLessIcon />}</span>
                                 </CardContent>
                             </CardContent>
                         </Grid>
                         <Grid>
+                        <Pie
+                        data={state}
+                        width={100}
+                        height={300}
+                        options={{
+                            legend:{
+                                display:true,
+                                position:'left',
+                                labels:{
+                                    fontColor:"#000"
+                                    }},
+                        maintainAspectRatio: false
+                        }}
+                        />
 
                         </Grid>
                     </Grid>

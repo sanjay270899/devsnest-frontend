@@ -9,6 +9,7 @@ function Curriculum(props: any) {
   const [xhapters, setChapters] = useState([[]]);
 
   const id: number = props.match.params.id;
+  let completed:Number
   let token: string = localStorage.getItem("Token") || '';
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchDetails = async () => {
@@ -34,6 +35,16 @@ function Curriculum(props: any) {
   useEffect(() => {
     fetchDetails()
   }, []);
+
+  const fetchProgress=async ()=>{
+    const response = await(axios.get(`//please add the api here`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+        }
+    }))
+    completed={response.progress}//please get the completed data
+  }
+  useEffect(()=>{fetchProgress()},[])
   if(token == ''){
     return <Redirect to={"/login"}/>;
   }
@@ -45,6 +56,7 @@ function Curriculum(props: any) {
           <>
             <Chapter
               task={task}
+              completed = {completed}
               updateAllTasks={ () => fetchDetails()}
             />
           </>
