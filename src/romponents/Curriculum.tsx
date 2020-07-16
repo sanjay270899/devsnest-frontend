@@ -39,15 +39,14 @@ function Curriculum(props: any) {
   return (
     <>
       <Header />
-      {xhapters.map((task: any) => {
+      {xhapters.map((task: any, index) => {
         return (
-          <>
-            <Chapter
-              task={task}
-              percentageCompleted={percentageCompleted}
-              updateAllTasks={() => fetchDetails()}
-            />
-          </>
+          <Chapter
+            key={index}
+            task={task}
+            percentageCompleted={percentageCompleted}
+            updateAllTasks={() => fetchDetails()}
+          />
         );
       })}
     </>
