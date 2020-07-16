@@ -4,7 +4,6 @@ import Checkbox from '@material-ui/core/Checkbox';
 import CardContent from '@material-ui/core/CardContent';
 import { Pie } from 'react-chartjs-2';
 import Typography from '@material-ui/core/Typography';
-
 import { Grid } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
