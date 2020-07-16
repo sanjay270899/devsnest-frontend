@@ -105,7 +105,7 @@ function SignUp() {
             variant="contained"
             color="primary"
           >
-            Log In
+            SignUp
           </Button>
 
         </form>
