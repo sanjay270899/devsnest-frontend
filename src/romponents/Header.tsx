@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       flexGrow: 1,
     },
-  }),
+  })
 );
 
 export default function Header() {
@@ -42,15 +42,18 @@ export default function Header() {
     setAnchorEl(null);
   };
   const handleClick = () => {
-    localStorage.clear()
-
-  }
+    localStorage.clear();
+  };
   return (
-    <div >
-
+    <div>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+          >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
@@ -82,8 +85,17 @@ export default function Header() {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose} style={{ color: '#000' }}>Profile</MenuItem>
-                <MenuItem onClick={handleClick}><Link to="/login" style={{ color: '#000', textDecoration: 'none' }}>Logout</Link></MenuItem>
+                <MenuItem onClick={handleClose} style={{ color: '#000' }}>
+                  Profile
+                </MenuItem>
+                <MenuItem onClick={handleClick}>
+                  <Link
+                    to="/login"
+                    style={{ color: '#000', textDecoration: 'none' }}
+                  >
+                    Logout
+                  </Link>
+                </MenuItem>
               </Menu>
             </div>
           )}

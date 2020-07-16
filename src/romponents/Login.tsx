@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -6,44 +6,41 @@ import Container from '@material-ui/core/Container';
 import axios from '../config/axios.config';
 import { Redirect } from 'react-router-dom';
 function Login() {
-  const [userLogin, setUserLogin] = useState(
-    { email: '', password: '', }
-  );
+  const [userLogin, setUserLogin] = useState({ email: '', password: '' });
 
-  const [isLogin, setIsLogin] = useState(false)
+  const [isLogin, setIsLogin] = useState(false);
 
   const handleSignup = () => {
-    axios.post('api/auth/login', userLogin)
+    axios
+      .post('api/auth/login', userLogin)
       .then((response) => {
-        console.log(response)
+        console.log(response);
         localStorage.setItem('Token', response.data.data.jwtToken);
-        setIsLogin(!isLogin)
+        setIsLogin(!isLogin);
       })
       .catch((error) => {
-        console.log(error)
-      })
-    console.log(userLogin)
-  }
+        console.log(error);
+      });
+    console.log(userLogin);
+  };
 
   const handleSubmit = (e: any) => {
-    e.preventDefault()
-    handleSignup()
-  }
+    e.preventDefault();
+    handleSignup();
+  };
   if (isLogin) {
-    return <Redirect to="/" />
+    return <Redirect to="/" />;
   }
   const handleChange = (event: any) => {
-    setUserLogin({ ...userLogin, [event.target.name]: event.target.value })
-  }
+    setUserLogin({ ...userLogin, [event.target.name]: event.target.value });
+  };
   return (
     <div>
       <Container maxWidth="sm">
-
-        <Typography component="h1" variant="h4" style={{ textAlign: "center" }}>
+        <Typography component="h1" variant="h4" style={{ textAlign: 'center' }}>
           Login
         </Typography>
         <form onSubmit={handleSubmit}>
-
           <TextField
             variant="outlined"
             margin="normal"
@@ -56,7 +53,6 @@ function Login() {
             autoFocus
             defaultValue={userLogin.email}
             onChange={handleChange}
-
           />
           <TextField
             variant="outlined"
@@ -70,22 +66,14 @@ function Login() {
             autoComplete="current-password"
             defaultValue={userLogin.password}
             onChange={handleChange}
-
           />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-          >
+          <Button type="submit" fullWidth variant="contained" color="primary">
             Log In
           </Button>
-
         </form>
       </Container>
     </div>
-
-  )
+  );
 }
 
-export default Login
+export default Login;

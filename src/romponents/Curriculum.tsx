@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import axios from "../config/axios.config";
-import Header from "./Header";
-import Chapter from "./Chapter";
-import { Redirect } from "react-router";
+import React, { useEffect, useState } from 'react';
+import axios from '../config/axios.config';
+import Header from './Header';
+import Chapter from './Chapter';
+import { Redirect } from 'react-router';
 
 function Curriculum(props: any) {
   const [xhapters, setChapters] = useState([[]]);
 
   const id: number = props.match.params.id;
   let percentageCompleted: number;
-  let token: string = localStorage.getItem("Token") || "";
+  let token: string = localStorage.getItem('Token') || '';
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchDetails = async () => {
-    if (token != "") {
+    if (token != '') {
       const res = await axios.get(`/api/curriculums/${id}/chapter`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -33,19 +33,20 @@ function Curriculum(props: any) {
   useEffect(() => {
     fetchDetails();
   }, []);
-
+  if (token == '') {
+    return <Redirect to={'/login'} />;
+  }
   return (
     <>
       <Header />
-      {xhapters.map((task: any) => {
+      {xhapters.map((task: any, index) => {
         return (
-          <>
-            <Chapter
-              task={task}
-              percentageCompleted={percentageCompleted}
-              updateAllTasks={() => fetchDetails()}
-            />
-          </>
+          <Chapter
+            key={index}
+            task={task}
+            percentageCompleted={percentageCompleted}
+            updateAllTasks={() => fetchDetails()}
+          />
         );
       })}
     </>
