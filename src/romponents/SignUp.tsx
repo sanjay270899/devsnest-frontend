@@ -1,44 +1,47 @@
-import React, { useState } from 'react'
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import axios from '../config/axios.config';
-import { Redirect } from 'react-router-dom';
+import React, { useState } from "react";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import axios from "../config/axios.config";
+import { Redirect } from "react-router-dom";
 function SignUp() {
-  const [userSignUp, setUserSignUp] = useState(
-    { username: '', name: '', email: '', password: '', }
-  );
+  const [userSignUp, setUserSignUp] = useState({
+    username: "",
+    name: "",
+    email: "",
+    password: "",
+  });
 
-  const [isSignUp, setIsSignUp] = useState(false)
+  const [isSignUp, setIsSignUp] = useState(false);
 
   const handleSignup = () => {
-    axios.post('api/auth/signup', userSignUp)
+    axios
+      .post("api/auth/signup", userSignUp)
       .then((response) => {
-        console.log(response.data.data.jwtToken)
-        localStorage.setItem('Token', response.data.data.jwtToken)
-        setIsSignUp(!isSignUp)
+        // console.log(response.data.data.jwtToken);
+        localStorage.setItem("Token", response.data.data.jwtToken);
+        setIsSignUp(!isSignUp);
       })
       .catch((error) => {
-        console.log(error)
-      })
-    console.log(userSignUp)
-  }
+        console.log(error);
+      });
+    // console.log(userSignUp);
+  };
 
   const handleSubmit = (e: any) => {
-    e.preventDefault()
-    handleSignup()
-  }
+    e.preventDefault();
+    handleSignup();
+  };
   if (isSignUp) {
-    return <Redirect to="/curriculum" />
+    return <Redirect to="/" />;
   }
   const handleChange = (event: any) => {
-    setUserSignUp({ ...userSignUp, [event.target.name]: event.target.value })
-  }
+    setUserSignUp({ ...userSignUp, [event.target.name]: event.target.value });
+  };
   return (
     <div>
       <Container maxWidth="sm">
-
         <Typography component="h1" variant="h4" style={{ textAlign: "center" }}>
           SignUp
         </Typography>
@@ -55,7 +58,6 @@ function SignUp() {
             autoFocus
             defaultValue={userSignUp.name}
             onChange={handleChange}
-
           />
           <TextField
             variant="outlined"
@@ -83,7 +85,6 @@ function SignUp() {
             autoFocus
             defaultValue={userSignUp.email}
             onChange={handleChange}
-
           />
           <TextField
             variant="outlined"
@@ -97,22 +98,14 @@ function SignUp() {
             autoComplete="current-password"
             defaultValue={userSignUp.password}
             onChange={handleChange}
-
           />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-          >
+          <Button type="submit" fullWidth variant="contained" color="primary">
             SignUp
           </Button>
-
         </form>
       </Container>
     </div>
-
-  )
+  );
 }
 
-export default SignUp
+export default SignUp;

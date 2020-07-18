@@ -103,7 +103,8 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
             container
             direction="row"
             justify="space-between"
-            alignItems="flex-end"
+            // alignItems="flex-end"
+            style={{ height: "100px" }}
           >
             <Grid item>
               <CardContent style={{ display: "flex" }}>
@@ -116,7 +117,7 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                     onClick={handleExpandClick}
                     style={{ alignSelf: "center", padding: "20px" }}
                   >
-                    {expanded ? <ExpandMoreIcon /> : <ExpandLessIcon />}
+                    {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                   </span>
                 </CardContent>
               </CardContent>

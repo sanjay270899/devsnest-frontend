@@ -1,14 +1,14 @@
-import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import AccountCircle from "@material-ui/icons/AccountCircle";
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       flexGrow: 1,
     },
-  }),
+  })
 );
 
 export default function Header() {
@@ -42,19 +42,24 @@ export default function Header() {
     setAnchorEl(null);
   };
   const handleClick = () => {
-    localStorage.clear()
-
-  }
+    // localStorage.clear();
+  };
   return (
-    <div >
-
+    <div>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+          >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Devnest
+            <Link to="/" style={{ color: "#000", textDecoration: "none" }}>
+              Devnest
+            </Link>
           </Typography>
           {auth && (
             <div>
@@ -71,19 +76,28 @@ export default function Header() {
                 id="menu-appbar"
                 anchorEl={anchorEl}
                 anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
+                  vertical: "top",
+                  horizontal: "right",
                 }}
                 keepMounted
                 transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
+                  vertical: "top",
+                  horizontal: "right",
                 }}
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose} style={{ color: '#000' }}>Profile</MenuItem>
-                <MenuItem onClick={handleClick}><Link to="/login" style={{ color: '#000', textDecoration: 'none' }}>Logout</Link></MenuItem>
+                <MenuItem onClick={handleClose} style={{ color: "#000" }}>
+                  Profile
+                </MenuItem>
+                <MenuItem onClick={handleClick}>
+                  <Link
+                    to="/login"
+                    style={{ color: "#000", textDecoration: "none" }}
+                  >
+                    Logout
+                  </Link>
+                </MenuItem>
               </Menu>
             </div>
           )}

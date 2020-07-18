@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "../config/axios.config";
 import Header from "./Header";
 import Chapter from "./Chapter";
-import { Redirect } from "react-router";
 
 function Curriculum(props: any) {
   const [xhapters, setChapters] = useState([[]]);
@@ -12,7 +11,7 @@ function Curriculum(props: any) {
   let token: string = localStorage.getItem("Token") || "";
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchDetails = async () => {
-    if (token != "") {
+    if (token !== "") {
       const res = await axios.get(`/api/curriculums/${id}/chapter`, {
         headers: {
           Authorization: `Bearer ${token}`,
