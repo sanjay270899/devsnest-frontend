@@ -41,7 +41,9 @@ export default function Header() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   const handleClick = () => {};
+
   return (
     <div>
       <AppBar position="static">
@@ -85,13 +87,17 @@ export default function Header() {
                 open={open}
                 onClose={handleClose}
               >
+
                 <MenuItem onClick={handleClose} style={{ color: "#000" }}>
+
                   Profile
                 </MenuItem>
                 <MenuItem onClick={handleClick}>
                   <Link
                     to="/login"
+
                     style={{ color: "#000", textDecoration: "none" }}
+
                   >
                     Logout
                   </Link>

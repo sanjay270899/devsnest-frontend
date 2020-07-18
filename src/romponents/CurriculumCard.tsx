@@ -1,3 +1,4 @@
+
 import React from "react";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -17,6 +18,7 @@ function CurriculumCard(props: any) {
           <CardMedia component={"img"} image={url} title={name} />
         </Grid>
         <Grid item md={6}>
+
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               {name}
@@ -40,7 +42,9 @@ function CurriculumCard(props: any) {
             <Button variant="contained" color="primary">
               <Link
                 to={`/curriculum/${curriculumId}`}
+
                 style={{ color: "#fff", textDecoration: "none" }}
+
               >
                 Tasks
               </Link>

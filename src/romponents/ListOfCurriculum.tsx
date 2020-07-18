@@ -5,15 +5,18 @@ import CurriculumCard from "./CurriculumCard";
 import Header from "./Header";
 import { Redirect } from "react-router";
 
+
 type TaskType = any;
 
 function ListOfCurriculum() {
   const [task, setTask] = useState([[]]);
+
   const token: string = localStorage.getItem("Token") || "";
 
   const fetchDetails = async () => {
     if (token != "") {
       const res = await axios.get("/api/curriculums", {
+
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -41,17 +44,19 @@ function ListOfCurriculum() {
   }, []);
   if (token == "") {
     return <Redirect to={"/login"} />;
+
   }
   return (
     <>
       <Header />
       <div className="container">
         {task.map((card: TaskType) => {
+
           return (
             <Grid container spacing={2}>
               <Grid item md={6}>
                 <CurriculumCard
-                  key={card.id + "#"}
+                  key={card.id + '#'}
                   curriculumId={card.id}
                   name={card.name}
                   duration={card.duration}

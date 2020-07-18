@@ -6,6 +6,7 @@ import SignUp from "./romponents/SignUp";
 import ListOfCurriculum from "./romponents/ListOfCurriculum";
 import Curriculum from "./romponents/Curriculum";
 
+
 const App: React.ElementType = () => {
   return (
     <div>
