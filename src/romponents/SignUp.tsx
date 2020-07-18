@@ -19,14 +19,12 @@ function SignUp() {
     axios
       .post("api/auth/signup", userSignUp)
       .then((response) => {
-        // console.log(response.data.data.jwtToken);
         localStorage.setItem("Token", response.data.data.jwtToken);
         setIsSignUp(!isSignUp);
       })
       .catch((error) => {
         console.log(error);
       });
-    // console.log(userSignUp);
   };
 
   const handleSubmit = (e: any) => {

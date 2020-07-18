@@ -47,7 +47,6 @@ function ListOfCurriculum() {
       <Header />
       <div className="container">
         {task.map((card: TaskType) => {
-          // console.log("Card ----", card);
           return (
             <Grid container spacing={2}>
               <Grid item md={6}>

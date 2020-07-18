@@ -12,12 +12,7 @@ function CurriculumCard(props: any) {
   const { key, curriculumId, name, duration, slug, url, status } = props;
   return (
     <Card className="card" key={key}>
-      <Grid
-        container
-        direction="row"
-        justify="space-between"
-        // alignItems="flex-end"
-      >
+      <Grid container direction="row" justify="space-between">
         <Grid item md={4}>
           <CardMedia component={"img"} image={url} title={name} />
         </Grid>

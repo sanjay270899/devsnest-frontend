@@ -41,9 +41,7 @@ export default function Header() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const handleClick = () => {
-    // localStorage.clear();
-  };
+  const handleClick = () => {};
   return (
     <div>
       <AppBar position="static">

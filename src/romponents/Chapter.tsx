@@ -103,7 +103,6 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
             container
             direction="row"
             justify="space-between"
-            // alignItems="flex-end"
             style={{ height: "100px" }}
           >
             <Grid item>

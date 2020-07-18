@@ -9,7 +9,7 @@ function Curriculum(props: any) {
   const id: number = props.match.params.id;
   let percentageCompleted: number;
   let token: string = localStorage.getItem("Token") || "";
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
   const fetchDetails = async () => {
     if (token !== "") {
       const res = await axios.get(`/api/curriculums/${id}/chapter`, {
