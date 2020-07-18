@@ -31,7 +31,7 @@ function Curriculum(props: any) {
   };
   useEffect(() => {
     fetchDetails();
-  }, []);
+  });
 
   return (
     <>

@@ -4,14 +4,12 @@ import Checkbox from "@material-ui/core/Checkbox";
 import CardContent from "@material-ui/core/CardContent";
 import { Pie } from "react-chartjs-2";
 import Typography from "@material-ui/core/Typography";
-
 import { Grid } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import Collapse from "@material-ui/core/Collapse";
 import axios from "../config/axios.config";
 import { Redirect } from "react-router";
-import { createDeflateRaw } from "zlib";
 
 export interface Props {
   percentageCompleted: number;
@@ -81,7 +79,7 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
   };
 
   useEffect(() => {}, [task.status]);
-  if (token == "") {
+  if (token === "") {
     return <Redirect to={"/login"} />;
   }
 

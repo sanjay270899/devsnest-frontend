@@ -12,7 +12,7 @@ function ListOfCurriculum() {
   const token: string = localStorage.getItem("Token") || "";
 
   const fetchDetails = async () => {
-    if (token != "") {
+    if (token !== "") {
       const res = await axios.get("/api/curriculums", {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -38,8 +38,8 @@ function ListOfCurriculum() {
 
   useEffect(() => {
     fetchDetails();
-  }, []);
-  if (token == "") {
+  });
+  if (token === "") {
     return <Redirect to={"/login"} />;
   }
   return (

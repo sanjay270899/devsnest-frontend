@@ -9,7 +9,7 @@ import { Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 function CurriculumCard(props: any) {
-  const { key, curriculumId, name, duration, slug, url, status } = props;
+  const { key, curriculumId, name, duration, slug, url } = props;
   return (
     <Card className="card" key={key}>
       <Grid container direction="row" justify="space-between">
