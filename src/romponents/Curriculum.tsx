@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from "react";
-import axios from "../config/axios.config";
-import Header from "./Header";
-import Chapter from "./Chapter";
-
+import React, { useEffect, useState } from 'react';
+import axios from '../config/axios.config';
+import Header from './Header';
+import Chapter from './Chapter';
 
 function Curriculum(props: any) {
   const [xhapters, setChapters] = useState([[]]);
 
   const id: number = props.match.params.id;
   let percentageCompleted: number;
-
-  let token: string = localStorage.getItem("Token") || "";
+  let token: string = localStorage.getItem('Token') || '';
 
   const fetchDetails = async () => {
-    if (token !== "") {
-
+    if (token !== '') {
       const res = await axios.get(`/api/curriculums/${id}/chapter`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -34,21 +31,20 @@ function Curriculum(props: any) {
   };
   useEffect(() => {
     fetchDetails();
-  }, []);
-  if (token == '') {
-    return <Redirect to={'/login'} />;
-  }
+  });
+
   return (
     <>
       <Header />
-      {xhapters.map((task: any, index) => {
+      {xhapters.map((task: any) => {
         return (
-          <Chapter
-            key={index}
-            task={task}
-            percentageCompleted={percentageCompleted}
-            updateAllTasks={() => fetchDetails()}
-          />
+          <>
+            <Chapter
+              task={task}
+              percentageCompleted={percentageCompleted}
+              updateAllTasks={() => fetchDetails()}
+            />
+          </>
         );
       })}
     </>

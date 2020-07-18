@@ -1,22 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { Grid } from "@material-ui/core";
-import axios from "../config/axios.config";
-import CurriculumCard from "./CurriculumCard";
-import Header from "./Header";
-import { Redirect } from "react-router";
-
+import React, { useState, useEffect } from 'react';
+import { Grid } from '@material-ui/core';
+import axios from '../config/axios.config';
+import CurriculumCard from './CurriculumCard';
+import Header from './Header';
+import { Redirect } from 'react-router';
 
 type TaskType = any;
 
 function ListOfCurriculum() {
   const [task, setTask] = useState([[]]);
 
-  const token: string = localStorage.getItem("Token") || "";
+  const token: string = localStorage.getItem('Token') || '';
 
   const fetchDetails = async () => {
-    if (token != "") {
-      const res = await axios.get("/api/curriculums", {
-
+    if (token !== '') {
+      const res = await axios.get('/api/curriculums', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -41,17 +39,15 @@ function ListOfCurriculum() {
 
   useEffect(() => {
     fetchDetails();
-  }, []);
-  if (token == "") {
-    return <Redirect to={"/login"} />;
-
+  });
+  if (token === '') {
+    return <Redirect to={'/login'} />;
   }
   return (
     <>
       <Header />
       <div className="container">
         {task.map((card: TaskType) => {
-
           return (
             <Grid container spacing={2}>
               <Grid item md={6}>

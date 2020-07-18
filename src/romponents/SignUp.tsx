@@ -1,18 +1,16 @@
-
-import React, { useState } from "react";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
-import axios from "../config/axios.config";
-import { Redirect } from "react-router-dom";
+import React, { useState } from 'react';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import axios from '../config/axios.config';
+import { Redirect } from 'react-router-dom';
 function SignUp() {
   const [userSignUp, setUserSignUp] = useState({
-    username: "",
-    name: "",
-    email: "",
-    password: "",
-
+    username: '',
+    name: '',
+    email: '',
+    password: '',
   });
 
   const [isSignUp, setIsSignUp] = useState(false);
@@ -20,16 +18,15 @@ function SignUp() {
   const handleSignup = () => {
     axios
 
-      .post("api/auth/signup", userSignUp)
+      .post('api/auth/signup', userSignUp)
       .then((response) => {
-        localStorage.setItem("Token", response.data.data.jwtToken);
+        localStorage.setItem('Token', response.data.data.jwtToken);
 
         setIsSignUp(!isSignUp);
       })
       .catch((error) => {
         console.log(error);
       });
-
   };
 
   const handleSubmit = (e: any) => {
@@ -37,9 +34,7 @@ function SignUp() {
     handleSignup();
   };
   if (isSignUp) {
-
     return <Redirect to="/" />;
-
   }
   const handleChange = (event: any) => {
     setUserSignUp({ ...userSignUp, [event.target.name]: event.target.value });
@@ -47,8 +42,7 @@ function SignUp() {
   return (
     <div>
       <Container maxWidth="sm">
-
-        <Typography component="h1" variant="h4" style={{ textAlign: "center" }}>
+        <Typography component="h1" variant="h4" style={{ textAlign: 'center' }}>
           SignUp
         </Typography>
         <form onSubmit={handleSubmit}>
@@ -106,9 +100,7 @@ function SignUp() {
             onChange={handleChange}
           />
           <Button type="submit" fullWidth variant="contained" color="primary">
-
             SignUp
-
           </Button>
         </form>
       </Container>

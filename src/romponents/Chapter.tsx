@@ -10,7 +10,6 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import Collapse from '@material-ui/core/Collapse';
 import axios from '../config/axios.config';
 import { Redirect } from 'react-router';
-import { createDeflateRaw } from 'zlib';
 
 export interface Props {
   percentageCompleted: number;
@@ -80,7 +79,7 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
   };
 
   useEffect(() => {}, [task.status]);
-  if (token == '') {
+  if (token === '') {
     return <Redirect to={'/login'} />;
   }
 
@@ -95,18 +94,17 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
     ],
   };
   return (
-
     <>
       <div className="container" key={task.id}>
-        <Card style={{ boxShadow: " 4px 4px 8px 4px rgba(0,0,0,0.2)" }}>
+        <Card style={{ boxShadow: ' 4px 4px 8px 4px rgba(0,0,0,0.2)' }}>
           <Grid
             container
             direction="row"
             justify="space-between"
-            style={{ height: "100px" }}
+            style={{ height: '100px' }}
           >
             <Grid item>
-              <CardContent style={{ display: "flex" }}>
+              <CardContent style={{ display: 'flex' }}>
                 <Typography>
                   <h2> {task ? task.text : null}</h2>
                 </Typography>
@@ -114,84 +112,85 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                 <CardContent>
                   <span
                     onClick={handleExpandClick}
-                    style={{ alignSelf: "center", padding: "20px" }}
+                    style={{ alignSelf: 'center', padding: '20px' }}
                   >
                     {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                   </span>
                 </CardContent>
-
               </CardContent>
-            </CardContent>
-          </Grid>
-          <Grid>
-            <Pie
-              data={state}
-              options={{
-                legend: {
-                  display: true,
-                  position: 'left',
-                  labels: {
-                    fontColor: '#000',
-                  },
-                },
-                maintainAspectRatio: false,
-              }}
-            />
-          </Grid>
-        </Grid>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <div>
-            <Grid
-              container
-              direction="row"
-              justify="space-between"
-              alignItems="flex-end"
-            >
-              <Grid item md={6}>
-                <CardContent>
-                  {subTasks
-                    ? subTasks.map((subTask: any) => {
-                        return (
-                          <>
-                            <Typography gutterBottom component="h6">
-                              <b>{subTask.type}</b>
-                              &nbsp;&nbsp;&nbsp;
-                              {subTask.name}
-                              &nbsp;&nbsp;&nbsp;
-                              {subTask.url && <a href={subTask.url}>Link</a>}
-                              <Checkbox
-                                onClick={() =>
-                                  changeStatus(
-                                    subTask.id,
-                                    subTask.status === 'DONE'
-                                      ? 'UNDONE'
-                                      : 'DONE'
-                                  )
-                                }
-                                color="primary"
-                                inputProps={{
-                                  'aria-label': 'secondary checkbox',
-                                }}
-                                checked={
-                                  subTask.status === 'DONE' ? true : false
-                                }
-                              />
-                            </Typography>
-                          </>
-                        );
-                      })
-                    : null}
-                </CardContent>
-              </Grid>
-              <Grid
-                item
-                style={{ alignSelf: 'center', padding: '20px' }}
-              ></Grid>
             </Grid>
-          </div>
-        </Collapse>
-      </Card>
-    </div>
+            <Grid>
+              <Pie
+                data={state}
+                width={100}
+                height={300}
+                options={{
+                  legend: {
+                    display: true,
+                    position: 'left',
+                    labels: {
+                      fontColor: '#000',
+                    },
+                  },
+                  maintainAspectRatio: false,
+                }}
+              />
+            </Grid>
+          </Grid>
+          <Collapse in={expanded} timeout="auto" unmountOnExit>
+            <div>
+              <Grid
+                container
+                direction="row"
+                justify="space-between"
+                alignItems="flex-end"
+              >
+                <Grid item md={6}>
+                  <CardContent>
+                    {subTasks
+                      ? subTasks.map((subTask: any) => {
+                          return (
+                            <>
+                              <Typography gutterBottom component="h6">
+                                <b>{subTask.type}</b>
+                                &nbsp;&nbsp;&nbsp;
+                                {subTask.name}
+                                &nbsp;&nbsp;&nbsp;
+                                {subTask.url && <a href={subTask.url}>Link</a>}
+                                <Checkbox
+                                  onClick={() =>
+                                    changeStatus(
+                                      subTask.id,
+                                      subTask.status === 'DONE'
+                                        ? 'UNDONE'
+                                        : 'DONE'
+                                    )
+                                  }
+                                  color="primary"
+                                  inputProps={{
+                                    'aria-label': 'secondary checkbox',
+                                  }}
+                                  checked={
+                                    subTask.status === 'DONE' ? true : false
+                                  }
+                                />
+                              </Typography>
+                            </>
+                          );
+                        })
+                      : null}
+                  </CardContent>
+                </Grid>
+                <Grid
+                  item
+                  style={{ alignSelf: 'center', padding: '20px' }}
+                ></Grid>
+              </Grid>
+            </div>
+          </Collapse>
+        </Card>
+      </div>
+    </>
   );
 }
 
