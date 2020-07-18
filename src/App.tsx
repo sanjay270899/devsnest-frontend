@@ -1,11 +1,11 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.css';
-import Home from './romponents/Home';
-import Login from './romponents/Login';
-import SignUp from './romponents/SignUp';
-import ListOfCurriculum from './romponents/ListOfCurriculum';
-import Curriculum from './romponents/Curriculum';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+import Login from "./romponents/Login";
+import SignUp from "./romponents/SignUp";
+import ListOfCurriculum from "./romponents/ListOfCurriculum";
+import Curriculum from "./romponents/Curriculum";
+
 
 const App: React.ElementType = () => {
   return (

@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import axios from '../config/axios.config';
-import Header from './Header';
-import Chapter from './Chapter';
-import { Redirect } from 'react-router';
+import React, { useEffect, useState } from "react";
+import axios from "../config/axios.config";
+import Header from "./Header";
+import Chapter from "./Chapter";
+
 
 function Curriculum(props: any) {
   const [xhapters, setChapters] = useState([[]]);
 
   const id: number = props.match.params.id;
   let percentageCompleted: number;
-  let token: string = localStorage.getItem('Token') || '';
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
+  let token: string = localStorage.getItem("Token") || "";
+
   const fetchDetails = async () => {
-    if (token != '') {
+    if (token !== "") {
+
       const res = await axios.get(`/api/curriculums/${id}/chapter`, {
         headers: {
           Authorization: `Bearer ${token}`,

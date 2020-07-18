@@ -95,27 +95,31 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
     ],
   };
   return (
-    <div className="container" key={task.id}>
-      <Card style={{ boxShadow: ' 4px 4px 8px 4px rgba(0,0,0,0.2)' }}>
-        <Grid
-          container
-          direction="row"
-          justify="space-between"
-          alignItems="flex-end"
-        >
-          <Grid item>
-            <CardContent style={{ display: 'flex' }}>
-              <Typography>
-                <h2> {task ? task.text : null}</h2>
-              </Typography>
 
-              <CardContent>
-                <span
-                  onClick={handleExpandClick}
-                  style={{ alignSelf: 'center', padding: '20px' }}
-                >
-                  {expanded ? <ExpandMoreIcon /> : <ExpandLessIcon />}
-                </span>
+    <>
+      <div className="container" key={task.id}>
+        <Card style={{ boxShadow: " 4px 4px 8px 4px rgba(0,0,0,0.2)" }}>
+          <Grid
+            container
+            direction="row"
+            justify="space-between"
+            style={{ height: "100px" }}
+          >
+            <Grid item>
+              <CardContent style={{ display: "flex" }}>
+                <Typography>
+                  <h2> {task ? task.text : null}</h2>
+                </Typography>
+
+                <CardContent>
+                  <span
+                    onClick={handleExpandClick}
+                    style={{ alignSelf: "center", padding: "20px" }}
+                  >
+                    {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                  </span>
+                </CardContent>
+
               </CardContent>
             </CardContent>
           </Grid>
