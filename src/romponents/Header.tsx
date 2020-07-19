@@ -38,7 +38,9 @@ export default function Header() {
     setAnchorEl(null);
   };
 
-  const handleClick = () => {};
+  const handleClick = () => {
+    localStorage.clear();
+  };
 
   return (
     <div>
@@ -53,7 +55,9 @@ export default function Header() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            <Link to="/" style={{ color: '#000', textDecoration: 'none' }}>
+
+            <Link to="/" style={{ color: "#fff", textDecoration: "none" }}>
+
               Devnest
             </Link>
           </Typography>

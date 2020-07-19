@@ -1,27 +1,30 @@
-import React, { useState } from 'react';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import axios from '../config/axios.config';
-import { Redirect } from 'react-router-dom';
+import React, { useState } from "react";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import axios from "../config/axios.config";
+import { Redirect } from "react-router-dom";
 function Login() {
-  const [userLogin, setUserLogin] = useState({ email: '', password: '' });
+  const [userLogin, setUserLogin] = useState({ email: "", password: "" });
+
 
   const [isLogin, setIsLogin] = useState(false);
 
   const handleSignup = () => {
     axios
-      .post('api/auth/login', userLogin)
+
+      .post("api/auth/login", userLogin)
       .then((response) => {
         console.log(response);
-        localStorage.setItem('Token', response.data.data.jwtToken);
+        localStorage.setItem("Token", response.data.data.jwtToken);
+
         setIsLogin(!isLogin);
       })
       .catch((error) => {
         console.log(error);
       });
-    console.log(userLogin);
+
   };
 
   const handleSubmit = (e: any) => {
@@ -37,7 +40,9 @@ function Login() {
   return (
     <div>
       <Container maxWidth="sm">
-        <Typography component="h1" variant="h4" style={{ textAlign: 'center' }}>
+
+        <Typography component="h1" variant="h4" style={{ textAlign: "center" }}>
+
           Login
         </Typography>
         <form onSubmit={handleSubmit}>
