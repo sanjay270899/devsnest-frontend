@@ -8,19 +8,23 @@ import { Redirect } from "react-router-dom";
 function Login() {
   const [userLogin, setUserLogin] = useState({ email: "", password: "" });
 
+
   const [isLogin, setIsLogin] = useState(false);
 
   const handleSignup = () => {
     axios
+
       .post("api/auth/login", userLogin)
       .then((response) => {
         console.log(response);
         localStorage.setItem("Token", response.data.data.jwtToken);
+
         setIsLogin(!isLogin);
       })
       .catch((error) => {
         console.log(error);
       });
+
   };
 
   const handleSubmit = (e: any) => {
@@ -36,7 +40,9 @@ function Login() {
   return (
     <div>
       <Container maxWidth="sm">
+
         <Typography component="h1" variant="h4" style={{ textAlign: "center" }}>
+
           Login
         </Typography>
         <form onSubmit={handleSubmit}>
