@@ -7,6 +7,9 @@ import Typography from "@material-ui/core/Typography";
 import { Grid } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
+import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
+import MovieCreationIcon from "@material-ui/icons/MovieCreation";
+import BookIcon from "@material-ui/icons/Book";
 import Collapse from "@material-ui/core/Collapse";
 import axios from "../config/axios.config";
 import { Redirect } from "react-router";
@@ -145,35 +148,83 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                 justify="space-between"
                 alignItems="flex-end"
               >
-                <Grid item md={6}>
+                <Grid item>
                   <CardContent>
                     {subTasks
                       ? subTasks.map((subTask: any) => {
                           return (
                             <>
                               <Typography gutterBottom component="h6">
-                                <b>{subTask.type}</b>
-                                &nbsp;&nbsp;&nbsp;
-                                {subTask.name}
-                                &nbsp;&nbsp;&nbsp;
-                                {subTask.url && <a href={subTask.url}>Link</a>}
-                                <Checkbox
-                                  onClick={() =>
-                                    changeStatus(
-                                      subTask.id,
-                                      subTask.status === "DONE"
-                                        ? "UNDONE"
-                                        : "DONE"
-                                    )
-                                  }
-                                  color="primary"
-                                  inputProps={{
-                                    "aria-label": "secondary checkbox",
-                                  }}
-                                  checked={
-                                    subTask.status === "DONE" ? true : false
-                                  }
-                                />
+                                <Grid
+                                  container
+                                  direction="row"
+                                  justify="space-between"
+                                >
+                                  <Grid
+                                    item
+                                    style={{
+                                      alignSelf: "center",
+                                      padding: "20px",
+                                    }}
+                                  >
+                                    {subTask.type === "QUESTION" ? (
+                                      <HelpOutlineIcon
+                                        style={{ fontSize: "50px" }}
+                                      />
+                                    ) : subTask.type === "TUTORIAL" ? (
+                                      <BookIcon style={{ fontSize: "50px" }} />
+                                    ) : subTask.type === "VIDEO" ? (
+                                      <MovieCreationIcon
+                                        style={{ fontSize: "50px" }}
+                                      />
+                                    ) : null}
+                                  </Grid>
+                                  <Grid
+                                    item
+                                    style={{
+                                      alignSelf: "center",
+                                    }}
+                                  >
+                                    {subTask.name}
+                                  </Grid>
+
+                                  <Grid
+                                    item
+                                    style={{
+                                      alignSelf: "center",
+                                      padding: "20px",
+                                    }}
+                                  >
+                                    {subTask.url && (
+                                      <a href={subTask.url}>Link</a>
+                                    )}
+                                  </Grid>
+                                  <Grid
+                                    item
+                                    style={{
+                                      alignSelf: "center",
+                                      padding: "20px",
+                                    }}
+                                  >
+                                    <Checkbox
+                                      onClick={() =>
+                                        changeStatus(
+                                          subTask.id,
+                                          subTask.status === "DONE"
+                                            ? "UNDONE"
+                                            : "DONE"
+                                        )
+                                      }
+                                      color="primary"
+                                      inputProps={{
+                                        "aria-label": "secondary checkbox",
+                                      }}
+                                      checked={
+                                        subTask.status === "DONE" ? true : false
+                                      }
+                                    />
+                                  </Grid>
+                                </Grid>
                               </Typography>
                             </>
                           );
@@ -181,10 +232,6 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                       : null}
                   </CardContent>
                 </Grid>
-                <Grid
-                  item
-                  style={{ alignSelf: "center", padding: "20px" }}
-                ></Grid>
               </Grid>
             </div>
           </Collapse>

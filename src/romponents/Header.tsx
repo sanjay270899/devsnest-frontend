@@ -26,13 +26,9 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Header() {
   const classes = useStyles();
-  const [auth, setAuth] = React.useState(true);
+  const [auth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setAuth(event.target.checked);
-  };
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -41,7 +37,9 @@ export default function Header() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const handleClick = () => {};
+  const handleClick = () => {
+    localStorage.clear();
+  };
   return (
     <div>
       <AppBar position="static">
@@ -55,7 +53,7 @@ export default function Header() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            <Link to="/" style={{ color: "#000", textDecoration: "none" }}>
+            <Link to="/" style={{ color: "#fff", textDecoration: "none" }}>
               Devnest
             </Link>
           </Typography>
