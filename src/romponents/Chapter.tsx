@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react";
-import Card from "@material-ui/core/Card";
-import Checkbox from "@material-ui/core/Checkbox";
-import CardContent from "@material-ui/core/CardContent";
-import { Pie } from "react-chartjs-2";
-import Typography from "@material-ui/core/Typography";
-import { Grid } from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import ExpandLessIcon from "@material-ui/icons/ExpandLess";
-import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
-import MovieCreationIcon from "@material-ui/icons/MovieCreation";
-import BookIcon from "@material-ui/icons/Book";
-import Collapse from "@material-ui/core/Collapse";
-import axios from "../config/axios.config";
-import { Redirect } from "react-router";
-
+import React, { useEffect, useState } from 'react';
+import Card from '@material-ui/core/Card';
+import Checkbox from '@material-ui/core/Checkbox';
+import CardContent from '@material-ui/core/CardContent';
+import { Pie } from 'react-chartjs-2';
+import Typography from '@material-ui/core/Typography';
+import { Grid } from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import MovieCreationIcon from '@material-ui/icons/MovieCreation';
+import BookIcon from '@material-ui/icons/Book';
+import Collapse from '@material-ui/core/Collapse';
+import axios from '../config/axios.config';
+import { Redirect } from 'react-router';
 
 export interface Props {
   percentageCompleted: number;
@@ -103,7 +102,7 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
         <Card style={{ boxShadow: ' 4px 4px 8px 4px rgba(0,0,0,0.2)' }}>
           <Grid
             container
-            direction="row"<<<<<<< feature/typeicon
+            direction="row"
             justify="space-between"
             style={{ height: '100px' }}
           >
@@ -156,7 +155,6 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                           return (
                             <>
                               <Typography gutterBottom component="h6">
-
                                 <Grid
                                   container
                                   direction="row"
@@ -165,26 +163,26 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                                   <Grid
                                     item
                                     style={{
-                                      alignSelf: "center",
-                                      padding: "20px",
+                                      alignSelf: 'center',
+                                      padding: '20px',
                                     }}
                                   >
-                                    {subTask.type === "QUESTION" ? (
+                                    {subTask.type === 'QUESTION' ? (
                                       <HelpOutlineIcon
-                                        style={{ fontSize: "50px" }}
+                                        style={{ fontSize: '50px' }}
                                       />
-                                    ) : subTask.type === "TUTORIAL" ? (
-                                      <BookIcon style={{ fontSize: "50px" }} />
-                                    ) : subTask.type === "VIDEO" ? (
+                                    ) : subTask.type === 'TUTORIAL' ? (
+                                      <BookIcon style={{ fontSize: '50px' }} />
+                                    ) : subTask.type === 'VIDEO' ? (
                                       <MovieCreationIcon
-                                        style={{ fontSize: "50px" }}
+                                        style={{ fontSize: '50px' }}
                                       />
                                     ) : null}
                                   </Grid>
                                   <Grid
                                     item
                                     style={{
-                                      alignSelf: "center",
+                                      alignSelf: 'center',
                                     }}
                                   >
                                     {subTask.name}
@@ -193,8 +191,8 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                                   <Grid
                                     item
                                     style={{
-                                      alignSelf: "center",
-                                      padding: "20px",
+                                      alignSelf: 'center',
+                                      padding: '20px',
                                     }}
                                   >
                                     {subTask.url && (
@@ -204,30 +202,29 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                                   <Grid
                                     item
                                     style={{
-                                      alignSelf: "center",
-                                      padding: "20px",
+                                      alignSelf: 'center',
+                                      padding: '20px',
                                     }}
                                   >
                                     <Checkbox
                                       onClick={() =>
                                         changeStatus(
                                           subTask.id,
-                                          subTask.status === "DONE"
-                                            ? "UNDONE"
-                                            : "DONE"
+                                          subTask.status === 'DONE'
+                                            ? 'UNDONE'
+                                            : 'DONE'
                                         )
                                       }
                                       color="primary"
                                       inputProps={{
-                                        "aria-label": "secondary checkbox",
+                                        'aria-label': 'secondary checkbox',
                                       }}
                                       checked={
-                                        subTask.status === "DONE" ? true : false
+                                        subTask.status === 'DONE' ? true : false
                                       }
                                     />
                                   </Grid>
                                 </Grid>
-
                               </Typography>
                             </>
                           );
@@ -235,7 +232,6 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                       : null}
                   </CardContent>
                 </Grid>
-
               </Grid>
             </div>
           </Collapse>
