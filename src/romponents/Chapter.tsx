@@ -169,13 +169,13 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                                   >
                                     {subTask.type === 'QUESTION' ? (
                                       <HelpOutlineIcon
-                                        style={{ fontSize: '50px' }}
+                                        style={{ fontSize: '30px' }}
                                       />
                                     ) : subTask.type === 'TUTORIAL' ? (
-                                      <BookIcon style={{ fontSize: '50px' }} />
+                                      <BookIcon style={{ fontSize: '30px' }} />
                                     ) : subTask.type === 'VIDEO' ? (
                                       <MovieCreationIcon
-                                        style={{ fontSize: '50px' }}
+                                        style={{ fontSize: '30px' }}
                                       />
                                     ) : null}
                                   </Grid>
