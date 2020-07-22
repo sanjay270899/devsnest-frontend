@@ -6,8 +6,19 @@ import RecentActivity from './RecentActivity';
 import image from '../images/dummy.png';
 import axios from '../config/axios.config';
 import {} from '../config/axios.config';
-const Profile = () => {
-  const [profileData, setProfileData] = useState([]);
+
+interface IState {
+  profileData: string[];
+}
+const Profile: React.ElementType<IState> = () => {
+  const [profileData, setProfileData] = useState({
+    name: '',
+    email: '',
+    aboutme: '',
+    github: '',
+    institution: '',
+    submission: {},
+  });
   let token: string = localStorage.getItem('Token') || '';
   console.log(token);
 
@@ -18,19 +29,13 @@ const Profile = () => {
           Authorization: `Bearer ${token}`,
         },
       });
+      const { data } = res;
 
-      console.log(res);
-      // const profileData = data.data.map((item: any) => {
-      //   const data = {
-      //     name: item.name,
-      //     email: item.email,
-      //     about: item.aboutMe,
-      //     submissiondata: item.subMission,
-      //   };
-      //   return data;
-      // });
-      // setUserData(profileData);
-      // console.log(userData);
+      for (let key in data.data.userData) {
+        console.log(`${key}:${data.data.userData[key]}`);
+        setProfileData({ ...profileData, [key]: data.data.userData[key] });
+      }
+      console.log(profileData);
     }
   };
   useEffect(() => {
