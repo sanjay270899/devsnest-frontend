@@ -40,7 +40,7 @@ const Profile: React.ElementType<IState> = () => {
   };
   useEffect(() => {
     fetchDetails();
-  });
+  }, []);
   return (
     <div>
       <Header />
