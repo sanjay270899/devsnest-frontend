@@ -8,20 +8,50 @@ import axios from '../config/axios.config';
 import {} from '../config/axios.config';
 
 interface IState {
-  profileData: string[];
+  name: string;
+  email: string;
+  aboutMe: string;
+  github: string;
+  institution: string;
+  subMission: {
+    subMissionFrequency: [
+      {
+        key: string;
+        value: string;
+      }
+    ];
+    lastSubmissions: [
+      {
+        name: string;
+      }
+    ];
+  };
 }
-const Profile: React.ElementType<IState> = () => {
+
+const Profile = () => {
   const [profileData, setProfileData] = useState({
     name: '',
     email: '',
-    aboutme: '',
+    aboutMe: '',
     github: '',
     institution: '',
-    submission: {},
+    subMission: {
+      subMissionFrequency: [
+        {
+          key: '',
+          value: '',
+        },
+      ],
+      lastSubmissions: [
+        {
+          name: '',
+        },
+      ],
+    },
   });
   let token: string = localStorage.getItem('Token') || '';
-  console.log(token);
-
+  // console.log(token);
+  let userData = {};
   const fetchDetails = async () => {
     if (token !== '') {
       const res = await axios.get(`/api/users`, {
@@ -31,13 +61,24 @@ const Profile: React.ElementType<IState> = () => {
       });
       const { data } = res;
 
-      for (let key in data.data.userData) {
-        console.log(`${key}:${data.data.userData[key]}`);
-        setProfileData({ ...profileData, [key]: data.data.userData[key] });
-      }
-      console.log(profileData);
+      // console.log(data.data.userData.name);
+      userData = {
+        name: data.data.userData.name,
+        email: data.data.userData.email,
+        aboutMe: data.data.userData.aboutMe,
+        github: data.data.userData.github,
+        institution: data.data.userData.institution,
+        subMission: {
+          subMissionFrequency:
+            data.data.userData.subMission.subMissionFrequency,
+          lastSubmissions: data.data.userData.subMission.subMissionFrequency,
+        },
+      };
+      /* @ts-ignore */
+      setProfileData({ ...profileData, userData });
     }
   };
+  console.log(profileData);
   useEffect(() => {
     fetchDetails();
   }, []);
@@ -46,10 +87,15 @@ const Profile: React.ElementType<IState> = () => {
       <Header />
       <Grid container style={{ padding: '20px' }}>
         <Grid item md={4}>
-          <img src={image} alt="profile" style={{ borderRadius: '100%' }} />
-          <p>Name</p>
-          <p>About</p>
-          <Typography>Links</Typography>
+          <div style={{ borderRadius: '100%' }}>
+            <img src={image} alt="profile" />
+          </div>
+          <Typography variant="body1">USERNAME</Typography>
+          <Typography variant="body2">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam qui
+            magnam aspernatur nostrum veniam nihil corrupti
+          </Typography>
+          <Typography variant="body1">Links</Typography>
         </Grid>
         <Grid item md={8}>
           <Typography component="div" style={{ padding: '20px' }}>
