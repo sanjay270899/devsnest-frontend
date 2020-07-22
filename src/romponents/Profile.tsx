@@ -7,7 +7,7 @@ import image from '../images/dummy.png';
 import axios from '../config/axios.config';
 import {} from '../config/axios.config';
 
-interface IState {
+type State = {
   name: string;
   email: string;
   aboutMe: string;
@@ -26,7 +26,7 @@ interface IState {
       }
     ];
   };
-}
+};
 
 const Profile = () => {
   const [profileData, setProfileData] = useState({
@@ -51,7 +51,7 @@ const Profile = () => {
   });
   let token: string = localStorage.getItem('Token') || '';
   // console.log(token);
-  let userData = {};
+  let userData: State | null = null;
   const fetchDetails = async () => {
     if (token !== '') {
       const res = await axios.get(`/api/users`, {
@@ -75,7 +75,7 @@ const Profile = () => {
         },
       };
       /* @ts-ignore */
-      setProfileData({ ...profileData, userData });
+      setProfileData(userData);
     }
   };
   console.log(profileData);
@@ -85,27 +85,29 @@ const Profile = () => {
   return (
     <div>
       <Header />
-      <Grid container style={{ padding: '20px' }}>
-        <Grid item md={4}>
-          <div style={{ borderRadius: '100%' }}>
-            <img src={image} alt="profile" />
-          </div>
-          <Typography variant="body1">USERNAME</Typography>
-          <Typography variant="body2">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam qui
-            magnam aspernatur nostrum veniam nihil corrupti
-          </Typography>
-          <Typography variant="body1">Links</Typography>
+      {profileData ? null : (
+        <Grid container style={{ padding: '20px' }}>
+          <Grid item md={4}>
+            <div style={{ borderRadius: '100%' }}>
+              <img src={image} alt="profile" />
+            </div>
+            <Typography variant="body1">USERNAME</Typography>
+            <Typography variant="body2">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam qui
+              magnam aspernatur nostrum veniam nihil corrupti
+            </Typography>
+            <Typography variant="body1">Links</Typography>
+          </Grid>
+          <Grid item md={8}>
+            <Typography component="div" style={{ padding: '20px' }}>
+              <ProfileCard />
+            </Typography>
+            <Typography component="div" style={{ padding: '20px' }}>
+              <RecentActivity />
+            </Typography>
+          </Grid>
         </Grid>
-        <Grid item md={8}>
-          <Typography component="div" style={{ padding: '20px' }}>
-            <ProfileCard />
-          </Typography>
-          <Typography component="div" style={{ padding: '20px' }}>
-            <RecentActivity />
-          </Typography>
-        </Grid>
-      </Grid>
+      )}
     </div>
   );
 };
