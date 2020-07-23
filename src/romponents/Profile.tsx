@@ -62,23 +62,24 @@ const Profile = () => {
         },
       });
       const { data } = res;
-
-      userData = {
-        name: data.data.userData.name,
-        email: data.data.userData.email,
-        aboutMe: data.data.userData.aboutMe,
-        github: data.data.userData.github,
-        institution: data.data.userData.institution,
-        subMission: {
-          subMissionFrequency:
-            data.data.userData.subMission.subMissionFrequency,
-          lastSubmissions: data.data.userData.subMission.subMissionFrequency,
-        },
-      };
-      setProfileData(userData);
+      if (data !== {}) {
+        userData = {
+          name: data.data.userData.name,
+          email: data.data.userData.email,
+          aboutMe: data.data.userData.aboutMe,
+          github: data.data.userData.github,
+          institution: data.data.userData.institution,
+          subMission: {
+            subMissionFrequency:
+              data.data.userData.subMission.subMissionFrequency,
+            lastSubmissions: data.data.userData.subMission.subMissionFrequency,
+          },
+        };
+        setProfileData(userData);
+      }
     }
   };
-  console.log(profileData.subMission.subMissionFrequency);
+  console.log(profileData);
   useEffect(() => {
     fetchDetails();
   }, []);
