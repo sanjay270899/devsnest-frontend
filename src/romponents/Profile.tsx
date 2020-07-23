@@ -2,8 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import ProfileCard from './ProfileCard';
 import Header from './Header';
-import RecentActivity from './RecentActivity';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
 import image from '../images/dummy.png';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import axios from '../config/axios.config';
 import {} from '../config/axios.config';
 
@@ -50,7 +54,6 @@ const Profile = () => {
     },
   });
   let token: string = localStorage.getItem('Token') || '';
-  // console.log(token);
   let userData: State | null = null;
   const fetchDetails = async () => {
     if (token !== '') {
@@ -61,7 +64,6 @@ const Profile = () => {
       });
       const { data } = res;
 
-      // console.log(data.data.userData.name);
       userData = {
         name: data.data.userData.name,
         email: data.data.userData.email,
@@ -78,36 +80,80 @@ const Profile = () => {
       setProfileData(userData);
     }
   };
-  console.log(profileData);
+  console.log(profileData.subMission.subMissionFrequency);
   useEffect(() => {
     fetchDetails();
   }, []);
   return (
     <div>
       <Header />
-      {profileData ? null : (
+      {profileData ? (
         <Grid container style={{ padding: '20px' }}>
           <Grid item md={4}>
-            <div style={{ borderRadius: '100%' }}>
-              <img src={image} alt="profile" />
+            <div>
+              <img src={image} alt="profile" style={{ borderRadius: '100%' }} />
             </div>
-            <Typography variant="body1">USERNAME</Typography>
-            <Typography variant="body2">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam qui
-              magnam aspernatur nostrum veniam nihil corrupti
-            </Typography>
-            <Typography variant="body1">Links</Typography>
+            <div style={{ padding: '20px' }}>
+              <Typography
+                variant="body1"
+                style={{ fontWeight: 'bold', fontSize: '35px' }}
+              >
+                {profileData.name}
+              </Typography>
+              <hr />
+              <Typography
+                variant="body1"
+                style={{ fontWeight: 'bold', fontSize: '30px' }}
+              >
+                About:
+              </Typography>
+
+              <Typography variant="h6" style={{ padding: '2px' }}>
+                {profileData.aboutMe}
+              </Typography>
+
+              <Typography variant="body1">
+                <a
+                  href={profileData.github}
+                  style={{ textDecoration: 'none', color: '#000' }}
+                >
+                  <GitHubIcon />
+                </a>
+              </Typography>
+              <Typography variant="body1">{profileData.institution}</Typography>
+            </div>
           </Grid>
           <Grid item md={8}>
             <Typography component="div" style={{ padding: '20px' }}>
-              <ProfileCard />
+              <ProfileCard
+                frequency={profileData.subMission.subMissionFrequency}
+              />
             </Typography>
             <Typography component="div" style={{ padding: '20px' }}>
-              <RecentActivity />
+              <Card>
+                <CardContent>
+                  <Typography
+                    component="h2"
+                    gutterBottom
+                    style={{ fontWeight: 'bold', fontSize: '30px' }}
+                  >
+                    Recent Activity
+                  </Typography>
+                </CardContent>
+                {profileData
+                  ? profileData.subMission.lastSubmissions.map((item) => {
+                      return (
+                        <CardActions>
+                          <Button size="small">{item.name}</Button>
+                        </CardActions>
+                      );
+                    })
+                  : null}
+              </Card>
             </Typography>
           </Grid>
         </Grid>
-      )}
+      ) : null}
     </div>
   );
 };
