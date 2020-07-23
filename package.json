@@ -19,6 +19,7 @@
     "formik": "^2.1.2",
     "formik-material-ui": "^2.0.0-alpha.3",
     "react": "^16.12.0",
+    "react-calendar-heatmap": "^1.8.1",
     "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.12.0",
     "react-router": "^5.1.2",

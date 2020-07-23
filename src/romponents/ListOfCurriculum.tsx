@@ -39,7 +39,7 @@ function ListOfCurriculum() {
 
   useEffect(() => {
     fetchDetails();
-  });
+  }, []);
   if (token === '') {
     return <Redirect to={'/login'} />;
   }

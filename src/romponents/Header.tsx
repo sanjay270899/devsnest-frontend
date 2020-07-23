@@ -55,9 +55,7 @@ export default function Header() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-
-            <Link to="/" style={{ color: "#fff", textDecoration: "none" }}>
-
+            <Link to="/" style={{ color: '#fff', textDecoration: 'none' }}>
               Devnest
             </Link>
           </Typography>
@@ -88,7 +86,12 @@ export default function Header() {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose} style={{ color: '#000' }}>
-                  Profile
+                  <Link
+                    to="/profile"
+                    style={{ color: '#000', textDecoration: 'none' }}
+                  >
+                    Profile
+                  </Link>
                 </MenuItem>
                 <MenuItem onClick={handleClick}>
                   <Link

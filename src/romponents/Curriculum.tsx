@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from '../config/axios.config';
 import Header from './Header';
 import Chapter from './Chapter';
-
+import {} from '../config/axios.config';
 function Curriculum(props: any) {
   const [xhapters, setChapters] = useState([[]]);
 
@@ -31,7 +31,7 @@ function Curriculum(props: any) {
   };
   useEffect(() => {
     fetchDetails();
-  });
+  }, []);
 
   return (
     <>
