@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -7,8 +7,7 @@ import CalendarHeatmap from 'react-calendar-heatmap';
 import 'react-calendar-heatmap/dist/styles.css';
 
 const ProfileCard: React.ElementType = ({ frequency }: any) => {
-  const [data, setData] = useState([[]]);
-  console.log(frequency);
+  console.log('Frequency', frequency);
   const graphData = frequency.map((item: any) => {
     const graph = {
       date: item.key,
@@ -16,7 +15,7 @@ const ProfileCard: React.ElementType = ({ frequency }: any) => {
     };
     return graph;
   });
-  setData([...data, graphData]);
+  console.log('Graph data', graphData);
   return (
     <>
       <Card>
@@ -31,8 +30,8 @@ const ProfileCard: React.ElementType = ({ frequency }: any) => {
         <CardActions>
           <CalendarHeatmap
             startDate={new Date('2018-12-31')}
-            endDate={new Date('2019-12-31')}
-            values={[{ data }]}
+            endDate={new Date('2020-12-31')}
+            values={[{}]}
             classForValue={(value) => {
               if (!value) {
                 return 'color-empty';

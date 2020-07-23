@@ -9,7 +9,6 @@ import Button from '@material-ui/core/Button';
 import image from '../images/dummy.png';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import axios from '../config/axios.config';
-import {} from '../config/axios.config';
 
 type State = {
   name: string;
@@ -76,7 +75,6 @@ const Profile = () => {
           lastSubmissions: data.data.userData.subMission.subMissionFrequency,
         },
       };
-      /* @ts-ignore */
       setProfileData(userData);
     }
   };
