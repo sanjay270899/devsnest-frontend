@@ -72,7 +72,7 @@ const Profile = () => {
           subMission: {
             subMissionFrequency:
               data.data.userData.subMission.subMissionFrequency,
-            lastSubmissions: data.data.userData.subMission.subMissionFrequency,
+            lastSubmissions: data.data.userData.subMission.lastSubmissions,
           },
         };
         setProfileData(userData);
@@ -143,7 +143,13 @@ const Profile = () => {
                   ? profileData.subMission.lastSubmissions.map((item) => {
                       return (
                         <CardActions>
-                          <Button size="small">{item.name}</Button>
+                          <Typography
+                            variant="h6"
+                            gutterBottom
+                            style={{ padding: '10px' }}
+                          >
+                            {item.name}
+                          </Typography>
                         </CardActions>
                       );
                     })
