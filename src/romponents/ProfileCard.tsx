@@ -16,14 +16,6 @@ const ProfileCard: React.ElementType = ({ frequency }: any) => {
     return graph;
   });
 
-  // const mapData = graphData.map((item: any) => {
-  //   const data = {
-  //     date: Moment(item.key).format('YYYY-MM-DD'),
-  //     count: item.value,
-  //   };
-  //   return data;
-  // });
-  // console.log(mapData);
   return (
     <>
       <Card>
