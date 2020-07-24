@@ -11,11 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-Card{
-  box-shadow: 4px 4px 8px 0 rgba(0,0,0,0.2);
+Card {
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.container{
+.container {
   padding: 20px;
 }
-
+.react-calendar-heatmap .color-scale-0 {
+  fill: #eeeeee;
+}
+.react-calendar-heatmap .color-scale-1 {
+  fill: #d6e685;
+}
+.react-calendar-heatmap .color-scale-2 {
+  fill: #8cc665;
+}
+.react-calendar-heatmap .color-scale-3 {
+  fill: #44a340;
+}
+.react-calendar-heatmap .color-scale-4 {
+  fill: #1e6823;
+}

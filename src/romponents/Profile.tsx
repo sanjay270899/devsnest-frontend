@@ -2,26 +2,58 @@ import React, { useEffect, useState } from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import ProfileCard from './ProfileCard';
 import Header from './Header';
-import RecentActivity from './RecentActivity';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
 import image from '../images/dummy.png';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import axios from '../config/axios.config';
-import {} from '../config/axios.config';
 
-interface IState {
-  profileData: string[];
-}
-const Profile: React.ElementType<IState> = () => {
+type State = {
+  name: string;
+  email: string;
+  aboutMe: string;
+  github: string;
+  institution: string;
+  subMission: {
+    subMissionFrequency: [
+      {
+        key: string;
+        value: string;
+      }
+    ];
+    lastSubmissions: [
+      {
+        name: string;
+      }
+    ];
+  };
+};
+
+const Profile = () => {
   const [profileData, setProfileData] = useState({
     name: '',
     email: '',
-    aboutme: '',
+    aboutMe: '',
     github: '',
     institution: '',
-    submission: {},
+    subMission: {
+      subMissionFrequency: [
+        {
+          key: '',
+          value: '',
+        },
+      ],
+      lastSubmissions: [
+        {
+          name: '',
+        },
+      ],
+    },
   });
   let token: string = localStorage.getItem('Token') || '';
-  console.log(token);
-
+  let userData: State | null = null;
   const fetchDetails = async () => {
     if (token !== '') {
       const res = await axios.get(`/api/users`, {
@@ -30,36 +62,103 @@ const Profile: React.ElementType<IState> = () => {
         },
       });
       const { data } = res;
-
-      for (let key in data.data.userData) {
-        console.log(`${key}:${data.data.userData[key]}`);
-        setProfileData({ ...profileData, [key]: data.data.userData[key] });
+      if (data !== {}) {
+        userData = {
+          name: data.data.userData.name,
+          email: data.data.userData.email,
+          aboutMe: data.data.userData.aboutMe,
+          github: data.data.userData.github,
+          institution: data.data.userData.institution,
+          subMission: {
+            subMissionFrequency:
+              data.data.userData.subMission.subMissionFrequency,
+            lastSubmissions: data.data.userData.subMission.lastSubmissions,
+          },
+        };
+        setProfileData(userData);
       }
-      console.log(profileData);
     }
   };
+  console.log(profileData);
   useEffect(() => {
     fetchDetails();
   }, []);
   return (
     <div>
       <Header />
-      <Grid container style={{ padding: '20px' }}>
-        <Grid item md={4}>
-          <img src={image} alt="profile" style={{ borderRadius: '100%' }} />
-          <p>Name</p>
-          <p>About</p>
-          <Typography>Links</Typography>
+      {profileData ? (
+        <Grid container style={{ padding: '20px' }}>
+          <Grid item md={4}>
+            <div>
+              <img src={image} alt="profile" style={{ borderRadius: '100%' }} />
+            </div>
+            <div style={{ padding: '20px' }}>
+              <Typography
+                variant="body1"
+                style={{ fontWeight: 'bold', fontSize: '35px' }}
+              >
+                {profileData.name}
+              </Typography>
+              <hr />
+              <Typography
+                variant="body1"
+                style={{ fontWeight: 'bold', fontSize: '30px' }}
+              >
+                About:
+              </Typography>
+
+              <Typography variant="h6" style={{ padding: '2px' }}>
+                {profileData.aboutMe}
+              </Typography>
+
+              <Typography variant="body1">
+                <a
+                  href={profileData.github}
+                  style={{ textDecoration: 'none', color: '#000' }}
+                >
+                  <GitHubIcon />
+                </a>
+              </Typography>
+              <Typography variant="body1">{profileData.institution}</Typography>
+            </div>
+          </Grid>
+          <Grid item md={8}>
+            <Typography component="div" style={{ padding: '20px' }}>
+              <ProfileCard
+                frequency={profileData.subMission.subMissionFrequency}
+              />
+            </Typography>
+            <Typography component="div" style={{ padding: '20px' }}>
+              <Card>
+                <CardContent>
+                  <Typography
+                    component="h2"
+                    gutterBottom
+                    style={{ fontWeight: 'bold', fontSize: '30px' }}
+                  >
+                    Recent Activity
+                  </Typography>
+                </CardContent>
+                {profileData
+                  ? profileData.subMission.lastSubmissions.map((item) => {
+                      return (
+                        <CardActions>
+                          <Typography
+                            variant="h6"
+                            gutterBottom
+                            style={{ padding: '10px' }}
+                          >
+                            {item.name}
+                          </Typography>
+                        </CardActions>
+                      );
+                    })
+                  : null}
+              </Card>
+            </Typography>
+          </Grid>
         </Grid>
-        <Grid item md={8}>
-          <Typography component="div" style={{ padding: '20px' }}>
-            <ProfileCard />
-          </Typography>
-          <Typography component="div" style={{ padding: '20px' }}>
-            <RecentActivity />
-          </Typography>
-        </Grid>
-      </Grid>
+      ) : null}
     </div>
   );
 };
