@@ -5,6 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import 'react-calendar-heatmap/dist/styles.css';
+import ReactTooltip from 'react-tooltip';
 import Moment from 'moment';
 
 const ProfileCard: React.ElementType = ({ frequency }: any) => {
@@ -32,6 +33,12 @@ const ProfileCard: React.ElementType = ({ frequency }: any) => {
             startDate={new Date('2019-12-31')}
             endDate={new Date('2020-12-31')}
             values={graphData}
+            onClick={(value) => console.log(value)}
+            tooltipDataAttrs={(value: any) => {
+              return {
+                'data-tip': `${value.date} has Submission: ${value.count}`,
+              };
+            }}
             classForValue={(value) => {
               if (!value) {
                 return 'color-empty';
@@ -39,6 +46,7 @@ const ProfileCard: React.ElementType = ({ frequency }: any) => {
               return `color-scale-${value.count}`;
             }}
           />
+          <ReactTooltip />
         </CardActions>
       </Card>
     </>
