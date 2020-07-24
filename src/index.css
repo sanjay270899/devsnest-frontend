@@ -18,6 +18,9 @@ Card {
 .container {
   padding: 20px;
 }
+.react-calendar-heatmap {
+  width: -webkit-fill-available;
+}
 .react-calendar-heatmap .color-scale-0 {
   fill: #eeeeee;
 }
@@ -32,4 +35,8 @@ Card {
 }
 .react-calendar-heatmap .color-scale-4 {
   fill: #1e6823;
+}
+.react-calendar-heatmap rect:hover {
+  stroke: #555;
+  stroke-width: 1px;
 }
