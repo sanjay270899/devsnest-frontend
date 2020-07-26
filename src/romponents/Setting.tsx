@@ -97,10 +97,8 @@ function SettingPage() {
         };
         setUserUpdate(userData);
       }
-      console.log(userData);
     }
   }
-  console.log(userUpdate);
 
   useEffect(() => {
     fetchMyAPI();
@@ -118,7 +116,6 @@ function SettingPage() {
         })
         .then((res) => {
           setLoading(false);
-          console.log(res);
         })
         .catch((e) => {});
     }
@@ -142,7 +139,7 @@ function SettingPage() {
                 AboutMe
               </Box>
               <Box p={3} bgcolor="background.paper">
-                Github
+                Github Username
               </Box>
               <Box p={3} bgcolor="background.paper">
                 Institution
@@ -206,7 +203,7 @@ function SettingPage() {
                 <TextField
                   className={classes.Field}
                   id="github"
-                  label="github"
+                  label="githu username"
                   name="github"
                   variant="outlined"
                   error={!!errors.github}
