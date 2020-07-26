@@ -6,6 +6,7 @@ import SignUp from './romponents/SignUp';
 import ListOfCurriculum from './romponents/ListOfCurriculum';
 import Curriculum from './romponents/Curriculum';
 import Profile from './romponents/Profile';
+import Setting from './romponents/Setting';
 const App: React.ElementType = () => {
   return (
     <div>
@@ -16,6 +17,7 @@ const App: React.ElementType = () => {
           <Route exact path="/" component={ListOfCurriculum} />
           <Route exact path="/curriculum/:id" component={Curriculum} />
           <Route exact path="/profile" component={Profile} />
+          <Route exact path="/settings" component={Setting} />
         </Switch>
       </Router>
     </div>

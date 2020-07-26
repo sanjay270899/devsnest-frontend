@@ -113,7 +113,7 @@ const Profile = () => {
 
               <Typography variant="body1">
                 <a
-                  href={profileData.github}
+                  href={`https://github.com/${profileData.github}`}
                   style={{ textDecoration: 'none', color: '#000' }}
                 >
                   <GitHubIcon />
