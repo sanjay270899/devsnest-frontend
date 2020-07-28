@@ -9,7 +9,7 @@ import Profile from './romponents/Profile';
 import Setting from './romponents/Setting';
 import ReactGA from 'react-ga';
 const initializeAnalytics = () => {
-  ReactGA.initialize('UA-173899160-1');
+  ReactGA.initialize('UA-173643032-1');
   ReactGA.pageview('/');
 };
 const App: React.ElementType = () => {
