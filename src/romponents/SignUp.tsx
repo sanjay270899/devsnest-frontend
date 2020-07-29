@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import axios from '../config/axios.config';
 import { Redirect } from 'react-router-dom';
+import ReactGA from 'react-ga';
 function SignUp() {
   const [userSignUp, setUserSignUp] = useState({
     username: '',
@@ -31,6 +32,10 @@ function SignUp() {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    ReactGA.event({
+      category: 'User',
+      action: 'Created an Account',
+    });
     handleSignup();
   };
   if (isSignUp) {
