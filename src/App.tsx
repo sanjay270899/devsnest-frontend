@@ -7,6 +7,7 @@ import ListOfCurriculum from './romponents/ListOfCurriculum';
 import Curriculum from './romponents/Curriculum';
 import Profile from './romponents/Profile';
 import Setting from './romponents/Setting';
+import Komal from './romponents/komal';
 const App: React.ElementType = () => {
   return (
     <div>
@@ -18,6 +19,7 @@ const App: React.ElementType = () => {
           <Route exact path="/curriculum/:id" component={Curriculum} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/setting" component={Setting} />
+          <Route exact path="/komal" component={Komal} />
         </Switch>
       </Router>
     </div>

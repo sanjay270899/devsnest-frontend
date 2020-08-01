@@ -8,6 +8,7 @@ import { Button } from '@material-ui/core';
 import axios from '../config/axios.config';
 import Box from '@material-ui/core/Box';
 import { useForm } from 'react-hook-form';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { CircularProgress } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   title: {
-    marginTop: '5%',
+    marginTop: '3%',
     fontSize: '300%',
     textAlign: 'center',
     fontWeight: 500,
@@ -129,7 +130,18 @@ function SettingPage() {
       <Header />
       <Grid container spacing={3}>
         <Grid item xs={12} sm={12}>
-          <div className={classes.title}>Account Setting</div>
+          <div className={classes.title}>
+            <AccountCircleIcon
+              style={{
+                height: 100,
+                width: 100,
+                color: 'gray',
+                marginRight: 100,
+                marginTop: 20,
+              }}
+            ></AccountCircleIcon>
+            Account Setting
+          </div>
           <Paper className={classes.paper}>
             <div className={classes.list}>
               <Box p={3} bgcolor="background.paper">
