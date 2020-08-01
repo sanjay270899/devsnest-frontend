@@ -6,14 +6,14 @@ function Profile() {
 
   const onChangePicture = (e: any) => {
     console.log('image: ', image);
-    setImage(URL.createObjectURL(e.target.files[0]));
+    setImage(e.target.files[0]);
   };
 
-  const handleUpload = async (file: any) => {
+  const handleUpload = async () => {
     let token: string = localStorage.getItem('Token') || '';
     if (token != '') {
       const formData = new FormData();
-      formData.append('profileImage', file);
+      formData.append('profileImage', image);
       const config = {
         headers: {
           'Content-Type': 'multipart/form-data',
