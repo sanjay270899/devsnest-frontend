@@ -107,7 +107,7 @@ function SettingPage() {
   const submit = async (e: any) => {
     let token: string = localStorage.getItem('Token') || '';
     setLoading(true);
-    if (token != '') {
+    if (token !== '') {
       await axios
         .post('/api/users', userUpdate, {
           headers: {
