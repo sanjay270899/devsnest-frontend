@@ -10,6 +10,9 @@ import Box from '@material-ui/core/Box';
 import { useForm } from 'react-hook-form';
 import { CircularProgress } from '@material-ui/core';
 
+import Image from '../images/dummy.png';
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -27,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   title: {
+
     marginTop: '5%',
     fontSize: '300%',
     textAlign: 'center',
@@ -73,9 +77,37 @@ function SettingPage() {
   });
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (event: any) => {
+  const [image, setImage] = useState(Image);
+
+  const handleChange = async (event: any) => {
     setUserUpdate({ ...userUpdate, [event.target.name]: event.target.value });
   };
+  const handleImageChange = (event: any) => {
+    handleUpload(event.target.files[0]);
+  };
+  // Setting profile
+
+  const handleUpload = async (file: any) => {
+    let token: string = localStorage.getItem('Token') || '';
+    if (token != '') {
+      const formData = new FormData();
+      formData.append('profileImage', file);
+
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      await axios
+        .post('api/users/uploadProfileImage', formData, config)
+        .then((res) => {
+          setImage(res.data.data.ImageUri);
+        });
+    }
+  };
+
+  // Setting GET
 
   let token: string = localStorage.getItem('Token') || '';
   let userData: State | null = null;
@@ -97,17 +129,23 @@ function SettingPage() {
         };
         setUserUpdate(userData);
       }
+
+
     }
   }
+
 
   useEffect(() => {
     fetchMyAPI();
   }, []);
 
+
+  // Setting POST
   const submit = async (e: any) => {
     let token: string = localStorage.getItem('Token') || '';
     setLoading(true);
-    if (token !== '') {
+    if (token != '') {
+
       await axios
         .post('/api/users', userUpdate, {
           headers: {
@@ -116,6 +154,7 @@ function SettingPage() {
         })
         .then((res) => {
           setLoading(false);
+
         })
         .catch((e) => {});
     }
@@ -127,6 +166,31 @@ function SettingPage() {
       <Grid container spacing={3}>
         <Grid item xs={12} sm={12}>
           <div className={classes.title}>Account Setting</div>
+
+          <div style={{ marginLeft: '25%' }}>
+            {loading ? (
+              <h3>Loading...</h3>
+            ) : (
+              <div>
+                <img
+                  src={image}
+                  style={{
+                    width: '150px',
+                    borderRadius: '50%',
+                    height: '150px',
+                  }}
+                  alt="img"
+                />
+                <input
+                  id="file-upload"
+                  type="file"
+                  onChange={handleImageChange}
+                  style={{ display: 'flex' }}
+                />
+              </div>
+            )}
+          </div>
+
           <Paper className={classes.paper}>
             <div className={classes.list}>
               <Box p={3} bgcolor="background.paper">
@@ -136,10 +200,12 @@ function SettingPage() {
                 Email
               </Box>
               <Box p={3} bgcolor="background.paper">
-                AboutMe
+
+                About Me
               </Box>
               <Box p={3} bgcolor="background.paper">
-                Github Username
+                GitHub
+
               </Box>
               <Box p={3} bgcolor="background.paper">
                 Institution
@@ -203,7 +269,9 @@ function SettingPage() {
                 <TextField
                   className={classes.Field}
                   id="github"
-                  label="githu username"
+
+                  label="github"
+
                   name="github"
                   variant="outlined"
                   error={!!errors.github}

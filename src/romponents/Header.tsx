@@ -98,6 +98,7 @@ export default function Header() {
                     Profile
                   </Link>
                 </MenuItem>
+
                 <MenuItem onClick={handleClose} style={{ color: '#000' }}>
                   <Link
                     to="/settings"
