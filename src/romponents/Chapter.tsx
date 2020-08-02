@@ -13,6 +13,7 @@ import BookIcon from '@material-ui/icons/Book';
 import Collapse from '@material-ui/core/Collapse';
 import axios from '../config/axios.config';
 import { Redirect } from 'react-router';
+import ReactGA from 'react-ga';
 
 export interface Props {
   percentageCompleted: number;
@@ -27,6 +28,10 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
 
   const handleExpandClick = () => {
     getAllTasks();
+    ReactGA.event({
+      category: 'Button',
+      action: 'functional symbol',
+    });
     setExpanded(!expanded);
   };
 
@@ -196,7 +201,14 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                                     }}
                                   >
                                     {subTask.url && (
-                                      <a href={subTask.url}>Link</a>
+                                      <ReactGA.OutboundLink
+                                        eventLabel="CourseLink"
+                                        to={subTask.url}
+                                        target="_blank"
+                                      >
+                                        Link
+                                      </ReactGA.OutboundLink>
+                                      // <a href=>Link</a>
                                     )}
                                   </Grid>
                                   <Grid

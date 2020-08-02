@@ -9,6 +9,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { Link } from 'react-router-dom';
+import ReactGA from 'react-ga';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -35,6 +36,10 @@ export default function Header() {
   };
 
   const handleClose = () => {
+    ReactGA.event({
+      category: 'Navigation',
+      action: 'moved to a page',
+    });
     setAnchorEl(null);
   };
 
@@ -93,12 +98,13 @@ export default function Header() {
                     Profile
                   </Link>
                 </MenuItem>
-                <MenuItem>
+
+                <MenuItem onClick={handleClose} style={{ color: '#000' }}>
                   <Link
-                    to="/Setting"
+                    to="/settings"
                     style={{ color: '#000', textDecoration: 'none' }}
                   >
-                    Setting
+                    Settings
                   </Link>
                 </MenuItem>
                 <MenuItem onClick={handleClick}>

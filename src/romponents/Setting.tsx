@@ -9,7 +9,9 @@ import axios from '../config/axios.config';
 import Box from '@material-ui/core/Box';
 import { useForm } from 'react-hook-form';
 import { CircularProgress } from '@material-ui/core';
+
 import Image from '../images/dummy.png';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,7 +30,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   title: {
-    marginTop: '3%',
+
+    marginTop: '5%',
     fontSize: '300%',
     textAlign: 'center',
     fontWeight: 500,
@@ -105,6 +108,7 @@ function SettingPage() {
   };
 
   // Setting GET
+
   let token: string = localStorage.getItem('Token') || '';
   let userData: State | null = null;
   async function fetchMyAPI() {
@@ -125,20 +129,23 @@ function SettingPage() {
         };
         setUserUpdate(userData);
       }
-      console.log(userData);
+
+
     }
   }
-  console.log(userUpdate);
+
 
   useEffect(() => {
     fetchMyAPI();
   }, []);
+
 
   // Setting POST
   const submit = async (e: any) => {
     let token: string = localStorage.getItem('Token') || '';
     setLoading(true);
     if (token != '') {
+
       await axios
         .post('/api/users', userUpdate, {
           headers: {
@@ -147,7 +154,7 @@ function SettingPage() {
         })
         .then((res) => {
           setLoading(false);
-          console.log(res);
+
         })
         .catch((e) => {});
     }
@@ -159,6 +166,7 @@ function SettingPage() {
       <Grid container spacing={3}>
         <Grid item xs={12} sm={12}>
           <div className={classes.title}>Account Setting</div>
+
           <div style={{ marginLeft: '25%' }}>
             {loading ? (
               <h3>Loading...</h3>
@@ -192,10 +200,12 @@ function SettingPage() {
                 Email
               </Box>
               <Box p={3} bgcolor="background.paper">
+
                 About Me
               </Box>
               <Box p={3} bgcolor="background.paper">
                 GitHub
+
               </Box>
               <Box p={3} bgcolor="background.paper">
                 Institution
@@ -259,7 +269,9 @@ function SettingPage() {
                 <TextField
                   className={classes.Field}
                   id="github"
+
                   label="github"
+
                   name="github"
                   variant="outlined"
                   error={!!errors.github}

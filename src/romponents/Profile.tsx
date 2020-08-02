@@ -16,6 +16,7 @@ type State = {
   aboutMe: string;
   github: string;
   institution: string;
+  profileImage: string;
   subMission: {
     subMissionFrequency: [
       {
@@ -38,6 +39,7 @@ const Profile = () => {
     aboutMe: '',
     github: '',
     institution: '',
+    profileImage: '',
     subMission: {
       subMissionFrequency: [
         {
@@ -69,6 +71,7 @@ const Profile = () => {
           aboutMe: data.data.userData.aboutMe,
           github: data.data.userData.github,
           institution: data.data.userData.institution,
+          profileImage: data.data.userData.profileImage,
           subMission: {
             subMissionFrequency:
               data.data.userData.subMission.subMissionFrequency,
@@ -79,7 +82,7 @@ const Profile = () => {
       }
     }
   };
-  console.log(profileData);
+  console.log(profileData.profileImage);
   useEffect(() => {
     fetchDetails();
   }, []);
@@ -87,10 +90,22 @@ const Profile = () => {
     <div>
       <Header />
       {profileData ? (
-        <Grid container style={{ padding: '20px' }}>
+        <Grid container>
           <Grid item md={4}>
-            <div>
-              <img src={image} alt="profile" style={{ borderRadius: '100%' }} />
+            <div style={{ padding: '20px' }}>
+              {profileData.profileImage ? (
+                <img
+                  src={profileData.profileImage}
+                  alt="profile"
+                  style={{ width: '250px', borderRadius: '10px' }}
+                />
+              ) : (
+                <img
+                  src={image}
+                  alt="profile"
+                  style={{ borderRadius: '100%' }}
+                />
+              )}
             </div>
             <div style={{ padding: '20px' }}>
               <Typography
@@ -113,7 +128,7 @@ const Profile = () => {
 
               <Typography variant="body1">
                 <a
-                  href={profileData.github}
+                  href={`https://github.com/${profileData.github}`}
                   style={{ textDecoration: 'none', color: '#000' }}
                 >
                   <GitHubIcon />
@@ -123,12 +138,12 @@ const Profile = () => {
             </div>
           </Grid>
           <Grid item md={8}>
-            <Typography component="div" style={{ padding: '20px' }}>
+            <Typography component="div" style={{ paddingTop: '20px' }}>
               <ProfileCard
                 frequency={profileData.subMission.subMissionFrequency}
               />
             </Typography>
-            <Typography component="div" style={{ padding: '20px' }}>
+            <Typography component="div" style={{ paddingTop: '20px' }}>
               <Card>
                 <CardContent>
                   <Typography

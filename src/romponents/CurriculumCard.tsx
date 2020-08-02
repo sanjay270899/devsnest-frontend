@@ -7,9 +7,16 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import ReactGA from 'react-ga';
 
 function CurriculumCard(props: any) {
   const { key, curriculumId, name, duration, slug, url } = props;
+  const handleclick = () => {
+    ReactGA.event({
+      category: 'Navigation',
+      action: 'Moved to Task page',
+    });
+  };
   return (
     <Card className="card" key={key}>
       <Grid container direction="row" justify="space-between">
@@ -41,6 +48,7 @@ function CurriculumCard(props: any) {
               <Link
                 to={`/curriculum/${curriculumId}`}
                 style={{ color: '#fff', textDecoration: 'none' }}
+                onClick={handleclick}
               >
                 Tasks
               </Link>
