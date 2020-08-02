@@ -78,9 +78,10 @@ function SettingPage() {
 
   const handleChange = async (event: any) => {
     setUserUpdate({ ...userUpdate, [event.target.name]: event.target.value });
+  };
+  const handleImageChange = (event: any) => {
     handleUpload(event.target.files[0]);
   };
-
   // Setting profile
 
   const handleUpload = async (file: any) => {
@@ -175,7 +176,7 @@ function SettingPage() {
                 <input
                   id="file-upload"
                   type="file"
-                  onChange={handleChange}
+                  onChange={handleImageChange}
                   style={{ display: 'flex' }}
                 />
               </div>
