@@ -146,14 +146,14 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
             </Grid>
           </Grid>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
-            <div>
+            <div style={{ backgroundColor: 'green' }}>
               <Grid
                 container
                 direction="row"
                 justify="space-between"
                 alignItems="flex-end"
               >
-                <Grid item>
+                <Grid item xs={12} style={{ backgroundColor: 'red' }}>
                   <CardContent>
                     {subTasks
                       ? subTasks.map((subTask: any) => {
@@ -161,10 +161,20 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                             <>
                               <Typography gutterBottom component="h6">
                                 <Grid
+                                  style={{ backgroundColor: 'yellow' }}
                                   container
                                   direction="row"
                                   justify="space-between"
                                 >
+                                  <Grid
+                                    item
+                                    xs={3}
+                                    style={{
+                                      alignSelf: 'center',
+                                    }}
+                                  >
+                                    {subTask.name}
+                                  </Grid>
                                   <Grid
                                     item
                                     style={{
@@ -183,14 +193,6 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                                         style={{ fontSize: '30px' }}
                                       />
                                     ) : null}
-                                  </Grid>
-                                  <Grid
-                                    item
-                                    style={{
-                                      alignSelf: 'center',
-                                    }}
-                                  >
-                                    {subTask.name}
                                   </Grid>
 
                                   <Grid

@@ -24,9 +24,7 @@ const App: React.ElementType = () => {
           <Route exact path="/" component={ListOfCurriculum} />
           <Route exact path="/curriculum/:id" component={Curriculum} />
           <Route exact path="/profile" component={Profile} />
-
           <Route exact path="/setting" component={Setting} />
-
         </Switch>
       </Router>
     </div>

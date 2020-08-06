@@ -12,7 +12,6 @@ import { CircularProgress } from '@material-ui/core';
 
 import Image from '../images/dummy.png';
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -30,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
   },
 
   title: {
-
     marginTop: '5%',
     fontSize: '300%',
     textAlign: 'center',
@@ -63,6 +61,7 @@ type State = {
   aboutMe: string;
   github: string;
   institution: string;
+  profileImage: string;
 };
 function SettingPage() {
   const classes = useStyles();
@@ -74,6 +73,7 @@ function SettingPage() {
     aboutMe: '',
     github: '',
     institution: '',
+    profileImage: '',
   });
   const [loading, setLoading] = useState(false);
 
@@ -82,11 +82,11 @@ function SettingPage() {
   const handleChange = async (event: any) => {
     setUserUpdate({ ...userUpdate, [event.target.name]: event.target.value });
   };
+
   const handleImageChange = (event: any) => {
     handleUpload(event.target.files[0]);
   };
   // Setting profile
-
   const handleUpload = async (file: any) => {
     let token: string = localStorage.getItem('Token') || '';
     if (token != '') {
@@ -103,6 +103,7 @@ function SettingPage() {
         .post('api/users/uploadProfileImage', formData, config)
         .then((res) => {
           setImage(res.data.data.ImageUri);
+          console.log(res, 'yee kya ab');
         });
     }
   };
@@ -118,6 +119,7 @@ function SettingPage() {
           Authorization: `Bearer ${token}`,
         },
       });
+      console.log(res, 'oooo');
       const { data } = res;
       if (data !== {}) {
         userData = {
@@ -126,26 +128,22 @@ function SettingPage() {
           aboutMe: data.data.userData.aboutMe,
           github: data.data.userData.github,
           institution: data.data.userData.institution,
+          profileImage: data.data.userData.profileImage,
         };
         setUserUpdate(userData);
       }
-
-
     }
   }
-
 
   useEffect(() => {
     fetchMyAPI();
   }, []);
-
 
   // Setting POST
   const submit = async (e: any) => {
     let token: string = localStorage.getItem('Token') || '';
     setLoading(true);
     if (token != '') {
-
       await axios
         .post('/api/users', userUpdate, {
           headers: {
@@ -154,7 +152,7 @@ function SettingPage() {
         })
         .then((res) => {
           setLoading(false);
-
+          console.log(res, 'abeeeeee ');
         })
         .catch((e) => {});
     }
@@ -173,7 +171,7 @@ function SettingPage() {
             ) : (
               <div>
                 <img
-                  src={image}
+                  src={userUpdate.profileImage}
                   style={{
                     width: '150px',
                     borderRadius: '50%',
@@ -200,12 +198,10 @@ function SettingPage() {
                 Email
               </Box>
               <Box p={3} bgcolor="background.paper">
-
                 About Me
               </Box>
               <Box p={3} bgcolor="background.paper">
                 GitHub
-
               </Box>
               <Box p={3} bgcolor="background.paper">
                 Institution
@@ -269,9 +265,7 @@ function SettingPage() {
                 <TextField
                   className={classes.Field}
                   id="github"
-
                   label="github"
-
                   name="github"
                   variant="outlined"
                   error={!!errors.github}
