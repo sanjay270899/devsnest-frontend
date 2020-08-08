@@ -12,7 +12,6 @@ import { CircularProgress } from '@material-ui/core';
 
 import Image from '../images/dummy.png';
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -30,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
   },
 
   title: {
-
     marginTop: '5%',
     fontSize: '300%',
     textAlign: 'center',
@@ -129,23 +127,18 @@ function SettingPage() {
         };
         setUserUpdate(userData);
       }
-
-
     }
   }
-
 
   useEffect(() => {
     fetchMyAPI();
   }, []);
 
-
   // Setting POST
   const submit = async (e: any) => {
     let token: string = localStorage.getItem('Token') || '';
     setLoading(true);
-    if (token != '') {
-
+    if (token !== '') {
       await axios
         .post('/api/users', userUpdate, {
           headers: {
@@ -154,7 +147,6 @@ function SettingPage() {
         })
         .then((res) => {
           setLoading(false);
-
         })
         .catch((e) => {});
     }
@@ -200,12 +192,10 @@ function SettingPage() {
                 Email
               </Box>
               <Box p={3} bgcolor="background.paper">
-
                 About Me
               </Box>
               <Box p={3} bgcolor="background.paper">
                 GitHub
-
               </Box>
               <Box p={3} bgcolor="background.paper">
                 Institution
@@ -269,9 +259,7 @@ function SettingPage() {
                 <TextField
                   className={classes.Field}
                   id="github"
-
                   label="github"
-
                   name="github"
                   variant="outlined"
                   error={!!errors.github}

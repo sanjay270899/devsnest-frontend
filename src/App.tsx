@@ -7,6 +7,7 @@ import ListOfCurriculum from './romponents/ListOfCurriculum';
 import Curriculum from './romponents/Curriculum';
 import Profile from './romponents/Profile';
 import Setting from './romponents/Setting';
+import Containergbu from './Gbu/Containergbu';
 
 import ReactGA from 'react-ga';
 
@@ -24,9 +25,8 @@ const App: React.ElementType = () => {
           <Route exact path="/" component={ListOfCurriculum} />
           <Route exact path="/curriculum/:id" component={Curriculum} />
           <Route exact path="/profile" component={Profile} />
-
-          <Route exact path="/setting" component={Setting} />
-
+          <Route exact path="/settings" component={Setting} />
+          <Route exact path="/gbu" component={Containergbu} />
         </Switch>
       </Router>
     </div>
