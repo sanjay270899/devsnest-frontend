@@ -5,12 +5,13 @@ import Button from '@material-ui/core/Button';
 import ReactHtmlParser from 'react-html-parser';
 import '../App.css';
 
-const GbuEditor = () => {
+const GbuEditor = ({ addGbu }) => {
   const [value, setValue] = useState('');
-  const handleOnChange = (e: any, editor: any) => {
-    const data = editor.getData();
-    console.log(data);
+
+  const handleSubmit = () => {
+    addGbu(value);
   };
+
   return (
     <div
       style={{
@@ -25,7 +26,6 @@ const GbuEditor = () => {
         data="<p>Please Enter your GBU</p>"
         onInit={(editor: any) => {
           // You can store the "editor" and use when it is needed.
-          console.log('Editor is ready to use!', editor);
         }}
         onChange={(event: any, editor: any) => {
           const data = editor.getData();
@@ -35,7 +35,7 @@ const GbuEditor = () => {
       />
 
       <div style={{ paddingTop: '10px ' }}>
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" onClick={handleSubmit}>
           Submit
         </Button>
       </div>

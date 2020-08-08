@@ -2,10 +2,6 @@ import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -36,7 +32,7 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function FormDialog() {
+export default function FormDialog(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -78,7 +74,7 @@ export default function FormDialog() {
           </Toolbar>
         </AppBar>
         <Container>
-          <GbuEditor />
+          <GbuEditor addGbu={props.addGbu} />
         </Container>
       </Dialog>
     </div>

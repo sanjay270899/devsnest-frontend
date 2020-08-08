@@ -87,7 +87,7 @@ function SettingPage() {
 
   const handleUpload = async (file: any) => {
     let token: string = localStorage.getItem('Token') || '';
-    if (token != '') {
+    if (token !== '') {
       const formData = new FormData();
       formData.append('profileImage', file);
 
