@@ -3,8 +3,9 @@ import Card from '@material-ui/core/Card';
 import Checkbox from '@material-ui/core/Checkbox';
 import CardContent from '@material-ui/core/CardContent';
 import { Pie } from 'react-chartjs-2';
+import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import { Grid } from '@material-ui/core';
+import { Grid, Paper } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
@@ -14,6 +15,37 @@ import Collapse from '@material-ui/core/Collapse';
 import axios from '../config/axios.config';
 import { Redirect } from 'react-router';
 import ReactGA from 'react-ga';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableRow from '@material-ui/core/TableRow';
+
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 25,
+  },
+}))(TableCell);
+
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    '&:hover': {
+      cursor: 'pointer',
+      backgroundColor: 'rgba(0, 0, 0, 0.04)',
+    },
+  },
+}))(TableRow);
+
+const useStyles = makeStyles({
+  table: {
+    minWidth: 700,
+  },
+});
 
 export interface Props {
   percentageCompleted: number;
@@ -22,6 +54,8 @@ export interface Props {
 }
 
 function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
+  const classes = useStyles();
+
   const [expanded, setExpanded] = useState(false);
   const [subTasks, setSubTasks] = useState([]);
   const { id: chapterId } = task;
@@ -101,6 +135,7 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
       },
     ],
   };
+
   return (
     <>
       <div className="container" key={task.id}>
@@ -146,105 +181,98 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
             </Grid>
           </Grid>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
-            <div style={{ backgroundColor: 'green' }}>
+            <div style={{}}>
               <Grid
                 container
                 direction="row"
                 justify="space-between"
                 alignItems="flex-end"
               >
-                <Grid item xs={12} style={{ backgroundColor: 'red' }}>
-                  <CardContent>
-                    {subTasks
-                      ? subTasks.map((subTask: any) => {
-                          return (
-                            <>
-                              <Typography gutterBottom component="h6">
-                                <Grid
-                                  style={{ backgroundColor: 'yellow' }}
-                                  container
-                                  direction="row"
-                                  justify="space-between"
-                                >
-                                  <Grid
-                                    item
-                                    xs={3}
-                                    style={{
-                                      alignSelf: 'center',
-                                    }}
-                                  >
-                                    {subTask.name}
-                                  </Grid>
-                                  <Grid
-                                    item
-                                    style={{
-                                      alignSelf: 'center',
-                                      padding: '20px',
-                                    }}
-                                  >
+                <Grid item xs={12} style={{}}>
+                  <Container>
+                    <TableContainer component={Paper}>
+                      <Table
+                        className={classes.table}
+                        aria-label="customized table"
+                      >
+                        <TableBody>
+                          {subTasks
+                            ? subTasks.map((subTask: any) => (
+                                <StyledTableRow>
+                                  <StyledTableCell>
                                     {subTask.type === 'QUESTION' ? (
                                       <HelpOutlineIcon
-                                        style={{ fontSize: '30px' }}
+                                        style={{ fontSize: '50px' }}
                                       />
                                     ) : subTask.type === 'TUTORIAL' ? (
-                                      <BookIcon style={{ fontSize: '30px' }} />
+                                      <BookIcon style={{ fontSize: '50px' }} />
                                     ) : subTask.type === 'VIDEO' ? (
                                       <MovieCreationIcon
                                         style={{ fontSize: '30px' }}
                                       />
                                     ) : null}
-                                  </Grid>
-
-                                  <Grid
-                                    item
-                                    style={{
-                                      alignSelf: 'center',
-                                      padding: '20px',
-                                    }}
-                                  >
+                                  </StyledTableCell>
+                                  <StyledTableCell>
+                                    <a
+                                      className="textHover"
+                                      style={{
+                                        textDecoration: 'none',
+                                        color: '#0e141e',
+                                      }}
+                                      href={subTask.url}
+                                    >
+                                      {' '}
+                                      {subTask.name}
+                                    </a>
+                                  </StyledTableCell>
+                                  <StyledTableCell align="right">
                                     {subTask.url && (
                                       <ReactGA.OutboundLink
                                         eventLabel="CourseLink"
                                         to={subTask.url}
                                         target="_blank"
                                       >
-                                        Link
+                                        {/* link */}
+                                        {/* <LinkIcon
+                                          style={{ fontSize: '40px' }}
+                                        /> */}
                                       </ReactGA.OutboundLink>
-                                      // <a href=>Link</a>
                                     )}
-                                  </Grid>
-                                  <Grid
-                                    item
-                                    style={{
-                                      alignSelf: 'center',
-                                      padding: '20px',
-                                    }}
-                                  >
-                                    <Checkbox
-                                      onClick={() =>
-                                        changeStatus(
-                                          subTask.id,
+                                  </StyledTableCell>
+                                  <StyledTableCell align="right">
+                                    {
+                                      <Checkbox
+                                        onClick={() =>
+                                          changeStatus(
+                                            subTask.id,
+                                            subTask.status === 'DONE'
+                                              ? 'UNDONE'
+                                              : 'DONE'
+                                          )
+                                        }
+                                        color="primary"
+                                        inputProps={{
+                                          'aria-label': 'secondary checkbox',
+                                        }}
+                                        checked={
                                           subTask.status === 'DONE'
-                                            ? 'UNDONE'
-                                            : 'DONE'
-                                        )
-                                      }
-                                      color="primary"
-                                      inputProps={{
-                                        'aria-label': 'secondary checkbox',
-                                      }}
-                                      checked={
-                                        subTask.status === 'DONE' ? true : false
-                                      }
-                                    />
-                                  </Grid>
-                                </Grid>
-                              </Typography>
-                            </>
-                          );
-                        })
-                      : null}
-                  </CardContent>
+                                            ? true
+                                            : false
+                                        }
+                                      />
+                                    }
+                                  </StyledTableCell>
+
+                                  <StyledTableCell align="right">
+                                    {}
+                                  </StyledTableCell>
+                                </StyledTableRow>
+                              ))
+                            : null}
+                        </TableBody>
+                      </Table>
+                    </TableContainer>
+                  </Container>
                 </Grid>
               </Grid>
             </div>

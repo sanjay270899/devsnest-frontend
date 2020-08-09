@@ -36,3 +36,7 @@ Card {
 .react-calendar-heatmap .color-scale-4 {
   fill: #1e6823;
 }
+
+.textHover:hover {
+  color: blue !important;
+}
