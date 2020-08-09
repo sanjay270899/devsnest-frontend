@@ -36,6 +36,6 @@ Card {
 .react-calendar-heatmap .color-scale-4 {
   fill: hsl(124, 55%, 26%);
 }
-.ck.ck-editor__main > .ck-editor__editable:not(.ck-focused) {
+/* .ck.ck-editor__main > .ck-editor__editable:not(.ck-focused) {
   height: 200px;
-}
+} */

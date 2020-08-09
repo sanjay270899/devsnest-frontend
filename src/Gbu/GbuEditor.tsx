@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Button from '@material-ui/core/Button';
-import ReactHtmlParser from 'react-html-parser';
+
 import '../App.css';
 
-const GbuEditor = ({ addGbu }) => {
+const GbuEditor = ({ addGbu, handleClose }) => {
   const [value, setValue] = useState('');
 
   const handleSubmit = () => {
     addGbu(value);
+    handleClose();
   };
 
   return (
@@ -29,9 +30,8 @@ const GbuEditor = ({ addGbu }) => {
         }}
         onChange={(event: any, editor: any) => {
           const data = editor.getData();
-          setValue(ReactHtmlParser(data));
+          setValue(data);
         }}
-        height="200px"
       />
 
       <div style={{ paddingTop: '10px ' }}>

@@ -5,17 +5,17 @@ import Header from '../romponents/Header';
 import Container from '@material-ui/core/Container';
 import FormDialog from './GbuDialog';
 
-const Componentgbu = (props) => {
+const Componentgbu = ({ gbu, addGbu }) => {
   return (
     <div>
       <Header />
       <Container>
         <Grid container style={{ paddingTop: '20px' }}>
           <Grid item md={1}>
-            <FormDialog addGbu={props.addGbu} />
+            <FormDialog addGbu={addGbu} />
           </Grid>
           <Grid item md={11}>
-            <GbuCard gbu={props.gbu} />
+            <GbuCard gbu={gbu} />
           </Grid>
         </Grid>
       </Container>

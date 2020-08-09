@@ -56,6 +56,9 @@ export default function Header() {
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleMenu}
           >
             <MenuIcon />
           </IconButton>
@@ -70,7 +73,6 @@ export default function Header() {
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                onClick={handleMenu}
                 color="inherit"
               >
                 <AccountCircle />
@@ -105,6 +107,14 @@ export default function Header() {
                     style={{ color: '#000', textDecoration: 'none' }}
                   >
                     Settings
+                  </Link>
+                </MenuItem>
+                <MenuItem onClick={handleClose} style={{ color: '#000' }}>
+                  <Link
+                    to="/gbu"
+                    style={{ color: '#000', textDecoration: 'none' }}
+                  >
+                    Gbu
                   </Link>
                 </MenuItem>
                 <MenuItem onClick={handleClick}>

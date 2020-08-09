@@ -32,7 +32,7 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function FormDialog(props) {
+export default function FormDialog({ addGbu }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -74,7 +74,7 @@ export default function FormDialog(props) {
           </Toolbar>
         </AppBar>
         <Container>
-          <GbuEditor addGbu={props.addGbu} />
+          <GbuEditor addGbu={addGbu} handleClose={handleClose} />
         </Container>
       </Dialog>
     </div>

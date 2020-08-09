@@ -10,29 +10,31 @@ const Containergbu = () => {
     description: '',
   });
   const token: string = localStorage.getItem('Token') || '';
-  console.log(token);
   const fetchDetails = async () => {
     if (token !== '') {
-      const res = await axios.get('/api/users/gbu', {
+      const res = await axios.get('/api/users/allGbu', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
       const { data } = res;
+
       setGbu(data.data);
     }
   };
 
   useEffect(() => {
     fetchDetails();
-  }, []);
+  }, [userGbu]);
 
   const addGbu = (item: any) => {
+    let value = '';
     const newgbu = {
       description: item,
     };
     setUserGbu(newgbu);
   };
+  console.log(userGbu);
   const handlePost = () => {
     axios
       .post('api/users/gbu', userGbu, {
