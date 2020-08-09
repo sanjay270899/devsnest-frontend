@@ -202,10 +202,10 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                                   <StyledTableCell>
                                     {subTask.type === 'QUESTION' ? (
                                       <HelpOutlineIcon
-                                        style={{ fontSize: '50px' }}
+                                        style={{ fontSize: '60px' }}
                                       />
                                     ) : subTask.type === 'TUTORIAL' ? (
-                                      <BookIcon style={{ fontSize: '50px' }} />
+                                      <BookIcon style={{ fontSize: '60px' }} />
                                     ) : subTask.type === 'VIDEO' ? (
                                       <MovieCreationIcon
                                         style={{ fontSize: '30px' }}

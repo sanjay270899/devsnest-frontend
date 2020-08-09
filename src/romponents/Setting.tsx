@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    marginTop: 50,
+    marginTop: 20,
     [theme.breakpoints.up(1000 + theme.spacing(2) * 2)]: {
       marginLeft: 'auto',
       marginRight: 'auto',
@@ -193,9 +193,9 @@ function SettingPage() {
       <Header />
       <Grid container spacing={3}>
         <Grid item xs={12} sm={12}>
-          <div className={classes.title}>Account Setting</div>
+          <div className={classes.title}>Account Settings</div>
           {image ? (
-            <div style={{ marginLeft: '25%' }}>
+            <div style={{ textAlign: 'center' }}>
               {image.profileImage ? (
                 <img
                   src={image.profileImage}
@@ -242,7 +242,7 @@ function SettingPage() {
                 GitHub
               </Box>
               <Box p={3} bgcolor="background.paper">
-                Institution
+                Institution Name
               </Box>
             </div>
 
