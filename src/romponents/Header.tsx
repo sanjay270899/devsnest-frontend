@@ -160,7 +160,7 @@ export default function PersistentDrawerLeft() {
 
           <MenuItem onClick={handleClose} style={{ color: '#000' }}>
             <Link
-              to="/Setting"
+              to="/settings"
               style={{
                 color: '#000',
                 textDecoration: 'none',
