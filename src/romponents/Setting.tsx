@@ -10,7 +10,9 @@ import Box from '@material-ui/core/Box';
 import { useForm } from 'react-hook-form';
 import { CircularProgress } from '@material-ui/core';
 
-import Image from '../images/dummy.png';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import { types } from 'util';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    marginTop: 50,
+    marginTop: 20,
     [theme.breakpoints.up(1000 + theme.spacing(2) * 2)]: {
       marginLeft: 'auto',
       marginRight: 'auto',
@@ -46,6 +48,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
   },
 
+  input: {
+    display: 'none',
+  },
+
   list: {
     position: 'absolute',
     padding: theme.spacing(2),
@@ -62,6 +68,11 @@ type State = {
   github: string;
   institution: string;
 };
+
+type States = {
+  profileImage: string;
+};
+
 function SettingPage() {
   const classes = useStyles();
   const { register, handleSubmit, errors } = useForm();
@@ -73,18 +84,42 @@ function SettingPage() {
     github: '',
     institution: '',
   });
-  const [loading, setLoading] = useState(false);
 
-  const [image, setImage] = useState(Image);
+  const [loading, setLoading] = useState(false);
+  const [image, setImage] = useState({
+    profileImage: '',
+  });
 
   const handleChange = async (event: any) => {
     setUserUpdate({ ...userUpdate, [event.target.name]: event.target.value });
   };
+
   const handleImageChange = (event: any) => {
     handleUpload(event.target.files[0]);
   };
-  // Setting profile
 
+  let userImage: States | null = null;
+  async function fetchGet() {
+    if (token !== '') {
+      const res = await axios.get(`/api/users`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const { data } = res;
+      if (data !== {}) {
+        userImage = {
+          profileImage: data.data.userData.profileImage,
+        };
+        setImage(userImage);
+      }
+    }
+  }
+
+  useEffect(() => {
+    fetchGet();
+  }, []);
+  // Setting profile
   const handleUpload = async (file: any) => {
     let token: string = localStorage.getItem('Token') || '';
     if (token !== '') {
@@ -101,13 +136,14 @@ function SettingPage() {
         .post('api/users/uploadProfileImage', formData, config)
         .then((res) => {
           setImage(res.data.data.ImageUri);
+          console.log(res, 'yee kya ');
         });
     }
   };
 
   // Setting GET
 
-  let token: string = localStorage.getItem('Token') || '';
+  var token: string = localStorage.getItem('Token') || '';
   let userData: State | null = null;
   async function fetchMyAPI() {
     if (token !== '') {
@@ -116,6 +152,7 @@ function SettingPage() {
           Authorization: `Bearer ${token}`,
         },
       });
+      console.log(res, 'oooo');
       const { data } = res;
       if (data !== {}) {
         userData = {
@@ -138,7 +175,9 @@ function SettingPage() {
   const submit = async (e: any) => {
     let token: string = localStorage.getItem('Token') || '';
     setLoading(true);
-    if (token !== '') {
+
+    if (token != '') {
+
       await axios
         .post('/api/users', userUpdate, {
           headers: {
@@ -147,6 +186,9 @@ function SettingPage() {
         })
         .then((res) => {
           setLoading(false);
+
+          console.log(res, 'abeeeeee ');
+
         })
         .catch((e) => {});
     }
@@ -157,32 +199,40 @@ function SettingPage() {
       <Header />
       <Grid container spacing={3}>
         <Grid item xs={12} sm={12}>
-          <div className={classes.title}>Account Setting</div>
-
-          <div style={{ marginLeft: '25%' }}>
-            {loading ? (
-              <h3>Loading...</h3>
-            ) : (
-              <div>
+          <div className={classes.title}>Account Settings</div>
+          {image ? (
+            <div style={{ textAlign: 'center' }}>
+              {image.profileImage ? (
                 <img
-                  src={image}
+                  src={image.profileImage}
+                  alt="profile"
                   style={{
                     width: '150px',
                     borderRadius: '50%',
                     height: '150px',
                   }}
-                  alt="img"
                 />
+              ) : (
+                <AccountCircleIcon
+                  style={{ height: 100, width: 100, color: 'gray' }}
+                />
+              )}
+              <div>
                 <input
+                  className={classes.input}
                   id="file-upload"
-                  type="file"
                   onChange={handleImageChange}
-                  style={{ display: 'flex' }}
+                  multiple
+                  type="file"
                 />
+                <label htmlFor="file-upload">
+                  <Button variant="contained" component="span">
+                    Upload Profile
+                  </Button>
+                </label>
               </div>
-            )}
-          </div>
-
+            </div>
+          ) : null}
           <Paper className={classes.paper}>
             <div className={classes.list}>
               <Box p={3} bgcolor="background.paper">
@@ -198,7 +248,7 @@ function SettingPage() {
                 GitHub
               </Box>
               <Box p={3} bgcolor="background.paper">
-                Institution
+                Institution Name
               </Box>
             </div>
 
