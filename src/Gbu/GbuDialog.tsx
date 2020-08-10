@@ -32,7 +32,7 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function FormDialog({ addGbu }) {
+export default function FormDialog({ addGbu, status }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -46,9 +46,12 @@ export default function FormDialog({ addGbu }) {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        <AddCircleIcon />
-      </Button>
+      {status ? (
+        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+          <AddCircleIcon />
+        </Button>
+      ) : null}
+
       <Dialog
         fullScreen
         open={open}

@@ -39,7 +39,6 @@ const GbuEditor = ({ addGbu, handleClose }) => {
           Submit
         </Button>
       </div>
-      {value}
     </div>
   );
 };

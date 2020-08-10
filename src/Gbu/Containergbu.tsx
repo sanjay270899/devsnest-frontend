@@ -9,6 +9,7 @@ const Containergbu = () => {
   const [userGbu, setUserGbu] = useState({
     description: '',
   });
+  const [status, setStatus] = useState(true);
   const token: string = localStorage.getItem('Token') || '';
   const fetchDetails = async () => {
     if (token !== '') {
@@ -26,7 +27,20 @@ const Containergbu = () => {
   useEffect(() => {
     fetchDetails();
   }, [userGbu]);
-
+  const fetchStatus = async () => {
+    if (token !== '') {
+      const res = await axios.get('/api/users/gbuStatus', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const { data } = res;
+      setStatus(data.data.isGbuPending);
+    }
+  };
+  useEffect(() => {
+    fetchStatus();
+  }, [userGbu]);
   const addGbu = (item: any) => {
     let value = '';
     const newgbu = {
@@ -34,7 +48,7 @@ const Containergbu = () => {
     };
     setUserGbu(newgbu);
   };
-  console.log(userGbu);
+  console.log(status);
   const handlePost = () => {
     axios
       .post('api/users/gbu', userGbu, {
@@ -43,7 +57,7 @@ const Containergbu = () => {
         },
       })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
       })
       .catch((error) => {
         console.log(error);
@@ -54,7 +68,7 @@ const Containergbu = () => {
   }, [userGbu]);
   return (
     <div>
-      <Componentgbu gbu={gbu} addGbu={addGbu} />
+      <Componentgbu gbu={gbu} addGbu={addGbu} status={status} />
     </div>
   );
 };
