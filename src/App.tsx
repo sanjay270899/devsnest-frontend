@@ -7,18 +7,23 @@ import ListOfCurriculum from './romponents/ListOfCurriculum';
 import Curriculum from './romponents/Curriculum';
 import Profile from './romponents/Profile';
 import Setting from './romponents/Setting';
+import Containergbu from './Gbu/Containergbu';
 
 import ReactGA from 'react-ga';
 
 const App: React.ElementType = () => {
   useEffect(() => {
-    ReactGA.initialize('UA-173643032-1');
+    let code: any =
+      process.env.NODE_ENV == 'production'
+        ? process.env.REACT_APP_GA_TRACKING_ID_PROD
+        : process.env.REACT_APP_GA_TRACKING_ID_DEV;
+    ReactGA.initialize(code);
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
   return (
     <div>
       <Router>
-        <Switch>
+       <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/" component={ListOfCurriculum} />
@@ -26,6 +31,7 @@ const App: React.ElementType = () => {
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/setting" component={Setting} />
         </Switch>
+        
       </Router>
     </div>
   );
