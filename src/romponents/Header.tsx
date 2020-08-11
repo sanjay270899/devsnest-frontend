@@ -162,73 +162,65 @@ export default function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List>
-          <ListItem button>
-            <ListItemIcon>
-              <AccountCircleIcon />
-            </ListItemIcon>
+          <Link to="/profile" style={{ color: '#000', textDecoration: 'none' }}>
+            <ListItem button>
+              <ListItemIcon>
+                <AccountCircleIcon />
+              </ListItemIcon>
 
-            <MenuItem onClick={handleClose} style={{ color: '#000' }}>
-              <Link
-                to="/profile"
-                style={{ color: '#000', textDecoration: 'none' }}
-              >
+              <MenuItem onClick={handleClose} style={{ color: '#000' }}>
                 Profile
-              </Link>
-            </MenuItem>
-          </ListItem>
+              </MenuItem>
+            </ListItem>
+          </Link>
+          <Link
+            to="/settings"
+            style={{
+              color: '#000',
+              textDecoration: 'none',
+            }}
+          >
+            <ListItem button>
+              <ListItemIcon>
+                <SettingsIcon />
+              </ListItemIcon>
 
-          <ListItem button>
-            <ListItemIcon>
-              <SettingsIcon />
-            </ListItemIcon>
-
-            <MenuItem onClick={handleClose} style={{ color: '#000' }}>
-              <Link
-                to="/settings"
-                style={{
-                  color: '#000',
-                  textDecoration: 'none',
-                }}
-              >
+              <MenuItem onClick={handleClose} style={{ color: '#000' }}>
                 Settings
-              </Link>
-            </MenuItem>
-          </ListItem>
+              </MenuItem>
+            </ListItem>
+          </Link>
+          <Link
+            to="/gbu"
+            style={{
+              color: '#000',
+              textDecoration: 'none',
+            }}
+          >
+            <ListItem button>
+              <ListItemIcon>
+                <FeedbackIcon />
+              </ListItemIcon>
 
-          <ListItem button>
-            <ListItemIcon>
-              <FeedbackIcon />
-            </ListItemIcon>
-
-            <MenuItem onClick={handleClose} style={{ color: '#000' }}>
-              <Link
-                to="/gbu"
-                style={{
-                  color: '#000',
-                  textDecoration: 'none',
-                }}
-              >
+              <MenuItem onClick={handleClose} style={{ color: '#000' }}>
                 GBU
-              </Link>
-            </MenuItem>
-          </ListItem>
-
-          <ListItem button>
-            <ListItemIcon>
-              <ExitToAppIcon />
-            </ListItemIcon>
-            <MenuItem onClick={handleClick}>
-              <Link
-                to="/login"
-                style={{
-                  color: '#000',
-                  textDecoration: 'none',
-                }}
-              >
-                Logout
-              </Link>
-            </MenuItem>
-          </ListItem>
+              </MenuItem>
+            </ListItem>
+          </Link>
+          <Link
+            to="/login"
+            style={{
+              color: '#000',
+              textDecoration: 'none',
+            }}
+          >
+            <ListItem button>
+              <ListItemIcon>
+                <ExitToAppIcon />
+              </ListItemIcon>
+              <MenuItem onClick={handleClick}>Logout</MenuItem>
+            </ListItem>
+          </Link>
         </List>
 
         <Divider />
