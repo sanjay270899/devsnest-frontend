@@ -24,7 +24,7 @@ const GbuEditor = ({ addGbu, handleClose }) => {
       <h3></h3>
       <CKEditor
         editor={ClassicEditor}
-        data="<p>Please Enter your GBU</p>"
+        data=""
         onInit={(editor: any) => {
           // You can store the "editor" and use when it is needed.
         }}

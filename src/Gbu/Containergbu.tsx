@@ -35,7 +35,8 @@ const Containergbu = () => {
         },
       });
       const { data } = res;
-      setStatus(data.data.isGbuPending);
+      // console.log(data.data.isGbuPending);
+      if (data.data) setStatus(data.data.isGbuPending);
     }
   };
   useEffect(() => {
