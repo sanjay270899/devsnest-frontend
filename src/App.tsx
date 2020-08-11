@@ -30,6 +30,7 @@ const App: React.ElementType = () => {
           <Route exact path="/curriculum/:id" component={Curriculum} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/settings" component={Setting} />
+          <Route exact path="/gbu" component={Containergbu} />
         </Switch>
       </Router>
     </div>

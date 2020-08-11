@@ -120,7 +120,7 @@ export default function PersistentDrawerLeft() {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
-        position="fixed"
+        position="static"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
@@ -128,10 +128,10 @@ export default function PersistentDrawerLeft() {
         <Toolbar>
           <IconButton
             color="inherit"
-            aria-label="menu"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            onClick={handleMenu}
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={clsx(classes.menuButton, open && classes.hide)}
           >
             <MenuIcon />
           </IconButton>
@@ -140,88 +140,99 @@ export default function PersistentDrawerLeft() {
               Devnest
             </Link>
           </Typography>
-          {auth && (
-            <div>
-              <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                color="inherit"
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        className={classes.drawer}
+        variant="persistent"
+        anchor="left"
+        open={open}
+        classes={{
+          paper: classes.drawerPaper,
+        }}
+      >
+        <div className={classes.drawerHeader}>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'ltr' ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
+          </IconButton>
+        </div>
+        <Divider />
+        <List>
+          <ListItem button>
+            <ListItemIcon>
+              <AccountCircleIcon />
+            </ListItemIcon>
+
+            <MenuItem onClick={handleClose} style={{ color: '#000' }}>
+              <Link
+                to="/profile"
+                style={{ color: '#000', textDecoration: 'none' }}
               >
                 Profile
               </Link>
             </MenuItem>
           </ListItem>
 
-        <ListItem button>
-          <ListItemIcon>
-            <SettingsIcon />
-          </ListItemIcon>
+          <ListItem button>
+            <ListItemIcon>
+              <SettingsIcon />
+            </ListItemIcon>
 
-          <MenuItem onClick={handleClose} style={{ color: '#000' }}>
-            <Link
-              to="/settings"
-              style={{
-                color: '#000',
-                textDecoration: 'none',
-              }}
-            >
-              Settings
+            <MenuItem onClick={handleClose} style={{ color: '#000' }}>
+              <Link
+                to="/settings"
+                style={{
+                  color: '#000',
+                  textDecoration: 'none',
+                }}
+              >
+                Settings
               </Link>
-          </MenuItem>
-        </ListItem>
+            </MenuItem>
+          </ListItem>
 
-        <ListItem button>
-          <ListItemIcon>
-            <FeedbackIcon />
-          </ListItemIcon>
+          <ListItem button>
+            <ListItemIcon>
+              <FeedbackIcon />
+            </ListItemIcon>
 
-          <MenuItem onClick={handleClose} style={{ color: '#000' }}>
-            <Link
-              to="/"
-              style={{
-                color: '#000',
-                textDecoration: 'none',
-              }}
-            >
-              <MenuItem onClick={handleClose} style={{ color: '#000' }}>
-                <Link
-                  to="/profile"
-                  style={{ color: '#000', textDecoration: 'none' }}
-                >
-                  Profile
-                  </Link>
-              </MenuItem>
+            <MenuItem onClick={handleClose} style={{ color: '#000' }}>
+              <Link
+                to="/gbu"
+                style={{
+                  color: '#000',
+                  textDecoration: 'none',
+                }}
+              >
+                GBU
+              </Link>
+            </MenuItem>
+          </ListItem>
 
-              <MenuItem onClick={handleClose} style={{ color: '#000' }}>
-                <Link
-                  to="/settings"
-                  style={{ color: '#000', textDecoration: 'none' }}
-                >
-                  Settings
-                  </Link>
-              </MenuItem>
-              <MenuItem onClick={handleClose} style={{ color: '#000' }}>
-                <Link
-                  to="/gbu"
-                  style={{ color: '#000', textDecoration: 'none' }}
-                >
-                  Gbu
-                  </Link>
-              </MenuItem>
-              <MenuItem onClick={handleClick}>
-                <Link
-                  to="/login"
-                  style={{ color: '#000', textDecoration: 'none' }}
-                >
-                  Logout
-                  </Link>
-              </MenuItem>
-              </Menu>
-            </div>
-          )}
-        </Toolbar>
-      </AppBar>
+          <ListItem button>
+            <ListItemIcon>
+              <ExitToAppIcon />
+            </ListItemIcon>
+            <MenuItem onClick={handleClick}>
+              <Link
+                to="/login"
+                style={{
+                  color: '#000',
+                  textDecoration: 'none',
+                }}
+              >
+                Logout
+              </Link>
+            </MenuItem>
+          </ListItem>
+        </List>
+
+        <Divider />
+      </Drawer>
     </div>
   );
 }
