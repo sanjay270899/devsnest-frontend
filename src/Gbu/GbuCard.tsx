@@ -49,7 +49,8 @@ const GbuCard = ({ gbu }) => {
                 style={{ textAlign: 'right', padding: '20px' }}
               >
                 <b>Posted At :</b> &nbsp;
-                {Moment(item.createdAt).format('d MMM')}
+                {/* {console.log(Moment(item.createdAt).format('MM/DD/YYYY')} */}
+                {Moment(item.createdAt).format('DD/MM/YYYY')}
               </Typography>
             </Card>
           </div>
