@@ -35,13 +35,17 @@ const Containergbu = () => {
         },
       });
       const { data } = res;
-      // console.log(data.data.isGbuPending);
-      if (data.data) setStatus(data.data.isGbuPending);
+      if (data.data) {
+        setStatus(data.data.isGbuPending);
+      }
     }
   };
   useEffect(() => {
     fetchStatus();
   }, [userGbu]);
+  useEffect(() => {
+    fetchStatus();
+  }, []);
   const addGbu = (item: any) => {
     let value = '';
     const newgbu = {
@@ -49,7 +53,6 @@ const Containergbu = () => {
     };
     setUserGbu(newgbu);
   };
-  console.log(status);
   const handlePost = () => {
     axios
       .post('api/users/gbu', userGbu, {
