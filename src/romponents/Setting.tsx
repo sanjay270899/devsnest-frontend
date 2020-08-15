@@ -13,7 +13,6 @@ import { CircularProgress } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { types } from 'util';
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -177,7 +176,6 @@ function SettingPage() {
     setLoading(true);
 
     if (token != '') {
-
       await axios
         .post('/api/users', userUpdate, {
           headers: {
@@ -188,7 +186,6 @@ function SettingPage() {
           setLoading(false);
 
           console.log(res, 'abeeeeee ');
-
         })
         .catch((e) => {});
     }
@@ -267,7 +264,7 @@ function SettingPage() {
                   variant="outlined"
                   error={!!errors.name}
                   value={userUpdate.name}
-                  inputRef={register({ required: true, maxLength: 20 })}
+                  inputRef={register({ required: true })}
                   onChange={handleChange}
                 />
                 <div style={{ color: 'red' }}>
@@ -299,7 +296,7 @@ function SettingPage() {
                   error={!!errors.aboutMe}
                   variant="outlined"
                   value={userUpdate.aboutMe}
-                  inputRef={register({ required: true, maxLength: 20 })}
+                  inputRef={register({ required: true })}
                   onChange={handleChange}
                 />
                 <div style={{ color: 'red' }}>
@@ -314,7 +311,7 @@ function SettingPage() {
                   variant="outlined"
                   error={!!errors.github}
                   value={userUpdate.github}
-                  inputRef={register({ required: true, maxLength: 20 })}
+                  inputRef={register({ required: true })}
                   onChange={handleChange}
                 />
                 <div style={{ color: 'red' }}>
@@ -329,7 +326,7 @@ function SettingPage() {
                   variant="outlined"
                   error={!!errors.institution}
                   value={userUpdate.institution}
-                  inputRef={register({ required: true, maxLength: 20 })}
+                  inputRef={register({ required: true })}
                   onChange={handleChange}
                 />
                 <div style={{ color: 'red' }}>
