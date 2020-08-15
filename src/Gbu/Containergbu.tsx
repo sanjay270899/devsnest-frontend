@@ -9,8 +9,9 @@ const Containergbu = () => {
   const [userGbu, setUserGbu] = useState({
     description: '',
   });
-  const [status, setStatus] = useState(true);
+  const [status, setStatus] = useState(false);
   const token: string = localStorage.getItem('Token') || '';
+  console.log(token);
   const fetchDetails = async () => {
     if (token !== '') {
       const res = await axios.get('/api/users/allGbu', {
@@ -35,9 +36,8 @@ const Containergbu = () => {
         },
       });
       const { data } = res;
-      if (data.data) {
-        setStatus(data.data.isGbuPending);
-      }
+      // console.log(data.data.isGbuPending);
+      if (data.data) setStatus(data.data.isGbuPending);
     }
   };
   useEffect(() => {
@@ -53,6 +53,7 @@ const Containergbu = () => {
     };
     setUserGbu(newgbu);
   };
+  console.log(status);
   const handlePost = () => {
     axios
       .post('api/users/gbu', userGbu, {
