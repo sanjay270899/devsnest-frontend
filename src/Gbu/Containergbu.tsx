@@ -51,7 +51,7 @@ const Containergbu = () => {
     };
     setUserGbu(newgbu);
   };
-  console.log(status);
+
   const handlePost = () => {
     axios
       .post('api/users/gbu', userGbu, {
