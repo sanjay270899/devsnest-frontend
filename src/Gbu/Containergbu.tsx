@@ -11,7 +11,6 @@ const Containergbu = () => {
   });
   const [status, setStatus] = useState(false);
   const token: string = localStorage.getItem('Token') || '';
-  console.log(token);
   const fetchDetails = async () => {
     if (token !== '') {
       const res = await axios.get('/api/users/allGbu', {
@@ -36,7 +35,6 @@ const Containergbu = () => {
         },
       });
       const { data } = res;
-      // console.log(data.data.isGbuPending);
       if (data.data) setStatus(data.data.isGbuPending);
     }
   };
