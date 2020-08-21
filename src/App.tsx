@@ -8,6 +8,8 @@ import Curriculum from './romponents/Curriculum';
 import Profile from './romponents/Profile';
 import Setting from './romponents/Setting';
 import Containergbu from './Gbu/Containergbu';
+import ContainerMentorFeedback from './MentorMentee/Mentor/ContainerMentorFeedback';
+import ContainerMenteeFeedback from './MentorMentee/Mentee/ContainerMenteeFeedback';
 
 import ReactGA from 'react-ga';
 
@@ -31,6 +33,8 @@ const App: React.ElementType = () => {
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/settings" component={Setting} />
           <Route exact path="/gbu" component={Containergbu} />
+          <Route exact path="/mentor" component={ContainerMentorFeedback} />
+          <Route exact path="/mentee" component={ContainerMenteeFeedback} />
         </Switch>
       </Router>
     </div>
