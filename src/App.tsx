@@ -8,7 +8,7 @@ import Curriculum from './romponents/Curriculum';
 import Profile from './romponents/Profile';
 import Setting from './romponents/Setting';
 import Containergbu from './Gbu/Containergbu';
-
+import ForgotPassword from './romponents/ForgotPassword';
 import ReactGA from 'react-ga';
 
 const App: React.ElementType = () => {
@@ -31,6 +31,7 @@ const App: React.ElementType = () => {
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/settings" component={Setting} />
           <Route exact path="/gbu" component={Containergbu} />
+          <Route exact path="/ForgotPassword" component={ForgotPassword} />
         </Switch>
       </Router>
     </div>
