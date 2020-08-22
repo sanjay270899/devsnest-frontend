@@ -69,7 +69,6 @@ const Containergbu = () => {
   useEffect(() => {
     handlePost();
   }, [userGbu]);
-  console.log(userGbu);
   return (
     <div>
       <Componentgbu gbu={gbu} addGbu={addGbu} status={status} />

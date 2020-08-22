@@ -65,9 +65,13 @@ const MentorFeedbackForm = ({ handleSubmit, getMentor }) => {
               onChange={handleChangeName}
               label="Your Mentor Name"
             >
-              <MenuItem value={getMentor.mentorId}>
-                {getMentor.mentorName}
-              </MenuItem>
+              {getMentor ? (
+                <MenuItem value={getMentor.mentorId}>
+                  {getMentor.mentorName}
+                </MenuItem>
+              ) : (
+                <div></div>
+              )}
             </Select>
           </FormControl>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
