@@ -7,7 +7,6 @@ import '../App.css';
 
 const GbuEditor = ({ addGbu, handleClose }) => {
   const [value, setValue] = useState('');
-
   const handleSubmit = () => {
     addGbu(value);
     handleClose();

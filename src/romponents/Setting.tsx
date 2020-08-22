@@ -186,7 +186,9 @@ function SettingPage() {
         .then((res) => {
           setLoading(false);
 
+
           alert('successfully updated your profile data');
+
         })
         .catch((e) => {});
     }
@@ -296,7 +298,7 @@ function SettingPage() {
                   variant="outlined"
                   error={!!errors.name}
                   value={userUpdate.name}
-                  inputRef={register({ required: true, maxLength: 20 })}
+                  inputRef={register({ required: true })}
                   onChange={handleChange}
                 />
                 <div style={{ color: 'red' }}>
@@ -328,7 +330,7 @@ function SettingPage() {
                   error={!!errors.aboutMe}
                   variant="outlined"
                   value={userUpdate.aboutMe}
-                  inputRef={register({ required: true, maxLength: 20 })}
+                  inputRef={register({ required: true })}
                   onChange={handleChange}
                 />
                 <div style={{ color: 'red' }}>
@@ -343,7 +345,7 @@ function SettingPage() {
                   variant="outlined"
                   error={!!errors.github}
                   value={userUpdate.github}
-                  inputRef={register({ required: true, maxLength: 20 })}
+                  inputRef={register({ required: true })}
                   onChange={handleChange}
                 />
                 <div style={{ color: 'red' }}>
@@ -358,7 +360,7 @@ function SettingPage() {
                   variant="outlined"
                   error={!!errors.institution}
                   value={userUpdate.institution}
-                  inputRef={register({ required: true, maxLength: 20 })}
+                  inputRef={register({ required: true })}
                   onChange={handleChange}
                 />
                 <div style={{ color: 'red' }}>
