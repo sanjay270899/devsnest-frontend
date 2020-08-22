@@ -9,12 +9,11 @@ type State = {
   problemSolved: string;
 };
 const ContainerMentorFeedbackForm = () => {
-  const [mentor, setMentor] = useState({});
   const [getMentor, setGetMentor] = useState([]);
   const handleSubmit = (item: State) => {
-    setMentor(item);
-    PostDetails();
+    PostDetails(item);
   };
+  // console.log(mentor)
   const token: string = localStorage.getItem('Token') || '';
   const fetchDetails = async () => {
     if (token !== '') {
@@ -31,9 +30,9 @@ const ContainerMentorFeedbackForm = () => {
   useEffect(() => {
     fetchDetails();
   }, []);
-  const PostDetails = () => {
+  const PostDetails = (payload: any) => {
     axios
-      .post('api/feedback/addMentorFeedback', mentor, {
+      .post('api/feedback/addMentorFeedback', payload, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -51,7 +50,10 @@ const ContainerMentorFeedbackForm = () => {
   return (
     <div>
       <Header />
-      <MentorFeedbackForm handleSubmit={handleSubmit} getMentor={getMentor} />
+      <MentorFeedbackForm
+        handleSubmit={(e) => handleSubmit(e)}
+        getMentor={getMentor}
+      />
     </div>
   );
 };

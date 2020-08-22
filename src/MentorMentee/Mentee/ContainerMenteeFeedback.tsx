@@ -4,7 +4,6 @@ import axios from '../../config/axios.config';
 import Header from '../../romponents/Header';
 
 const ContainerMenteeFeedbackForm = () => {
-  const [mentee, setMentee] = useState({});
   const [getMentee, setGetMentee] = useState([]);
   const token: string = localStorage.getItem('Token') || '';
   const fetchDetails = async () => {
@@ -19,12 +18,11 @@ const ContainerMenteeFeedbackForm = () => {
     }
   };
   const handleSubmit = (item: any) => {
-    setMentee(item);
-    PostDetails();
+    PostDetails(item);
   };
-  const PostDetails = () => {
+  const PostDetails = (payload) => {
     axios
-      .post('api/feedback/addStudentFeedback', mentee, {
+      .post('api/feedback/addStudentFeedback', payload, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
