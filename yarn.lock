@@ -8149,6 +8149,11 @@ os-tmpdir@~1.0.2:
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
   integrity sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ=
 
+otp-input-react@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/otp-input-react/-/otp-input-react-0.2.4.tgz#efb3f2a94ab6bfe1eb936de424a45087296c5a60"
+  integrity sha512-3RkekIT5lFx5Au5cvn/pK8TRJQbHHLD6OewUd8sDDyBIQGb3VtkfpB6NwnrRukdw6XERqPPM9Gs+pCZBH1cIMg==
+
 p-defer@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/p-defer/-/p-defer-1.0.0.tgz#9f6eb182f6c9aa8cd743004a7d4f96b196b0fb0c"
@@ -9627,6 +9632,11 @@ react-moment@^0.9.7:
   version "0.9.7"
   resolved "https://registry.yarnpkg.com/react-moment/-/react-moment-0.9.7.tgz#ca570466595b1aa4f7619e62da18b3bb2de8b6f3"
   integrity sha512-ifzUrUGF6KRsUN2pRG5k56kO0mJBr8kRkWb0wNvtFIsBIxOuPxhUpL1YlXwpbQCbHq23hUu6A0VEk64HsFxk9g==
+
+react-otp-input@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/react-otp-input/-/react-otp-input-2.0.2.tgz#b33921423c1978ad8324a08e136fd07006dd137b"
+  integrity sha512-x4nxhaxedIKdTy1ZJpWAWimjq6qNKE66jItnuQ3J7WrSH+L81HSSt+J6te9tNNvgN7XUq5ybS8ON3sObWNWoSw==
 
 react-router-dom@^5.1.2:
   version "5.2.0"

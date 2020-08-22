@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import axios from '../config/axios.config';
 import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ReactGA from 'react-ga';
 function Login() {
   const [userLogin, setUserLogin] = useState({ email: '', password: '' });
@@ -76,6 +77,17 @@ function Login() {
           <Button type="submit" fullWidth variant="contained" color="primary">
             Log In
           </Button>
+          <Typography gutterBottom>
+            <Link
+              style={{
+                marginLeft: '38%',
+                textDecoration: 'none',
+              }}
+              to="ForgotPassword"
+            >
+              Forgot your password?
+            </Link>
+          </Typography>
         </form>
       </Container>
     </div>

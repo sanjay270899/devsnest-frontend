@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
+import { config } from 'process';
 
 const instance: AxiosInstance = axios.create({
   baseURL:
