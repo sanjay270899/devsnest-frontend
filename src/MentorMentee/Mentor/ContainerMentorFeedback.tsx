@@ -15,7 +15,6 @@ const ContainerMentorFeedbackForm = () => {
     setMentor(item);
     PostDetails();
   };
-  console.log(mentor);
   const token: string = localStorage.getItem('Token') || '';
   const fetchDetails = async () => {
     if (token !== '') {
@@ -40,7 +39,9 @@ const ContainerMentorFeedbackForm = () => {
         },
       })
       .then((response) => {
-        console.log(response);
+        if (response.data.data.isFeedbackAdded) {
+          alert('The Mentor Feedback Form is submitted successfully');
+        }
       })
       .catch((error) => {
         console.log(error);

@@ -30,7 +30,9 @@ const ContainerMenteeFeedbackForm = () => {
         },
       })
       .then((response) => {
-        console.log();
+        if (response.data.data.isFeedbackAdded) {
+          alert('The studentFeedback Form is submitted successfully');
+        }
       })
       .catch((error) => {
         console.log(error);

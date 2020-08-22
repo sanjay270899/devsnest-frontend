@@ -208,6 +208,40 @@ export default function PersistentDrawerLeft() {
             </ListItem>
           </Link>
           <Link
+            to="/mentor"
+            style={{
+              color: '#000',
+              textDecoration: 'none',
+            }}
+          >
+            <ListItem button>
+              <ListItemIcon>
+                <FeedbackIcon />
+              </ListItemIcon>
+
+              <MenuItem onClick={handleClose} style={{ color: '#000' }}>
+                Mentor Form
+              </MenuItem>
+            </ListItem>
+          </Link>
+          <Link
+            to="/mentee"
+            style={{
+              color: '#000',
+              textDecoration: 'none',
+            }}
+          >
+            <ListItem button>
+              <ListItemIcon>
+                <FeedbackIcon />
+              </ListItemIcon>
+
+              <MenuItem onClick={handleClose} style={{ color: '#000' }}>
+                Mentee Form
+              </MenuItem>
+            </ListItem>
+          </Link>
+          <Link
             to="/login"
             style={{
               color: '#000',
