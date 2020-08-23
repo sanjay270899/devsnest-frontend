@@ -100,6 +100,19 @@ export default function ForgotPassword() {
               >
                 Send Reset Link
               </Button>
+              <OtpInput
+                inputStyle={{
+                  margin: '20px 1rem',
+                  fontSize: '2rem',
+                  borderRadius: 4,
+                  border: '2px solid rgba(0,0,0,0.3)',
+                }}
+                numInputs={6}
+                separator={<span>-</span>}
+                shouldAutoFocus
+                otpType="number"
+                isInputNum={true}
+              />
             </form>
 
             <Typography gutterBottom className={classes.BackText}>
