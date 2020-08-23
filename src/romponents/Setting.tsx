@@ -4,7 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Header from './Header';
 import TextField from '@material-ui/core/TextField';
-import { Button } from '@material-ui/core';
+import { Button, Card } from '@material-ui/core';
 import axios from '../config/axios.config';
 import Box from '@material-ui/core/Box';
 import { useForm } from 'react-hook-form';
@@ -12,7 +12,6 @@ import { CircularProgress } from '@material-ui/core';
 
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { types } from 'util';
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -84,7 +83,7 @@ function SettingPage() {
     github: '',
     institution: '',
   });
-
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState({
     profileImage: '',
@@ -174,10 +173,10 @@ function SettingPage() {
   // Setting POST
   const submit = async (e: any) => {
     let token: string = localStorage.getItem('Token') || '';
+    console.log('inside heree');
     setLoading(true);
 
     if (token != '') {
-
       await axios
         .post('/api/users', userUpdate, {
           headers: {
@@ -187,11 +186,40 @@ function SettingPage() {
         .then((res) => {
           setLoading(false);
 
-          console.log(res, 'abeeeeee ');
+
+          alert('successfully updated your profile data');
 
         })
         .catch((e) => {});
     }
+  };
+
+  const handlePassword = () => {
+    var token: string = localStorage.getItem('Token') || '';
+    axios
+      .post(
+        '/api/auth/updatePassword',
+        { password },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        if (response.data) {
+          alert('password updated successfully');
+        } else {
+          alert('error in updating password');
+        }
+      })
+      .catch((error) => {
+        alert('error in updating password');
+      });
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
   };
 
   return (
@@ -250,6 +278,9 @@ function SettingPage() {
               <Box p={3} bgcolor="background.paper">
                 Institution Name
               </Box>
+              <Box p={3} bgcolor="background.paper">
+                Update Password
+              </Box>
             </div>
 
             <div>
@@ -267,7 +298,7 @@ function SettingPage() {
                   variant="outlined"
                   error={!!errors.name}
                   value={userUpdate.name}
-                  inputRef={register({ required: true, maxLength: 20 })}
+                  inputRef={register({ required: true })}
                   onChange={handleChange}
                 />
                 <div style={{ color: 'red' }}>
@@ -299,7 +330,7 @@ function SettingPage() {
                   error={!!errors.aboutMe}
                   variant="outlined"
                   value={userUpdate.aboutMe}
-                  inputRef={register({ required: true, maxLength: 20 })}
+                  inputRef={register({ required: true })}
                   onChange={handleChange}
                 />
                 <div style={{ color: 'red' }}>
@@ -314,7 +345,7 @@ function SettingPage() {
                   variant="outlined"
                   error={!!errors.github}
                   value={userUpdate.github}
-                  inputRef={register({ required: true, maxLength: 20 })}
+                  inputRef={register({ required: true })}
                   onChange={handleChange}
                 />
                 <div style={{ color: 'red' }}>
@@ -329,7 +360,7 @@ function SettingPage() {
                   variant="outlined"
                   error={!!errors.institution}
                   value={userUpdate.institution}
-                  inputRef={register({ required: true, maxLength: 20 })}
+                  inputRef={register({ required: true })}
                   onChange={handleChange}
                 />
                 <div style={{ color: 'red' }}>
@@ -347,6 +378,24 @@ function SettingPage() {
                 </Button>
               </form>
             </div>
+            <TextField
+              className={classes.Field}
+              id="Password"
+              label="Password"
+              name="Password"
+              variant="outlined"
+              value={password}
+              onChange={handlePasswordChange}
+              style={{ marginLeft: '170px' }}
+            />
+            <br />
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handlePassword}
+            >
+              Update Password
+            </Button>
           </Paper>
         </Grid>
       </Grid>

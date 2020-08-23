@@ -46,11 +46,11 @@ export default function FormDialog({ addGbu, status }) {
 
   return (
     <div>
-      {status ? (
+      {status ? null : (
         <Button variant="outlined" color="primary" onClick={handleClickOpen}>
           <AddCircleIcon />
         </Button>
-      ) : null}
+      )}
 
       <Dialog
         fullScreen

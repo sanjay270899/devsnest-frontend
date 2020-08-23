@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import OTPInput from 'react-otp-input';
 import OtpInput from 'react-otp-input';
 import axios from '../config/axios.config';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import { constants } from 'buffer';
 
@@ -31,24 +31,24 @@ const useStyles = makeStyles({
 
 export default function ForgotPassword() {
   const classes = useStyles();
+  const [showOtpInput, setShowOtpInput] = useState(false);
+  const [otp, setOtp] = useState('');
+  const [reload, setReload] = useState(false);
 
-  const [otp, setOTP] = useState({
+  const [email, setEmail] = useState({
     email: '',
   });
 
   const submit = async (e: any) => {
     e.preventDefault();
     let token: string = localStorage.getItem('Token') || '';
+    console.log('insise submit otp');
 
-    if (token != '') {
+    if (token == '') {
       await axios
-        .post('/api/auth/generateotp', otp, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
+        .post('/api/auth/generateotp', email, {})
         .then((response) => {
-          console.log(response, 'dataaaaaaaa');
+          setShowOtpInput(true);
         })
         .catch((error) => {
           console.log(error, 'errorrrr');
@@ -57,10 +57,37 @@ export default function ForgotPassword() {
   };
 
   const handleChange = (event: any) => {
-    setOTP({ ...otp, [event.target.name]: event.target.value });
+    setEmail({ ...email, [event.target.name]: event.target.value });
   };
-
-  console.log(otp);
+  const handleChangeOtp = (e) => {
+    setOtp(e.target.value);
+  };
+  const handleSubmitOtp = () => {
+    const data: any = {
+      email: email.email,
+      otp: otp,
+    };
+    console.log('insise submit otp');
+    axios
+      .post('/api/auth/verifyotp', data)
+      .then((response) => {
+        if (response.data && response.data.data && response.data.data.token) {
+          localStorage.setItem('Token', response.data.data.token);
+          setReload(true);
+        } else {
+          alert('wrong OTP');
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  if (reload) {
+    let token: string = localStorage.getItem('Token') || '';
+    console.log(token);
+    console.log('reload', reload);
+    return <Redirect to={'/'} />;
+  }
   return (
     <div>
       <Container maxWidth="sm">
@@ -89,7 +116,7 @@ export default function ForgotPassword() {
                 name="email"
                 autoComplete="email"
                 autoFocus
-                value={otp.email}
+                value={email.email}
                 onChange={handleChange}
               />
               <Button
@@ -98,7 +125,7 @@ export default function ForgotPassword() {
                 color="primary"
                 onClick={submit}
               >
-                Send Reset Link
+                Send OTP
               </Button>
               <OtpInput
                 inputStyle={{
@@ -114,6 +141,33 @@ export default function ForgotPassword() {
                 isInputNum={true}
               />
             </form>
+
+            {showOtpInput ? (
+              <form noValidate autoComplete="off" onSubmit={handleSubmitOtp}>
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="OTP"
+                  label="OTP"
+                  name="OTP"
+                  autoComplete="OTP"
+                  autoFocus
+                  value={otp}
+                  onChange={handleChangeOtp}
+                />
+
+                <Button
+                  variant="contained"
+                  fullWidth
+                  color="primary"
+                  onClick={handleSubmitOtp}
+                >
+                  Enter OTP
+                </Button>
+              </form>
+            ) : null}
 
             <Typography gutterBottom className={classes.BackText}>
               Back to
