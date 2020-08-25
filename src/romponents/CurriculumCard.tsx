@@ -12,7 +12,16 @@ import { Chart } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 
 function CurriculumCard(props: any) {
-  const { key, curriculumId, name, duration, slug, url } = props;
+  const {
+    key,
+    curriculumId,
+    name,
+    duration,
+    slug,
+    url,
+    chapter_count,
+    total_chapter,
+  } = props;
   const handleclick = () => {
     ReactGA.event({
       category: 'Navigation',
@@ -21,6 +30,11 @@ function CurriculumCard(props: any) {
   };
   let percentage = 0;
   let total = 100;
+  if (chapter_count == null) {
+    percentage = 0;
+  } else {
+    percentage = Math.floor((chapter_count / total_chapter) * 100);
+  }
   var originalDoughnutDraw = Chart.controllers.doughnut.prototype.draw;
   Chart.helpers.extend(Chart.controllers.doughnut.prototype, {
     draw: function () {
