@@ -3,11 +3,12 @@ import axios from '../config/axios.config';
 import Header from './Header';
 import Chapter from './Chapter';
 import {} from '../config/axios.config';
+
 function Curriculum(props: any) {
   const [xhapters, setChapters] = useState([[]]);
 
   const id: number = props.match.params.id;
-  let percentageCompleted: number;
+
   let token: string = localStorage.getItem('Token') || '';
 
   const fetchDetails = async () => {
@@ -23,12 +24,15 @@ function Curriculum(props: any) {
           id: item.id,
           text: item.name,
           slug: item.slug,
+          task_count: item.task_count,
+          total_task: item.total_task,
         };
         return task;
       });
       setChapters(allSubTasks);
     }
   };
+
   useEffect(() => {
     fetchDetails();
   }, []);
@@ -39,11 +43,7 @@ function Curriculum(props: any) {
       {xhapters.map((task: any) => {
         return (
           <>
-            <Chapter
-              task={task}
-              percentageCompleted={percentageCompleted}
-              updateAllTasks={() => fetchDetails()}
-            />
+            <Chapter task={task} updateAllTasks={() => fetchDetails()} />
           </>
         );
       })}
