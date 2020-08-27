@@ -12,6 +12,7 @@ import ForgotPassword from './romponents/ForgotPassword';
 
 import ContainerMentorFeedback from './MentorMentee/Mentor/ContainerMentorFeedback';
 import ContainerMenteeFeedback from './MentorMentee/Mentee/ContainerMenteeFeedback';
+import LandingPage from './romponents/LandingPage';
 
 import ReactGA from 'react-ga';
 
@@ -35,12 +36,10 @@ const App: React.ElementType = () => {
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/settings" component={Setting} />
           <Route exact path="/gbu" component={Containergbu} />
-
           <Route exact path="/ForgotPassword" component={ForgotPassword} />
-
           <Route exact path="/mentor" component={ContainerMentorFeedback} />
           <Route exact path="/mentee" component={ContainerMenteeFeedback} />
-
+          <Route exact path="/LandingPage" component={LandingPage} />
         </Switch>
       </Router>
     </div>

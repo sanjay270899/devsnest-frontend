@@ -1,0 +1,179 @@
+/* *{
+    margin:0px;
+    padding: 0px;
+} */
+
+#facilities {
+  background-color: #dbe5e6;
+  padding: 30px 0px;
+}
+
+#facilities h1 {
+  font-size: 301%;
+  padding-bottom: 5px;
+  font-family: Average;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 88px;
+  letter-spacing: 0.06em;
+  color: #1c484a;
+}
+
+.title {
+  text-align: center;
+  padding: 25px 0px;
+}
+
+.card1 {
+  width: 274.14px;
+  height: 380.1px;
+  border-style: ridge;
+  background: #ffffff;
+  border: 3px solid #7a7d7d;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 73px;
+}
+
+.card-img-top {
+  border-top-left-radius: 70px;
+  border-top-right-radius: 70px;
+  height: 190px;
+}
+.card-text {
+  font-family: Barlow;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #6f6f6f;
+}
+
+.Ft {
+  background: #1c484a;
+  height: 288px;
+}
+
+.list-unstyled li a {
+  color: rgb(175, 172, 172);
+}
+
+.card-title {
+  font-family: Barlow;
+  font-size: 23px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+}
+.registration {
+  background: #b66d78;
+  border-radius: 29px;
+}
+
+.BatchText {
+  font-family: Aleo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 48px;
+  letter-spacing: 0.06em;
+  margin: 36px;
+  color: #ffffff;
+}
+.buttonA {
+  font-family: Aleo;
+  font-style: normal;
+  font-weight: bold;
+  /* font-size: 24px; */
+  line-height: 29px;
+  letter-spacing: 0.06em;
+  height: 40px;
+  width: 90%;
+  border: none;
+  border-radius: 8px;
+  color: #073e91;
+  margin-top: 30%;
+}
+
+.card2 {
+  width: 70%;
+  height: 120px;
+  background: rgba(187, 228, 221, 0.35);
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.card-body {
+  padding: 3rem 0 !important;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  padding: 0.4rem 1.9rem;
+}
+
+/* new css */
+
+/* .information{} */
+.paid-money {
+  width: 70%;
+  height: 110%;
+  background: rgba(187, 228, 221, 0.35);
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.borderstyle {
+  /* padding: 31px; */
+  height: 65px;
+  background: #ffffff;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.Money {
+  font-family: Beth Ellen;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 19px;
+  line-height: 53px;
+  letter-spacing: 0.06em;
+  color: #000000;
+  text-align: center;
+}
+
+.imagva {
+  height: 66px;
+}
+
+.POSTPAID {
+  position: absolute;
+  color: white;
+  padding-left: 31%;
+  margin-top: 2%;
+  font-family: Asap Condensed;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 37px;
+  letter-spacing: 0.06em;
+}
+.p0 {
+  padding: 0 !important;
+}
+/* .FAQsButton{
+font-family: Bayon;
+font-style: normal;
+font-weight: normal;
+font-size: 15px;
+background-color:grey ;
+color: #000000;
+margin-left: 10px;
+
+} */

@@ -1,11 +1,7 @@
 import React from 'react';
+import { Card } from 'react-bootstrap';
+import Back3 from '../images/back3.jpg';
 
-function Home() {
-  return (
-    <div>
-      <h1>Welcome to devsnest</h1>
-    </div>
-  );
+export default function Home() {
+  return <div>Devnest</div>;
 }
-
-export default Home;
