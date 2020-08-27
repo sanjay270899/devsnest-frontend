@@ -33,7 +33,6 @@ const ProfileCard: React.ElementType = ({ frequency }: any) => {
             startDate={new Date('2019-12-31')}
             endDate={new Date('2020-12-31')}
             values={graphData}
-            onClick={(value) => console.log(value)}
             tooltipDataAttrs={(value: any) => {
               return {
                 'data-tip': `${value.date} has Submission: ${value.count}`,

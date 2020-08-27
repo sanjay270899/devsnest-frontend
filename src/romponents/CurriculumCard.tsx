@@ -34,7 +34,6 @@ function CurriculumCard(props: any) {
     percentage = 0;
   } else {
     percentage = Math.floor((chapter_count / total_chapter) * 100);
-    console.log(chapter_count, total_chapter);
   }
   var originalDoughnutDraw = Chart.controllers.doughnut.prototype.draw;
   Chart.helpers.extend(Chart.controllers.doughnut.prototype, {

@@ -1,23 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import MenteeFeedbackForm from './MenteeFeedbackForm';
 import axios from '../../config/axios.config';
 import Header from '../../romponents/Header';
+import MenteeComponent from './MenteeComponent';
 
 const ContainerMenteeFeedbackForm = () => {
   const [getMentee, setGetMentee] = useState([]);
   const token: string = localStorage.getItem('Token') || '';
-  const fetchDetails = async () => {
-    if (token !== '') {
-      const res = await axios.get('/api/users/mentee', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      const { data } = res;
-      setGetMentee(data.data.mentee);
-    }
-  };
+
   const handleSubmit = (item: any) => {
+    // console.log(item);
     PostDetails(item);
   };
   const PostDetails = (payload) => {
@@ -32,18 +23,27 @@ const ContainerMenteeFeedbackForm = () => {
           alert('The studentFeedback Form is submitted successfully');
         }
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   };
 
   useEffect(() => {
+    const fetchDetails = async () => {
+      if (token !== '') {
+        const res = await axios.get('/api/users/mentee', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const { data } = res;
+        setGetMentee(data.data.mentee);
+      }
+    };
     fetchDetails();
-  }, []);
+  }, [token]);
   return (
     <div>
       <Header />
-      <MenteeFeedbackForm getMentee={getMentee} handleSubmit={handleSubmit} />
+      <MenteeComponent getMentee={getMentee} handleSubmit={handleSubmit} />
     </div>
   );
 };
