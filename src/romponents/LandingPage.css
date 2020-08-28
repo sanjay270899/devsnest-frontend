@@ -120,6 +120,7 @@
   font-weight: 600;
   font-stretch: normal;
   font-style: normal;
+  margin-top: 20px;
 }
 
 .card-text {
@@ -183,11 +184,11 @@
 }
 
 .program {
-  margin-top: 5%;
+  /* margin-top: 5%; */
   background-image: url('../images/table.jpg');
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-position: center;
-  width: 100%;
+  /* width: 100%; */
   height: 790px;
 }
 
@@ -329,4 +330,107 @@
   font-style: normal;
   line-height: 18px;
   letter-spacing: 0.06em;
+}
+
+.schedule {
+  background-image: url('../images/image_2.jpg');
+  /* background-repeat: no-repeat; */
+  background-position: center;
+  width: 100%;
+  height: 790px;
+  margin-top: -60px;
+}
+.schedule_div {
+  margin: 60px 30px;
+  vertical-align: middle;
+}
+.scrum_btn {
+  background: #2984b7;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 30px;
+  height: 38px;
+  width: 70px;
+  font-family: 'Asap Condensed', sans-serif;
+  letter-spacing: 0.06em;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+}
+.scrum_btn_2 {
+  text-align: center;
+}
+.scrum_2 {
+  margin-left: 16px;
+}
+.scrum_3 {
+  margin-left: 178px;
+}
+.scrum_btn_3 {
+  text-align: center;
+  margin-top: 225px;
+}
+.scrum_4 {
+  margin-left: 54px;
+}
+.scrum_5 {
+  margin-right: 48px;
+}
+.scrum_row {
+  padding: 190px 105px;
+  /*text-align: center;*/
+  /*align-items: center;*/
+}
+
+.navbar-custom {
+  background-color: #1c484a !important;
+}
+
+.vl {
+  border-left: 1px solid whitesmoke;
+  height: auto;
+  color: white;
+  margin-right: 10px;
+}
+
+.Nav.Link {
+  color: white;
+}
+
+.icon {
+  margin-left: 138px;
+  color: #ffff;
+  font-size: 36px;
+}
+
+ul.navbar-nav li {
+  float: left;
+  list-style: none;
+  padding: 0px 6px;
+  border-right: 1px solid #ffffff;
+}
+ul.navbar-nav li a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 0 10px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 45px;
+  letter-spacing: 0.06em;
+}
+ul.navbar-nav li:last-child {
+  border-right: none;
+}
+
+.hyy {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 37px;
+  color: #ffffff !important ;
+  margin-left: 25px;
 }
