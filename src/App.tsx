@@ -31,7 +31,7 @@ const App: React.ElementType = () => {
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/" component={ListOfCurriculum} />
+          <Route exact path="/curriculum" component={ListOfCurriculum} />
           <Route exact path="/curriculum/:id" component={Curriculum} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/settings" component={Setting} />
@@ -39,7 +39,7 @@ const App: React.ElementType = () => {
           <Route exact path="/ForgotPassword" component={ForgotPassword} />
           <Route exact path="/mentor" component={ContainerMentorFeedback} />
           <Route exact path="/mentee" component={ContainerMenteeFeedback} />
-          <Route exact path="/LandingPage" component={LandingPage} />
+          <Route exact path="/" component={LandingPage} />
         </Switch>
       </Router>
     </div>

@@ -139,7 +139,7 @@ export default function PersistentDrawerLeft() {
             </IconButton>
             <Typography variant="h6" noWrap className={classes.title}>
               <Link to="/" style={{ color: '#fff', textDecoration: 'none' }}>
-                Devnest
+                Devsnest
               </Link>
             </Typography>
           </Toolbar>

@@ -3,6 +3,8 @@ import Armstrong from '../images/Armstrong-Pame.jpg';
 import Back3 from '../images/back3.jpg';
 import girl from '../images/dummygirl.png';
 import image from '../images/pp1.jpg';
+import image1 from '../images/prachi.png';
+import sai from '../images/sai.png';
 import { Navbar, Nav } from 'react-bootstrap';
 import './LandingPage.css';
 
@@ -11,7 +13,7 @@ export default function LandingPage() {
     <div>
       <Navbar className="navbar navbar-custom">
         <Navbar.Brand href="#home" className="hyy">
-          Devnest
+          Devsnest
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -32,9 +34,13 @@ export default function LandingPage() {
               <li>
                 <a href="#">Curriculum</a>
               </li>
-              <li style={{ borderRight: 'none' }}>
+              <li>
                 <a href="#">Team </a>
               </li>
+              <li style={{ borderRight: 'none' }}>
+                <a href="/curriculum">Login</a>
+              </li>
+
               <li
                 style={{
                   backgroundColor: '#F1A615',
@@ -293,7 +299,7 @@ export default function LandingPage() {
         <div className="row registration">
           <div className="col-sm-9">
             <p className="BatchText">
-              Batch 2 registration starts 10th Sept, 2020{' '}
+              Batch 2 registration starts 1st October, 2020{' '}
             </p>
           </div>
           <div className="col-sm-3">
@@ -332,7 +338,7 @@ export default function LandingPage() {
 
               <div className="col-md-4">
                 <div className="card text-center card1">
-                  <img src={girl} className="card-img-top"></img>
+                  <img src={sai} className="card-img-top"></img>
                   <div className="card-block">
                     <h5 className="card-title"> Sai Ahladini</h5>
                     <h5 className="cardTitle"> Operations</h5>
@@ -345,11 +351,11 @@ export default function LandingPage() {
 
               <div className="col-md-4">
                 <div className="card text-center card1">
-                  <img src={girl} className="card-img-top"></img>
+                  <img src={image1} className="card-img-top"></img>
                   <div className="card-block">
                     <h5 className="card-title"> Prachi</h5>
                     {/* <h5 className="cardTitle"> CEO,Co-founder</h5> */}
-                    <p className="card-text">KIET</p>
+                    <p className="card-text">Assistant Product Manager</p>
                   </div>
                 </div>
               </div>
@@ -386,13 +392,10 @@ export default function LandingPage() {
                     <a href="#">CONTACT</a>
                   </li>
                   <li>
-                    <a href="#">1800-2XX-32XX</a>
+                    <a href="#">+91-886-017-5382</a>
                   </li>
                   <li>
-                    <a href="#">contact-us@devsnest.in</a>
-                  </li>
-                  <li>
-                    <a href="#">Link 4</a>
+                    <a href="#">contact-admin@devsnest.in</a>
                   </li>
                 </ul>
               </div>
