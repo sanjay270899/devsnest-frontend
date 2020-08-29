@@ -6,7 +6,7 @@ import Container from '@material-ui/core/Container';
 import MenteeDialog from './MenteeDialog';
 import MenteeCard from './MenteeCard';
 
-const MenteeComponent = ({ handleSubmit, getMentee }) => {
+const MenteeComponent = ({ handleSubmit, getMentee, feedback }) => {
   return (
     <div>
       <Container>
@@ -16,7 +16,7 @@ const MenteeComponent = ({ handleSubmit, getMentee }) => {
             <MenteeDialog handleSubmit={handleSubmit} getMentee={getMentee} />
           </Grid>
           <Grid item md={11}>
-            <MenteeCard />
+            <MenteeCard feedback={feedback} />
           </Grid>
         </Grid>
       </Container>

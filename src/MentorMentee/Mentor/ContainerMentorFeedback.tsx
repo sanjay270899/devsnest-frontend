@@ -10,6 +10,7 @@ type State = {
 };
 const ContainerMentorFeedbackForm = () => {
   const [getMentor, setGetMentor] = useState([]);
+  const [feedback, setFeedback] = useState([]);
   const handleSubmit = (item: State) => {
     console.log(item);
     PostDetails(item);
@@ -46,12 +47,28 @@ const ContainerMentorFeedbackForm = () => {
       .catch((error) => {});
   };
 
+  useEffect(() => {
+    const getmenteefeedback = async () => {
+      if (token !== '') {
+        const res = await axios.get('api/feedback/getmenteefeedback', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const { data } = res;
+        setFeedback(data.data);
+      }
+    };
+    getmenteefeedback();
+  }, []);
   return (
     <div>
       <Header />
+
       <MentorComponent
         handleSubmit={(e) => handleSubmit(e)}
         getMentor={getMentor}
+        feedback={feedback}
       />
     </div>
   );

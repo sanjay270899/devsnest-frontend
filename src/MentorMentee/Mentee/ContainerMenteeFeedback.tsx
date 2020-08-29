@@ -5,6 +5,7 @@ import MenteeComponent from './MenteeComponent';
 
 const ContainerMenteeFeedbackForm = () => {
   const [getMentee, setGetMentee] = useState([]);
+  const [feedback, setFeedback] = useState([]);
   const token: string = localStorage.getItem('Token') || '';
 
   const handleSubmit = (item: any) => {
@@ -40,10 +41,29 @@ const ContainerMenteeFeedbackForm = () => {
     };
     fetchDetails();
   }, [token]);
+  useEffect(() => {
+    const getmentorfeedback = async () => {
+      if (token !== '') {
+        const res = await axios.get('api/feedback/getmentorfeedback', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const { data } = res;
+        setFeedback(data.data);
+      }
+    };
+    getmentorfeedback();
+  }, []);
+  // console.log(feedback);
   return (
     <div>
       <Header />
-      <MenteeComponent getMentee={getMentee} handleSubmit={handleSubmit} />
+      <MenteeComponent
+        getMentee={getMentee}
+        handleSubmit={handleSubmit}
+        feedback={feedback}
+      />
     </div>
   );
 };
