@@ -2,7 +2,7 @@ import React from 'react';
 import Armstrong from '../images/Armstrong-Pame.jpg';
 import Back3 from '../images/back3.jpg';
 import girl from '../images/dummygirl.png';
-import image from '../images/pp1.jpg';
+// import image from '../images/pp1.jpg';
 import image1 from '../images/prachi.png';
 import sai from '../images/sai.png';
 import { Navbar, Nav } from 'react-bootstrap';
@@ -324,7 +324,7 @@ export default function LandingPage() {
             <div className="row">
               <div className="col-md-4">
                 <div className="card text-center card1">
-                  <img src={image} className="card-img-top"></img>
+                  {/* <img src={image} className="card-img-top"></img> */}
                   <div className="card-block">
                     <h5 className="card-title"> Vedansh</h5>
                     <h5 className="cardTitle"> CEO,Co-founder</h5>
@@ -351,7 +351,7 @@ export default function LandingPage() {
 
               <div className="col-md-4">
                 <div className="card text-center card1">
-                  <img src={image1} className="card-img-top"></img>
+                  {/* <img src={image1} className="card-img-top"></img> */}
                   <div className="card-block">
                     <h5 className="card-title"> Prachi</h5>
                     {/* <h5 className="cardTitle"> CEO,Co-founder</h5> */}

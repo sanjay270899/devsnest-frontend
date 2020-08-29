@@ -1,0 +1,39 @@
+.landing {
+  height: 100vh;
+  background-image: url('../images/background3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.feature {
+  background-image: url('../images/back4.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.58);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.header {
+  z-index: 2;
+}
+.program {
+  background-image: url('../images/back5.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 80px;
+}
+.insidetext {
+  z-index: 2;
+}
+.curriculum {
+  background: #c1c1c1;
+}
