@@ -4,7 +4,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import ReactHtmlParser from 'react-html-parser';
 import Moment from 'moment';
-import image from '../images/dummy.png';
+import image from '../../images/dummy.png';
 
 const MenteeCard = ({ feedback }) => {
   return (
@@ -14,6 +14,23 @@ const MenteeCard = ({ feedback }) => {
             return (
               <div style={{ padding: '10px' }} key={item.id}>
                 <Card>
+                  <CardContent style={{ fontSize: '15px' }}>
+                    {item.profileImage ? (
+                      <img
+                        alt="userprofile"
+                        src={item.profileImage}
+                        style={{ height: '60px', borderRadius: '100%' }}
+                      />
+                    ) : (
+                      <img
+                        src={image}
+                        alt="profile"
+                        style={{ height: '60px', borderRadius: '100%' }}
+                      />
+                    )}
+                    <br />
+                    <b>{item.name}</b>
+                  </CardContent>
                   <CardContent>
                     {item.capability == 'GREEN' ? (
                       <Typography
