@@ -40,7 +40,7 @@
     "react-tap-event-plugin": "^3.0.3",
     "react-tooltip": "^4.2.7",
     "requests": "^0.3.0",
-    "typescript": "~3.7.2"
+    "typescript": "~3.9.0"
   },
   "scripts": {
     "start": "react-scripts start",
