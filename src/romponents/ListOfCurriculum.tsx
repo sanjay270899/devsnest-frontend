@@ -38,7 +38,6 @@ function ListOfCurriculum() {
       );
     }
   };
-  console.log(task);
   useEffect(() => {
     fetchDetails();
   }, []);

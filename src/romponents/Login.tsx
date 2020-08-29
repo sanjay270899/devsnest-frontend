@@ -17,14 +17,11 @@ function Login() {
 
       .post('api/auth/login', userLogin)
       .then((response) => {
-        console.log(response);
         localStorage.setItem('Token', response.data.data.jwtToken);
 
         setIsLogin(!isLogin);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   };
 
   const handleSubmit = (e: any) => {
@@ -36,7 +33,7 @@ function Login() {
     handleSignup();
   };
   if (isLogin) {
-    return <Redirect to="/" />;
+    return <Redirect to="/curriculum" />;
   }
   const handleChange = (event: any) => {
     setUserLogin({ ...userLogin, [event.target.name]: event.target.value });

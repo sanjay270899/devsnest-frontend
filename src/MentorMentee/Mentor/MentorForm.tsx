@@ -4,44 +4,43 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import Grid from '@material-ui/core/Grid';
+
 import TextField from '@material-ui/core/TextField';
-import Tooltip, { TooltipProps } from '@material-ui/core/Tooltip';
-import Typography from '@material-ui/core/Typography';
-import { withStyles, Theme, makeStyles } from '@material-ui/core/styles';
+import Tooltip from '@material-ui/core/Tooltip';
+
+import { withStyles, Theme } from '@material-ui/core/styles';
 import InfoIcon from '@material-ui/icons/Info';
 
-const MentorFeedbackForm = ({ getMentee, handleSubmit }) => {
-  const [menteeName, setMenteeName] = useState(0);
+const MentorForm = ({ handleSubmit, getMentor, handleClose }) => {
+  const [mentorName, setMentorName] = useState('');
   const [extraFeedback, setExtraFeedback] = useState('');
-  const [efforts, setEffort] = useState('');
-  const [understand, setUnderstand] = useState('');
-  // console.log(getMentee)
-
+  const [timeGiven, setTimeGiven] = useState('');
+  const [problemSolved, setProblemSolved] = useState('');
   const handleChangeName = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setMenteeName(event.target.value as number);
+    setMentorName(event.target.value as string);
   };
   const handleChangeFeedback = (
     event: React.ChangeEvent<{ value: unknown }>
   ) => {
     setExtraFeedback(event.target.value as string);
   };
-  const handleChangeEffort = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setEffort(event.target.value as string);
+  const handleChangeTime = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setTimeGiven(event.target.value as string);
   };
-  const handleChangeUnderstand = (
+  const handleChangeProblem = (
     event: React.ChangeEvent<{ value: unknown }>
   ) => {
-    setUnderstand(event.target.value as string);
+    setProblemSolved(event.target.value as string);
   };
-  const mentee = {
-    menteeId: menteeName,
+  const mentor = {
+    mentorId: mentorName,
     feedback: extraFeedback,
-    effort: efforts,
-    understanding: understand,
+    timeGiven: timeGiven,
+    capability: problemSolved,
   };
   const handleClick = () => {
-    handleSubmit(mentee);
+    handleSubmit(mentor);
+    handleClose();
   };
   const HtmlTooltip = withStyles((theme: Theme) => ({
     tooltip: {
@@ -53,64 +52,56 @@ const MentorFeedbackForm = ({ getMentee, handleSubmit }) => {
     },
   }))(Tooltip);
   return (
-    <div>
-      <Card style={{ width: '100%', textAlign: 'center' }}>
-        <h1 style={{ textAlign: 'center' }}>StudentFeedback Form</h1>
+    <div style={{ position: 'relative' }}>
+      <Card style={{ maxWidth: '100%', textAlign: 'center' }}>
+        <h1 style={{ textAlign: 'center' }}>Mentor Feedback Form</h1>
 
         <CardContent>
           <FormControl variant="outlined">
-            <InputLabel id="demo-simple-select-outlined-label">
-              Your Mentee Name
-            </InputLabel>
+            <InputLabel>Your Mentor Name</InputLabel>
             <Select
               style={{ width: '500px' }}
               id="demo-simple-select-outlined"
-              value={menteeName}
+              value={mentorName}
               onChange={handleChangeName}
               label="Your Mentor Name"
             >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              {getMentee.map((item, index) => {
-                return (
-                  <MenuItem value={item.id} key={item.id}>
-                    {item.name}
-                  </MenuItem>
-                );
-              })}
+              {getMentor ? (
+                <MenuItem value={getMentor.mentorId}>
+                  {getMentor.mentorName}
+                </MenuItem>
+              ) : (
+                <div></div>
+              )}
             </Select>
           </FormControl>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <br />
           <br />
           <FormControl variant="outlined">
-            <InputLabel id="demo-simple-select-outlined-label">
-              Does s/he understand what s/he solved in the last week?
+            <InputLabel>
+              Has your mentor given you sufficient time last week?
             </InputLabel>
             <Select
               style={{ width: '500px' }}
-              labelId="demo-simple-select-outlined-label"
               id="demo-simple-select-outlined"
-              value={understand}
-              onChange={handleChangeUnderstand}
-              label="Does s/he understand what s/he solved in the last week?"
+              value={timeGiven}
+              onChange={handleChangeTime}
+              label=" Has your mentor given you sufficient time last week?"
             >
               <MenuItem value={'Green'}>Green</MenuItem>
               <MenuItem value={'Yellow'}>Yellow</MenuItem>
               <MenuItem value={'Red'}>Red</MenuItem>
             </Select>
-          </FormControl>{' '}
+          </FormControl>
           <HtmlTooltip
             title={
               <React.Fragment>
-                <b>Green</b> - is able to solve all the questions and
-                understands the concept.
+                <b>Green </b>- 3 or 3+ sessions
                 <br />
-                <b>Yellow</b> - has doubts but knows the topic, and can solve
-                some questions again.
+                <b>Yellow </b>- 2 sessions
                 <br />
-                <b>Red</b> - no cannot solve most of the last week questions
+                <b>Red </b>- 1 session.
                 <br />
               </React.Fragment>
             }
@@ -121,16 +112,13 @@ const MentorFeedbackForm = ({ getMentee, handleSubmit }) => {
           <br />
           <br />
           <FormControl variant="outlined">
-            <InputLabel id="demo-simple-select-outlined-label">
-              Has you mentee put in effort?
-            </InputLabel>
+            <InputLabel>Is your mentor able to solve your doubt?</InputLabel>
             <Select
               style={{ width: '500px' }}
-              labelId="demo-simple-select-outlined-label"
               id="demo-simple-select-outlined"
-              value={efforts}
-              onChange={handleChangeEffort}
-              label="Has you mentee put in effort?"
+              value={problemSolved}
+              onChange={handleChangeProblem}
+              label="Is your mentor able to solve your doubt?"
             >
               <MenuItem value={'Green'}>Green</MenuItem>
               <MenuItem value={'Yellow'}>Yellow</MenuItem>
@@ -140,13 +128,13 @@ const MentorFeedbackForm = ({ getMentee, handleSubmit }) => {
           <HtmlTooltip
             title={
               <React.Fragment>
-                <b>Green</b> - 30-40 hrs (roughly 20+ questions, depends on
-                question type and difficulty)
+                <b>Green</b> - Gives really good suggestions and solves all of
+                my doubts.
                 <br />
-                <b>Yellow</b> - 20-30 hrs (roughly 10-18 questions, depends on
-                level)
+                <b>Yellow</b> - is able to solve my doubt and provides
+                suggestions half the times.
                 <br />
-                <b>Red</b> -15-20 hrs (roughly 6-10 questions, depends on level)
+                <b>Red </b>- I don't understand anything.
                 <br />
               </React.Fragment>
             }
@@ -160,12 +148,12 @@ const MentorFeedbackForm = ({ getMentee, handleSubmit }) => {
             <TextField
               style={{ width: '500px' }}
               id="outlined-multiline-static"
-              label="Any other Feedback"
+              label="Any other feedback"
+              value={extraFeedback}
               multiline
               rows={4}
-              value={extraFeedback}
-              onChange={handleChangeFeedback}
               variant="outlined"
+              onChange={handleChangeFeedback}
             />
           </FormControl>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -184,4 +172,4 @@ const MentorFeedbackForm = ({ getMentee, handleSubmit }) => {
     </div>
   );
 };
-export default MentorFeedbackForm;
+export default MentorForm;
