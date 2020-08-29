@@ -1,6 +1,8 @@
 import React from 'react';
 import Armstrong from '../images/Armstrong-Pame.jpg';
 import Back3 from '../images/back3.jpg';
+import girl from '../images/dummygirl.png';
+import image from '../images/pp1.jpg';
 import { Navbar, Nav } from 'react-bootstrap';
 import './LandingPage.css';
 
@@ -20,16 +22,27 @@ export default function LandingPage() {
           >
             <ul className="nav navbar-nav ml-auto">
               <li>
-                <a href="#">Apply</a>
+                <a
+                  href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/viewform?edit_requested=true"
+                  style={{ textDecoration: 'none', color: '#fff' }}
+                >
+                  Apply
+                </a>
               </li>
               <li>
                 <a href="#">Curriculum</a>
               </li>
-              <li>
+              <li style={{ borderRight: 'none' }}>
                 <a href="#">Team </a>
               </li>
-              <li>
-                {' '}
+              <li
+                style={{
+                  backgroundColor: '#F1A615',
+                  clipPath: 'polygon(31% 0, 100% 0, 100% 100%, 0% 100%)',
+                  alignItems: 'center',
+                  height: '50px ',
+                }}
+              >
                 <i className="fa fa-user-circle-o icon"> </i>
               </li>
             </ul>
@@ -93,70 +106,61 @@ export default function LandingPage() {
 
       <div className="container-fluid">
         <section className="curriculum">
-          <div className="dev_head">CIRRICULUM</div>
+          <div className="dev_head">CURRICULUM</div>
           <div className="dev-curriculum">
             <div className="module_curriculum">
               <div className="module_div">
                 <div className="module_head">
-                  <h3>MODULE-1</h3>
+                  <h3>Weeks 1-6</h3>
                 </div>
                 <div className="module_text">
-                  This module will guide you through the step-by-step approach
-                  of problem-solving tactics and algorithms. It covers a diverse
-                  range of concepts that are being asked during coding
-                  interviews.
+                  Algorithms and Data Structures with 150+ problems.
                 </div>
               </div>
             </div>
             <div className="module_curriculum1">
               <div className="module_div">
                 <div className="module_head">
-                  <h3>MODULE-2</h3>
+                  <h3>Weeks 7-13</h3>
                 </div>
                 <div className="module_text">
-                  This module will guide you through the step-by-step approach
-                  of problem-solving tactics and algorithms. It covers a diverse
-                  range of concepts that are being asked during coding
-                  interviews.
+                  Learning Web development basics such as HTML, CSS, JavaScript
+                  and GIT with hands-on projects.
                 </div>
               </div>
             </div>
             <div className="module_curriculum1">
               <div className="module_div ">
                 <div className="module_head">
-                  <h3>MODULE-3</h3>
+                  <h3>Weeks 14-18</h3>
                 </div>
                 <div className="module_text">
-                  This module will guide you through the step-by-step approach
-                  of problem-solving tactics and algorithms. It covers a diverse
-                  range of concepts that are being asked during coding
-                  interviews.
+                  Getting expertise in writing React through multiple
+                  industry-level project and one major project
                 </div>
               </div>
             </div>
             <div className="module_curriculum1">
               <div className="module_div ">
                 <div className="module_head">
-                  <h3>MODULE-4</h3>
+                  <h3>Weeks 19-24</h3>
                 </div>
                 <div className="module_text">
-                  This module will guide you through the step-by-step approach
-                  of problem-solving tactics and algorithms. It covers a diverse
-                  range of concepts that are being asked during coding
-                  interviews.
+                  Covering up CS Fundamentals and principles of System Design
+                  and Choosing and Working on your Industry grade Capstone
+                  project.
                 </div>
               </div>
             </div>
             <div className="module_curriculum1">
               <div className="module_div ">
                 <div className="module_head">
-                  <h3>MODULE-5</h3>
+                  <h3>Weeks 25-30 </h3>
                 </div>
                 <div className="module_text">
-                  This module will guide you through the step-by-step approach
-                  of problem-solving tactics and algorithms. It covers a diverse
-                  range of concepts that are being asked during coding
-                  interviews.
+                  Starting up with your mock interviews from well know Industry
+                  experts and Connecting you with various companies and
+                  scheduling your interviews.
                 </div>
               </div>
             </div>
@@ -172,31 +176,31 @@ export default function LandingPage() {
             <div className="col-lg-4">
               <button type="button" className="scrum_btn">
                 {' '}
-                Scrum
+                Stand-up
               </button>
             </div>
             <div className="col-lg-4 scrum_btn_2">
               <button type="button" className="scrum_btn scrum_2">
                 {' '}
-                Scrum
+                Warm-up
               </button>
             </div>
             <div className="col-lg-4 scrum_btn_2">
               <button type="button" className="scrum_btn scrum_3">
                 {' '}
-                Scrum
+                Pair Programming
               </button>
             </div>
             <div className="col-lg-6 scrum_btn_3">
               <button type="button" className="scrum_btn scrum_4">
                 {' '}
-                Scrum
+                Project Time
               </button>
             </div>
             <div className="col-lg-6 scrum_btn_3">
               <button type="button" className="scrum_btn scrum_5">
                 {' '}
-                Scrum
+                Evening Class
               </button>
             </div>
           </div>
@@ -265,10 +269,19 @@ export default function LandingPage() {
       <div className="container mt">
         <div className="row text-center">
           <div className="col">
-            <button type="button" className="Button1">
+            <button
+              type="button"
+              className="btn btn-secondary"
+              style={{ marginRight: '20px', width: '250px' }}
+            >
               ISA GUIDELINES
             </button>
-            <button type="button" className="Button2 text-center">
+
+            <button
+              type="button"
+              className="btn btn-secondary"
+              style={{ marginLeft: '20px', width: '250px' }}
+            >
               FAQs{' '}
             </button>
           </div>
@@ -276,7 +289,7 @@ export default function LandingPage() {
       </div>
       {/* section 4 */}
 
-      <div className="container">
+      <div className="container" style={{ padding: '50px' }}>
         <div className="row registration">
           <div className="col-sm-9">
             <p className="BatchText">
@@ -285,13 +298,19 @@ export default function LandingPage() {
           </div>
           <div className="col-sm-3">
             <button type="button" className="buttonA">
-              APPLY NOW{' '}
+              <a
+                href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/viewform?edit_requested=true"
+                style={{ textDecoration: 'none', color: '#000' }}
+              >
+                APPLY NOW
+              </a>{' '}
             </button>
           </div>
         </div>
       </div>
 
       {/* section 5 */}
+
       <div id="facilities">
         <div className="container">
           <div className="title">
@@ -299,7 +318,7 @@ export default function LandingPage() {
             <div className="row">
               <div className="col-md-4">
                 <div className="card text-center card1">
-                  <img src={Armstrong} className="card-img-top"></img>
+                  <img src={image} className="card-img-top"></img>
                   <div className="card-block">
                     <h5 className="card-title"> Vedansh</h5>
                     <h5 className="cardTitle"> CEO,Co-founder</h5>
@@ -313,7 +332,7 @@ export default function LandingPage() {
 
               <div className="col-md-4">
                 <div className="card text-center card1">
-                  <img src={Armstrong} className="card-img-top"></img>
+                  <img src={girl} className="card-img-top"></img>
                   <div className="card-block">
                     <h5 className="card-title"> Sai Ahladini</h5>
                     <h5 className="cardTitle"> Operations</h5>
@@ -326,7 +345,7 @@ export default function LandingPage() {
 
               <div className="col-md-4">
                 <div className="card text-center card1">
-                  <img src={Armstrong} className="card-img-top"></img>
+                  <img src={girl} className="card-img-top"></img>
                   <div className="card-block">
                     <h5 className="card-title"> Prachi</h5>
                     {/* <h5 className="cardTitle"> CEO,Co-founder</h5> */}

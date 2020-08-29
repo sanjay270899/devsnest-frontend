@@ -159,7 +159,7 @@
 }
 
 #facilities {
-  /* background-image: url('../images/back2.jpg'); */
+  background-image: url('../images/back2.jpg');
   background-color: #dbe5e6;
   padding: 30px 0px;
 }
@@ -308,6 +308,8 @@
   border-radius: 32px;
   background-color: #e5e5e5;
   box-shadow: 8px 8px 4px #86868694;
+  height: 350px;
+  width: 200px;
 }
 .module_head h3 {
   padding: 24px;
@@ -386,7 +388,10 @@
 .navbar-custom {
   background-color: #1c484a !important;
 }
-
+.navbar {
+  padding: 0px;
+  height: 50px;
+}
 .vl {
   border-left: 1px solid whitesmoke;
   height: auto;
@@ -402,12 +407,15 @@
   margin-left: 138px;
   color: #ffff;
   font-size: 36px;
+  position: relative;
+  top: 5px;
+  right: 25px;
 }
 
 ul.navbar-nav li {
   float: left;
   list-style: none;
-  padding: 0px 6px;
+  /* padding: 0px 6px; */
   border-right: 1px solid #ffffff;
 }
 ul.navbar-nav li a {
