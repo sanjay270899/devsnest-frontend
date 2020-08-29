@@ -18,7 +18,7 @@ import ReactGA from 'react-ga';
 const App: React.ElementType = () => {
   useEffect(() => {
     let code: any =
-      process.env.NODE_ENV == 'production'
+      process.env.NODE_ENV === 'production'
         ? process.env.REACT_APP_GA_TRACKING_ID_PROD
         : process.env.REACT_APP_GA_TRACKING_ID_DEV;
     ReactGA.initialize(code);
@@ -40,7 +40,6 @@ const App: React.ElementType = () => {
 
           <Route exact path="/mentor" component={ContainerMentorFeedback} />
           <Route exact path="/mentee" component={ContainerMenteeFeedback} />
-
         </Switch>
       </Router>
     </div>

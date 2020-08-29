@@ -17,14 +17,11 @@ function Login() {
 
       .post('api/auth/login', userLogin)
       .then((response) => {
-        console.log(response);
         localStorage.setItem('Token', response.data.data.jwtToken);
 
         setIsLogin(!isLogin);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   };
 
   const handleSubmit = (e: any) => {

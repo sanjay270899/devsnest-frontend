@@ -4,14 +4,13 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Header from './Header';
 import TextField from '@material-ui/core/TextField';
-import { Button, Card } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import axios from '../config/axios.config';
 import Box from '@material-ui/core/Box';
 import { useForm } from 'react-hook-form';
 import { CircularProgress } from '@material-ui/core';
 
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { types } from 'util';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -135,7 +134,6 @@ function SettingPage() {
         .post('api/users/uploadProfileImage', formData, config)
         .then((res) => {
           setImage(res.data.data.ImageUri);
-          console.log(res, 'yee kya ');
         });
     }
   };
@@ -151,7 +149,6 @@ function SettingPage() {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(res, 'oooo');
       const { data } = res;
       if (data !== {}) {
         userData = {
@@ -173,10 +170,9 @@ function SettingPage() {
   // Setting POST
   const submit = async (e: any) => {
     let token: string = localStorage.getItem('Token') || '';
-    console.log('inside heree');
     setLoading(true);
 
-    if (token != '') {
+    if (token !== '') {
       await axios
         .post('/api/users', userUpdate, {
           headers: {
@@ -186,9 +182,7 @@ function SettingPage() {
         .then((res) => {
           setLoading(false);
 
-
           alert('successfully updated your profile data');
-
         })
         .catch((e) => {});
     }

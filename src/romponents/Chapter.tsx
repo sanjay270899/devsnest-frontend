@@ -111,12 +111,9 @@ function Chapter({ task, updateAllTasks }: Props) {
           }
         )
         .then((response) => {
-          console.log(response);
           getAllTasks();
         })
-        .catch((error) => {
-          console.log(error);
-        });
+        .catch((error) => {});
     }
   };
 
