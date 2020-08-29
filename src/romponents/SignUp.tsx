@@ -25,9 +25,7 @@ function SignUp() {
 
         setIsSignUp(!isSignUp);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   };
 
   const handleSubmit = (e: any) => {

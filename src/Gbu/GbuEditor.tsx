@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Button from '@material-ui/core/Button';
-
 import '../App.css';
 
 const GbuEditor = ({ addGbu, handleClose }) => {
@@ -20,7 +19,6 @@ const GbuEditor = ({ addGbu, handleClose }) => {
         padding: '50px',
       }}
     >
-      <h3></h3>
       <CKEditor
         editor={ClassicEditor}
         data=""

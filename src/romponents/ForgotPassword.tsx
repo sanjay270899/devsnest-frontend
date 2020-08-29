@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import OTPInput from 'react-otp-input';
-import OtpInput from 'react-otp-input';
 import axios from '../config/axios.config';
 import { Link, Redirect } from 'react-router-dom';
-
-import { constants } from 'buffer';
 
 const useStyles = makeStyles({
   root: {
@@ -42,17 +37,14 @@ export default function ForgotPassword() {
   const submit = async (e: any) => {
     e.preventDefault();
     let token: string = localStorage.getItem('Token') || '';
-    console.log('insise submit otp');
 
-    if (token == '') {
+    if (token === '') {
       await axios
         .post('/api/auth/generateotp', email, {})
         .then((response) => {
           setShowOtpInput(true);
         })
-        .catch((error) => {
-          console.log(error, 'errorrrr');
-        });
+        .catch((error) => {});
     }
   };
 
@@ -67,7 +59,6 @@ export default function ForgotPassword() {
       email: email.email,
       otp: otp,
     };
-    console.log('insise submit otp');
     axios
       .post('/api/auth/verifyotp', data)
       .then((response) => {
@@ -78,14 +69,9 @@ export default function ForgotPassword() {
           alert('wrong OTP');
         }
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   };
   if (reload) {
-    let token: string = localStorage.getItem('Token') || '';
-    console.log(token);
-    console.log('reload', reload);
     return <Redirect to={'/'} />;
   }
   return (

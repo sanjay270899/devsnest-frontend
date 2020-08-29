@@ -30,13 +30,14 @@ function ListOfCurriculum() {
             slug: item.slug,
             url: item.url,
             status: item.status,
+            chapter_count: item.chapter_count,
+            total_chapter: item.total_chapter,
           };
           return tasks;
         })
       );
     }
   };
-
   useEffect(() => {
     fetchDetails();
   }, []);
@@ -59,6 +60,8 @@ function ListOfCurriculum() {
                   slug={card.slug}
                   url={card.url}
                   status={card.status}
+                  chapter_count={card.chapter_count}
+                  total_chapter={card.total_chapter}
                 />
               </Grid>
             </Grid>

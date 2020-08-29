@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Card from '@material-ui/core/Card';
 import Checkbox from '@material-ui/core/Checkbox';
 import CardContent from '@material-ui/core/CardContent';
-import { Pie } from 'react-chartjs-2';
+import { Chart } from 'chart.js';
+import { Doughnut } from 'react-chartjs-2';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import { Grid, Paper } from '@material-ui/core';
@@ -48,12 +49,11 @@ const useStyles = makeStyles({
 });
 
 export interface Props {
-  percentageCompleted: number;
   task: any;
   updateAllTasks: any;
 }
 
-function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
+function Chapter({ task, updateAllTasks }: Props) {
   const classes = useStyles();
 
   const [expanded, setExpanded] = useState(false);
@@ -111,12 +111,9 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
           }
         )
         .then((response) => {
-          console.log(response);
           getAllTasks();
         })
-        .catch((error) => {
-          console.log(error);
-        });
+        .catch((error) => {});
     }
   };
 
@@ -124,29 +121,53 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
   if (token === '') {
     return <Redirect to={'/login'} />;
   }
+  let percentage: number = 0;
+  if (task.task_count == null) {
+    percentage = 0;
+  } else {
+    percentage = Math.floor((task.task_count / task.total_task) * 100);
+  }
 
   const total: number = 100;
+  var originalDoughnutDraw = Chart.controllers.doughnut.prototype.draw;
+  Chart.helpers.extend(Chart.controllers.doughnut.prototype, {
+    draw: function () {
+      originalDoughnutDraw.apply(this, arguments);
+
+      var chart = this.chart.chart;
+      var ctx = chart.ctx;
+      var width = chart.width;
+      var height = chart.height;
+
+      var fontSize = (height / 114).toFixed(2);
+      ctx.font = fontSize + 'em Verdana';
+      ctx.textBaseline = 'middle';
+
+      var text = chart.config.data.text,
+        textX = Math.round((width - ctx.measureText(text).width) / 2),
+        textY = height / 2;
+
+      ctx.fillText(text, textX, textY);
+    },
+  });
 
   const state = {
+    labels: ['', 'Completed'],
     datasets: [
       {
-        backgroundColor: ['#ffffff', '#4B77F5'],
-        data: [total - percentageCompleted, percentageCompleted],
+        backgroundColor: ['#c1c1c1', '#26ae60'],
+        data: [total - percentage, percentage],
       },
     ],
+    text: `${percentage}%`,
   };
 
   return (
     <>
       <div className="container" key={task.id}>
         <Card style={{ boxShadow: ' 4px 4px 8px 4px rgba(0,0,0,0.2)' }}>
-          <Grid
-            container
-            direction="row"
-            justify="space-between"
-            style={{ height: '100px' }}
-          >
-            <Grid item>
+          <Grid container direction="row" justify="space-between">
+            <Grid item md={8}>
               <CardContent style={{ display: 'flex' }}>
                 <Typography>
                   <h2> {task ? task.text : null}</h2>
@@ -162,14 +183,14 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                 </CardContent>
               </CardContent>
             </Grid>
-            <Grid>
-              <Pie
+            <Grid item md={2} style={{ padding: '20px' }}>
+              <Doughnut
                 data={state}
-                width={100}
-                height={300}
+                width={10}
+                height={10}
                 options={{
                   legend: {
-                    display: true,
+                    display: false,
                     position: 'left',
                     labels: {
                       fontColor: '#000',
@@ -188,7 +209,7 @@ function Chapter({ task, updateAllTasks, percentageCompleted }: Props) {
                 justify="space-between"
                 alignItems="flex-end"
               >
-                <Grid item xs={12} style={{}}>
+                <Grid item md={12} style={{}}>
                   <Container>
                     <TableContainer component={Paper}>
                       <Table

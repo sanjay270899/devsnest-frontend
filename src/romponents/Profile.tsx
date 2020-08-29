@@ -81,7 +81,6 @@ const Profile = () => {
       }
     }
   };
-  console.log(profileData.profileImage);
   useEffect(() => {
     fetchDetails();
   }, []);

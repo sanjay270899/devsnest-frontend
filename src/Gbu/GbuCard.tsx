@@ -17,6 +17,7 @@ const GbuCard = ({ gbu }) => {
                 <div style={{}}>
                   {item.profileImage ? (
                     <img
+                      alt="userprofile"
                       src={item.profileImage}
                       style={{ height: '60px', borderRadius: '100%' }}
                     />
