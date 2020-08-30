@@ -40,8 +40,8 @@ const App: React.ElementType = () => {
           <Route exact path="/ForgotPassword" component={ForgotPassword} />
           <Route exact path="/mentor" component={ContainerMentorFeedback} />
           <Route exact path="/mentee" component={ContainerMenteeFeedback} />
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/home" component={MainPage} />
+          {/* <Route exact path="/" component={LandingPage} /> */}
+          <Route exact path="/" component={MainPage} />
         </Switch>
       </Router>
     </div>

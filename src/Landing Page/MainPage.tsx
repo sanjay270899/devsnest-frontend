@@ -6,6 +6,8 @@ import Curriculum from './Curriculum';
 import Features from './Features';
 import Batch from './Batch';
 import { Button, Container } from 'react-bootstrap';
+import PaymentPlan from './PaymentPlan';
+import CustomizedTimeline from './Timeline';
 const MainPage = () => {
   return (
     <>
@@ -45,6 +47,8 @@ const MainPage = () => {
       </div>
       <Features />
       <Curriculum />
+      <CustomizedTimeline />
+      <PaymentPlan />
       <Batch />
       <Teams />
     </>
