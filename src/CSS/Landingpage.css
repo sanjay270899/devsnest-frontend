@@ -1,6 +1,6 @@
 .landing {
   height: 100vh;
-  background-image: url('../images/background3.jpg');
+  background-image: url('../images/back2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -10,9 +10,38 @@
   background-image: url('../images/back4.jpg');
   background-attachment: fixed;
   background-size: cover;
-  background-position: center center;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+}
+@media only screen and (max-width: 600px) {
+  .feature {
+    background-image: url('../images/back4.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    height: auto;
+  }
+  .off {
+    margin-left: '250px';
+  }
+}
+.header {
+  background: transparent;
+  position: fixed;
+  width: 100%;
+  padding: 0px;
 }
 
+.header2 {
+  background: #1c484a;
+  position: fixed;
+  top: 0;
+  color: #fff;
+  z-index: 2;
+  width: 100%;
+  padding: 0px;
+}
 .overlay {
   background: rgba(0, 0, 0, 0.58);
   width: 100%;
@@ -26,14 +55,36 @@
   z-index: 2;
 }
 .program {
-  background-image: url('../images/back5.jpeg');
+  /* background-image: url('../images/back5.jpeg'); */
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 80px;
+}
+.off {
+  margin-left: '440px';
 }
 .insidetext {
   z-index: 2;
 }
 .curriculum {
   background: #c1c1c1;
+  /* height: 60vh; */
+  justify-content: center;
+  align-items: center;
+}
+.carousel-indicators {
+  display: none;
+}
+.curriculumcard {
+  border-radius: 20px;
+  height: 8rem;
+  /* width: 250px; */
+  margin: 0px;
+  padding: 0px;
+}
+.footer {
+  background: #1c484a;
+}
+.footer a {
+  color: #fff;
 }

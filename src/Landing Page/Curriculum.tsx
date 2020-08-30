@@ -7,15 +7,29 @@ import prachi from '../images/prachi.png';
 
 export default function Curriculum() {
   return (
-    <>
-      <h1 style={{ padding: '20px', textAlign: 'center', fontSize: '50px' }}>
-        Curriculum
+    <div>
+      <h1
+        style={{ paddingTop: '100px', textAlign: 'center', fontSize: '50px' }}
+      >
+        CURRICULUM
+        <hr
+          style={{
+            textAlign: 'center',
+            width: '100px',
+            fontWeight: 'bolder',
+            height: '5px',
+            backgroundColor: '#528789',
+          }}
+        />
       </h1>
+
       <Carousel className="curriculum">
         <Carousel.Item>
-          <Row style={{ padding: '20px', margin: '0px' }}>
+          <Row
+            style={{ paddingTop: '50px', paddingBottom: '50px', margin: '0px' }}
+          >
             <Col md="4">
-              <Card style={{ height: '20rem' }}>
+              <Card className="curriculumcard">
                 <Card.Body>
                   <Card.Title>Weeks 1-6</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
@@ -26,9 +40,9 @@ export default function Curriculum() {
               </Card>
             </Col>
             <Col md="4">
-              <Card style={{ height: '20rem' }}>
+              <Card className="curriculumcard">
                 <Card.Body>
-                  <Card.Title> Weeks 7-13</Card.Title>
+                  <Card.Title> Weeks 7-8</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
                   <Card.Text>
                     Learning Web development basics such as HTML, CSS,
@@ -38,13 +52,13 @@ export default function Curriculum() {
               </Card>
             </Col>
             <Col md="4">
-              <Card style={{ height: '20rem' }}>
+              <Card className="curriculumcard">
                 <Card.Body>
-                  <Card.Title>Weeks 14-18</Card.Title>
+                  <Card.Title>Weeks 9-13</Card.Title>
 
                   <Card.Text>
-                    Getting expertise in writing React through multiple
-                    industry-level project and one major project
+                    Explore Node.js indepth through multiple industry-level
+                    project and one major project
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -52,80 +66,82 @@ export default function Curriculum() {
           </Row>
         </Carousel.Item>
         <Carousel.Item>
-          <Row style={{ padding: '20px', margin: '0px' }}>
+          <Row
+            style={{ paddingTop: '50px', paddingBottom: '50px', margin: '0px' }}
+          >
             <Col md="4">
-              <Card style={{ height: '20rem' }}>
+              <Card className="curriculumcard">
                 <Card.Body>
-                  <Card.Title>Weeks 19-24</Card.Title>
+                  <Card.Title>Weeks 14-18</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
+                  <Card.Text>
+                    Getting expertise in writing React through multiple
+                    industry-level project and one major project
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md="4">
+              <Card className="curriculumcard">
+                <Card.Body>
+                  <Card.Title>Weeks 19-20</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
                   <Card.Text>
                     Covering up CS Fundamentals and principles of System Design
-                    and Choosing and Working on your Industry grade Capstone
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md="4">
+              <Card className="curriculumcard">
+                <Card.Body>
+                  <Card.Title>Weeks 21</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
+                  <Card.Text>
+                    Getting career councelling form various industry experts,
+                    polishing your resumes and cover letters
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Carousel.Item>
+        <Carousel.Item>
+          <Row
+            style={{ paddingTop: '50px', paddingBottom: '50px', margin: '0px' }}
+          >
+            <Col md="4" className="ml-auto">
+              <Card className="curriculumcard">
+                <Card.Body>
+                  <Card.Title> Weeks 22-24 </Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
+                  <Card.Text>
+                    Choosing and Working on your Industry grade Capstone
                     project.
                   </Card.Text>
                 </Card.Body>
               </Card>
             </Col>
             <Col md="4">
-              <Card style={{ height: '20rem' }}>
+              <Card className="curriculumcard">
                 <Card.Body>
-                  <Card.Title> Weeks 25-30 </Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
+                  <Card.Title>Weeks 25-27</Card.Title>
+
                   <Card.Text>
                     Starting up with your mock interviews from well know
-                    Industry experts and Connecting you with various companies
-                    and scheduling your interviews.
+                    Industry experts
                   </Card.Text>
                 </Card.Body>
               </Card>
             </Col>
             <Col md="4">
-              <Card style={{ height: '20rem' }}>
+              <Card className="curriculumcard">
                 <Card.Body>
-                  <Card.Title>Weeks 14-18</Card.Title>
-
-                  <Card.Text>
-                    Getting expertise in writing React through multiple
-                    industry-level project and one major project
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </Carousel.Item>
-        <Carousel.Item>
-          <Row style={{ padding: '20px', margin: '0px' }}>
-            <Col md="4">
-              <Card style={{ height: '20rem' }}>
-                <Card.Body>
-                  <Card.Title>Weeks 1-6</Card.Title>
+                  <Card.Title> Weeks 28-30</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
                   <Card.Text>
-                    Algorithms and Data Structures with 150+ problems.
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md="4">
-              <Card style={{ height: '20rem' }}>
-                <Card.Body>
-                  <Card.Title> Weeks 7-13</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-                  <Card.Text>
-                    Learning Web development basics such as HTML, CSS,
-                    JavaScript and GIT with hands-on projects.
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md="4">
-              <Card style={{ height: '20rem' }}>
-                <Card.Body>
-                  <Card.Title>Weeks 14-18</Card.Title>
-
-                  <Card.Text>
-                    Getting expertise in writing React through multiple
-                    industry-level project and one major project
+                    Connecting you with various companies and scheduling your
+                    interviews.
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -133,6 +149,6 @@ export default function Curriculum() {
           </Row>
         </Carousel.Item>
       </Carousel>
-    </>
+    </div>
   );
 }

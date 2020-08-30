@@ -8,6 +8,7 @@ import Batch from './Batch';
 import { Button, Container } from 'react-bootstrap';
 import PaymentPlan from './PaymentPlan';
 import CustomizedTimeline from './Timeline';
+import Footer from './Footer';
 const MainPage = () => {
   return (
     <>
@@ -29,6 +30,7 @@ const MainPage = () => {
             </p>
             <br />
             <Button
+              href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit"
               style={{
                 padding: '10px',
                 margin: '0px',
@@ -50,7 +52,8 @@ const MainPage = () => {
       <CustomizedTimeline />
       <PaymentPlan />
       <Batch />
-      <Teams />
+      {/* <Teams />  */}
+      <Footer />
     </>
   );
 };

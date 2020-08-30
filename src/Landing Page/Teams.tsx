@@ -44,6 +44,16 @@ export default function Teams() {
               roundedCircle
               style={{ height: '200px', width: '250px' }}
             />
+            <p
+              style={{
+                color: '#fff',
+                paddingLeft: '60px',
+                fontWeight: 'bold',
+                fontSize: '20px',
+              }}
+            >
+              CEO,Co-founder
+            </p>
           </Col>
           <Col md="4">
             <Image
@@ -52,6 +62,16 @@ export default function Teams() {
               roundedCircle
               style={{ height: '200px', width: '250px' }}
             />
+            <p
+              style={{
+                color: '#fff',
+                paddingLeft: '60px',
+                fontWeight: 'bold',
+                fontSize: '20px',
+              }}
+            >
+              Operations
+            </p>
           </Col>
           <Col md="4">
             <Image
@@ -60,6 +80,16 @@ export default function Teams() {
               roundedCircle
               style={{ height: '200px', width: '250px' }}
             />
+            <p
+              style={{
+                color: '#fff',
+                paddingLeft: '30px',
+                fontWeight: 'bold',
+                fontSize: '20px',
+              }}
+            >
+              Assistant Product Manager
+            </p>
           </Col>
         </Row>
       </Container>
