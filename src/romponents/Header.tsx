@@ -162,10 +162,7 @@ export default function PersistentDrawerLeft() {
           </div>
           <Divider />
           <List>
-            <Link
-              to="/LandingPage"
-              style={{ color: '#000', textDecoration: 'none' }}
-            >
+            <Link to="/" style={{ color: '#000', textDecoration: 'none' }}>
               <ListItem button>
                 <ListItemIcon>
                   <HomeIcon />

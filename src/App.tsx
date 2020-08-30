@@ -12,9 +12,9 @@ import ForgotPassword from './romponents/ForgotPassword';
 
 import ContainerMentorFeedback from './MentorMentee/Mentor/ContainerMentorFeedback';
 import ContainerMenteeFeedback from './MentorMentee/Mentee/ContainerMenteeFeedback';
-import LandingPage from './romponents/LandingPage';
 
 import ReactGA from 'react-ga';
+import MainPage from './Landing Page/MainPage';
 
 const App: React.ElementType = () => {
   useEffect(() => {
@@ -39,7 +39,7 @@ const App: React.ElementType = () => {
           <Route exact path="/ForgotPassword" component={ForgotPassword} />
           <Route exact path="/mentor" component={ContainerMentorFeedback} />
           <Route exact path="/mentee" component={ContainerMenteeFeedback} />
-          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/" component={MainPage} />
         </Switch>
       </Router>
     </div>
