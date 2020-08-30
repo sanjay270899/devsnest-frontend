@@ -35,6 +35,7 @@ const Transition = React.forwardRef(function Transition(
 export default function FormDialog({ addGbu, status }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  console.log(status);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -46,11 +47,9 @@ export default function FormDialog({ addGbu, status }) {
 
   return (
     <div>
-      {status ? null : (
-        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-          <AddCircleIcon />
-        </Button>
-      )}
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        <AddCircleIcon />
+      </Button>
 
       <Dialog
         fullScreen
