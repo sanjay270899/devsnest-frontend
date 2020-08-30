@@ -32,7 +32,7 @@ export default function MentorCard({ feedback }) {
                     <b>{item.name}</b>
                   </CardContent>
                   <CardContent>
-                    {item.capability == 'GREEN' ? (
+                    {item.effort == 'GREEN' ? (
                       <Typography
                         variant="body2"
                         gutterBottom
@@ -42,7 +42,7 @@ export default function MentorCard({ feedback }) {
                         30-40 hrs (roughly 20+ questions, depends on question
                         type and difficulty)
                       </Typography>
-                    ) : item.capability === 'Yellow' ? (
+                    ) : item.effort === 'Yellow' ? (
                       <Typography
                         variant="body2"
                         gutterBottom
@@ -63,7 +63,7 @@ export default function MentorCard({ feedback }) {
                         depends on level)
                       </Typography>
                     )}
-                    {item.timeGiven == 'GREEN' ? (
+                    {item.understanding == 'GREEN' ? (
                       <Typography
                         variant="body2"
                         gutterBottom
@@ -72,7 +72,7 @@ export default function MentorCard({ feedback }) {
                         <b>Understanding:</b>is able to solve all the questions
                         and understands the concept.
                       </Typography>
-                    ) : item.timeGiven === 'Yellow' ? (
+                    ) : item.understanding === 'Yellow' ? (
                       <Typography
                         variant="body2"
                         gutterBottom
