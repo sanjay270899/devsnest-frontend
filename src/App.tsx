@@ -12,7 +12,6 @@ import ForgotPassword from './romponents/ForgotPassword';
 
 import ContainerMentorFeedback from './MentorMentee/Mentor/ContainerMentorFeedback';
 import ContainerMenteeFeedback from './MentorMentee/Mentee/ContainerMenteeFeedback';
-import LandingPage from './romponents/LandingPage';
 
 import ReactGA from 'react-ga';
 import MainPage from './Landing Page/MainPage';
