@@ -44,7 +44,26 @@ export default function PaymentPlan() {
                   borderRadius: '20px',
                 }}
               >
-                <p style={{ paddingTop: '20px' }}>POST-PAID</p>
+                <Row>
+                  <Col md="12">
+                    <p style={{ paddingTop: '20px' }}>POST-PAID</p>
+                  </Col>
+                  <Col style={{ position: 'absolute' }}>
+                    <div className="mr-auto">
+                      <Card
+                        style={{
+                          background: '#fff',
+                          color: '#0A79DF',
+                          width: '100px',
+                          // left: "440px",
+                          top: '20px',
+                        }}
+                      >
+                        25% off
+                      </Card>
+                    </div>
+                  </Col>
+                </Row>
               </Card.Title>
               <br />
               <Card.Subtitle style={{ textAlign: 'center' }}>
@@ -56,14 +75,14 @@ export default function PaymentPlan() {
                 >
                   2,00,000
                 </span>
-                &nbsp; 1,50,000 /-
+                &nbsp; 1,50,000 + GST
               </Card.Subtitle>
             </Card>
             <Card.Text
               className="card-text Text"
               style={{ fontWeight: 'bold', padding: '20px' }}
             >
-              <p>Total Fees: 2,00,000 + GST </p>
+              <p>Total Fees: 1,50,000 + GST </p>
               <p>
                 {' '}
                 Registration fees: 20,000 (+18% GST) Non-refundable, paid
@@ -112,7 +131,7 @@ export default function PaymentPlan() {
                 }}
               >
                 <Row>
-                  <Col md="10">
+                  <Col md="12">
                     <p style={{ paddingTop: '20px' }}>PRE-PAID</p>
                   </Col>
                   <Col style={{ position: 'absolute' }}>
@@ -126,7 +145,7 @@ export default function PaymentPlan() {
                           top: '20px',
                         }}
                       >
-                        50% off
+                        33.33% off
                       </Card>
                     </div>
                   </Col>
@@ -140,17 +159,17 @@ export default function PaymentPlan() {
                     textDecorationColor: 'red',
                   }}
                 >
-                  1,60,000
+                  1,20,000
                 </span>
-                &nbsp; 80,000 /-
+                &nbsp; 80,000 + GST
               </Card.Subtitle>
             </Card>
             <Card.Text
               className="card-text Text"
               style={{ fontWeight: 'bold', padding: '20px' }}
             >
-              <p>Total Fees: 1,60,000 + GST </p>
-              <p>Discount for early batches: 80,000</p>
+              <p>Total Fees: 80,000 + GST </p>
+
               <p> Use this option to completely skip the ISA model</p>
             </Card.Text>
           </Card>

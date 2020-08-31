@@ -16,11 +16,9 @@ export default function Footer() {
                   <li>
                     <a href="#">CONTACT</a>
                   </li>
+
                   <li>
-                    <a href="#">+91-886-XXX-XX</a>
-                  </li>
-                  <li>
-                    <a href="#">contact-admin@devsnest.in</a>
+                    <a href="#">admin@devsnest.in</a>
                   </li>
                 </ul>
               </div>
