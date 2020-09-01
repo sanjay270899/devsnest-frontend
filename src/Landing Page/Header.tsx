@@ -45,15 +45,8 @@ export default function Header() {
           </Nav.Link>
           <Nav.Link
             href="/curriculum"
-            style={{
-              backgroundColor: '#F1A615',
-              clipPath: 'polygon(31% 0, 100% 0, 100% 100%, 0% 100%)',
-              alignItems: 'center',
-              height: '55px ',
-              width: '100px',
-              paddingLeft: '30px',
-              color: '#fff',
-            }}
+            className="profile"
+            style={{ paddingLeft: '30px' }}
           >
             <i
               className="fa fa-user-circle-o icon"

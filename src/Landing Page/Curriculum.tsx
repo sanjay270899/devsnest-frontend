@@ -28,8 +28,8 @@ export default function Curriculum() {
           <Row
             style={{ paddingTop: '50px', paddingBottom: '50px', margin: '0px' }}
           >
-            <Col md="4">
-              <Card className="curriculumcard">
+            <Col md="4" style={{ padding: '5px' }}>
+              <Card style={{ height: '10rem' }}>
                 <Card.Body>
                   <Card.Title>Weeks 1-6</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
@@ -39,8 +39,8 @@ export default function Curriculum() {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md="4">
-              <Card className="curriculumcard">
+            <Col md="4" style={{ padding: '5px' }}>
+              <Card style={{ height: '10rem' }}>
                 <Card.Body>
                   <Card.Title> Weeks 7-8</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
@@ -51,8 +51,8 @@ export default function Curriculum() {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md="4">
-              <Card className="curriculumcard">
+            <Col md="4" style={{ padding: '5px' }}>
+              <Card style={{ height: '10rem' }}>
                 <Card.Body>
                   <Card.Title>Weeks 9-13</Card.Title>
 
@@ -69,8 +69,8 @@ export default function Curriculum() {
           <Row
             style={{ paddingTop: '50px', paddingBottom: '50px', margin: '0px' }}
           >
-            <Col md="4">
-              <Card className="curriculumcard">
+            <Col md="4" style={{ padding: '5px' }}>
+              <Card style={{ height: '10rem' }}>
                 <Card.Body>
                   <Card.Title>Weeks 14-18</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
@@ -81,8 +81,8 @@ export default function Curriculum() {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md="4">
-              <Card className="curriculumcard">
+            <Col md="4" style={{ padding: '5px' }}>
+              <Card style={{ height: '10rem' }}>
                 <Card.Body>
                   <Card.Title>Weeks 19-20</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
@@ -92,8 +92,8 @@ export default function Curriculum() {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md="4">
-              <Card className="curriculumcard">
+            <Col md="4" style={{ padding: '5px' }}>
+              <Card style={{ height: '10rem' }}>
                 <Card.Body>
                   <Card.Title>Weeks 21</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
@@ -110,8 +110,8 @@ export default function Curriculum() {
           <Row
             style={{ paddingTop: '50px', paddingBottom: '50px', margin: '0px' }}
           >
-            <Col md="4" className="ml-auto">
-              <Card className="curriculumcard">
+            <Col md="4" className="ml-auto" style={{ padding: '5px' }}>
+              <Card style={{ height: '10rem' }}>
                 <Card.Body>
                   <Card.Title> Weeks 22-24 </Card.Title>
                   <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
@@ -122,8 +122,8 @@ export default function Curriculum() {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md="4">
-              <Card className="curriculumcard">
+            <Col md="4" style={{ padding: '5px' }}>
+              <Card style={{ height: '10rem' }}>
                 <Card.Body>
                   <Card.Title>Weeks 25-27</Card.Title>
 
@@ -134,8 +134,8 @@ export default function Curriculum() {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md="4">
-              <Card className="curriculumcard">
+            <Col md="4" style={{ padding: '5px' }}>
+              <Card style={{ height: '10rem' }}>
                 <Card.Body>
                   <Card.Title> Weeks 28-30</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>

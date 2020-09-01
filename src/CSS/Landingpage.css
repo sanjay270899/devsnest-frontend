@@ -13,7 +13,7 @@
   height: 100vh;
   justify-content: center;
   align-items: center;
-  padding-top: 100px;
+  padding-top: 50px;
 }
 @media only screen and (max-width: 600px) {
   .feature {
@@ -87,4 +87,25 @@
 }
 .footer a {
   color: #fff;
+}
+.profile {
+  background-color: #f1a615;
+  clip-path: polygon(31% 0, 100% 0, 100% 100%, 0% 100%);
+  align-items: center;
+  height: 55px;
+  width: 100px;
+  /* padding-left: 500px; */
+  color: #fff;
+}
+@media only screen and (max-width: 600px) {
+  .profile {
+    background-color: #1c484a;
+    clip-path: polygon(0 1%, 100% 0%, 100% 100%, 0% 100%);
+    align-items: center;
+    height: 55px;
+    width: 100px;
+    margin: 0px;
+    padding-left: 0px;
+    color: #fff;
+  }
 }

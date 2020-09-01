@@ -21,7 +21,7 @@ export default function Features() {
           <Col md="4">
             <Card
               style={{
-                height: '5rem',
+                height: '7rem',
                 margin: '20px',
                 borderRadius: '20px',
                 // boxShadow: "5px 8px #c1c1c1 ",
@@ -36,7 +36,7 @@ export default function Features() {
           <Col md="4">
             <Card
               style={{
-                height: '5rem',
+                height: '7rem',
                 margin: '20px',
                 borderRadius: '20px',
                 boxShadow: '5px 8px #c1c1c1 ',
@@ -50,7 +50,7 @@ export default function Features() {
           <Col md="4">
             <Card
               style={{
-                height: '5rem',
+                height: '7rem',
                 margin: '20px',
                 borderRadius: '20px',
                 boxShadow: '5px 8px #c1c1c1 ',
@@ -67,7 +67,7 @@ export default function Features() {
           <Col md="4">
             <Card
               style={{
-                height: '5rem',
+                height: '7rem',
                 margin: '20px',
                 borderRadius: '20px',
                 boxShadow: '5px 8px #c1c1c1 ',
@@ -81,7 +81,7 @@ export default function Features() {
           <Col md="4">
             <Card
               style={{
-                height: '5rem',
+                height: '7rem',
                 margin: '20px',
                 borderRadius: '20px',
                 boxShadow: '5px 8px #c1c1c1 ',
@@ -97,7 +97,7 @@ export default function Features() {
           <Col md="4">
             <Card
               style={{
-                height: '5rem',
+                height: '7rem',
                 margin: '20px',
                 borderRadius: '20px',
                 boxShadow: '5px 8px #c1c1c1 ',
@@ -116,7 +116,7 @@ export default function Features() {
           <Col md="4">
             <Card
               style={{
-                height: '5rem',
+                height: '7rem',
                 margin: '20px',
                 borderRadius: '20px',
                 boxShadow: '5px 8px #c1c1c1 ',
@@ -130,7 +130,7 @@ export default function Features() {
           <Col md="4">
             <Card
               style={{
-                height: '5rem',
+                height: '7rem',
                 margin: '20px',
                 borderRadius: '20px',
                 boxShadow: '5px 8px #c1c1c1 ',
