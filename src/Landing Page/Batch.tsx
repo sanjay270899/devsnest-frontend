@@ -14,30 +14,37 @@ export default function Batch() {
             textAlign: 'center',
             paddingTop: '20px',
             paddingBottom: '20px',
-            background: '#1c484a',
+            background: 'rgb(166,92,105)',
             width: '100%',
-            borderRadius: '200px',
+            borderRadius: '20px',
             // height: '150px',
           }}
         >
-          <p style={{ fontSize: '35px', fontWeight: 'bold', color: '#fff' }}>
-            {' '}
-            Batch 2 registration starts 1st October, 2020
-          </p>
-
-          <Button
+          <p
             style={{
-              color: '#000',
-              background: '#f4b400',
-              fontSize: '20px',
-              width: '',
-              borderRadius: '10px',
-              justifyContent: 'center',
+              fontFamily: 'initial',
+              fontSize: '35px',
               fontWeight: 'bold',
+              color: '#fff',
             }}
           >
-            Apply Now
-          </Button>
+            {' '}
+            Batch 2 registration starts 1st October, 2020
+            <Button
+              style={{
+                color: '#000',
+                background: '#f4b400',
+                fontSize: '20px',
+                width: '',
+                borderRadius: '10px',
+                justifyContent: 'center',
+                fontWeight: 'bold',
+                marginLeft: '30px',
+              }}
+            >
+              Apply Now
+            </Button>
+          </p>
         </div>
       </Container>
     </div>

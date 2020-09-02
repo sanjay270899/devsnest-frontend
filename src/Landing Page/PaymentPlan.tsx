@@ -46,7 +46,16 @@ export default function PaymentPlan() {
               >
                 <Row>
                   <Col md="12">
-                    <p style={{ paddingTop: '20px' }}>POST-PAID</p>
+                    <p
+                      style={{
+                        paddingTop: '25px',
+                        fontSize: '25px',
+                        fontWeight: 'bold',
+                        fontFamily: 'initial',
+                      }}
+                    >
+                      POST-PAID
+                    </p>
                   </Col>
                   <Col style={{ position: 'absolute' }}>
                     <div className="mr-auto">
@@ -54,9 +63,9 @@ export default function PaymentPlan() {
                         style={{
                           background: '#fff',
                           color: '#0A79DF',
-                          width: '100px',
+                          width: '120px',
                           // left: "440px",
-                          top: '20px',
+                          top: '25px',
                         }}
                       >
                         25% off
@@ -132,7 +141,16 @@ export default function PaymentPlan() {
               >
                 <Row>
                   <Col md="12">
-                    <p style={{ paddingTop: '20px' }}>PRE-PAID</p>
+                    <p
+                      style={{
+                        paddingTop: '25px',
+                        fontSize: '25px',
+                        fontWeight: 'bold',
+                        fontFamily: 'initial',
+                      }}
+                    >
+                      PRE-PAID
+                    </p>
                   </Col>
                   <Col style={{ position: 'absolute' }}>
                     <div className="mr-auto">
@@ -140,9 +158,9 @@ export default function PaymentPlan() {
                         style={{
                           background: '#fff',
                           color: '#0A79DF',
-                          width: '100px',
-                          // left: "440px",
-                          top: '20px',
+                          width: '120px',
+                          // left: "240px",
+                          top: '25px',
                         }}
                       >
                         33.33% off
