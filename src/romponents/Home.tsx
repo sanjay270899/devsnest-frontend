@@ -1,5 +1,9 @@
 import React from 'react';
 
 export default function Home() {
-  return <div>Devnest</div>;
+  return (
+    <div>
+      <h1>Devsnest</h1>
+    </div>
+  );
 }

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Grid } from '@material-ui/core';
 import axios from '../config/axios.config';
 import CurriculumCard from './CurriculumCard';
 import Header from './Header';
 import { Redirect } from 'react-router';
+import { Container } from 'reactstrap';
 
 type TaskType = any;
 
@@ -47,11 +47,11 @@ function ListOfCurriculum() {
   return (
     <>
       <Header />
-      <div className="container">
-        {task.map((card: TaskType) => {
-          return (
-            <Grid container spacing={2}>
-              <Grid item md={6}>
+      <Container fluid={true} className="container_padding">
+        <div className="row">
+          {task.map((card: TaskType) => {
+            return (
+              <div className="col-md-6">
                 <CurriculumCard
                   key={card.id + '#'}
                   curriculumId={card.id}
@@ -63,11 +63,11 @@ function ListOfCurriculum() {
                   chapter_count={card.chapter_count}
                   total_chapter={card.total_chapter}
                 />
-              </Grid>
-            </Grid>
-          );
-        })}
-      </div>
+              </div>
+            );
+          })}
+        </div>
+      </Container>
     </>
   );
 }

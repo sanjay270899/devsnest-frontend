@@ -1,15 +1,23 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import { Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import ReactGA from 'react-ga';
 import { Chart } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import './CurriculumCard.css';
+
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  Button,
+  Progress,
+  CardFooter,
+  Row,
+  Col,
+  Container,
+} from 'reactstrap';
 
 function CurriculumCard(props: any) {
   const {
@@ -22,6 +30,18 @@ function CurriculumCard(props: any) {
     chapter_count,
     total_chapter,
   } = props;
+  // console.log(key,
+  //   curriculumId,
+  //   name,
+  //   duration,
+  //   slug,
+  //   url,
+  //   chapter_count,
+  //   total_chapter)
+  console.log(chapter_count, total_chapter);
+  let percent = Math.floor((chapter_count / total_chapter) * 100);
+  let parsePercent = String(percent);
+  console.log(percent, 'percent');
   const handleclick = () => {
     ReactGA.event({
       category: 'Navigation',
@@ -61,69 +81,64 @@ function CurriculumCard(props: any) {
     labels: ['', 'Completed'],
     datasets: [
       {
-        backgroundColor: ['#c1c1c1', '#26ae60'],
+        backgroundColor: ['#c1c1c1', '#F1A615'],
         data: [total - percentage, percentage],
       },
     ],
     text: `${percentage}%`,
   };
+
   return (
-    <Card className="card" key={key}>
-      <Grid container direction="row" justify="space-between">
-        <Grid item md={4}>
-          <CardMedia component={'img'} image={url} title={name} />
-        </Grid>
-        <Grid item md={6}>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              {name}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {slug}
-            </Typography>
-            <div>
-              <Doughnut
-                data={state}
-                width={200}
-                height={100}
-                options={{
-                  legend: {
-                    display: false,
-                    horizontalAlign: 'left',
-                    labels: {
-                      fontColor: '#000',
-                    },
-                  },
-                  maintainAspectRatio: false,
-                }}
-              />
-            </div>
-          </CardContent>
-        </Grid>
-      </Grid>
-      <Grid container>
-        <Grid item md={6}>
-          <CardContent>
-            <Typography gutterBottom component="h6">
-              Estimated Duration : {duration}
-            </Typography>
-          </CardContent>
-        </Grid>
-        <Grid item md={6}>
-          <CardActions>
-            <Button variant="contained" color="primary">
-              <Link
-                to={`/curriculum/${curriculumId}`}
-                style={{ color: '#fff', textDecoration: 'none' }}
-                onClick={handleclick}
-              >
-                Tasks
-              </Link>
-            </Button>
-          </CardActions>
-        </Grid>
-      </Grid>
-    </Card>
+    <Container>
+      <Row>
+        <Col>
+          <Card className="card-horizontal ">
+            <Row className="no-gutters">
+              <Col md="8">
+                <CardBody>
+                  <CardTitle className="CardTitle">{name}</CardTitle>
+                  <CardText className="slugText">{slug}</CardText>
+                  <button className="Explore mt-3">
+                    <Link
+                      to={`/curriculum/${curriculumId}`}
+                      style={{ color: '#000000 ', textDecoration: 'none' }}
+                      onClick={handleclick}
+                    >
+                      Explore
+                    </Link>
+                  </button>
+                </CardBody>
+                <CardFooter className="text-muted">
+                  <Progress
+                    style={{ backgroundColor: '#F1A615' }}
+                    className="Progressbar"
+                    value={parsePercent}
+                    data={state.text}
+                    width={200}
+                    height={100}
+                    options={{
+                      legend: {
+                        display: false,
+                        horizontalAlign: 'left',
+                        labels: {
+                          fontColor: '#000',
+                        },
+                      },
+                      maintainAspectRatio: false,
+                    }}
+                  >
+                    {state.text}
+                  </Progress>
+                </CardFooter>
+              </Col>
+              <Col md="4">
+                <CardImg className="image" src={url} title={name} />
+              </Col>
+            </Row>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
