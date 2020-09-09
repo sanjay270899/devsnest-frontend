@@ -1,5 +1,4 @@
 .card-horizontal {
-  /* width: 560px; */
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
   height: 258px;
   background-color: #1c484a;
@@ -23,7 +22,7 @@
   font-weight: normal;
 }
 
-.Explore {
+.Explore-btn {
   width: 36%;
   height: 40px;
   border: none;

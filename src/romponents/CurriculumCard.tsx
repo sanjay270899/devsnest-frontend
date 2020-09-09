@@ -98,7 +98,7 @@ function CurriculumCard(props: any) {
                 <CardBody>
                   <CardTitle className="CardTitle">{name}</CardTitle>
                   <CardText className="slugText">{slug}</CardText>
-                  <button className="Explore mt-3">
+                  <button className="Explore-btn mt-3">
                     <Link
                       to={`/curriculum/${curriculumId}`}
                       style={{ color: '#000000 ', textDecoration: 'none' }}
