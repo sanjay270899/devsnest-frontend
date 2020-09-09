@@ -92,7 +92,7 @@ function CurriculumCard(props: any) {
     <Container>
       <Row>
         <Col>
-          <Card className="card-horizontal box-shadow">
+          <Card className="card-horizontal ">
             <Row className="no-gutters">
               <Col md="8">
                 <CardBody>
