@@ -47,18 +47,6 @@ export default function Header() {
 
   return (
     <div className={classes.root}>
-      {/* <FormGroup>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={auth}
-              onChange={handleChange}
-              aria-label="login switch"
-            />
-          }
-          label={auth ? 'Logout' : 'Login'}
-        />
-      </FormGroup> */}
       <AppBar position="static" style={{ background: '#1c484a' }}>
         <Toolbar>
           <IconButton
@@ -87,10 +75,10 @@ export default function Header() {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleMenu}
-                color="inherit"
               >
-                <AccountCircle />
+                <AccountCircle style={{ color: '#fff' }} />
               </IconButton>
+
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}
