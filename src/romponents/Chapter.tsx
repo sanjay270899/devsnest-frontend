@@ -202,15 +202,15 @@ function Chapter({ task, updateAllTasks }: Props) {
             </Grid>
           </Grid>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
-            <div style={{}}>
+            <div>
               <Grid
                 container
                 direction="row"
                 justify="space-between"
                 alignItems="flex-end"
               >
-                <Grid item md={12} style={{}}>
-                  <Container>
+                <Grid item md={12}>
+                  <Container style={{}}>
                     <TableContainer component={Paper}>
                       <Table
                         className={classes.table}

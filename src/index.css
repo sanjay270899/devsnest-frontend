@@ -17,9 +17,6 @@ Card {
   box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* .container {
-  padding: 20px;
-} */
 .react-calendar-heatmap {
   width: -webkit-fill-available;
 }
@@ -45,3 +42,6 @@ Card {
 /* .ck.ck-editor__main > .ck-editor__editable:not(.ck-focused) {
   height: 200px;
 } */
+.makeStyles-drawer-7 {
+  width: 0 !important;
+}
