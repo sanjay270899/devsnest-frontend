@@ -29,6 +29,7 @@
     "material-ui-markdown-editor": "^1.0.10",
     "mdbreact": "^4.27.0",
     "moment": "^2.27.0",
+    "node-sass": "^4.14.1",
     "otp-input-react": "^0.2.4",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.1",
