@@ -9,12 +9,15 @@ function Landing() {
         <div className="logo"></div>
         <div className="nav-group">
           <div className="nav-group__left-side">
-            <div className="nav-group__logo-container">Logo</div>
+            <div className="nav-group__logo-container">
+              <span className="nav-group__logo">D</span>
+              <span>EVS NEST</span>
+            </div>
           </div>
           <div className="nav-group__right-side">
-            <div className="nav-item">Home</div>
-            <div className="nav-item">Home</div>
-            {/* <div className="nav-item">Home</div> */}
+            <div className="nav-item">Apply</div>
+            <div className="nav-item">Team</div>
+            <div className="nav-item">Curriculum</div>
           </div>
         </div>
       </section>
@@ -28,7 +31,11 @@ function Landing() {
             We aim to make young India financially self-sustainable by providing
             equal opportunity for all.
           </div>
-          <a href="" className="btnx hero__cta">
+          <a
+            href="https://www.google.com"
+            target="_blank"
+            className="btnx hero__cta"
+          >
             apply now
           </a>
         </div>
@@ -108,17 +115,97 @@ function Landing() {
       <section className="unique">
         <div className="headingx unique__heading">What makes us unique</div>
         <div className="unique__container">
-          <div className="unique__unit">
-            <div className="unique__left-side">
-              <img src="./unique0.svg" alt="" />
-            </div>
-            <div className="unique__right-side">
-              <div className="unique__right-side__heading">
-                Live classes everyday
+          <div className="rowx">
+            <div className="unique__unit colx">
+              <div className="unique__left-side">
+                <img src="./unique0.svg" alt="" />
               </div>
-              <div className="unique__right-side__descp">
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint. Velit officia
+              <div className="unique__right-side">
+                <div className="unique__right-side__heading">
+                  Live classes everyday
+                </div>
+                <div className="unique__right-side__descp">
+                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                  amet sint. Velit officia
+                </div>
+              </div>
+            </div>
+
+            <div className="unique__unit colx">
+              <div className="unique__left-side">
+                <img src="./unique0.svg" alt="" />
+              </div>
+              <div className="unique__right-side">
+                <div className="unique__right-side__heading">
+                  Live classes everyday
+                </div>
+                <div className="unique__right-side__descp">
+                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                  amet sint. Velit officia
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="rowx">
+            <div className="unique__unit colx">
+              <div className="unique__left-side">
+                <img src="./unique0.svg" alt="" />
+              </div>
+              <div className="unique__right-side">
+                <div className="unique__right-side__heading">
+                  Live classes everyday
+                </div>
+                <div className="unique__right-side__descp">
+                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                  amet sint. Velit officia
+                </div>
+              </div>
+            </div>
+
+            <div className="unique__unit colx">
+              <div className="unique__left-side">
+                <img src="./unique0.svg" alt="" />
+              </div>
+              <div className="unique__right-side">
+                <div className="unique__right-side__heading">
+                  Live classes everyday
+                </div>
+                <div className="unique__right-side__descp">
+                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                  amet sint. Velit officia
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="rowx">
+            <div className="unique__unit colx">
+              <div className="unique__left-side">
+                <img src="./unique0.svg" alt="" />
+              </div>
+              <div className="unique__right-side">
+                <div className="unique__right-side__heading">
+                  Live classes everyday
+                </div>
+                <div className="unique__right-side__descp">
+                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                  amet sint. Velit officia
+                </div>
+              </div>
+            </div>
+
+            <div className="unique__unit colx">
+              <div className="unique__left-side">
+                <img src="./unique0.svg" alt="" />
+              </div>
+              <div className="unique__right-side">
+                <div className="unique__right-side__heading">
+                  Live classes everyday
+                </div>
+                <div className="unique__right-side__descp">
+                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                  amet sint. Velit officia
+                </div>
               </div>
             </div>
           </div>
@@ -153,8 +240,13 @@ function Landing() {
       </section>
 
       <section className="team">
-        <div className="headingx team__heading">What makes us unique</div>
+        <div className="headingx team__heading">Meet our team</div>
         <div className="team__container">
+          <div className="team__unit">
+            <img src="./team0.png" />
+            <div className="team__name">Vedansh Garg</div>
+            <div className="team__title">Founder & CEO</div>
+          </div>
           <div className="team__unit">
             <img src="./team0.png" />
             <div className="team__name">Vedansh Garg</div>
@@ -171,7 +263,9 @@ function Landing() {
             equal opportunity for all.
           </div>
         </div>
-        <div className="footer__right-side">Contact us admin@devsnest.in</div>
+        <div className="footer__right-side">
+          Contact us <span className="footer__email">admin@devsnest.in</span>
+        </div>
       </footer>
     </div>
   );

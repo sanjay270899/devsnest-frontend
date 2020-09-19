@@ -71,7 +71,12 @@ div {
     &__right-side {
       display: flex;
       justify-content: space-between;
-      min-width: 150px;
+      min-width: 250px;
+    }
+
+    &__logo {
+      font-weight: 900;
+      font-size: 32px;
     }
   }
 
@@ -129,6 +134,7 @@ div {
     &__container {
       padding: 60px 140px;
       display: flex;
+      justify-content: space-between;
     }
 
     &__purple {
@@ -144,7 +150,8 @@ div {
     }
 
     &__descp {
-      font-size: 20px;
+      font-size: 18px;
+      width: 250px;
     }
   }
 
@@ -155,7 +162,23 @@ div {
     }
 
     &__unit {
+      margin-bottom: 20px;
       display: flex;
+    }
+
+    &__right-side {
+      margin-left: 20px;
+
+      &__heading {
+        font-weight: 700;
+        font-size: 32px;
+      }
+    }
+
+    &__right-side {
+      &__descp {
+        max-width: 350px;
+      }
     }
   }
 
@@ -204,9 +227,22 @@ div {
 
   .team {
     margin: 60px 140px;
+    text-align: center;
 
     img {
       width: 275px;
+    }
+
+    &__container {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    &__name {
+      margin-top: 10px;
+      font-weight: 900;
+      font-size: 32px;
     }
   }
 
@@ -214,6 +250,11 @@ div {
     background-color: #e4f2f8;
     padding: 60px 140px;
     display: flex;
+    justify-content: space-between;
+
+    &__email {
+      font-weight: 900;
+    }
   }
 
   @media screen and (min-width: 540px) {
