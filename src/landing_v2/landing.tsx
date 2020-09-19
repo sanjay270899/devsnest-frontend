@@ -32,7 +32,7 @@ function Landing() {
             equal opportunity for all.
           </div>
           <a
-            href="https://www.google.com"
+            href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
             target="_blank"
             className="btnx hero__cta"
           >
@@ -40,21 +40,72 @@ function Landing() {
           </a>
         </div>
       </section>
-      <section className="stories">
+      {/* <section className="stories">
         <div className="stories__left-side">
-          <div className="headingx stories__heading">Success stories</div>
+          <div className="headingx stories__heading">Student Speaks</div>
           <div className="descpx stories__descp">
-            Goorou is, by all measures, the best investment I have made in my
-            college life. Within past few weeks, I'm surprised to see the
-            positive changes not only in my web dev and CS skills but within
-            myself as an individual as well.
+          <p>
+            The mentors here don't teach you solutions, they teach you how to think towards it. 
+            The self-assessment chart on the website and weekly targets along with 
+            guest lectures on weekends from industry experts keep me motivated.  
+            </p>
+          <p>
+            I was an average student but here I realized I m capable of far better things. 
+            My productivity grew multiple folds from day 1 itself. 
+            Joining this is one of the best decisions of my life. 
+            Thank you Devsnest!
+            </p>
           </div>
-          <div className="stories__cta">Srestha Mishra (CRED)</div>
+          <div className="stories__cta">Priya Mishra</div>
         </div>
         <div className="stories__right-side">
-          <img src="./story.svg" />
+          <img src="./priya.png" />
+        </div>
+      </section> */}
+      <section className="stories">
+        <div className="stories__left-side">
+          <div className="headingx stories__heading">Student Speaks</div>
+          <div className="descpx stories__descp">
+            <p>
+              The curriculum here is very exhaustive helping me be a better
+              developer. The Mock Interviews feedbacks from Industry experts and
+              continous guidance have helped me become better at giving
+              interviews.
+            </p>
+            <p>
+              The best thing which I felt about this program was the 1:1
+              mentorship sessions from Vedansh Sir and Sai maam. It has been
+              only 3 months since I have joined this program and I already have
+              2 offers of 8LPA each. I will be joining one of them next week
+            </p>
+          </div>
+          <div className="stories__cta">Abhishek Rai( dailyprophet.ai )</div>
+        </div>
+        <div className="stories__right-side">
+          <img src="./abhishek.png" />
         </div>
       </section>
+      {/* <section className="stories">
+        <div className="stories__left-side">
+          <div className="headingx stories__heading">Student Speaks</div>
+          <div className="descpx stories__descp">
+          <p>
+          Devsnest is by all measures the best investment I have made in my last 4 years. 
+          Within past few months, 
+          I'm surprised to see the positive changes not only in my web dev and CS skills 
+          but within myself as an individual as well.
+          </p>
+          <p> 
+          Truly, I owe it all to Devnest's program and I would wholeheartedly recommend it to anybody considering it, 
+          especially those with a desire to improve and strengthen their capabilities, as a fully fledge software engineer, everyday.
+          </p>  
+          </div>
+          <div className="stories__cta">Vashudev Dhamma</div>
+        </div>
+        <div className="stories__right-side">
+          <img src="./vashu.png" />
+        </div>
+      </section> */}
       <section className="curriculum">
         <div className="headingx curriculum__heading">Curriculum</div>
         <div className="curriculum__container">
@@ -62,52 +113,58 @@ function Landing() {
             <div className="curriculum__icon">
               <img src="./curr0.svg" alt="curr" />
             </div>
-            <div className="curriculum__purple">Week 0-8</div>
+            <div className="curriculum__purple">Week 1-10</div>
             <div className="curriculum__orange">Kickstart</div>
             <div className="curriculum__descp">
-              basics of web, html, css version control, git backend developement
-              basics of NodeJS building & deploying APIs. project in NodeJS
-              frontend development basics of ReactJS integrating APIs project in
-              ReactJS
+              <p>Basics of Programming and Logical Thinking </p>
+              <p>
+                Deep dive into Algorithms and Data Structures using 150+
+                Problems
+              </p>
             </div>
           </div>
           <div className="curriculum__unit">
             <div className="curriculum__icon">
-              <img src="./curr0.svg" alt="curr" />
+              <img src="./curr1.svg" alt="curr" />
             </div>
-            <div className="curriculum__purple">Week 0-8</div>
-            <div className="curriculum__orange">Kickstart</div>
+            <div className="curriculum__purple">Week 11-22</div>
+            <div className="curriculum__orange">Web 10x</div>
             <div className="curriculum__descp">
-              basics of web, html, css version control, git backend developement
-              basics of NodeJS building & deploying APIs project in NodeJS
-              frontend development basics of ReactJS integrating APIs project in
-              ReactJS
+              <p>Basics of Web using HTML, CSS, JS and GIT</p>
+              <p>
+                Backend Development using NodeJS, Mysql and Docker followed by
+                4+ industry grade Projects
+              </p>
+              <p>
+                Frontend Development using ReactJS and Redux followed by 4+
+                industry grade Projects
+              </p>
             </div>
           </div>
           <div className="curriculum__unit">
             <div className="curriculum__icon">
-              <img src="./curr0.svg" alt="curr" />
+              <img src="./curr2.svg" alt="curr" />
             </div>
-            <div className="curriculum__purple">Week 0-8</div>
-            <div className="curriculum__orange">Kickstart</div>
+            <div className="curriculum__purple">Week 23-28</div>
+            <div className="curriculum__orange">Deep Dive</div>
             <div className="curriculum__descp">
-              basics of web, html, css version control, git backend developement
-              basics of NodeJS building & deploying APIs project in NodeJS
-              frontend development basics of ReactJS integrating APIs project in
-              ReactJS
+              <p>Understanding CS Fundamentals and diving into Sytem Design</p>
+              <p>Building a Major Capstone Project</p>
             </div>
           </div>
           <div className="curriculum__unit">
             <div className="curriculum__icon">
-              <img src="./curr0.svg" alt="curr" />
+              <img src="./curr3.svg" alt="curr" />
             </div>
-            <div className="curriculum__purple">Week 0-8</div>
-            <div className="curriculum__orange">Kickstart</div>
+            <div className="curriculum__purple">Week 29-32</div>
+            <div className="curriculum__orange">Land a Job</div>
             <div className="curriculum__descp">
-              basics of web, html, css version control, git backend developement
-              basics of NodeJS building & deploying APIs project in NodeJS
-              frontend development basics of ReactJS integrating APIs project in
-              ReactJS
+              <p>
+                Career Counselling sessions and polishing your Resume and Cover
+                Letter
+              </p>
+              <p>10 + Mock Interviews by Industry Experts</p>
+              <p>Interviews and Offers</p>
             </div>
           </div>
         </div>
@@ -133,11 +190,11 @@ function Landing() {
 
             <div className="unique__unit colx">
               <div className="unique__left-side">
-                <img src="./unique0.svg" alt="" />
+                <img src="./unique1.svg" alt="" />
               </div>
               <div className="unique__right-side">
                 <div className="unique__right-side__heading">
-                  Live classes everyday
+                  Personalized guidance and support
                 </div>
                 <div className="unique__right-side__descp">
                   Amet minim mollit non deserunt ullamco est sit aliqua dolor do
@@ -150,11 +207,11 @@ function Landing() {
           <div className="rowx">
             <div className="unique__unit colx">
               <div className="unique__left-side">
-                <img src="./unique0.svg" alt="" />
+                <img src="./unique2.svg" alt="" />
               </div>
               <div className="unique__right-side">
                 <div className="unique__right-side__heading">
-                  Live classes everyday
+                  Project driven curricululum
                 </div>
                 <div className="unique__right-side__descp">
                   Amet minim mollit non deserunt ullamco est sit aliqua dolor do
@@ -165,11 +222,11 @@ function Landing() {
 
             <div className="unique__unit colx">
               <div className="unique__left-side">
-                <img src="./unique0.svg" alt="" />
+                <img src="./unique3.svg" alt="" />
               </div>
               <div className="unique__right-side">
                 <div className="unique__right-side__heading">
-                  Live classes everyday
+                  Sessions and Mock interviews by industry experts
                 </div>
                 <div className="unique__right-side__descp">
                   Amet minim mollit non deserunt ullamco est sit aliqua dolor do
@@ -181,11 +238,11 @@ function Landing() {
           <div className="rowx">
             <div className="unique__unit colx">
               <div className="unique__left-side">
-                <img src="./unique0.svg" alt="" />
+                <img src="./unique4.svg" alt="" />
               </div>
               <div className="unique__right-side">
                 <div className="unique__right-side__heading">
-                  Live classes everyday
+                  Enhancement classes to match student's pace
                 </div>
                 <div className="unique__right-side__descp">
                   Amet minim mollit non deserunt ullamco est sit aliqua dolor do
@@ -196,11 +253,11 @@ function Landing() {
 
             <div className="unique__unit colx">
               <div className="unique__left-side">
-                <img src="./unique0.svg" alt="" />
+                <img src="./unique5.svg" alt="" />
               </div>
               <div className="unique__right-side">
                 <div className="unique__right-side__heading">
-                  Live classes everyday
+                  Career Counselling & soft skills sessions
                 </div>
                 <div className="unique__right-side__descp">
                   Amet minim mollit non deserunt ullamco est sit aliqua dolor do
@@ -233,10 +290,11 @@ function Landing() {
         <div className="cool__right-side">
           <div className="headingx cool__heading">Sounds Cool?</div>
           <div className="cool__descp">
-            get started with #goorou to experience the best version of yourself.
+            get started with #desvsnest to experience the best version of
+            yourself.
           </div>
           <a
-            href="https://www.google.com"
+            href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
             target="_blank"
             className="btnx cool__cta"
           >
@@ -250,13 +308,13 @@ function Landing() {
         <div className="team__container">
           <div className="team__unit">
             <img src="./team0.png" />
-            <div className="team__name">Vedansh Garg</div>
-            <div className="team__title">Founder & CEO</div>
+            <div className="team__name">Vedansh</div>
+            <div className="team__title">Hackerrank</div>
           </div>
           <div className="team__unit">
-            <img src="./team0.png" />
-            <div className="team__name">Vedansh Garg</div>
-            <div className="team__title">Founder & CEO</div>
+            <img src="./team1.png" />
+            <div className="team__name">Sai </div>
+            <div className="team__title">Ex Amazon</div>
           </div>
         </div>
       </section>
