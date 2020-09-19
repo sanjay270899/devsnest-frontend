@@ -38,7 +38,7 @@ function Landing() {
           <img src="./hero.svg" alt="hero" />
         </div>
         <div className="hero__right-side colx">
-          <div className="hero__heading">Revamp learning</div>
+          <div className="hero__heading">Rev@mp learning</div>
           <div className="descpx hero__descp">
             We aim to make young India financially self-sustainable by providing
             equal opportunity for all.
