@@ -75,6 +75,7 @@ div {
     }
 
     &__logo-text {
+      font-size: 18px;
       font-weight: 600;
     }
 
@@ -109,6 +110,7 @@ div {
 
     &__descp {
       max-width: 500px;
+      margin-left: 1px;
     }
 
     &__right-side {
