@@ -56,6 +56,11 @@ div {
 }
 
 .landing-v2 {
+  .carousel-control-next,
+  .carousel-control-prev {
+    width: 5%;
+  }
+
   .nav-bar,
   .hero {
     padding: 30px 20px;
