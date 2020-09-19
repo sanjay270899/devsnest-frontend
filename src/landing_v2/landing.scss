@@ -65,6 +65,14 @@ div {
     display: flex;
     justify-content: space-between;
 
+    &__logo-container {
+      display: flex;
+    }
+
+    &__logo-text {
+      font-weight: 600;
+    }
+
     &__left-side {
     }
 
@@ -78,16 +86,24 @@ div {
       font-weight: 900;
       font-size: 32px;
     }
+
+    img {
+      height: 20px;
+    }
   }
 
   .hero {
     justify-content: space-evenly;
-
+    margin-bottom: 40px;
     img {
       width: 320px;
     }
 
     &__left-side {
+    }
+
+    &__descp {
+      max-width: 500px;
     }
 
     &__right-side {
@@ -112,6 +128,11 @@ div {
     display: flex;
     justify-content: space-between;
 
+    &__descp {
+      padding: 10px 0;
+      font-size: 20px;
+    }
+
     &__left-side {
       margin: 60px 140px;
       display: flex;
@@ -121,6 +142,7 @@ div {
 
     img {
       width: 500px;
+      height: 532px;
     }
 
     &__cta {
@@ -162,16 +184,22 @@ div {
     }
 
     &__unit {
-      margin-bottom: 20px;
+      margin-bottom: 50px;
       display: flex;
     }
 
     &__right-side {
       margin-left: 20px;
+      min-height: 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
       &__heading {
         font-weight: 700;
-        font-size: 32px;
+        font-size: 24px;
+        line-height: 1.3;
+        max-width: 400px;
       }
     }
 

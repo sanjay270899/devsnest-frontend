@@ -10,14 +10,24 @@ function Landing() {
         <div className="nav-group">
           <div className="nav-group__left-side">
             <div className="nav-group__logo-container">
-              <span className="nav-group__logo">D</span>
-              <span>EVS NEST</span>
+              <img src="./logo.svg" />
+              <div className="nav-group__logo-text">evsnest</div>
             </div>
           </div>
           <div className="nav-group__right-side">
-            <div className="nav-item">Apply</div>
-            <div className="nav-item">Team</div>
-            <div className="nav-item">Curriculum</div>
+            <a
+              href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
+              target="_blank"
+              className="nav-item"
+            >
+              Apply
+            </a>
+            <a href="#team" className="nav-item">
+              Team
+            </a>
+            <a href="#curriculum" className="nav-item">
+              Curriculum
+            </a>
           </div>
         </div>
       </section>
@@ -27,7 +37,7 @@ function Landing() {
         </div>
         <div className="hero__right-side colx">
           <div className="hero__heading">Revamp learning</div>
-          <div className="hero__descp">
+          <div className="descpx hero__descp">
             We aim to make young India financially self-sustainable by providing
             equal opportunity for all.
           </div>
@@ -44,16 +54,17 @@ function Landing() {
         <div className="stories__left-side">
           <div className="headingx stories__heading">Student Speaks</div>
           <div className="descpx stories__descp">
-          <p>
-            The mentors here don't teach you solutions, they teach you how to think towards it. 
-            The self-assessment chart on the website and weekly targets along with 
-            guest lectures on weekends from industry experts keep me motivated.  
+            <p>
+              The mentors here don't teach you solutions, they teach you how to
+              think towards it. The self-assessment chart on the website and
+              weekly targets along with guest lectures on weekends from industry
+              experts keep me motivated.
             </p>
-          <p>
-            I was an average student but here I realized I m capable of far better things. 
-            My productivity grew multiple folds from day 1 itself. 
-            Joining this is one of the best decisions of my life. 
-            Thank you Devsnest!
+            <p>
+              I was an average student but here I realized I m capable of far
+              better things. My productivity grew multiple folds from day 1
+              itself. Joining this is one of the best decisions of my life.
+              Thank you Devsnest!
             </p>
           </div>
           <div className="stories__cta">Priya Mishra</div>
@@ -62,7 +73,7 @@ function Landing() {
           <img src="./priya.png" />
         </div>
       </section> */}
-      <section className="stories">
+      {/* <section className="stories">
         <div className="stories__left-side">
           <div className="headingx stories__heading">Student Speaks</div>
           <div className="descpx stories__descp">
@@ -84,29 +95,31 @@ function Landing() {
         <div className="stories__right-side">
           <img src="./abhishek.png" />
         </div>
-      </section>
-      {/* <section className="stories">
+      </section> */}
+      <section className="stories">
         <div className="stories__left-side">
           <div className="headingx stories__heading">Student Speaks</div>
-          <div className="descpx stories__descp">
-          <p>
-          Devsnest is by all measures the best investment I have made in my last 4 years. 
-          Within past few months, 
-          I'm surprised to see the positive changes not only in my web dev and CS skills 
-          but within myself as an individual as well.
-          </p>
-          <p> 
-          Truly, I owe it all to Devnest's program and I would wholeheartedly recommend it to anybody considering it, 
-          especially those with a desire to improve and strengthen their capabilities, as a fully fledge software engineer, everyday.
-          </p>  
+          <div className="stories__descp">
+            <p>
+              Devsnest is by all measures the best investment I have made in my
+              last 4 years. Within past few months, I'm surprised to see the
+              positive changes not only in my web dev and CS skills but within
+              myself as an individual as well.
+            </p>
+            <p>
+              Truly, I owe it all to Devnest's program and I would
+              wholeheartedly recommend it to anybody considering it, especially
+              those with a desire to improve and strengthen their capabilities,
+              as a fully fledge software engineer, everyday.
+            </p>
           </div>
           <div className="stories__cta">Vashudev Dhamma</div>
         </div>
         <div className="stories__right-side">
           <img src="./vashu.png" />
         </div>
-      </section> */}
-      <section className="curriculum">
+      </section>
+      <section id="curriculum" className="curriculum">
         <div className="headingx curriculum__heading">Curriculum</div>
         <div className="curriculum__container">
           <div className="curriculum__unit">
@@ -303,7 +316,7 @@ function Landing() {
         </div>
       </section>
 
-      <section className="team">
+      <section id="team" className="team">
         <div className="headingx team__heading">Meet our team</div>
         <div className="team__container">
           <div className="team__unit">
