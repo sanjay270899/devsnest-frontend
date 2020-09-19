@@ -235,7 +235,13 @@ function Landing() {
           <div className="cool__descp">
             get started with #goorou to experience the best version of yourself.
           </div>
-          <div className="btnx cool__cta">Apply Now</div>
+          <a
+            href="https://www.google.com"
+            target="_blank"
+            className="btnx cool__cta"
+          >
+            Apply Now
+          </a>
         </div>
       </section>
 
