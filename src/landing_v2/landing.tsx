@@ -50,7 +50,7 @@ function Landing() {
           </a>
         </div>
       </section>
-      {/* <section className="stories">
+      <section className="stories">
         <div className="stories__left-side">
           <div className="headingx stories__heading">Student Speaks</div>
           <div className="descpx stories__descp">
@@ -72,7 +72,7 @@ function Landing() {
         <div className="stories__right-side">
           <img src="./priya.png" />
         </div>
-      </section> */}
+      </section>
       {/* <section className="stories">
         <div className="stories__left-side">
           <div className="headingx stories__heading">Student Speaks</div>
@@ -96,7 +96,7 @@ function Landing() {
           <img src="./abhishek.png" />
         </div>
       </section> */}
-      <section className="stories">
+      {/* <section className="stories">
         <div className="stories__left-side">
           <div className="headingx stories__heading">Student Speaks</div>
           <div className="stories__descp">
@@ -118,7 +118,7 @@ function Landing() {
         <div className="stories__right-side">
           <img src="./vashu.png" />
         </div>
-      </section>
+      </section> */}
       <section id="curriculum" className="curriculum">
         <div className="headingx curriculum__heading">Curriculum</div>
         <div className="curriculum__container">
