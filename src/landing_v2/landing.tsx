@@ -59,6 +59,34 @@ function Landing() {
               <div className="headingx stories__heading">Student Speaks</div>
               <div className="descpx stories__descp">
                 <p>
+                  The curriculum here is very exhaustive helping me be a better
+                  developer. The Mock Interviews feedbacks from Industry experts
+                  and continous guidance have helped me become better at giving
+                  interviews.
+                </p>
+                <p>
+                  The best thing which I felt about this program was the 1:1
+                  mentorship sessions from Vedansh Sir and Sai maam. It has been
+                  only 3 months since I have joined this program and I already
+                  have 2 offers of 8LPA each. I will be joining one of them next
+                  week
+                </p>
+              </div>
+              <div className="stories__cta">
+                Abhishek Rai( dailyprophet.ai )
+              </div>
+            </div>
+            <div className="stories__right-side">
+              <img src="./abhishek.png" />
+            </div>
+          </section>
+        </Carousel.Item>
+        <Carousel.Item>
+          <section className="stories">
+            <div className="stories__left-side">
+              <div className="headingx stories__heading">Student Speaks</div>
+              <div className="descpx stories__descp">
+                <p>
                   The mentors here don't teach you solutions, they teach you how
                   to think towards it. The self-assessment chart on the website
                   and weekly targets along with guest lectures on weekends from
@@ -104,75 +132,7 @@ function Landing() {
           </section>
         </Carousel.Item>
       </Carousel>
-      {/* <section className="stories">
-        <div className="stories__left-side">
-          <div className="headingx stories__heading">Student Speaks</div>
-          <div className="descpx stories__descp">
-            <p>
-              The mentors here don't teach you solutions, they teach you how to
-              think towards it. The self-assessment chart on the website and
-              weekly targets along with guest lectures on weekends from industry
-              experts keep me motivated.
-            </p>
-            <p>
-              I was an average student but here I realized I m capable of far
-              better things. My productivity grew multiple folds from day 1
-              itself. Joining this is one of the best decisions of my life.
-              Thank you Devsnest!
-            </p>
-          </div>
-          <div className="stories__cta">Priya Mishra</div>
-        </div>
-        <div className="stories__right-side">
-          <img src="./priya.png" />
-        </div>
-      </section> */}
-      {/* <section className="stories">
-        <div className="stories__left-side">
-          <div className="headingx stories__heading">Student Speaks</div>
-          <div className="descpx stories__descp">
-            <p>
-              The curriculum here is very exhaustive helping me be a better
-              developer. The Mock Interviews feedbacks from Industry experts and
-              continous guidance have helped me become better at giving
-              interviews.
-            </p>
-            <p>
-              The best thing which I felt about this program was the 1:1
-              mentorship sessions from Vedansh Sir and Sai maam. It has been
-              only 3 months since I have joined this program and I already have
-              2 offers of 8LPA each. I will be joining one of them next week
-            </p>
-          </div>
-          <div className="stories__cta">Abhishek Rai( dailyprophet.ai )</div>
-        </div>
-        <div className="stories__right-side">
-          <img src="./abhishek.png" />
-        </div>
-      </section> */}
-      {/* <section className="stories">
-        <div className="stories__left-side">
-          <div className="headingx stories__heading">Student Speaks</div>
-          <div className="stories__descp">
-            <p>
-              Devsnest is by all measures the best investment I have made in my
-              last 4 years. Within past few months, I'm surprised to see the
-              positive changes not only in my web dev and CS skills but within
-              myself as an individual as well.
-            </p>
-            <p>
-              Truly, I owe it all to Devnest's program and I would
-              wholeheartedly recommend it to anybody considering it, especially
-              those with a desire to improve and strengthen their capabilities,
-              as a fully fledge software engineer, everyday.
-            </p>
-          </div>
-          <div className="stories__cta">Vashudev Dhamma</div>
-        </div>
-        <div className="stories__right-side">
-          <img src="./vashu.png" />
-        </div>
-      </section> */}
+
       <section id="curriculum" className="curriculum">
         <div className="headingx curriculum__heading">Curriculum</div>
         <div className="curriculum__container">
