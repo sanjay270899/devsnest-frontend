@@ -192,11 +192,12 @@ function Landing() {
               </div>
               <div className="unique__right-side">
                 <div className="unique__right-side__heading">
-                  Live classes everyday
+                  Live Classes Everyday
                 </div>
                 <div className="unique__right-side__descp">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia
+                  It’s COVID, we know you can't even meet your next door
+                  neighbours. But we do bring a fun class-like experience
+                  virtually.
                 </div>
               </div>
             </div>
@@ -207,11 +208,12 @@ function Landing() {
               </div>
               <div className="unique__right-side">
                 <div className="unique__right-side__heading">
-                  Personalized guidance and support
+                  Personalized Guidance
                 </div>
                 <div className="unique__right-side__descp">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia
+                  Who doesn't like attention? We make sure to have 1:1 and
+                  mentoring sessions with every students to make their journey
+                  with us hassle free.
                 </div>
               </div>
             </div>
@@ -224,11 +226,12 @@ function Landing() {
               </div>
               <div className="unique__right-side">
                 <div className="unique__right-side__heading">
-                  Project driven curricululum
+                  Project Driven Curricululum
                 </div>
                 <div className="unique__right-side__descp">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia
+                  Ain't reading whole of Cormen a nightmare? Only Sheldon can
+                  handle so much of theory. We provide Intensive hands on
+                  training through 10+ projects
                 </div>
               </div>
             </div>
@@ -238,12 +241,11 @@ function Landing() {
                 <img src="./unique3.svg" alt="" />
               </div>
               <div className="unique__right-side">
-                <div className="unique__right-side__heading">
-                  Sessions and Mock interviews by industry experts
-                </div>
+                <div className="unique__right-side__heading">Learn a Tech</div>
                 <div className="unique__right-side__descp">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia
+                  General Knowledge is important, and so is staying updated with
+                  technology. So we have our “Cool Tech Talks” every sunday by
+                  industry experts on trending technologies.
                 </div>
               </div>
             </div>
@@ -255,11 +257,12 @@ function Landing() {
               </div>
               <div className="unique__right-side">
                 <div className="unique__right-side__heading">
-                  Enhancement classes to match student's pace
+                  Enhancement Classes
                 </div>
                 <div className="unique__right-side__descp">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia
+                  We understand everyone has their own pace of learning, and
+                  everyday you can’t be Batman. Enhancement program help us to
+                  pull you up to the same level incase you are lagging
                 </div>
               </div>
             </div>
@@ -270,11 +273,13 @@ function Landing() {
               </div>
               <div className="unique__right-side">
                 <div className="unique__right-side__heading">
-                  Career Counselling & soft skills sessions
+                  Mock Interviews By Industry
                 </div>
                 <div className="unique__right-side__descp">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia
+                  Interviews can be intriguing and you don't want you to rely on
+                  curd on your 1st interview. We want to end this stage fear, by
+                  having mock "live like" interviews by mentors from FAANG type
+                  companies.
                 </div>
               </div>
             </div>
