@@ -191,6 +191,7 @@ div {
     &__unit {
       margin-bottom: 50px;
       display: flex;
+      justify-content: flex-start;
     }
 
     &__right-side {
