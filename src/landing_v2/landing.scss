@@ -2,6 +2,15 @@ $color-purple: #8367c7;
 $color-sec: #ff7d59;
 $color-bg: #e4f2f8;
 $color-text: #39393a;
+$color-text-light: rgba(#000000, 0.7);
+
+$color-white: #ffffff;
+$color-black: #101116;
+
+:root {
+  --color-page-background: #{$color-white};
+  --color-text: #{$color-black};
+}
 
 * {
   font-family: 'Montserrat', sans-serif;
@@ -26,6 +35,10 @@ div {
   font-weight: 900;
 }
 
+ul {
+  padding-left: 20px;
+}
+
 a.nav-item {
   color: $color-purple;
   font-weight: 600;
@@ -38,11 +51,10 @@ a.nav-item {
 
 .btnx {
   color: #ffffff;
-  width: 150px;
-  padding: 15px 20px;
+  padding: 20px 50px;
+  font-size: 16px;
   text-align: center;
-  border-radius: 16px;
-  font-weight: 900;
+  border-radius: 8px;
 
   &:hover {
     color: #fff;
@@ -50,11 +62,26 @@ a.nav-item {
   }
 }
 
+.btnx-primary {
+  background-color: $color-purple;
+}
+
+.btnx-primary-outine {
+  border: 1px solid $color-purple;
+  color: $color-purple;
+
+  &:hover {
+    color: $color-purple;
+  }
+}
+
+.block {
+  width: 100%;
+  display: inline-block;
+}
+
 .headingx {
-  font-size: 48px;
-  font-weight: 900;
-  color: transparent;
-  -webkit-text-stroke: 3px #39393a;
+  font-size: 42px;
 }
 
 .descpx {
@@ -72,13 +99,43 @@ a.nav-item {
     width: 5%;
   }
 
-  .nav-bar,
-  .hero,
+  // .carousel-control-next,
+  // .carousel-control-prev {
+  //   filter: invert(100%);
+  // }
+
+  .carousel-indicators li {
+    background-color: $color-text-light;
+  }
+
+  // .carousel-control-prev-icon,
+  // .carousel-control-next-icon {
+  //   height: 100px;
+  //   width: 100px;
+  //   outline: black;
+  //   background-size: 100%, 100%;
+  //   background-image: none;
+  // }
+
+  // .carousel-control-next-icon:after {
+  //   content: '>';
+  //   font-size: 45px;
+  //   color: $color-text-light;
+  // }
+
+  // .carousel-control-prev-icon:after {
+  //   content: '<';
+  //   font-size: 45px;
+  //   color: $color-text-light;
+  // }
+
   .unique,
   .curriculum,
+  .stories__container,
   .plan,
   .cool__container,
-  .team,
+  .mentors,
+  .mentors__heading,
   .footer__container {
     padding: 50px 16px;
     max-width: 1200px;
@@ -88,19 +145,12 @@ a.nav-item {
 
   .nav-bar {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    padding: 50px 0;
 
-    &__logo-container {
-      width: 200px;
-
-      img {
-        width: 100%;
-      }
-    }
-
-    &__logo-text {
-      font-size: 18px;
-      font-weight: 600;
+    &__hamburger {
+      // display: none;
+      color: white;
     }
 
     &__right-side {
@@ -117,29 +167,52 @@ a.nav-item {
 
   .hero {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
 
     margin-bottom: 40px;
     img {
       width: 100%;
     }
 
-    &__right-side {
-      display: flex;
-      justify-content: center;
+    &__logo-container {
+      background: url('../images/logo.png') no-repeat;
+      width: 150px;
+      height: 50px;
+      background-size: 140px;
+      position: absolute;
+      top: 30px;
+      left: 50px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &__descp {
+      font-size: 20px;
     }
 
     &__left-side {
       display: flex;
+      justify-content: center;
+      max-width: 600px;
+    }
+
+    &__right-side {
+      display: flex;
       flex-direction: column;
-      padding-top: 20px;
-      flex-basis: 600px;
+      flex-basis: 700px;
+      max-width: 700px;
+      margin-left: 100px;
+      justify-content: flex-start;
+    }
+
+    .content {
+      padding-top: 125px;
     }
 
     &__heading {
-      color: $color-purple;
-      font-size: 64px;
-      font-weight: 900;
+      font-size: 42px;
       margin-bottom: 20px;
     }
 
@@ -147,10 +220,7 @@ a.nav-item {
       max-width: 500px;
       margin-bottom: 50px;
       margin-left: 1px;
-    }
-
-    &__cta {
-      background-color: $color-sec;
+      color: $color-text-light;
     }
   }
 
@@ -173,8 +243,9 @@ a.nav-item {
       justify-content: flex-start;
 
       &__heading {
-        font-weight: 700;
-        font-size: 24px;
+        font-weight: 600;
+        color: $color-purple;
+        font-size: 18px;
         line-height: 1.3;
         max-width: 400px;
         padding-bottom: 15px;
@@ -184,6 +255,7 @@ a.nav-item {
     &__right-side {
       &__descp {
         max-width: 350px;
+        font-size: 14px;
       }
     }
   }
@@ -191,29 +263,35 @@ a.nav-item {
   .stories {
     background-color: #f5f5f5;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 
-    &__descp {
-      padding: 10px 0;
-      font-size: 20px;
-    }
-
-    &__left-side {
-      padding: 0 16px;
-    }
-
     &__heading {
-      padding: 30px 0;
+      margin-left: 100px;
+    }
+
+    &__container {
+      display: flex;
+      justify-content: space-between;
     }
 
     img {
-      width: 500px;
-      height: 532px;
+      width: 200px;
+      border-radius: 50%;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    &__right-side {
+      flex-basis: 900px;
+      padding: 30px 0;
     }
 
     &__cta {
-      font-size: 32px;
-      font-weight: 600;
+      font-size: 24px;
+      font-weight: 500;
       margin: 20px 0;
     }
   }
@@ -239,13 +317,13 @@ a.nav-item {
 
     &__purple {
       color: $color-purple;
-      font-weight: 900;
+      font-weight: 600;
       font-size: 24px;
     }
 
     &__orange {
       color: $color-sec;
-      font-weight: 800;
+      font-weight: 500;
       font-size: 18px;
     }
 
@@ -256,6 +334,9 @@ a.nav-item {
   }
 
   .plan {
+    &__active {
+      border: 1px solid $color-purple;
+    }
     &__heading {
       padding: 60px 0;
     }
@@ -266,62 +347,136 @@ a.nav-item {
     }
 
     &__unit {
-      padding: 10px 0;
-      max-width: 500px;
+      padding: 32px 32px;
+      background-color: #f8f8f8;
+      border-radius: 12px;
+      max-width: 450px;
     }
 
-    img {
-      width: 100%;
-      border-radius: 16px;
+    &__card-heading {
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    &__card-heading-main {
+      font-size: 28px;
+      color: $color-purple;
+      padding-top: 12px;
+    }
+
+    &__card-main-cost {
+      font-size: 36px;
+      margin-top: 36px;
+      font-weight: 700;
+
+      .gst {
+        font-size: 12px;
+        vertical-align: middle;
+      }
+    }
+
+    &__card-breakdown {
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 16px;
+    }
+
+    &__card-breakdown-container {
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__card-breakdown-container__center,
+    &__card-breakdown-cost {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    &__card-breakdown-for {
+      font-size: 16px;
+      max-width: 100px;
+    }
+
+    &__card-tnc {
+      font-size: 14px;
+      margin-top: 40px;
+      height: 40px;
+      color: $color-text-light;
+    }
+
+    &__card-cta {
+      margin-top: 5px;
     }
   }
 
-  .cool {
-    background-color: #e4f2f8;
+  // .cool {
+  //   background-color: #e4f2f8;
 
-    &__container {
-      display: flex;
-      justify-content: space-evenly;
+  //   &__container {
+  //     display: flex;
+  //     justify-content: space-evenly;
+  //   }
+
+  //   img {
+  //     width: 100%;
+  //   }
+
+  //   &__right-side {
+  //     margin-left: 50px;
+  //     display: flex;
+  //     flex-direction: column;
+  //     justify-content: space-evenly;
+  //     flex-basis: 600px;
+  //   }
+
+  //   &__descp {
+  //     font-size: 24px;
+  //   }
+
+  //   &__cta {
+  //     background-color: $color-text;
+  //   }
+  // }
+
+  .mentors {
+    &__image {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 16px;
     }
 
-    img {
-      width: 100%;
+    .linkedin {
+      width: 36px;
+      margin-top: 20px;
+    }
+
+    &__container {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
     }
 
     &__right-side {
-      margin-left: 50px;
+      flex-basis: 800px;
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
-      flex-basis: 600px;
-    }
-
-    &__descp {
-      font-size: 24px;
-    }
-
-    &__cta {
-      background-color: $color-text;
-    }
-  }
-
-  .team {
-    text-align: center;
-
-    img {
-      width: 275px;
-    }
-
-    &__container {
-      margin-top: 40px;
-      display: flex;
-      justify-content: space-evenly;
+      justify-content: center;
     }
 
     &__name {
-      margin-top: 10px;
       font-weight: 600;
       font-size: 32px;
+    }
+
+    &__company {
+      margin-top: 12px;
+      font-weight: 600;
+    }
+
+    &__descp {
+      margin-top: 32px;
     }
   }
 
@@ -346,38 +501,149 @@ a.nav-item {
   }
 
   @media screen and (max-width: 1100px) {
-    .hero {
-      flex-direction: column;
+    .unique,
+    .curriculum,
+    .stories__container,
+    .plan,
+    .cool__container,
+    .mentors,
+    .mentors__heading,
+    .footer__container,
+    .nav-bar,
+    .content,
+    .unique {
+      padding: 20px 30px;
+    }
+
+    .dark {
+      --color-page-background: #{$color-black};
+      --color-text: #{$color-white};
+    }
+
+    .nav-bar {
       &__right-side {
-        margin-bottom: 30px;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 40px;
+        display: none;
+
+        a {
+          margin-top: 20px;
+          margin-left: 5px;
+        }
+      }
+    }
+
+    .show-with-style {
+      display: flex;
+    }
+
+    .hero {
+      flex-direction: column-reverse;
+      background-color: var(--color-page-background);
+
+      &__left-side {
+        max-width: 100%;
+      }
+
+      &__heading {
+        color: var(--color-text);
+      }
+
+      &__descp {
+        color: #979797;
+      }
+
+      &__right-side {
+        margin-left: 0px;
+        padding-bottom: 30px;
         flex-basis: auto;
+        max-width: 100%;
+      }
+
+      &__logo-container {
+        left: 20px;
+        top: 15px;
       }
     }
 
     .stories {
-      flex-direction: column;
+      padding: 40px 30px;
+
+      &__container {
+        flex-direction: column;
+        padding: 0 16px;
+      }
+
+      &__left-side {
+        justify-content: center;
+        display: flex;
+      }
+
+      &__right-side {
+        flex-basis: auto;
+      }
+
+      &__heading {
+        margin-left: 16px;
+        padding: 30px 0;
+      }
     }
 
     .plan {
       &__container {
         flex-direction: column;
+        align-items: center;
+      }
+
+      &__unit {
+        margin-bottom: 60px;
       }
     }
 
-    .cool {
+    .mentors {
+      padding: 16px 30px;
+
+      &__heading {
+        padding: 16px 30px;
+      }
       &__container {
-        flex-direction: column-reverse;
+        flex-direction: column;
       }
 
       &__left-side {
-        margin-top: 20px;
+        display: flex;
+        justify-content: center;
       }
 
       &__right-side {
-        flex-basis: 300px;
-        margin-left: 0;
+        flex-basis: auto;
+        margin-top: 30px;
+      }
+
+      &__unit {
+        margin-bottom: 30px;
+      }
+
+      &__linkedin {
+        margin-bottom: 60px;
       }
     }
+
+    // .cool {
+    //   &__container {
+    //     flex-direction: column-reverse;
+    //   }
+
+    //   &__left-side {
+    //     margin-top: 20px;
+    //   }
+
+    //   &__right-side {
+    //     flex-basis: 300px;
+    //     margin-left: 0;
+    //   }
+    // }
 
     .footer {
       &__container {
@@ -391,22 +657,24 @@ a.nav-item {
   }
 
   @media screen and (max-width: 540px) {
+    .unique,
+    .curriculum,
+    .stories__container,
+    .plan,
+    .cool__container,
+    .mentors,
+    .mentors__heading,
+    .footer__container,
     .nav-bar,
-    .hero,
+    .content,
     .unique {
-      padding: 30px 16px;
+      padding: 20px 16px;
     }
 
     .nav-bar {
-      flex-direction: column;
-
       &__logo-container {
         margin-right: auto;
         margin-left: auto;
-      }
-
-      &__right-side {
-        padding-top: 20px;
       }
     }
 
@@ -416,27 +684,21 @@ a.nav-item {
       }
 
       &__left-side {
-        flex-basis: 400px;
+        flex-basis: auto;
       }
 
       &__cta {
         width: 100%;
+      }
+
+      .content {
+        padding-top: 60px;
       }
     }
 
     .cool {
       &__cta {
         width: 100%;
-      }
-    }
-
-    .team {
-      &__container {
-        flex-direction: column;
-      }
-
-      &__unit {
-        margin-bottom: 30px;
       }
     }
 

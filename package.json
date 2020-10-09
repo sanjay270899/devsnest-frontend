@@ -25,6 +25,7 @@
     "bootstrap": "^4.5.2",
     "chart.js": "^2.9.3",
     "ckeditor5": "^21.0.0",
+    "classnames": "^2.2.6",
     "formik": "^2.1.2",
     "formik-material-ui": "^2.0.0-alpha.3",
     "material-ui-markdown-editor": "^1.0.10",
