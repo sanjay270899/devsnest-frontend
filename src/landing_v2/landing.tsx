@@ -16,7 +16,7 @@ const mentorsData = [
       He was also part of Navgurukul a Non Profit where he has worked on curriculum, jobs pipeline, and mentoring 100+ underprivileged students on software engineering.`,
   },
   {
-    name: 'Naman',
+    name: 'Naman Malhotra',
     company: 'HackerRank',
     img: './mentor_nam_f.jpg',
     linkedin: 'https://www.linkedin.com/in/naman03malhotra/',
@@ -69,7 +69,7 @@ function Landing() {
       <section className="hero rowx dark">
         <div className="hero__left-side colx">
           <div className="hero__logo-container"></div>
-          <img src="./hero2.png" alt="hero" />
+          <img src="./hero2.jpg" alt="hero" />
         </div>
         <div className="hero__right-side colx">
           <div className="nav-bar">
