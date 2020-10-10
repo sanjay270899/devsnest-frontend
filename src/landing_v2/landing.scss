@@ -103,35 +103,9 @@ a.nav-item {
     width: 5%;
   }
 
-  // .carousel-control-next,
-  // .carousel-control-prev {
-  //   filter: invert(100%);
-  // }
-
   .carousel-indicators li {
     background-color: $color-text-light;
   }
-
-  // .carousel-control-prev-icon,
-  // .carousel-control-next-icon {
-  //   height: 100px;
-  //   width: 100px;
-  //   outline: black;
-  //   background-size: 100%, 100%;
-  //   background-image: none;
-  // }
-
-  // .carousel-control-next-icon:after {
-  //   content: '>';
-  //   font-size: 45px;
-  //   color: $color-text-light;
-  // }
-
-  // .carousel-control-prev-icon:after {
-  //   content: '<';
-  //   font-size: 45px;
-  //   color: $color-text-light;
-  // }
 
   .unique,
   .curriculum,
@@ -140,6 +114,7 @@ a.nav-item {
   .cool__container,
   .mentors,
   .mentors__heading,
+  .faq,
   .footer__container {
     padding: 50px 16px;
     max-width: 1200px;
@@ -160,7 +135,7 @@ a.nav-item {
     &__right-side {
       display: flex;
       justify-content: space-between;
-      min-width: 250px;
+      min-width: 450px;
     }
 
     &__logo {
@@ -172,8 +147,8 @@ a.nav-item {
   .hero {
     display: flex;
     justify-content: flex-start;
-
     margin-bottom: 40px;
+
     img {
       width: 100%;
     }
@@ -218,6 +193,7 @@ a.nav-item {
     &__heading {
       font-size: 42px;
       margin-bottom: 20px;
+      line-height: 1.4;
     }
 
     &__descp {
@@ -317,6 +293,7 @@ a.nav-item {
     &__unit {
       display: flex;
       margin: 30px 0;
+      margin-left: 100px;
     }
 
     &__purple {
@@ -445,6 +422,10 @@ a.nav-item {
   // }
 
   .mentors {
+    &__heading {
+      padding: 20px 16px;
+    }
+
     &__image {
       width: 100%;
       max-width: 500px;
@@ -485,8 +466,21 @@ a.nav-item {
 
     &__descp {
       margin-top: 32px;
-      // min-height: 360px;
       white-space: pre-line;
+    }
+  }
+
+  .faq {
+    &__heading {
+      padding-bottom: 60px;
+    }
+
+    .card-body {
+      white-space: pre-line;
+    }
+
+    .card-header {
+      cursor: pointer;
     }
   }
 
@@ -577,6 +571,12 @@ a.nav-item {
       }
     }
 
+    .curriculum {
+      &__unit {
+        margin-left: 0px;
+      }
+    }
+
     .stories {
       padding: 40px 30px;
 
@@ -592,6 +592,7 @@ a.nav-item {
 
       &__right-side {
         flex-basis: auto;
+        min-height: 260px;
       }
 
       &__heading {
@@ -686,6 +687,10 @@ a.nav-item {
       &__logo-container {
         margin-right: auto;
         margin-left: auto;
+      }
+
+      &__right-side {
+        min-width: 150px;
       }
     }
 
