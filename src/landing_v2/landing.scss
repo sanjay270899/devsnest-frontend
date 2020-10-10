@@ -458,6 +458,10 @@ a.nav-item {
       justify-content: space-between;
     }
 
+    &__left-side {
+      max-width: 275px;
+    }
+
     &__right-side {
       flex-basis: 800px;
       display: flex;
@@ -477,6 +481,8 @@ a.nav-item {
 
     &__descp {
       margin-top: 32px;
+      // min-height: 360px;
+      white-space: pre-line;
     }
   }
 
@@ -614,6 +620,7 @@ a.nav-item {
       &__left-side {
         display: flex;
         justify-content: center;
+        max-width: 100%;
       }
 
       &__right-side {
@@ -708,7 +715,7 @@ a.nav-item {
     }
 
     .headingx {
-      font-size: 36px;
+      font-size: 24px;
     }
   }
 }

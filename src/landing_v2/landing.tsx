@@ -11,24 +11,31 @@ const mentorsData = [
     company: 'Ex - HackerRank',
     img: './mentor_ved.jpg',
     linkedin: 'https://www.linkedin.com/in/vedanshgarg/',
-    descp:
-      'Vedansh was a Senior Engineer at Hackerrank. In the last 5 years, he scaled the HackerRank community from 500k to 10M Developers. He was also part of Navgurukul a Non Profit where he has worked on curriculum, jobs pipeline, and mentoring 100+ underprivileged students on software engineering.',
+    descp: `Vedansh was a Senior Engineer at Hackerrank. In the last 5 years, he scaled the HackerRank community from 500k to 10M Developers.
+
+      He was also part of Navgurukul a Non Profit where he has worked on curriculum, jobs pipeline, and mentoring 100+ underprivileged students on software engineering.`,
   },
   {
     name: 'Naman',
     company: 'HackerRank',
     img: './mentor_nam_f.jpg',
     linkedin: 'https://www.linkedin.com/in/naman03malhotra/',
-    descp:
-      'Naman Malhotra is a software enginner at HackerrRank with a strong focus on real-life problem solving and an open-source enthusiast.',
+    descp: `Hi, I am Naman Malhotra. I still remember the first line of code I wrote when I was 13. Since then, I have worked with many startup founders across the continents.
+
+    I co-founded two startups; one of them was in the Ed-Tech space, and the other was in blockchain fintech. In both of them, I lead the entire tech end to end and product to some extent.
+
+    I strongly believe that if you have the right set of skills, your background, traditional education, etc hardly matters. Given that you are ready to work your ass off.`,
   },
   {
     name: 'Sai Ahladni Tripathy',
     company: 'Ex - Amazon',
     img: './mentor_sai.jpg',
     linkedin: 'https://www.linkedin.com/in/ahladini/',
-    descp:
-      'Sai was a software developer at Amazon. She is an Alumni of BITS Pilani. She has previously worked as a placement co-ordinator at BITS and understands the recruitment market really well. Apart from this Sai enjoys playing with her paw-friend.',
+    descp: `Sai was a software developer at Amazon. She is an Alumni of BITS Pilani.
+
+      She has previously worked as a placement co-ordinator at BITS and understands the recruitment market really well.
+
+      Apart from this Sai enjoys playing with her paw-friend.`,
   },
 ];
 
@@ -342,7 +349,7 @@ function Landing() {
       </div>
       <section className="plan">
         <div className="headingx plan__heading">
-          Start now with the our flexible plans
+          Start now, pay only when you get a Job
         </div>
 
         <div className="plan__container">
@@ -501,7 +508,7 @@ function Landing() {
             {/* <div className="headingx stories__heading">Student Speaks</div> */}
             <div className="stories__container">
               <div className="stories__left-side">
-                <img src="./vashu.png" />
+                <img src="./vashu_f.png" />
               </div>
               <div className="stories__right-side">
                 <div className="stories__descp">
