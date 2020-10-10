@@ -104,7 +104,8 @@ function Landing() {
           </div>
           <div className="content">
             <div className="hero__heading">
-              Education which makes you financially independent.
+              Education which makes you financially{' '}
+              <span className="color-purple ">independent.</span>
             </div>
             <div className="descpx hero__descp">
               A mentorship program designed to help you get your dream job. It
