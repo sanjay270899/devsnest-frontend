@@ -17,6 +17,7 @@ import ContainerMenteeFeedback from './MentorMentee/Mentee/ContainerMenteeFeedba
 import ReactGA from 'react-ga';
 import MainPage from './Landing Page/MainPage';
 import LandingV2 from './landing_v2/landing';
+import Faq from './landing_v2/faqs';
 
 const App: React.ElementType = () => {
   useEffect(() => {
@@ -43,6 +44,7 @@ const App: React.ElementType = () => {
           <Route exact path="/mentee" component={ContainerMenteeFeedback} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/" component={LandingV2} />
+          <Route exact path="/faqs" component={Faq} />
         </Switch>
       </Router>
     </div>
