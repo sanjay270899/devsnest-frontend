@@ -42,28 +42,6 @@ const mentorsData = [
 function Landing() {
   return (
     <div className="landing-v2">
-      {/* <section className="nav-bar">
-        <div className="nav-bar__left-side">
-          <div className="nav-bar__logo-container">
-            <img src="./logo.png" />
-          </div>
-        </div>
-        <div className="nav-bar__right-side">
-          <a
-            href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
-            target="_blank"
-            className="nav-item"
-          >
-            Apply
-          </a>
-          <a href="#team" className="nav-item">
-            Team
-          </a>
-          <a href="#curriculum" className="nav-item">
-            Curriculum
-          </a>
-        </div>
-      </section> */}
       <Nav />
       <section className="unique" id="unique">
         <div className="headingx unique__heading">What makes us unique</div>

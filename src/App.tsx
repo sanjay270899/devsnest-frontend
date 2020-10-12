@@ -15,7 +15,7 @@ import ContainerMentorFeedback from './MentorMentee/Mentor/ContainerMentorFeedba
 import ContainerMenteeFeedback from './MentorMentee/Mentee/ContainerMenteeFeedback';
 
 import ReactGA from 'react-ga';
-import MainPage from './Landing Page/MainPage';
+// import MainPage from './Landing Page/MainPage';
 import LandingV2 from './landing_v2/landing';
 import Faq from './landing_v2/faqs';
 
