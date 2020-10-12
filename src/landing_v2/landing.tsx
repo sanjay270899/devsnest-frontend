@@ -17,7 +17,7 @@ const mentorsData = [
   },
   {
     name: 'Naman Malhotra',
-    company: 'HackerRank',
+    company: 'Co-founded Alconomy',
     img: './mentor_nam_f.jpg',
     linkedin: 'https://www.linkedin.com/in/naman03malhotra/',
     descp: `Hi, I am Naman Malhotra. I still remember the first line of code I wrote when I was 13. Since then, I have worked with many startup founders across the continents.
