@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
+import { NavHashLink } from 'react-router-hash-link';
 
 function Nav(props) {
   const { faqs } = props;
@@ -24,7 +25,9 @@ function Nav(props) {
   return (
     <section className="hero rowx dark">
       <div className="hero__left-side colx">
-        <div className="hero__logo-container"></div>
+        <NavHashLink to="/">
+          <div className="hero__logo-container"></div>
+        </NavHashLink>
         <img src="./hero2.jpg" alt="hero" />
       </div>
       <div className="hero__right-side colx">
@@ -42,15 +45,15 @@ function Nav(props) {
             >
               Apply
             </a>
-            <a href="/#mentors" className="nav-item">
+            <NavHashLink to="/#mentors" className="nav-item">
               Mentors
-            </a>
-            <a href="/faqs#read" className="nav-item">
+            </NavHashLink>
+            <NavHashLink to="/faqs#read" className="nav-item">
               FAQs
-            </a>
-            <a href="/#curriculum" className="nav-item">
+            </NavHashLink>
+            <NavHashLink to="/#curriculum" className="nav-item">
               Curriculum
-            </a>
+            </NavHashLink>
           </div>
           <div className="nav-bar__bar-container">
             <img
