@@ -390,6 +390,19 @@ a.nav-item {
     &__card-cta {
       margin-top: 5px;
     }
+
+    &__bottom-info {
+      margin-top: 40px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      color: #999;
+    }
+
+    &__know-more-link {
+      color: $color-purple;
+    }
   }
 
   // .cool {
@@ -607,8 +620,8 @@ a.nav-item {
         align-items: center;
       }
 
-      &__unit {
-        margin-bottom: 60px;
+      &__bottom-info {
+        margin-bottom: 20px;
       }
     }
 

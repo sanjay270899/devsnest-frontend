@@ -350,6 +350,18 @@ function Landing() {
             </div>
           </div>
         </div>
+        <div className="plan__bottom-info">
+          The absence of money should not deter you from applying, please reach
+          out to us if you think that’s the case.<br></br> To know more,{' '}
+          <a
+            href="https://calendly.com/saikc3/15min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="plan__know-more-link"
+          >
+            schedule a session with us.
+          </a>
+        </div>
       </section>
       {/* <section className="cool">
         <div className="cool__container">
