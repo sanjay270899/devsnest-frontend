@@ -15,17 +15,17 @@ const mentorsData = [
 
       He was also part of Navgurukul a Non Profit where he has worked on curriculum, jobs pipeline, and mentoring 100+ underprivileged students on software engineering.`,
   },
-  {
-    name: 'Naman Malhotra',
-    company: 'Co-founded Alconomy',
-    img: './mentor_nam_f.jpg',
-    linkedin: 'https://www.linkedin.com/in/naman03malhotra/',
-    descp: `Hi, I am Naman Malhotra. I still remember the first line of code I wrote when I was 13. Since then, I have worked with many startup founders across the continents.
+  // {
+  //   name: 'Naman Malhotra',
+  //   company: 'Co-founded Alconomy',
+  //   img: './mentor_nam_f.jpg',
+  //   linkedin: 'https://www.linkedin.com/in/naman03malhotra/',
+  //   descp: `Hi, I am Naman Malhotra. I still remember the first line of code I wrote when I was 13. Since then, I have worked with many startup founders across the continents.
 
-    I co-founded two startups; one of them was in the Ed-Tech space, and the other was in blockchain fintech. In both of them, I lead the entire tech end to end and product to some extent.
+  //   I co-founded two startups; one of them was in the Ed-Tech space, and the other was in blockchain fintech. In both of them, I lead the entire tech end to end and product to some extent.
 
-    I strongly believe that if you have the right set of skills, your background, traditional education, etc hardly matters. Given that you are ready to work your ass off.`,
-  },
+  //   I strongly believe that if you have the right set of skills, your background, traditional education, etc hardly matters. Given that you are ready to work your ass off.`,
+  // },
   {
     name: 'Sai Ahladni Tripathy',
     company: 'Ex - Amazon',
