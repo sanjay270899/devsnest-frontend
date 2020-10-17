@@ -19,7 +19,7 @@ function Nav(props) {
 
   const subHeading = faqs
     ? 'Please go through the FAQs and if you do not understand something please feel free to reach out to us at admin@devsnest.in'
-    : 'A mentorship program designed to help you get your dream job. It evolves as per your needs to mold you into a kickass developer.';
+    : 'A mentorship program designed to help you get your dream job. It evolves as per your needs to mould you into a kickass developer.';
   const buttonText = faqs ? 'Read FAQs' : 'Learn More';
   const buttonHash = faqs ? '#read' : '#unique';
   return (
