@@ -319,6 +319,7 @@ a.nav-item {
       border: 1px solid $color-purple;
     }
     &__heading {
+      text-align: center;
       padding: 60px 0;
     }
 
@@ -738,6 +739,15 @@ a.nav-item {
 
     .headingx {
       font-size: 24px;
+    }
+  }
+
+  @media screen and (min-width: 1550px) {
+    .hero {
+      &__right-side {
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
   }
 }

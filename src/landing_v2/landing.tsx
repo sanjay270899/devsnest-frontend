@@ -276,11 +276,22 @@ function Landing() {
       </div>
       <section className="plan">
         <div className="headingx plan__heading">
-          Start now, pay only when you get a Job
+          Join our program, Request invite.
         </div>
 
         <div className="plan__container">
-          <div className="plan__unit plan__active">
+          <div className="plan__card-cta">
+            <a
+              href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btnx btnx-primary block plan__card-cta"
+            >
+              Request Invite
+            </a>
+          </div>
+
+          {/* <div className="plan__unit plan__active">
             <div className="plan__card-heading">Postpaid</div>
             <div className="plan__card-heading-main">
               Pay only when you get a job of min 5LPA
@@ -348,9 +359,9 @@ function Landing() {
                 Request Invite
               </a>
             </div>
-          </div>
+          </div>*/}
         </div>
-        <div className="plan__bottom-info">
+        {/* <div className="plan__bottom-info">
           The absence of money should not deter you from applying, please reach
           out to us if you think that’s the case.<br></br> To know more,{' '}
           <a
@@ -361,7 +372,7 @@ function Landing() {
           >
             schedule a session with us.
           </a>
-        </div>
+        </div> */}
       </section>
       {/* <section className="cool">
         <div className="cool__container">
