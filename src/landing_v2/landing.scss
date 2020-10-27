@@ -20,18 +20,23 @@ $color-orange: #f0aa4f;
 div {
   color: $color-text;
 }
+
 .w500 {
   font-weight: 500;
 }
+
 .w600 {
   font-weight: 600;
 }
+
 .w700 {
   font-weight: 700;
 }
+
 .w800 {
   font-weight: 800;
 }
+
 .w900 {
   font-weight: 900;
 }
@@ -316,12 +321,14 @@ a.nav-item {
   }
 
   .plan {
+    margin-bottom: 30px;
+
     &__active {
       border: 1px solid $color-purple;
     }
+
     &__heading {
-      text-align: center;
-      padding: 60px 0;
+      //padding: 60px 0;
     }
 
     &__container {
@@ -334,7 +341,7 @@ a.nav-item {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      max-width: 400px;
+      min-width: 350px;
       text-align: center;
       padding: 20px;
 
@@ -352,13 +359,18 @@ a.nav-item {
         padding: 20px;
       }
     }
+
     img {
       width: 100%;
       border-radius: 50%;
     }
 
     &__register {
-      margin-left: 40%;
+      display: flex;
+      justify-content: center;
+    }
+
+    &__register-button {
       color: $color-white;
       padding: 20px 30px;
       font-size: 16px;
@@ -381,7 +393,6 @@ a.nav-item {
       white-space: pre-line;
       text-align: center;
       padding: 60px 0;
-      font-size: 30px;
     }
 
     &__unit {
@@ -690,6 +701,10 @@ a.nav-item {
       &__bottom-info {
         margin-bottom: 20px;
       }
+
+      &__right-side {
+        margin-left: auto;
+      }
     }
 
     .mentors {
@@ -698,6 +713,7 @@ a.nav-item {
       &__heading {
         padding: 16px 30px;
       }
+
       &__container {
         flex-direction: column;
       }

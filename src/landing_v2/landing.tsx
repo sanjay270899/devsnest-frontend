@@ -1,10 +1,5 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import Container from 'react-bootstrap/Container';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Nav from './nav';
 
 import './landing.scss';
@@ -92,7 +87,7 @@ function Landing() {
               </div>
               <div className="unique__right-side">
                 <div className="unique__right-side__heading">
-                  Project Driven Curricululum
+                  Project Driven Curriculum
                 </div>
                 <div className="unique__right-side__descp">
                   Reading the whole Cormen is a nightmare, only Sheldon can
@@ -287,7 +282,7 @@ function Landing() {
           <div className="plan__left-side">
             <div className="plan__left-side__heading">No Tution Fee</div>
             <div className="plan__left-side__heading">
-              Pay ₹0 untill you get a job of minimum 5 LPA
+              Pay ₹0 until you get a job of minimum 5 LPA
             </div>
             <div className="plan__left-side__heading">
               Pay only 15% of your salary for 2 years
@@ -297,15 +292,15 @@ function Landing() {
             <img src={achieve} />
           </div>
         </div>
-        <div className="plan__desc">
-          We're starting our 2nd batch from 2nd Deceember
+        <div className="plan__desc descpx">
+          Interested? Registration for the 2nd batch closes on 15th November.
         </div>
-        <div>
+        <div className="plan__register">
           <a
             href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
             target="_blank"
             rel="noopener noreferrer"
-            className="plan__register"
+            className="plan__register-button"
           >
             Register Now
           </a>
