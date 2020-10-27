@@ -281,117 +281,35 @@ function Landing() {
         </Carousel>
       </div>
 
-      <section className="plan">
-        <h1
-          style={{
-            fontSize: '5rem',
-            textAlign: 'center',
-            marginLeft: '12%',
-            paddingBottom: '30px',
-          }}
-        >
-          {' '}
-          Be a part of this journey{' '}
-        </h1>
-        <Container fluid>
-          <Row>
-            <Col sm={12} md={5}>
-              <Card
-                style={{
-                  width: '90%',
-                  backgroundColor: '#8367c7',
-                  borderRadius: '14px',
-                  textAlign: 'center',
-                  boxShadow: '-12px 12px 1px #f0aa4f',
-                  marginBottom: '10%',
-                }}
-              >
-                <Card.Body>
-                  <Card.Title
-                    style={{
-                      fontWeight: 'normal',
-                      color: 'white',
-                      fontSize: '1.6rem',
-                      padding: '0',
-                      marginTop: '10px',
-                    }}
-                  >
-                    No Tution Fee
-                  </Card.Title>
-                </Card.Body>
-              </Card>
-
-              <Card
-                style={{
-                  width: '90%',
-                  backgroundColor: '#8367c7',
-                  borderRadius: '14px',
-                  textAlign: 'center',
-                  boxShadow: '-12px 12px 1px #f0aa4f',
-                  marginBottom: '10%',
-                }}
-              >
-                <Card.Body>
-                  <Card.Title
-                    style={{
-                      fontWeight: 'normal',
-                      color: 'white',
-                      fontSize: '1.6rem',
-                      paddingBottom: '0',
-                    }}
-                  >
-                    {' '}
-                    Pay ₹0 untill you get a job of minimum 5 LPA
-                  </Card.Title>
-                </Card.Body>
-              </Card>
-
-              <Card
-                style={{
-                  width: '90%',
-                  backgroundColor: '#8367c7',
-                  borderRadius: '14px',
-                  textAlign: 'center',
-                  boxShadow: '-12px 12px 1px #f0aa4f',
-                  marginBottom: '10%',
-                }}
-              >
-                <Card.Body>
-                  <Card.Title
-                    style={{
-                      fontWeight: 'normal',
-                      color: 'white',
-                      fontSize: '1.6rem',
-                      paddingBottom: '0',
-                    }}
-                  >
-                    {' '}
-                    Pay only 15% of your salary for 2 years
-                  </Card.Title>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col sm={12} md={{ offset: 1, span: 6 }}>
-              <img style={{ height: '100%', width: '114%' }} src={achieve} />
-            </Col>
-          </Row>
-
-          <h1
-            style={{ fontSize: '2rem', textAlign: 'center', marginLeft: '12%' }}
-          >
-            We're starting our 2nd batch from 2nd Deceember
-          </h1>
-          <div style={{ marginLeft: '48%', width: '20%', fontWeight: 'bold' }}>
-            <a
-              href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btnx-primary block plan__card-cta"
-            >
-              Register Now
-            </a>
+      <section className="plan" id="plan">
+        <div className="headingx plan__heading">Be a part of this journey</div>
+        <div className="plan__container">
+          <div className="plan__left-side">
+            <div className="plan__left-side__heading">No Tution Fee</div>
+            <div className="plan__left-side__heading">
+              Pay ₹0 untill you get a job of minimum 5 LPA
+            </div>
+            <div className="plan__left-side__heading">
+              Pay only 15% of your salary for 2 years
+            </div>
           </div>
-        </Container>
+          <div className="plan__right-side">
+            <img src={achieve} />
+          </div>
+        </div>
+        <div className="plan__desc">
+          We're starting our 2nd batch from 2nd Deceember
+        </div>
+        <div>
+          <a
+            href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="plan__register"
+          >
+            Register Now
+          </a>
+        </div>
       </section>
 
       {/*<section className="plan">*/}
