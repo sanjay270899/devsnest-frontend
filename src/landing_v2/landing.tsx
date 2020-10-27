@@ -4,6 +4,7 @@ import Nav from './nav';
 
 import './landing.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import achieve from '../images/achieve.png';
 
 const mentorsData = [
   {
@@ -86,7 +87,7 @@ function Landing() {
               </div>
               <div className="unique__right-side">
                 <div className="unique__right-side__heading">
-                  Project Driven Curricululum
+                  Project Driven Curriculum
                 </div>
                 <div className="unique__right-side__descp">
                   Reading the whole Cormen is a nightmare, only Sheldon can
@@ -162,7 +163,7 @@ function Landing() {
               </div>
               <div className="curriculum__descp">
                 <ul>
-                  <li>Learning python and Logical Thinking. </li>
+                  <li>Learning python and Logical Thinking.</li>
                   <li>
                     Deep dive into Algorithms and Data Structures (150+
                     questions)
@@ -274,127 +275,159 @@ function Landing() {
           })}
         </Carousel>
       </div>
-      <section className="plan">
-        <div className="headingx plan__heading">
-          Join our program, Request invite.
-        </div>
 
+      <section className="plan" id="plan">
+        <div className="headingx plan__heading">Be a part of this journey</div>
         <div className="plan__container">
-          <div className="plan__card-cta">
-            <a
-              href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btnx btnx-primary block plan__card-cta"
-            >
-              Request Invite
-            </a>
-          </div>
-
-          {/* <div className="plan__unit plan__active">
-            <div className="plan__card-heading">Postpaid</div>
-            <div className="plan__card-heading-main">
-              Pay only when you get a job of min 5LPA
+          <div className="plan__left-side">
+            <div className="plan__left-side__heading">No Tution Fee</div>
+            <div className="plan__left-side__heading">
+              Pay ₹0 until you get a job of minimum 5 LPA
             </div>
-            <div className="plan__card-main-cost">
-              1,50,000 <span className="gst">+ GST</span>
-            </div>
-            <div className="plan__card-breakdown">BREAK DOWN</div>
-            <div className="plan__card-breakdown-container">
-              <div className="plan__card-breakdown-container__left-side">
-                <div className="plan__card-breakdown-cost">20,000</div>
-                <div className="plan__card-breakdown-for">Registration fee</div>
-              </div>
-              <div className="plan__card-breakdown-container__center">+</div>
-              <div className="plan__card-breakdown-container__right-side">
-                <div className="plan__card-breakdown-cost">1,30,000</div>
-                <div className="plan__card-breakdown-for">
-                  Tuition Fee (ISA)
-                </div>
-              </div>
-            </div>
-            <div className="plan__card-tnc">
-              15% of your monthly salary capping upto 130000 if Job {' > '}
-              5lpa.
-            </div>
-            <div className="plan__card-cta">
-              <a
-                href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btnx btnx-primary block plan__card-cta"
-              >
-                Request Invite
-              </a>
+            <div className="plan__left-side__heading">
+              Pay only 15% of your salary for 2 years
             </div>
           </div>
-          <div className="plan__unit">
-            <div className="plan__card-heading">Prepaid</div>
-            <div className="plan__card-heading-main">
-              Pay all upfront and nothing after placement
-            </div>
-            <div className="plan__card-main-cost">
-              80,000 <span className="gst">+ GST</span>
-            </div>
-            <div className="plan__card-breakdown">BREAK DOWN</div>
-            <div className="plan__card-breakdown-container">
-              <div className="plan__card-breakdown-container__left-side">
-                <div className="plan__card-breakdown-cost">20,000</div>
-                <div className="plan__card-breakdown-for">Registration fee</div>
-              </div>
-              <div className="plan__card-breakdown-container__center">+</div>
-              <div className="plan__card-breakdown-container__right-side">
-                <div className="plan__card-breakdown-cost">60,000</div>
-                <div className="plan__card-breakdown-for">Tuition Fee</div>
-              </div>
-            </div>
-            <div className="plan__card-tnc">Save on cost by paying upfront</div>
-            <div className="plan__card-cta">
-              <a
-                href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btnx btnx-primary-outine block plan__card-cta"
-              >
-                Request Invite
-              </a>
-            </div>
-          </div>*/}
+          <div className="plan__right-side">
+            <img src={achieve} />
+          </div>
         </div>
-        {/* <div className="plan__bottom-info">
-          The absence of money should not deter you from applying, please reach
-          out to us if you think that’s the case.<br></br> To know more,{' '}
+        <div className="plan__desc descpx">
+          Interested? Registration for the 2nd batch closes on 15th November.
+        </div>
+        <div className="plan__register">
           <a
-            href="https://calendly.com/saikc3/15min"
+            href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
             target="_blank"
             rel="noopener noreferrer"
-            className="plan__know-more-link"
+            className="plan__register-button"
           >
-            schedule a session with us.
+            Register Now
           </a>
-        </div> */}
-      </section>
-      {/* <section className="cool">
-        <div className="cool__container">
-          <div className="cool__left-side">
-            <img src="./cool.svg" alt="cool" />
-          </div>
-          <div className="cool__right-side">
-            <div className="headingx cool__heading">Sounds Cool?</div>
-            <div className="descpx cool__descp">
-              get started with #desvsnest to experience the best version of
-              yourself.
-            </div>
-            <a
-              href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
-              target="_blank"
-              className="btnx cool__cta"
-            >
-              Apply Now
-            </a>
-          </div>
         </div>
-      </section> */}
+      </section>
+
+      {/*<section className="plan">*/}
+      {/*  <div className="headingx plan__heading">*/}
+      {/*    Join our program, Request invite.*/}
+      {/*  </div>*/}
+
+      {/*  <div className="plan__container">*/}
+      {/*    <div className="plan__card-cta">*/}
+      {/*      <a*/}
+      {/*        href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"*/}
+      {/*        target="_blank"*/}
+      {/*        rel="noopener noreferrer"*/}
+      {/*        className="btnx btnx-primary block plan__card-cta"*/}
+      {/*      >*/}
+      {/*        Request Invite*/}
+      {/*      </a>*/}
+      {/*    </div>*/}
+
+      {/*    /!* <div className="plan__unit plan__active">*/}
+      {/*      <div className="plan__card-heading">Postpaid</div>*/}
+      {/*      <div className="plan__card-heading-main">*/}
+      {/*        Pay only when you get a job of min 5LPA*/}
+      {/*      </div>*/}
+      {/*      <div className="plan__card-main-cost">*/}
+      {/*        1,50,000 <span className="gst">+ GST</span>*/}
+      {/*      </div>*/}
+      {/*      <div className="plan__card-breakdown">BREAK DOWN</div>*/}
+      {/*      <div className="plan__card-breakdown-container">*/}
+      {/*        <div className="plan__card-breakdown-container__left-side">*/}
+      {/*          <div className="plan__card-breakdown-cost">20,000</div>*/}
+      {/*          <div className="plan__card-breakdown-for">Registration fee</div>*/}
+      {/*        </div>*/}
+      {/*        <div className="plan__card-breakdown-container__center">+</div>*/}
+      {/*        <div className="plan__card-breakdown-container__right-side">*/}
+      {/*          <div className="plan__card-breakdown-cost">1,30,000</div>*/}
+      {/*          <div className="plan__card-breakdown-for">*/}
+      {/*            Tuition Fee (ISA)*/}
+      {/*          </div>*/}
+      {/*        </div>*/}
+      {/*      </div>*/}
+      {/*      <div className="plan__card-tnc">*/}
+      {/*        15% of your monthly salary capping upto 130000 if Job {' > '}*/}
+      {/*        5lpa.*/}
+      {/*      </div>*/}
+      {/*      <div className="plan__card-cta">*/}
+      {/*        <a*/}
+      {/*          href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"*/}
+      {/*          target="_blank"*/}
+      {/*          rel="noopener noreferrer"*/}
+      {/*          className="btnx btnx-primary block plan__card-cta"*/}
+      {/*        >*/}
+      {/*          Request Invite*/}
+      {/*        </a>*/}
+      {/*      </div>*/}
+      {/*    </div>*/}
+      {/*    <div className="plan__unit">*/}
+      {/*      <div className="plan__card-heading">Prepaid</div>*/}
+      {/*      <div className="plan__card-heading-main">*/}
+      {/*        Pay all upfront and nothing after placement*/}
+      {/*      </div>*/}
+      {/*      <div className="plan__card-main-cost">*/}
+      {/*        80,000 <span className="gst">+ GST</span>*/}
+      {/*      </div>*/}
+      {/*      <div className="plan__card-breakdown">BREAK DOWN</div>*/}
+      {/*      <div className="plan__card-breakdown-container">*/}
+      {/*        <div className="plan__card-breakdown-container__left-side">*/}
+      {/*          <div className="plan__card-breakdown-cost">20,000</div>*/}
+      {/*          <div className="plan__card-breakdown-for">Registration fee</div>*/}
+      {/*        </div>*/}
+      {/*        <div className="plan__card-breakdown-container__center">+</div>*/}
+      {/*        <div className="plan__card-breakdown-container__right-side">*/}
+      {/*          <div className="plan__card-breakdown-cost">60,000</div>*/}
+      {/*          <div className="plan__card-breakdown-for">Tuition Fee</div>*/}
+      {/*        </div>*/}
+      {/*      </div>*/}
+      {/*      <div className="plan__card-tnc">Save on cost by paying upfront</div>*/}
+      {/*      <div className="plan__card-cta">*/}
+      {/*        <a*/}
+      {/*          href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"*/}
+      {/*          target="_blank"*/}
+      {/*          rel="noopener noreferrer"*/}
+      {/*          className="btnx btnx-primary-outine block plan__card-cta"*/}
+      {/*        >*/}
+      {/*          Request Invite*/}
+      {/*        </a>*/}
+      {/*      </div>*/}
+      {/*    </div>*!/*/}
+      {/*  </div>*/}
+      {/*  /!* <div className="plan__bottom-info">*/}
+      {/*    The absence of money should not deter you from applying, please reach*/}
+      {/*    out to us if you think that’s the case.<br></br> To know more,{' '}*/}
+      {/*    <a*/}
+      {/*      href="https://calendly.com/saikc3/15min"*/}
+      {/*      target="_blank"*/}
+      {/*      rel="noopener noreferrer"*/}
+      {/*      className="plan__know-more-link"*/}
+      {/*    >*/}
+      {/*      schedule a session with us.*/}
+      {/*    </a>*/}
+      {/*  </div> *!/*/}
+      {/*</section>*/}
+      {/*/!* <section className="cool">*/}
+      {/*  <div className="cool__container">*/}
+      {/*    <div className="cool__left-side">*/}
+      {/*      <img src="./cool.svg" alt="cool" />*/}
+      {/*    </div>*/}
+      {/*    <div className="cool__right-side">*/}
+      {/*      <div className="headingx cool__heading">Sounds Cool?</div>*/}
+      {/*      <div className="descpx cool__descp">*/}
+      {/*        get started with #desvsnest to experience the best version of*/}
+      {/*        yourself.*/}
+      {/*      </div>*/}
+      {/*      <a*/}
+      {/*        href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"*/}
+      {/*        target="_blank"*/}
+      {/*        className="btnx cool__cta"*/}
+      {/*      >*/}
+      {/*        Apply Now*/}
+      {/*      </a>*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</section> *!/*/}
 
       <Carousel>
         <Carousel.Item>
