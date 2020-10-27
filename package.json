@@ -52,7 +52,8 @@
     "react-window": "^1.8.5",
     "reactstrap": "^8.5.1",
     "requests": "^0.3.0",
-    "typescript": "~3.9.0"
+    "typescript": "~3.9.0",
+    "yarn": "^1.22.10"
   },
   "scripts": {
     "start": "react-scripts start",
