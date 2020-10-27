@@ -455,20 +455,6 @@ a.nav-item {
       color: $color-text-light;
     }
 
-    //plan styling
-    &__card-cta {
-      color: #ffffff;
-      padding: 10px 10px;
-      font-size: 1rem;
-      text-align: center;
-      border-radius: 8px;
-
-      &:hover {
-        color: #fff;
-        text-decoration: none;
-      }
-    }
-
     &__bottom-info {
       margin-top: 40px;
       max-width: 900px;
