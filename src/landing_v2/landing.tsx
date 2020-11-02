@@ -1,10 +1,15 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import Nav from './nav';
 
 import './landing.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import achieve from '../images/achieve.png';
+import whatsappIcon from '../images/whatsappIcon.png';
+import WA_illustratration from '../images/WA_illustratration.png';
+import profileIcon from '../images/profile.png';
 
 const mentorsData = [
   {
@@ -37,6 +42,29 @@ const mentorsData = [
       She has previously worked as a placement co-ordinator at BITS and understands the recruitment market really well.
 
       Apart from this Sai enjoys playing with her paw-friend.`,
+  },
+];
+
+const webinarData = [
+  {
+    name: 'xyz',
+    title: 'SDE at xyz company',
+    descp:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, eligendi.',
+  },
+
+  {
+    name: 'xyz',
+    title: 'SDE at xyz company',
+    descp:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, eligendi.',
+  },
+
+  {
+    name: 'xyz',
+    title: 'SDE at xyz company',
+    descp:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, eligendi.',
   },
 ];
 
@@ -304,6 +332,116 @@ function Landing() {
           >
             Register Now
           </a>
+        </div>
+      </section>
+
+      <section className="community">
+        <div className="community__top">
+          <div className="community__top__left-side">
+            <div className="headingx community__heading">
+              {' '}
+              Join our Whatsapp Community{' '}
+            </div>
+            <div className="community__headingDesc">
+              {' '}
+              No spam only admins send messages
+            </div>
+          </div>
+
+          <div className="community__top__right-side">
+            <img src={whatsappIcon} />
+          </div>
+        </div>
+
+        <div className="community__container">
+          <div className="community__main">
+            <div className="community__main__left-side">
+              <div className="community__main__left-side__heading">
+                {' '}
+                What <span>YOU</span> will get{' '}
+              </div>
+              <ol className="community__main__left-side__points">
+                <li> A weekly webinar. AMAs by Industry experts. </li>
+                <li> A weekly free class on Algorithms. </li>
+                <li> A new practice problem on Algorithms daily. </li>
+              </ol>
+
+              <div className="community__main__left-side__txt1">
+                {' '}
+                We believe in peer learning
+              </div>
+              <div className="community__main__left-side__txt2">
+                {' '}
+                To discuss code, careers and cookies and find partners for
+                projects join this group.{' '}
+              </div>
+
+              <button className="community__main__left-side__btn">
+                Click here to know more!
+              </button>
+            </div>
+
+            {/* <div className="community__main__right-side">
+              <img src={WA_illustratration}/>
+            </div> */}
+          </div>
+
+          {/* <div className="community__container__img">
+              <img src={WA_illustratration}/>
+          </div> */}
+        </div>
+
+        <div className="community__carousel-div">
+          <div className="community__carousel-div__heading">
+            {' '}
+            Our previous webinars :{' '}
+          </div>
+
+          <div className="community__carousel-div__webinar-info">
+            {webinarData.map((webinar) => {
+              const { name, title, descp } = webinar;
+              return (
+                <Card className="community__carousel-div__webinar">
+                  <Card.Img
+                    variant="top"
+                    src={profileIcon}
+                    className="profile"
+                  />
+                  <Card.Body>
+                    <Card.Title> {name}</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">
+                      {' '}
+                      {title}{' '}
+                    </Card.Subtitle>
+                    <Card.Text>{descp}</Card.Text>
+                  </Card.Body>
+                </Card>
+              );
+            })}
+          </div>
+
+          {/* <Carousel>
+              
+                <Carousel.Item className="community__carousel-div__webinar-info">
+                  {webinarData.map((webinar) => {
+                    const { name, title, descp } = webinar;
+                    return (
+                      <Card className="community__carousel-div__webinar">
+                        <Card.Img variant="top" src={profileIcon} className="profile" />
+                        <Card.Body>
+                          <Card.Title> {name}</Card.Title>
+                          <Card.Subtitle className="mb-2 text-muted"> {title} </Card.Subtitle>
+                          <Card.Text>
+                            {descp}
+                          </Card.Text>
+                            
+                        </Card.Body>
+                      </Card>
+                    );
+                  })}
+                </Carousel.Item>
+            
+            </Carousel> */}
         </div>
       </section>
 

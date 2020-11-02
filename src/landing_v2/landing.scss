@@ -117,6 +117,7 @@ a.nav-item {
   .curriculum,
   .stories__container,
   .plan,
+  .community,
   .cool__container,
   .mentors,
   .mentors__heading,
@@ -498,6 +499,120 @@ a.nav-item {
   //   }
   // }
 
+  .community {
+    &__headingDesc {
+      color: #808080;
+      font-size: 20px;
+    }
+
+    &__top {
+      display: flex;
+      /* flex-grow: 1; */
+      justify-content: space-between;
+
+      &__right-side {
+        img {
+          height: 130px;
+          width: 130px;
+        }
+      }
+    }
+
+    &__container {
+      &__img {
+        justify-content: center;
+        img {
+          height: 400px;
+          width: 400px;
+          position: absolute;
+        }
+      }
+    }
+
+    &__main {
+      background-color: #e1e1e1;
+      padding: 10px 50px;
+      /* margin: 40px 0px; */
+      display: flex;
+      justify-content: space-between;
+
+      &__left-side {
+        &__heading {
+          font-size: 45px;
+          color: #454545;
+          font-weight: 900;
+
+          span {
+            color: #6e46aa;
+          }
+        }
+
+        &__points {
+          color: #f05032;
+          font-size: 18px;
+          padding: 10px 20px;
+        }
+
+        &__txt1 {
+          color: #313131;
+          font-size: 15.5px;
+        }
+
+        &__txt2 {
+          color: #36214b;
+          font-size: 12px;
+        }
+
+        &__btn {
+          margin: 10px 0px;
+          border: 0px;
+          background-color: #b5a4dd;
+          font-size: 16px;
+          font-weight: 600;
+          padding: 2px 16px;
+          border-radius: 5px;
+        }
+      }
+
+      &__right-side {
+        img {
+          height: 300px;
+          width: 300px;
+          display: absolute;
+
+          bottom: 0;
+        }
+      }
+    }
+
+    &__carousel-div {
+      padding-top: 30px;
+
+      &__heading {
+        font-size: 35px;
+        font-weight: 600;
+        color: #413838;
+      }
+
+      &__webinar-info {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &__webinar {
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  }
+
+  .profile {
+    width: 200px;
+    height: 200px;
+  }
+
   .mentors {
     &__heading {
       padding: 20px 16px;
@@ -586,6 +701,7 @@ a.nav-item {
     .curriculum,
     .stories__container,
     .plan,
+    .community,
     .cool__container,
     .mentors,
     .mentors__heading,
