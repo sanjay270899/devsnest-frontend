@@ -66,6 +66,22 @@ const responsive = {
   },
 };
 
+const responsiveMentorCarousel = {
+  ...responsive,
+  superLargeDesktop: {
+    ...responsive.superLargeDesktop,
+    items: 1,
+  },
+  desktop: {
+    ...responsive.desktop,
+    items: 1,
+  },
+  tablet: {
+    ...responsive.tablet,
+    items: 1,
+  },
+};
+
 const webinarData = [
   {
     name: 'Josh Medina 1',
@@ -120,68 +136,6 @@ const webinarData = [
 const arr = [0, 1, 2];
 
 function Landing() {
-  /*
-  let i=0;
-  let webinarData_2d: Object[][] = [];
-  let tmp: Object[] = [];
-
-  for(let elem of webinarData)
-  {
-    if(tmp.length < 3)
-    {
-      tmp.push(elem);
-    } else {
-      webinarData_2d.push(tmp);
-      tmp = [elem];
-    }
-  }
-
-  if(tmp.length>0)
-    webinarData_2d.push(tmp);
-
-  console.log(webinarData_2d); */
-
-  /* function getCommunityCarouselItem(data) {
-    let mappedData = data.map((item) => {
-      const { name, title, descp } = item;
-      return (
-        <div className="community__carousel-div__webinar">
-          <div className="community__carousel-div__webinar__top">  </div>
-
-          <div className="community__carousel-div__webinar__body"> 
-            <div className="community__carousel-div__webinar__body__name"> {name} </div>
-            <div className="community__carousel-div__webinar__body__title"> {title} </div>
-            <div className="community__carousel-div__webinar__body__descp"> {descp} </div>
-          </div>
-
-          <div className="community__carousel-div__webinar__img">
-            <img src={profileIcon} />
-          </div>
-        </div>
-      );
-    });
-    return mappedData;
-  }
-  
-
-  function getCommunityCarousel( webinarData ) {
-
-    let CoroselData = webinarData.map( (webinar, index) =>
-    {
-      if(index%3 == 0)
-      {
-        let computedData = webinarData.slice(index, index+3);
-        console.log(computedData);
-        console.log(getCommunityCarouselItem(computedData));
-        return( <Carousel.Item className="community__carousel-div__item"> {getCommunityCarouselItem(computedData)} </Carousel.Item> );     
-      }
-      
-    });
-
-    return CoroselData;
-    
-  } */
-
   return (
     <div className="landing-v2">
       <Nav />
@@ -385,36 +339,34 @@ function Landing() {
 
       <div id="mentors">
         <div className="headingx mentors__heading">Meet your mentors</div>
-        {/* <Carousel>
+        <Carousel responsive={responsiveMentorCarousel}>
           {mentorsData.map((mentor) => {
             const { name, company, descp, img, linkedin } = mentor;
             return (
-              <Carousel.Item>
-                <section className="mentors">
-                  <div className="mentors__container">
-                    <div className="mentors__left-side">
-                      <img className="mentors__image" src={img} />
-                    </div>
-                    <div className="mentors__right-side">
-                      <div className="mentors__name">{name}</div>
-                      <div className="mentors__company">{company}</div>
-                      <div className="mentors__descp">{descp}</div>
-                      <div className="mentors__linkedin">
-                        <a
-                          href={linkedin}
-                          target="__blank"
-                          rel="noopener noreferrer"
-                        >
-                          <img className="linkedin" src="./linkedin.svg" />
-                        </a>
-                      </div>
+              <section className="mentors">
+                <div className="mentors__container">
+                  <div className="mentors__left-side">
+                    <img className="mentors__image" src={img} />
+                  </div>
+                  <div className="mentors__right-side">
+                    <div className="mentors__name">{name}</div>
+                    <div className="mentors__company">{company}</div>
+                    <div className="mentors__descp">{descp}</div>
+                    <div className="mentors__linkedin">
+                      <a
+                        href={linkedin}
+                        target="__blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img className="linkedin" src="./linkedin.svg" />
+                      </a>
                     </div>
                   </div>
-                </section>
-              </Carousel.Item>
+                </div>
+              </section>
             );
           })}
-        </Carousel> */}
+        </Carousel>
       </div>
 
       <section className="plan" id="plan">
@@ -535,59 +487,6 @@ function Landing() {
               );
             })}
           </Carousel>
-
-          {/* <Carousel> 
-              {
-              webinarData.map( (webinar, index) =>
-              {
-                if(index%3 == 0)
-                {
-                  let computedData = webinarData.slice(index, index+3);
-                  console.log(computedData);
-                  return( <div className="community__carousel-div__item"> {getCommunityCarouselItem(computedData)} </div> );
-                }
-              })}
-            </Carousel> */}
-
-          {/* <Carousel>
-   
-                    
-                <div className="community__carousel-div__item">
-                  {webinarData.map((webinar, index) => {
-                    
-                    if(index%3 == 0)
-                    {
-                      <Carousel.Item>
-                      return (
-                      tmp.map((el, ind) => {
-                        const { name, title, descp } = webinarData[index+ind];
-                        return (
-                          <div className="community__carousel-div__webinar">
-                            <div className="community__carousel-div__webinar__top">  </div>
-  
-                            <div className="community__carousel-div__webinar__body"> 
-                              <div className="community__carousel-div__webinar__body__name"> {name} </div>
-                              <div className="community__carousel-div__webinar__body__title"> {title} </div>
-                              <div className="community__carousel-div__webinar__body__descp"> {descp} </div>
-                            </div>
-  
-                            <div className="community__carousel-div__webinar__img">
-                              <img src={profileIcon} />
-                            </div>
-                          </div>
-                        );
-                        );
-                      });
-        
-                    );
-                    </Carousel.Item>
-                    }
-                    
-                    
-                  })}
-                </div>
-          
-          </Carousel>  */}
         </div>
       </section>
 
@@ -713,92 +612,87 @@ function Landing() {
       {/*  </div>*/}
       {/*</section> *!/*/}
 
-      {/* <Carousel>
-        <Carousel.Item>
-          <section className="stories">
-            //<div className="headingx stories__heading">Student Speaks</div> 
-            <div className="stories__container">
-              <div className="stories__left-side">
-                <img src="./abhishek.jpeg" />
-              </div>
-              <div className="stories__right-side">
-                <div className="descpx stories__descp">
-                  <p>
-                    The curriculum here is very exhaustive helping me be a
-                    better developer. The Mock Interviews feedbacks from
-                    Industry experts and continous guidance have helped me
-                    become better at giving interviews.
-                  </p>
-                  <p>
-                    The best thing which I felt about this program was the 1:1
-                    mentorship sessions from Vedansh Sir and Sai maam. It has
-                    been only 3 months since I have joined this program and I
-                    already have 2 offers of 8LPA each. I will be joining one of
-                    them next week
-                  </p>
-                </div>
-                <div className="stories__cta">Abhishek Rai</div>
-              </div>
+      <Carousel responsive={responsiveMentorCarousel}>
+        <section className="stories">
+          {/* <div className="headingx stories__heading">Student Speaks</div>  */}
+          <div className="stories__container">
+            <div className="stories__left-side">
+              <img src="./abhishek.jpeg" />
             </div>
-          </section>
-        </Carousel.Item>
-        <Carousel.Item>
-          <section className="stories">
-            // <div className="headingx stories__heading">Student Speaks</div> 
-            <div className="stories__container">
-              <div className="stories__left-side">
-                <img src="./priya.png" />
+            <div className="stories__right-side">
+              <div className="descpx stories__descp">
+                <p>
+                  The curriculum here is very exhaustive helping me be a better
+                  developer. The Mock Interviews feedbacks from Industry experts
+                  and continous guidance have helped me become better at giving
+                  interviews.
+                </p>
+                <p>
+                  The best thing which I felt about this program was the 1:1
+                  mentorship sessions from Vedansh Sir and Sai maam. It has been
+                  only 3 months since I have joined this program and I already
+                  have 2 offers of 8LPA each. I will be joining one of them next
+                  week
+                </p>
               </div>
+              <div className="stories__cta">Abhishek Rai</div>
+            </div>
+          </div>
+        </section>
 
-              <div className="stories__right-side">
-                <div className="descpx stories__descp">
-                  <p>
-                    The mentors here don't teach you solutions, they teach you
-                    how to think towards it. The self-assessment chart on the
-                    website and weekly targets along with guest lectures on
-                    weekends from industry experts keep me motivated.
-                  </p>
-                  <p>
-                    I was an average student but here I realized I m capable of
-                    far better things. My productivity grew multiple folds from
-                    day 1 itself. Joining this is one of the best decisions of
-                    my life. Thank you Devsnest!
-                  </p>
-                </div>
-                <div className="stories__cta">Priya Mishra</div>
-              </div>
+        <section className="stories">
+          {/* <div className="headingx stories__heading">Student Speaks</div>  */}
+          <div className="stories__container">
+            <div className="stories__left-side">
+              <img src="./priya.png" />
             </div>
-          </section>
-        </Carousel.Item>
-        <Carousel.Item>
-          <section className="stories">
-            // <div className="headingx stories__heading">Student Speaks</div> //
-            <div className="stories__container">
-              <div className="stories__left-side">
-                <img src="./vashu_f.png" />
+
+            <div className="stories__right-side">
+              <div className="descpx stories__descp">
+                <p>
+                  The mentors here don't teach you solutions, they teach you how
+                  to think towards it. The self-assessment chart on the website
+                  and weekly targets along with guest lectures on weekends from
+                  industry experts keep me motivated.
+                </p>
+                <p>
+                  I was an average student but here I realized I m capable of
+                  far better things. My productivity grew multiple folds from
+                  day 1 itself. Joining this is one of the best decisions of my
+                  life. Thank you Devsnest!
+                </p>
               </div>
-              <div className="stories__right-side">
-                <div className="stories__descp">
-                  <p>
-                    Devsnest is by all measures the best investment I have made
-                    in my last 4 years. Within past few months, I'm surprised to
-                    see the positive changes not only in my web dev and CS
-                    skills but within myself as an individual as well.
-                  </p>
-                  <p>
-                    Truly, I owe it all to Devnest's program and I would
-                    wholeheartedly recommend it to anybody considering it,
-                    especially those with a desire to improve and strengthen
-                    their capabilities, as a fully fledge software engineer,
-                    everyday.
-                  </p>
-                </div>
-                <div className="stories__cta">Vashudev Dhamma</div>
-              </div>
+              <div className="stories__cta">Priya Mishra</div>
             </div>
-          </section>
-        </Carousel.Item>
-      </Carousel> */}
+          </div>
+        </section>
+
+        <section className="stories">
+          {/* <div className="headingx stories__heading">Student Speaks</div>  */}
+          <div className="stories__container">
+            <div className="stories__left-side">
+              <img src="./vashu_f.png" />
+            </div>
+            <div className="stories__right-side">
+              <div className="stories__descp">
+                <p>
+                  Devsnest is by all measures the best investment I have made in
+                  my last 4 years. Within past few months, I'm surprised to see
+                  the positive changes not only in my web dev and CS skills but
+                  within myself as an individual as well.
+                </p>
+                <p>
+                  Truly, I owe it all to Devnest's program and I would
+                  wholeheartedly recommend it to anybody considering it,
+                  especially those with a desire to improve and strengthen their
+                  capabilities, as a fully fledge software engineer, everyday.
+                </p>
+              </div>
+              <div className="stories__cta">Vashudev Dhamma</div>
+            </div>
+          </div>
+        </section>
+      </Carousel>
 
       <footer className="footer">
         <div className="footer__container">
