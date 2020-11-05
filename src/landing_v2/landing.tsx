@@ -46,7 +46,7 @@ const mentorsData = [
   },
 ];
 
-const responsive = {
+const responsiveMultipleItem = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
@@ -66,18 +66,18 @@ const responsive = {
   },
 };
 
-const responsiveMentorCarousel = {
-  ...responsive,
+const responsiveSingleItem = {
+  ...responsiveMultipleItem,
   superLargeDesktop: {
-    ...responsive.superLargeDesktop,
+    ...responsiveMultipleItem.superLargeDesktop,
     items: 1,
   },
   desktop: {
-    ...responsive.desktop,
+    ...responsiveMultipleItem.desktop,
     items: 1,
   },
   tablet: {
-    ...responsive.tablet,
+    ...responsiveMultipleItem.tablet,
     items: 1,
   },
 };
@@ -339,7 +339,7 @@ function Landing() {
 
       <div id="mentors">
         <div className="headingx mentors__heading">Meet your mentors</div>
-        <Carousel responsive={responsiveMentorCarousel}>
+        <Carousel responsive={responsiveSingleItem}>
           {mentorsData.map((mentor) => {
             const { name, company, descp, img, linkedin } = mentor;
             return (
@@ -456,7 +456,7 @@ function Landing() {
           </div>
 
           <Carousel
-            responsive={responsive}
+            responsive={responsiveMultipleItem}
             className="community__carousel-div__carousel"
           >
             {webinarData.map((item) => {
@@ -612,7 +612,7 @@ function Landing() {
       {/*  </div>*/}
       {/*</section> *!/*/}
 
-      <Carousel responsive={responsiveMentorCarousel}>
+      <Carousel responsive={responsiveSingleItem}>
         <section className="stories">
           {/* <div className="headingx stories__heading">Student Speaks</div>  */}
           <div className="stories__container">
