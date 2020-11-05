@@ -3,13 +3,12 @@ import Carousel from 'react-multi-carousel';
 import Nav from './nav';
 
 import 'react-multi-carousel/lib/styles.css';
-
-import './landing.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './landing.scss';
+
 import achieve from '../images/achieve.png';
 import whatsappIcon from '../images/whatsappIcon.png';
-import WA_illustratration from '../images/WA_illustratration2.png';
-import profileIcon from '../images/profile.png';
+import WA_illustratration from '../images/WA_illustratration.png';
 
 const mentorsData = [
   {
@@ -83,10 +82,10 @@ const responsiveSingleItem = {
 
 const webinarData = [
   {
-    name: 'Josh Medina 1',
-    title: 'Software Developer at xyz company',
-    descp:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
+    name: 'Naman Malhotra',
+    title: 'Software Engineer at HackerRank',
+    descp: `Hi, I am Naman Malhotra. I still remember the first line of code I wrote when I was 13. Since then, I have worked with many startup founders across the continents. I co-founded two startups; one of them was in the Ed-Tech space, and the other was in blockchain fintech. In both of them, I lead the entire tech end to end and product to some extent. I strongly believe that if you have the right set of skills, your background, traditional education, etc hardly matters. Given that you are ready to work your ass off.`,
+    img: './profile.png',
   },
 
   {
@@ -94,6 +93,7 @@ const webinarData = [
     title: 'Software Developer at xyz company',
     descp:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
+    img: './profile.png',
   },
 
   {
@@ -101,6 +101,7 @@ const webinarData = [
     title: 'Software Developer at xyz company',
     descp:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
+    img: './profile.png',
   },
 
   {
@@ -108,6 +109,7 @@ const webinarData = [
     title: 'Software Developer at xyz company',
     descp:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
+    img: './profile.png',
   },
 
   {
@@ -115,6 +117,7 @@ const webinarData = [
     title: 'Software Developer at xyz company',
     descp:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
+    img: './profile.png',
   },
 
   {
@@ -122,6 +125,7 @@ const webinarData = [
     title: 'Software Developer at xyz company',
     descp:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
+    img: './profile.png',
   },
 
   {
@@ -129,10 +133,9 @@ const webinarData = [
     title: 'Software Developer at xyz company',
     descp:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
+    img: './profile.png',
   },
 ];
-
-const arr = [0, 1, 2];
 
 function Landing() {
   return (
@@ -403,11 +406,10 @@ function Landing() {
         <div className="community__top">
           <div className="community__top__left-side">
             <div className="headingx community__heading">
-              {' '}
-              Join our Whatsapp Community{' '}
+              Join our Whatsapp Community
             </div>
+
             <div className="community__headingDesc">
-              {' '}
               No spam only admins send messages
             </div>
           </div>
@@ -420,9 +422,9 @@ function Landing() {
         <div className="community__main rowx">
           <div className="community__main__left-side">
             <div className="community__main__left-side__heading">
-              {' '}
-              What <span>YOU</span> will get{' '}
+              What <span>YOU</span> will get
             </div>
+
             <ol className="community__main__left-side__points">
               <li> A weekly webinar. AMAs by Industry experts. </li>
               <li> A weekly free class on Algorithms. </li>
@@ -430,17 +432,16 @@ function Landing() {
             </ol>
 
             <div className="community__main__left-side__txt1">
-              {' '}
               We believe in peer learning
             </div>
+
             <div className="community__main__left-side__txt2">
-              {' '}
               To discuss code, careers and cookies and find partners for
-              projects join this group.{' '}
+              projects join this group.
             </div>
 
             <button className="community__main__left-side__btn btnx btnx-primary">
-              Click here to know more!
+              Join Now!
             </button>
           </div>
 
@@ -459,28 +460,25 @@ function Landing() {
             className="community__carousel-div__carousel"
           >
             {webinarData.map((item) => {
-              const { name, title, descp } = item;
+              const { name, title, descp, img } = item;
               return (
                 <div className="community__carousel-div__webinar">
                   <div className="community__carousel-div__webinar__top"> </div>
 
                   <div className="community__carousel-div__webinar__body">
                     <div className="community__carousel-div__webinar__body__name">
-                      {' '}
-                      {name}{' '}
+                      {name}
                     </div>
                     <div className="community__carousel-div__webinar__body__title">
-                      {' '}
-                      {title}{' '}
+                      {title}
                     </div>
                     <div className="community__carousel-div__webinar__body__descp">
-                      {' '}
-                      {descp}{' '}
+                      {descp}
                     </div>
                   </div>
 
                   <div className="community__carousel-div__webinar__img">
-                    <img src={profileIcon} />
+                    <img src={img} />
                   </div>
                 </div>
               );
@@ -578,7 +576,7 @@ function Landing() {
       {/*  </div>*/}
       {/*  /!* <div className="plan__bottom-info">*/}
       {/*    The absence of money should not deter you from applying, please reach*/}
-      {/*    out to us if you think that’s the case.<br></br> To know more,{' '}*/}
+      {/*    out to us if you think that’s the case.<br></br> To know more,*/}
       {/*    <a*/}
       {/*      href="https://calendly.com/saikc3/15min"*/}
       {/*      target="_blank"*/}
@@ -613,7 +611,6 @@ function Landing() {
 
       <Carousel responsive={responsiveSingleItem}>
         <section className="stories">
-          {/* <div className="headingx stories__heading">Student Speaks</div>  */}
           <div className="stories__container">
             <div className="stories__left-side">
               <img src="./abhishek.jpeg" />
@@ -640,7 +637,6 @@ function Landing() {
         </section>
 
         <section className="stories">
-          {/* <div className="headingx stories__heading">Student Speaks</div>  */}
           <div className="stories__container">
             <div className="stories__left-side">
               <img src="./priya.png" />
@@ -667,7 +663,6 @@ function Landing() {
         </section>
 
         <section className="stories">
-          {/* <div className="headingx stories__heading">Student Speaks</div>  */}
           <div className="stories__container">
             <div className="stories__left-side">
               <img src="./vashu_f.png" />

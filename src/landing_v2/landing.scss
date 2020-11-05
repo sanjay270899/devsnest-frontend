@@ -472,7 +472,7 @@ a.nav-item {
 
   .community {
     &__headingDesc {
-      color: #808080;
+      color: $color-text;
       font-size: 20px;
     }
 
@@ -507,6 +507,7 @@ a.nav-item {
 
         &__points {
           color: #f05032;
+          color: $color-text;
           font-size: 18px;
           padding: 10px 20px;
         }
