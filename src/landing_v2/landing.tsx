@@ -1,14 +1,15 @@
 import React from 'react';
-import Carousel from 'react-bootstrap/Carousel';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+/* import Carousel from 'react-bootstrap/Carousel'; */
+import Carousel from 'react-multi-carousel';
 import Nav from './nav';
+
+import 'react-multi-carousel/lib/styles.css';
 
 import './landing.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import achieve from '../images/achieve.png';
 import whatsappIcon from '../images/whatsappIcon.png';
-import WA_illustratration from '../images/WA_illustratration.png';
+import WA_illustratration from '../images/WA_illustratration2.png';
 import profileIcon from '../images/profile.png';
 
 const mentorsData = [
@@ -45,30 +46,142 @@ const mentorsData = [
   },
 ];
 
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 3,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
+
 const webinarData = [
   {
-    name: 'xyz',
-    title: 'SDE at xyz company',
+    name: 'Josh Medina 1',
+    title: 'Software Developer at xyz company',
     descp:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, eligendi.',
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
   },
 
   {
-    name: 'xyz',
-    title: 'SDE at xyz company',
+    name: 'Josh Medina 2',
+    title: 'Software Developer at xyz company',
     descp:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, eligendi.',
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
   },
 
   {
-    name: 'xyz',
-    title: 'SDE at xyz company',
+    name: 'Josh Medina 3',
+    title: 'Software Developer at xyz company',
     descp:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, eligendi.',
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
+  },
+
+  {
+    name: 'Josh Medina 4',
+    title: 'Software Developer at xyz company',
+    descp:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
+  },
+
+  {
+    name: 'Josh Medina 5',
+    title: 'Software Developer at xyz company',
+    descp:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
+  },
+
+  {
+    name: 'Josh Medina 6',
+    title: 'Software Developer at xyz company',
+    descp:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
+  },
+
+  {
+    name: 'Josh Medina 7',
+    title: 'Software Developer at xyz company',
+    descp:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
   },
 ];
 
+const arr = [0, 1, 2];
+
 function Landing() {
+  /*
+  let i=0;
+  let webinarData_2d: Object[][] = [];
+  let tmp: Object[] = [];
+
+  for(let elem of webinarData)
+  {
+    if(tmp.length < 3)
+    {
+      tmp.push(elem);
+    } else {
+      webinarData_2d.push(tmp);
+      tmp = [elem];
+    }
+  }
+
+  if(tmp.length>0)
+    webinarData_2d.push(tmp);
+
+  console.log(webinarData_2d); */
+
+  /* function getCommunityCarouselItem(data) {
+    let mappedData = data.map((item) => {
+      const { name, title, descp } = item;
+      return (
+        <div className="community__carousel-div__webinar">
+          <div className="community__carousel-div__webinar__top">  </div>
+
+          <div className="community__carousel-div__webinar__body"> 
+            <div className="community__carousel-div__webinar__body__name"> {name} </div>
+            <div className="community__carousel-div__webinar__body__title"> {title} </div>
+            <div className="community__carousel-div__webinar__body__descp"> {descp} </div>
+          </div>
+
+          <div className="community__carousel-div__webinar__img">
+            <img src={profileIcon} />
+          </div>
+        </div>
+      );
+    });
+    return mappedData;
+  }
+  
+
+  function getCommunityCarousel( webinarData ) {
+
+    let CoroselData = webinarData.map( (webinar, index) =>
+    {
+      if(index%3 == 0)
+      {
+        let computedData = webinarData.slice(index, index+3);
+        console.log(computedData);
+        console.log(getCommunityCarouselItem(computedData));
+        return( <Carousel.Item className="community__carousel-div__item"> {getCommunityCarouselItem(computedData)} </Carousel.Item> );     
+      }
+      
+    });
+
+    return CoroselData;
+    
+  } */
+
   return (
     <div className="landing-v2">
       <Nav />
@@ -272,7 +385,7 @@ function Landing() {
 
       <div id="mentors">
         <div className="headingx mentors__heading">Meet your mentors</div>
-        <Carousel>
+        {/* <Carousel>
           {mentorsData.map((mentor) => {
             const { name, company, descp, img, linkedin } = mentor;
             return (
@@ -301,7 +414,7 @@ function Landing() {
               </Carousel.Item>
             );
           })}
-        </Carousel>
+        </Carousel> */}
       </div>
 
       <section className="plan" id="plan">
@@ -353,95 +466,128 @@ function Landing() {
           </div>
         </div>
 
-        <div className="community__container">
-          <div className="community__main">
-            <div className="community__main__left-side">
-              <div className="community__main__left-side__heading">
-                {' '}
-                What <span>YOU</span> will get{' '}
-              </div>
-              <ol className="community__main__left-side__points">
-                <li> A weekly webinar. AMAs by Industry experts. </li>
-                <li> A weekly free class on Algorithms. </li>
-                <li> A new practice problem on Algorithms daily. </li>
-              </ol>
+        <div className="community__main rowx">
+          <div className="community__main__left-side">
+            <div className="community__main__left-side__heading">
+              {' '}
+              What <span>YOU</span> will get{' '}
+            </div>
+            <ol className="community__main__left-side__points">
+              <li> A weekly webinar. AMAs by Industry experts. </li>
+              <li> A weekly free class on Algorithms. </li>
+              <li> A new practice problem on Algorithms daily. </li>
+            </ol>
 
-              <div className="community__main__left-side__txt1">
-                {' '}
-                We believe in peer learning
-              </div>
-              <div className="community__main__left-side__txt2">
-                {' '}
-                To discuss code, careers and cookies and find partners for
-                projects join this group.{' '}
-              </div>
-
-              <button className="community__main__left-side__btn">
-                Click here to know more!
-              </button>
+            <div className="community__main__left-side__txt1">
+              {' '}
+              We believe in peer learning
+            </div>
+            <div className="community__main__left-side__txt2">
+              {' '}
+              To discuss code, careers and cookies and find partners for
+              projects join this group.{' '}
             </div>
 
-            {/* <div className="community__main__right-side">
-              <img src={WA_illustratration}/>
-            </div> */}
+            <button className="community__main__left-side__btn btnx btnx-primary">
+              Click here to know more!
+            </button>
           </div>
 
-          {/* <div className="community__container__img">
-              <img src={WA_illustratration}/>
-          </div> */}
+          <div className="community__main__right-side">
+            <img src={WA_illustratration} className="responsive" />
+          </div>
         </div>
 
         <div className="community__carousel-div">
           <div className="community__carousel-div__heading">
-            {' '}
-            Our previous webinars :{' '}
+            Our previous webinars :
           </div>
 
-          <div className="community__carousel-div__webinar-info">
-            {webinarData.map((webinar) => {
-              const { name, title, descp } = webinar;
+          <Carousel
+            responsive={responsive}
+            className="community__carousel-div__carousel"
+          >
+            {webinarData.map((item) => {
+              const { name, title, descp } = item;
               return (
-                <Card className="community__carousel-div__webinar">
-                  <Card.Img
-                    variant="top"
-                    src={profileIcon}
-                    className="profile"
-                  />
-                  <Card.Body>
-                    <Card.Title> {name}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">
+                <div className="community__carousel-div__webinar">
+                  <div className="community__carousel-div__webinar__top"> </div>
+
+                  <div className="community__carousel-div__webinar__body">
+                    <div className="community__carousel-div__webinar__body__name">
+                      {' '}
+                      {name}{' '}
+                    </div>
+                    <div className="community__carousel-div__webinar__body__title">
                       {' '}
                       {title}{' '}
-                    </Card.Subtitle>
-                    <Card.Text>{descp}</Card.Text>
-                  </Card.Body>
-                </Card>
+                    </div>
+                    <div className="community__carousel-div__webinar__body__descp">
+                      {' '}
+                      {descp}{' '}
+                    </div>
+                  </div>
+
+                  <div className="community__carousel-div__webinar__img">
+                    <img src={profileIcon} />
+                  </div>
+                </div>
               );
             })}
-          </div>
+          </Carousel>
+
+          {/* <Carousel> 
+              {
+              webinarData.map( (webinar, index) =>
+              {
+                if(index%3 == 0)
+                {
+                  let computedData = webinarData.slice(index, index+3);
+                  console.log(computedData);
+                  return( <div className="community__carousel-div__item"> {getCommunityCarouselItem(computedData)} </div> );
+                }
+              })}
+            </Carousel> */}
 
           {/* <Carousel>
-              
-                <Carousel.Item className="community__carousel-div__webinar-info">
-                  {webinarData.map((webinar) => {
-                    const { name, title, descp } = webinar;
-                    return (
-                      <Card className="community__carousel-div__webinar">
-                        <Card.Img variant="top" src={profileIcon} className="profile" />
-                        <Card.Body>
-                          <Card.Title> {name}</Card.Title>
-                          <Card.Subtitle className="mb-2 text-muted"> {title} </Card.Subtitle>
-                          <Card.Text>
-                            {descp}
-                          </Card.Text>
-                            
-                        </Card.Body>
-                      </Card>
+   
+                    
+                <div className="community__carousel-div__item">
+                  {webinarData.map((webinar, index) => {
+                    
+                    if(index%3 == 0)
+                    {
+                      <Carousel.Item>
+                      return (
+                      tmp.map((el, ind) => {
+                        const { name, title, descp } = webinarData[index+ind];
+                        return (
+                          <div className="community__carousel-div__webinar">
+                            <div className="community__carousel-div__webinar__top">  </div>
+  
+                            <div className="community__carousel-div__webinar__body"> 
+                              <div className="community__carousel-div__webinar__body__name"> {name} </div>
+                              <div className="community__carousel-div__webinar__body__title"> {title} </div>
+                              <div className="community__carousel-div__webinar__body__descp"> {descp} </div>
+                            </div>
+  
+                            <div className="community__carousel-div__webinar__img">
+                              <img src={profileIcon} />
+                            </div>
+                          </div>
+                        );
+                        );
+                      });
+        
                     );
+                    </Carousel.Item>
+                    }
+                    
+                    
                   })}
-                </Carousel.Item>
-            
-            </Carousel> */}
+                </div>
+          
+          </Carousel>  */}
         </div>
       </section>
 
@@ -567,10 +713,10 @@ function Landing() {
       {/*  </div>*/}
       {/*</section> *!/*/}
 
-      <Carousel>
+      {/* <Carousel>
         <Carousel.Item>
           <section className="stories">
-            {/* <div className="headingx stories__heading">Student Speaks</div> */}
+            //<div className="headingx stories__heading">Student Speaks</div> 
             <div className="stories__container">
               <div className="stories__left-side">
                 <img src="./abhishek.jpeg" />
@@ -598,7 +744,7 @@ function Landing() {
         </Carousel.Item>
         <Carousel.Item>
           <section className="stories">
-            {/* <div className="headingx stories__heading">Student Speaks</div> */}
+            // <div className="headingx stories__heading">Student Speaks</div> 
             <div className="stories__container">
               <div className="stories__left-side">
                 <img src="./priya.png" />
@@ -626,7 +772,7 @@ function Landing() {
         </Carousel.Item>
         <Carousel.Item>
           <section className="stories">
-            {/* <div className="headingx stories__heading">Student Speaks</div> */}
+            // <div className="headingx stories__heading">Student Speaks</div> //
             <div className="stories__container">
               <div className="stories__left-side">
                 <img src="./vashu_f.png" />
@@ -652,7 +798,7 @@ function Landing() {
             </div>
           </section>
         </Carousel.Item>
-      </Carousel>
+      </Carousel> */}
 
       <footer className="footer">
         <div className="footer__container">
