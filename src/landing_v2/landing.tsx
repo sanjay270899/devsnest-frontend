@@ -390,17 +390,6 @@ function Landing() {
         <div className="plan__desc descpx">
           Interested? Registration for the 2nd batch closes on 15th November.
         </div>
-        {/* <div className="plan__register">
-          <a
-            href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="plan__register-button"
-          >
-            Register Now
-          </a>
-
-        </div> */}
 
         <a
           href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
