@@ -117,6 +117,7 @@ a.nav-item {
   .curriculum,
   .stories__container,
   .plan,
+  .community,
   .cool__container,
   .mentors,
   .mentors__heading,
@@ -368,20 +369,12 @@ a.nav-item {
     &__register {
       display: flex;
       justify-content: center;
+      text-decoration: none;
     }
 
     &__register-button {
-      color: $color-white;
-      padding: 20px 30px;
-      font-size: 16px;
-      text-align: center;
-      border-radius: 8px;
-      background-color: $color-purple;
-
-      &:hover {
-        color: $color-white;
-        text-decoration: none;
-      }
+      border: 0;
+      font-weight: 600;
     }
 
     &__right-side {
@@ -469,34 +462,156 @@ a.nav-item {
     }
   }
 
-  // .cool {
-  //   background-color: #e4f2f8;
+  .community {
+    &__headingDesc {
+      color: #848490;
+      font-size: 20px;
+    }
 
-  //   &__container {
-  //     display: flex;
-  //     justify-content: space-evenly;
-  //   }
+    &__top {
+      display: flex;
+      justify-content: space-between;
 
-  //   img {
-  //     width: 100%;
-  //   }
+      &__right-side {
+        img {
+          height: 130px;
+          width: 130px;
+        }
+      }
+    }
 
-  //   &__right-side {
-  //     margin-left: 50px;
-  //     display: flex;
-  //     flex-direction: column;
-  //     justify-content: space-evenly;
-  //     flex-basis: 600px;
-  //   }
+    &__main {
+      margin: 20px 0px;
+      display: flex;
+      justify-content: space-between;
 
-  //   &__descp {
-  //     font-size: 24px;
-  //   }
+      &__left-side {
+        &__heading {
+          font-size: 45px;
+          color: #454545;
+          font-weight: 900;
 
-  //   &__cta {
-  //     background-color: $color-text;
-  //   }
-  // }
+          span {
+            color: #6e46aa;
+          }
+        }
+
+        &__points {
+          color: #f05032;
+          color: $color-text;
+          font-size: 18px;
+          padding: 10px 20px;
+        }
+
+        &__txt1 {
+          color: #313131;
+          font-size: 15.5px;
+        }
+
+        &__txt2 {
+          color: #36214b;
+          font-size: 12px;
+        }
+
+        &__btn {
+          margin: 17px 0px;
+          border: 0px;
+          font-weight: 600;
+        }
+      }
+
+      &__right-side {
+        display: flex;
+        justify-content: center;
+        img {
+          margin-top: 20px;
+          width: 95%;
+        }
+      }
+    }
+
+    &__carousel-div {
+      padding-top: 30px;
+
+      &__heading {
+        font-size: 35px;
+        font-weight: 600;
+        color: #413838;
+      }
+
+      &__carousel {
+        margin: 30px 0px;
+      }
+
+      &__webinar {
+        width: 320px;
+        border-radius: 12px;
+        box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.15);
+        position: relative;
+
+        &__top {
+          border-radius: 12px 12px 0px 0px;
+          min-height: 100px;
+          background-color: #c5b8e1;
+        }
+
+        &__body {
+          padding: 50px 21px 21px;
+          min-height: 200px;
+          text-align: center;
+
+          &__name {
+            color: #dc3c18;
+            font-weight: bold;
+            font-size: 18px;
+          }
+
+          &__title {
+            color: #826e64;
+            font-weight: 600;
+            font-size: 13.5px;
+            padding: 10px 0px;
+          }
+
+          &__descp {
+            color: #000000;
+            font-weight: 500;
+            font-size: 12.5px;
+          }
+        }
+
+        &__img {
+          position: absolute;
+          top: 55px;
+          display: flex;
+          justify-content: center;
+          width: 100%;
+
+          img {
+            width: 90px;
+            height: 90px;
+          }
+        }
+      }
+    }
+  }
+
+  .profile {
+    width: 200px;
+    height: 200px;
+  }
+
+  .react-multiple-carousel__arrow--right {
+    right: calc(1% + 1px);
+    outline: none;
+    box-shadow: none;
+  }
+
+  .react-multiple-carousel__arrow--left {
+    left: calc(1% + 1px);
+    outline: none;
+    box-shadow: none;
+  }
 
   .mentors {
     &__heading {
@@ -586,6 +701,7 @@ a.nav-item {
     .curriculum,
     .stories__container,
     .plan,
+    .community,
     .cool__container,
     .mentors,
     .mentors__heading,
@@ -760,6 +876,7 @@ a.nav-item {
     .mentors__heading,
     .footer__container,
     .nav-bar,
+    .community,
     .content,
     .unique {
       padding: 20px 16px;
@@ -794,9 +911,29 @@ a.nav-item {
       }
     }
 
-    .cool {
-      &__cta {
+    .plan {
+      &__register-button {
         width: 100%;
+      }
+    }
+
+    .community {
+      &__carousel-div {
+        &__webinar {
+          width: auto;
+        }
+      }
+
+      &__main {
+        &__left-side {
+          &__heading {
+            font-size: 28px;
+          }
+
+          &__btn {
+            width: 100%;
+          }
+        }
       }
     }
 
