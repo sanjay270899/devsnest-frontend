@@ -390,7 +390,7 @@ function Landing() {
         <div className="plan__desc descpx">
           Interested? Registration for the 2nd batch closes on 15th November.
         </div>
-        <div className="plan__register">
+        {/* <div className="plan__register">
           <a
             href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
             target="_blank"
@@ -399,7 +399,20 @@ function Landing() {
           >
             Register Now
           </a>
-        </div>
+
+        </div> */}
+
+        <a
+          href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="plan__register"
+        >
+          <button className="plan__register-button btnx btnx-primary">
+            {' '}
+            Register Now{' '}
+          </button>
+        </a>
       </section>
 
       <section className="community">
@@ -440,11 +453,12 @@ function Landing() {
               projects join this group.
             </div>
 
-            <button className="community__main__left-side__btn btnx btnx-primary">
-              <a href="https://bit.ly/devsnest_wa" target="_blank">
-                Join Now
-              </a>
-            </button>
+            <a href="https://bit.ly/devsnest_wa" target="_blank">
+              <button className="community__main__left-side__btn btnx btnx-primary">
+                {' '}
+                Join Now{' '}
+              </button>
+            </a>
           </div>
 
           <div className="community__main__right-side">

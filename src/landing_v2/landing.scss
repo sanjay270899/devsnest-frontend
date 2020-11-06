@@ -369,20 +369,12 @@ a.nav-item {
     &__register {
       display: flex;
       justify-content: center;
+      text-decoration: none;
     }
 
     &__register-button {
-      color: $color-white;
-      padding: 20px 30px;
-      font-size: 16px;
-      text-align: center;
-      border-radius: 8px;
-      background-color: $color-purple;
-
-      &:hover {
-        color: $color-white;
-        text-decoration: none;
-      }
+      border: 0;
+      font-weight: 600;
     }
 
     &__right-side {
@@ -472,7 +464,7 @@ a.nav-item {
 
   .community {
     &__headingDesc {
-      color: $color-text;
+      color: #848490;
       font-size: 20px;
     }
 
@@ -525,10 +517,6 @@ a.nav-item {
           margin: 17px 0px;
           border: 0px;
           font-weight: 600;
-          a {
-            text-decoration: none;
-            color: white;
-          }
         }
       }
 
@@ -922,10 +910,28 @@ a.nav-item {
       }
     }
 
+    .plan {
+      &__register-button {
+        width: 100%;
+      }
+    }
+
     .community {
       &__carousel-div {
         &__webinar {
           width: auto;
+        }
+      }
+
+      &__main {
+        &__left-side {
+          &__heading {
+            font-size: 28px;
+          }
+
+          &__btn {
+            width: 100%;
+          }
         }
       }
     }
