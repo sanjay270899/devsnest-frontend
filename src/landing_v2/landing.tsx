@@ -441,16 +441,18 @@ function Landing() {
             </div>
 
             <button className="community__main__left-side__btn btnx btnx-primary">
-              Join Now!
+              <a href="https://bit.ly/devsnest_wa" target="_blank">
+                Join Now
+              </a>
             </button>
           </div>
 
           <div className="community__main__right-side">
-            <img src={WA_illustratration} className="responsive" />
+            <img src={WA_illustratration} />
           </div>
         </div>
 
-        <div className="community__carousel-div">
+        {/* <div className="community__carousel-div">
           <div className="community__carousel-div__heading">
             Our previous webinars :
           </div>
@@ -484,7 +486,7 @@ function Landing() {
               );
             })}
           </Carousel>
-        </div>
+        </div> */}
       </section>
 
       {/*<section className="plan">*/}

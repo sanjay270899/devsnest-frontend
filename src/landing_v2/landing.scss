@@ -492,7 +492,6 @@ a.nav-item {
       margin: 20px 0px;
       display: flex;
       justify-content: space-between;
-      overflow: hidden;
 
       &__left-side {
         &__heading {
@@ -526,10 +525,16 @@ a.nav-item {
           margin: 17px 0px;
           border: 0px;
           font-weight: 600;
+          a {
+            text-decoration: none;
+            color: white;
+          }
         }
       }
 
       &__right-side {
+        display: flex;
+        justify-content: center;
         img {
           margin-top: 20px;
           width: 95%;
