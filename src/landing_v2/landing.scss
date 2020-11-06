@@ -375,6 +375,10 @@ a.nav-item {
     &__register-button {
       border: 0;
       font-weight: 600;
+
+      &:focus {
+        outline: none;
+      }
     }
 
     &__right-side {
@@ -517,6 +521,10 @@ a.nav-item {
           margin: 17px 0px;
           border: 0px;
           font-weight: 600;
+
+          &:focus {
+            outline: none;
+          }
         }
       }
 
