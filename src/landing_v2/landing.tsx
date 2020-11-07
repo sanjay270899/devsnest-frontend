@@ -106,7 +106,7 @@ const webinarData = [
     name: 'Naman Malhotra',
     title: 'Software Engineer at HackerRank',
     descp: `Cracking Frontend Interviews and contributing to open source`,
-    img: './mentors/naman_hackerrank.jpg',
+    img: './mentors/naman_hackerrank.png',
   },
 
   {
@@ -399,8 +399,7 @@ function Landing() {
           className="plan__register"
         >
           <button className="plan__register-button btnx btnx-primary">
-            {' '}
-            Register Now{' '}
+            Register Now
           </button>
         </a>
       </section>
@@ -443,10 +442,9 @@ function Landing() {
               projects join this group.
             </div>
 
-            <a href="https://bit.ly/devsnest_wa" target="_blank">
+            <a href="http://bit.ly/devsnest_community" target="_blank">
               <button className="community__main__left-side__btn btnx btnx-primary">
-                {' '}
-                Join Now{' '}
+                Join Now
               </button>
             </a>
           </div>
