@@ -81,59 +81,60 @@ const responsiveSingleItem = {
 };
 
 const webinarData = [
+  /* {
+    name: 'Ankit Goyal',
+    title: 'Google',
+    descp: 'Graphs Minimum Spanning Trees and Interviewing at Google',
+    img: './mentors/Ankit_goyal_google.jpeg',
+  }, */
+
+  {
+    name: 'Rohit Aggarwal',
+    title: 'Lead Engineer Hackerrank',
+    descp: 'Building scalable backends and writing Microservices',
+    img: './mentors/rohit_hackerrank.jpeg',
+  },
+
+  {
+    name: 'Abhishek Gahlot',
+    title: 'Entrepreneur, EM at EduFlow',
+    descp: 'How browsers work, V8 engine and Networking in browsers',
+    img: './mentors/Abhishek_eduflow.jpeg',
+  },
+
   {
     name: 'Naman Malhotra',
     title: 'Software Engineer at HackerRank',
-    descp: `Hi, I am Naman Malhotra. I still remember the first line of code I wrote when I was 13. Since then, I have worked with many startup founders across the continents. I co-founded two startups; one of them was in the Ed-Tech space, and the other was in blockchain fintech. In both of them, I lead the entire tech end to end and product to some extent. I strongly believe that if you have the right set of skills, your background, traditional education, etc hardly matters. Given that you are ready to work your ass off.`,
-    img: './profile.png',
+    descp: `Cracking Frontend Interviews and contributing to open source`,
+    img: './mentors/naman_hackerrank.jpg',
   },
 
   {
-    name: 'Josh Medina 2',
-    title: 'Software Developer at xyz company',
-    descp:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
-    img: './profile.png',
+    name: 'Vaibhav Gupta',
+    title: 'Nutanix Ex- Paypal',
+    descp: `System Designing and Creating a Highly Scalable URL Shortening service`,
+    img: './mentors/vaibhav_nutanix.jpeg',
   },
 
   {
-    name: 'Josh Medina 3',
-    title: 'Software Developer at xyz company',
-    descp:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
-    img: './profile.png',
+    name: 'Kritarth Anand',
+    title: 'Ex-Facebook',
+    descp: 'Importance of building a brand and having the right tribe',
+    img: './mentors/kritarth_facebook.jpg',
   },
 
   {
-    name: 'Josh Medina 4',
-    title: 'Software Developer at xyz company',
-    descp:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
-    img: './profile.png',
+    name: 'Kumar Akshay',
+    title: 'Atlassian',
+    descp: 'Starting with Opensource, GSOC and Interning at top-tech companies',
+    img: './mentors/akshay_atlassian.jpeg',
   },
 
   {
-    name: 'Josh Medina 5',
-    title: 'Software Developer at xyz company',
-    descp:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
-    img: './profile.png',
-  },
-
-  {
-    name: 'Josh Medina 6',
-    title: 'Software Developer at xyz company',
-    descp:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
-    img: './profile.png',
-  },
-
-  {
-    name: 'Josh Medina 7',
-    title: 'Software Developer at xyz company',
-    descp:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab blanditiis dolor assumenda, deserunt quas labore placeat.',
-    img: './profile.png',
+    name: ' Sudhanshu Yadav',
+    title: 'Architect at HackerRank',
+    descp: 'Projects Review, JS V8 Engine and Contributing to Brahmos',
+    img: './mentors/sudhanshu_hackerrank.jpg',
   },
 ];
 
@@ -455,7 +456,7 @@ function Landing() {
           </div>
         </div>
 
-        {/* <div className="community__carousel-div">
+        <div className="community__carousel-div">
           <div className="community__carousel-div__heading">
             Our previous webinars :
           </div>
@@ -489,7 +490,7 @@ function Landing() {
               );
             })}
           </Carousel>
-        </div> */}
+        </div>
       </section>
 
       {/*<section className="plan">*/}
@@ -700,6 +701,16 @@ function Landing() {
             <div className="footer__descp">
               We aim to make young India financially self-sustainable by
               providing equal opportunity for all.
+              <div>
+                <a
+                  href="https://drive.google.com/file/d/17TKzId-5qlRjKVLX30W1Brn_L70rcMN1/view"
+                  target="_blank"
+                  className="footer__privacy-policy"
+                >
+                  {' '}
+                  Privacy Policy{' '}
+                </a>
+              </div>
             </div>
           </div>
           <div className="footer__right-side">
