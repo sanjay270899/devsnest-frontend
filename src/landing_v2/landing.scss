@@ -565,8 +565,9 @@ a.nav-item {
 
         &__body {
           padding: 50px 21px 21px;
-          min-height: 200px;
+          min-height: 180px;
           text-align: center;
+          margin-bottom: 10px;
 
           &__name {
             color: #dc3c18;
@@ -598,6 +599,7 @@ a.nav-item {
           img {
             width: 90px;
             height: 90px;
+            border-radius: 20px;
           }
         }
       }
