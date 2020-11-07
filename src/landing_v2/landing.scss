@@ -697,6 +697,12 @@ a.nav-item {
     &__email {
       font-weight: 900;
     }
+
+    &__privacy-policy {
+      text-decoration: none;
+      color: $color-text;
+      font-weight: 600;
+    }
   }
 
   @media screen and (max-width: 768px) {

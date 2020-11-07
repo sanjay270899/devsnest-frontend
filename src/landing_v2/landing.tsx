@@ -701,6 +701,16 @@ function Landing() {
             <div className="footer__descp">
               We aim to make young India financially self-sustainable by
               providing equal opportunity for all.
+              <div>
+                <a
+                  href="https://drive.google.com/file/d/17TKzId-5qlRjKVLX30W1Brn_L70rcMN1/view"
+                  target="_blank"
+                  className="footer__privacy-policy"
+                >
+                  {' '}
+                  Privacy Policy{' '}
+                </a>
+              </div>
             </div>
           </div>
           <div className="footer__right-side">
