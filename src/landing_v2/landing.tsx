@@ -106,7 +106,7 @@ const webinarData = [
     name: 'Naman Malhotra',
     title: 'Software Engineer at HackerRank',
     descp: `Cracking Frontend Interviews and contributing to open source`,
-    img: './mentors/naman_hackerrank.png',
+    img: './mentors/naman_hackerrank.jpg',
   },
 
   {
