@@ -45,16 +45,6 @@ ul {
   padding-left: 20px;
 }
 
-a.nav-item {
-  color: $color-purple;
-  font-weight: 600;
-
-  &:hover {
-    text-decoration: none;
-    color: darken($color-purple, 20);
-  }
-}
-
 .btnx {
   color: #ffffff;
   padding: 20px 50px;
@@ -129,6 +119,60 @@ a.nav-item {
     margin-left: auto;
   }
 
+  .main-nav {
+    position: fixed;
+    width: 100%;
+    height: 90px;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 12px 0 15px -4px rgba(109, 111, 114, 0.8),
+      -12px 0 8px -4px rgba(31, 73, 125, 0.8);
+
+    &__nav_container {
+      display: flex;
+      height: 100px;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1;
+    }
+
+    &__nav_right {
+      margin-right: 21rem;
+      display: flex;
+      list-style-type: none;
+      padding-left: 5rem;
+    }
+  }
+
+  .logo-container {
+    background: url('../images/logo.jpg') no-repeat;
+    width: 150px;
+    height: 70px;
+    background-size: 73px;
+    position: absolute;
+    top: 5px;
+    left: 50px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .nav-item {
+    text-decoration: none;
+    color: #8d72d3;
+    font-weight: 600;
+    font-size: 25px;
+    padding: 0 15px;
+    font-family: 'Montserrat', sans-serif;
+
+    &:hover {
+      text-decoration: none;
+      color: darken($color-purple, 20);
+    }
+  }
+
   .nav-bar {
     display: flex;
     justify-content: flex-end;
@@ -144,11 +188,6 @@ a.nav-item {
       justify-content: space-between;
       min-width: 450px;
     }
-
-    &__logo {
-      font-weight: 900;
-      font-size: 32px;
-    }
   }
 
   .hero {
@@ -158,20 +197,6 @@ a.nav-item {
 
     img {
       width: 100%;
-    }
-
-    &__logo-container {
-      background: url('../images/logo.png') no-repeat;
-      width: 150px;
-      height: 50px;
-      background-size: 140px;
-      position: absolute;
-      top: 30px;
-      left: 50px;
-
-      img {
-        width: 100%;
-      }
     }
 
     &__descp {

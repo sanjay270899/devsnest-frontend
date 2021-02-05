@@ -17,26 +17,18 @@ function Nav(props) {
     </h1>
   );
 
-  const subHeading = faqs
-    ? 'Please go through the FAQs and if you do not understand something please feel free to reach out to us at admin@devsnest.in'
-    : 'A mentorship program designed to help you get your dream job. It evolves as per your needs to mould you into a kickass developer.';
-  const buttonText = faqs ? 'Read FAQs' : 'Learn More';
-  const buttonHash = faqs ? '#read' : '#unique';
+  const subHeading =
+    'Building a platform of peer learning enabling students to learn → grow → develop projects together';
   return (
     <section className="hero rowx dark">
-      <div className="hero__left-side colx">
-        <NavHashLink to="/">
-          <div className="hero__logo-container"></div>
-        </NavHashLink>
-        <img src="./hero2.jpg" alt="hero" />
-      </div>
-      <div className="hero__right-side colx">
-        <div className="nav-bar">
-          <div
-            className={classNames('nav-bar__right-side', {
-              'show-with-style': showNav,
-            })}
-          >
+      <div className="main-nav">
+        <div className="main-nav__nav_container">
+          <div className="main-nav__nav_left">
+            <NavHashLink to="/">
+              <div className="logo-container"></div>
+            </NavHashLink>
+          </div>
+          <div className="main-nav__nav_right">
             <a
               href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
               target="_blank"
@@ -55,6 +47,13 @@ function Nav(props) {
               Curriculum
             </NavHashLink>
           </div>
+        </div>
+      </div>
+      <div className="hero__left-side colx">
+        <img src="./hero2.jpg" alt="hero" />
+      </div>
+      <div className="hero__right-side colx">
+        <div className="nav-bar">
           <div className="nav-bar__bar-container">
             <img
               alt="icon"
@@ -67,9 +66,6 @@ function Nav(props) {
         <div className="content">
           {headLine}
           <div className="descpx hero__descp">{subHeading}</div>
-          <a href={buttonHash} className="btnx btnx-primary">
-            {buttonText}
-          </a>
         </div>
       </div>
     </section>
