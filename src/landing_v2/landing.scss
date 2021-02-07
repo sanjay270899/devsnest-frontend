@@ -7,6 +7,7 @@ $color-text-light: rgba(#000000, 0.7);
 $color-white: #ffffff;
 $color-black: #101116;
 $color-orange: #f0aa4f;
+$color-grey: #707070;
 
 :root {
   --color-page-background: #{$color-white};
@@ -113,6 +114,8 @@ a.nav-item {
     background-color: $color-text-light;
   }
 
+  .our-vision,
+  .container,
   .unique,
   .curriculum,
   .stories__container,
@@ -148,6 +151,90 @@ a.nav-item {
     &__logo {
       font-weight: 900;
       font-size: 32px;
+    }
+  }
+
+  .our-vision {
+    &__heading {
+      text-align: right;
+
+      span {
+        color: $color-purple;
+      }
+    }
+
+    &__container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      &__left {
+        display: flex;
+
+        img {
+          width: 24vw;
+        }
+      }
+
+      &__right {
+        display: flex;
+        text-align: right;
+        align-items: center;
+        padding-left: 5vw;
+        line-height: 30px;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .container {
+    display: flex;
+    &__left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &__right {
+      display: flex;
+      img {
+        width: 25vw;
+      }
+    }
+  }
+
+  .prerequisites {
+    &__heading {
+      span {
+        color: $color-purple;
+      }
+    }
+
+    &__list {
+      padding: 15px 23px;
+      &__item {
+        padding: 6px 0px;
+
+        &__descp {
+          padding-left: 15px;
+          color: $color-grey;
+        }
+      }
+    }
+  }
+
+  .who_can_join {
+    &__heading {
+      span {
+        color: $color-purple;
+      }
+    }
+
+    &__list {
+      padding: 15px 23px;
+      &__item {
+        padding: 6px 0px;
+      }
     }
   }
 
@@ -260,6 +347,11 @@ a.nav-item {
     &__container {
       display: flex;
       justify-content: space-between;
+      box-shadow: 0px 0px 20px #00000029;
+      border-radius: 20px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      padding: 25px;
     }
 
     img {
@@ -279,7 +371,7 @@ a.nav-item {
     &__cta {
       font-size: 24px;
       font-weight: 500;
-      margin: 20px 0;
+      margin-top: 20px;
     }
   }
 
@@ -326,10 +418,6 @@ a.nav-item {
 
     &__active {
       border: 1px solid $color-purple;
-    }
-
-    &__heading {
-      //padding: 60px 0;
     }
 
     &__container {
@@ -467,19 +555,14 @@ a.nav-item {
   }
 
   .community {
-    &__headingDesc {
-      color: #848490;
-      font-size: 20px;
-    }
-
     &__top {
       display: flex;
-      justify-content: space-between;
+      align-items: center;
 
       &__right-side {
         img {
-          height: 130px;
-          width: 130px;
+          width: 90px;
+          margin-left: 30px;
         }
       }
     }
@@ -490,40 +573,50 @@ a.nav-item {
       justify-content: space-between;
 
       &__left-side {
-        &__heading {
-          font-size: 45px;
-          color: #454545;
-          font-weight: 900;
-
-          span {
-            color: #6e46aa;
-          }
-        }
-
         &__points {
-          color: #f05032;
-          color: $color-text;
-          font-size: 18px;
-          padding: 10px 20px;
-        }
-
-        &__txt1 {
-          color: #313131;
-          font-size: 15.5px;
-        }
-
-        &__txt2 {
-          color: #36214b;
-          font-size: 12px;
+          color: #6e6e6e;
+          font-size: 20px;
+          padding: 0px 20px;
         }
 
         &__btn {
-          margin: 17px 0px;
+          margin: 20px 0px;
           border: 0px;
           font-weight: 600;
+          padding: 20px 60px;
+          font-size: 24px;
+          border-radius: 20px;
 
           &:focus {
             outline: none;
+          }
+        }
+
+        &__whatsapp {
+          display: flex;
+
+          &__left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            &__txt1 {
+              color: #313131;
+              font-size: 20px;
+            }
+
+            &__txt2 {
+              color: #36214b;
+              font-size: 17px;
+              color: #6e6e6e;
+            }
+          }
+
+          &__right {
+            img {
+              width: 70px;
+              margin-left: 20px;
+            }
           }
         }
       }
@@ -533,7 +626,7 @@ a.nav-item {
         justify-content: center;
         img {
           margin-top: 20px;
-          width: 95%;
+          width: 24vw;
         }
       }
     }
@@ -643,6 +736,9 @@ a.nav-item {
       margin-top: 30px;
       display: flex;
       justify-content: space-between;
+      border-radius: 34px;
+      padding: 25px;
+      box-shadow: 0px 0px 20px #00000029;
     }
 
     &__left-side {
@@ -687,7 +783,8 @@ a.nav-item {
   }
 
   .footer {
-    background-color: #e4f2f8;
+    background: #cccad6 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
 
     &__container {
       display: flex;
@@ -702,6 +799,23 @@ a.nav-item {
       text-decoration: none;
       color: $color-text;
       font-weight: 700;
+    }
+
+    &__desc {
+      color: #15092a;
+    }
+
+    &__right-side {
+      &__social {
+        display: flex;
+
+        a {
+          text-decoration: none;
+          color: black;
+          font-size: 20px;
+          margin-right: 15px;
+        }
+      }
     }
   }
 
@@ -751,6 +865,50 @@ a.nav-item {
       display: flex;
     }
 
+    .our-vision {
+      &__heading {
+        text-align: left;
+      }
+
+      &__container {
+        &__left {
+          justify-content: center;
+          margin: 20px 0px;
+          img {
+            width: 50vw;
+          }
+        }
+
+        &__right {
+          padding-left: 0vw;
+        }
+      }
+    }
+
+    .container {
+      &__right {
+        justify-content: center;
+        margin-bottom: 60px;
+        img {
+          width: 60vw;
+        }
+      }
+    }
+
+    .prerequisites {
+      &__list {
+        margin-left: 20px;
+        padding: 15px 0px;
+      }
+    }
+
+    .who_can_join {
+      &__list {
+        margin-left: 20px;
+        padding: 15px 0px;
+      }
+    }
+
     .hero {
       flex-direction: column-reverse;
       background-color: var(--color-page-background);
@@ -791,7 +949,7 @@ a.nav-item {
 
       &__container {
         flex-direction: column;
-        padding: 0 16px;
+        padding: 40px;
       }
 
       &__left-side {
@@ -822,6 +980,16 @@ a.nav-item {
 
       &__right-side {
         margin-left: auto;
+      }
+    }
+
+    .community {
+      &__main {
+        &__right-side {
+          img {
+            width: 75vw;
+          }
+        }
       }
     }
 
