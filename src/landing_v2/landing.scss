@@ -199,7 +199,7 @@ a.nav-item {
         align-items: center;
         padding-left: 5vw;
         line-height: 30px;
-        font-size: 18px;
+        font-size: 19px;
       }
     }
   }
@@ -231,6 +231,7 @@ a.nav-item {
       padding: 15px 23px;
       &__item {
         padding: 6px 0px;
+        font-size: 19px;
 
         &__descp {
           padding-left: 15px;
@@ -249,6 +250,7 @@ a.nav-item {
 
     &__list {
       padding: 15px 23px;
+      font-size: 19px;
       &__item {
         padding: 6px 0px;
       }
@@ -946,6 +948,7 @@ a.nav-item {
 
       &__left-side {
         max-width: 100%;
+        display: none;
       }
 
       &__heading {
