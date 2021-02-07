@@ -386,7 +386,10 @@ function Landing() {
               </div>
 
               <div className="community__main__left-side__whatsapp__right">
-                <img src={whatsapp_logo} />
+                <a href="http://bit.ly/devsnest_community" target="_blank">
+                  {' '}
+                  <img src={whatsapp_logo} />{' '}
+                </a>
               </div>
             </div>
           </div>
@@ -685,7 +688,7 @@ function Landing() {
                 target="__blank"
                 className="footer__email text-dark text-decoration-none"
               >
-                admin@devsnest.in
+                support@devsnest.in
               </a>
             </div>
             <div className="footer__right-side__social mt-2">
