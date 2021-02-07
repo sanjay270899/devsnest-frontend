@@ -283,7 +283,7 @@ function Landing() {
                     Career Counselling sessions and polishing your Resume and
                     Cover Letter
                   </li>
-                  <li>10 + Mock Interviews by Industry Experts</li>
+                  <li>Interview preparation by Industry experts</li>
                 </ul>
               </div>
             </div>
@@ -332,10 +332,10 @@ function Landing() {
           <div className="plan__left-side">
             <div className="plan__left-side__heading">₹0 Fee</div>
             <div className="plan__left-side__heading">
-              Contribute to drive this initiative.
+              Be ready to spend 4-5 hrs daily.
             </div>
             <div className="plan__left-side__heading">
-              Collaborate in open source projects
+              Learn and code together with your peers
             </div>
           </div>
           <div className="plan__right-side">
@@ -347,7 +347,7 @@ function Landing() {
       <section id="community" className="community">
         <div className="community__top">
           <div className="headingx community__top__left-side">
-            Join us on DISCORD
+            Join this course on Discord
           </div>
 
           <div className="community__top__right-side">
@@ -368,7 +368,7 @@ function Landing() {
               })}
             </ul>
 
-            <a href="http://bit.ly/devsnest_community" target="_blank">
+            <a href="https://discord.gg/brEeNA4vyA" target="_blank">
               <button className="community__main__left-side__btn btnx btnx-primary">
                 JOIN NOW
               </button>
@@ -403,13 +403,13 @@ function Landing() {
               Join us as a mentor{' '}
             </div>
             <div className="community__join-us__desc__txt2">
-              {' '}
-              Are you interested in being guided by professionals?{' '}
+              Your 20-hour contribution in a quarter will help 20-25 students
+              kick start their career in software development
             </div>
           </div>
 
           <a
-            href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
+            href="https://forms.gle/gtqDfDk3oaXfK3V26"
             target="_blank"
             rel="noopener noreferrer"
             className="plan__register"
