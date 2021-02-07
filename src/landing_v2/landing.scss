@@ -650,6 +650,35 @@ a.nav-item {
       }
     }
 
+    &__join-us {
+      padding-top: 30px;
+      padding-bottom: 70px;
+
+      &__desc {
+        white-space: pre-line;
+        text-align: center;
+        padding: 20px 0;
+
+        &__txt1 {
+          font-size: 34px;
+          font-weight: 600;
+        }
+
+        &__txt2 {
+          font-size: 18px;
+        }
+      }
+
+      &__register-button {
+        border: 0;
+        font-weight: 600;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
     &__carousel-div {
       padding-top: 30px;
 
