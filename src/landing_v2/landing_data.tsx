@@ -10,7 +10,7 @@ const prerequisite_data = [
   },
   {
     name:
-      'Be a part of community, be ready to spend 2-3 hours a week with your peers learning together',
+      'Be a part of community, be ready to spend 2-3 hours a week with your peers, learning together',
     descp: null,
   },
   {
@@ -146,7 +146,7 @@ const discord_server_data = [
     name: 'Batch starting on 10th March.',
   },
   {
-    name: 'Python primer starting on 20th February.',
+    name: 'Python primer starting on 22nd February.',
   },
   {
     name:

@@ -38,12 +38,12 @@ function Landing() {
           </div>
 
           <div className="our-vision__container__right">
-            We aim to create a complete eco systems with a tech - culture where
-            we will guide and teach students with a road map to become a
-            proficient developer in 6 months from scratch. <br /> <br />
-            Most students are unable to acquire the correct skillset and be job
-            ready for interviews just because they don't find the correct
-            guidance and atmosphere to learn. Devnest aims to revolutionise the
+            We aim to create a complete ecosystem where we will guide and teach
+            students to become a proficient developer in 6 months from scratch.{' '}
+            <br /> <br />
+            Most students are unable to acquire the correct skillset and be
+            job-ready for interviews just because they don't find the correct
+            guidance and atmosphere to learn. Devsnest aims to revolutionize the
             education industry by aiding this process.
           </div>
         </div>
