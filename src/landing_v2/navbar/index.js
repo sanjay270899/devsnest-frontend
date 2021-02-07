@@ -131,7 +131,7 @@ export default function NavBar() {
   }, []);
   return (
     <header>
-      <AppBar className={classes.header}>
+      <AppBar position="fixed" className={classes.header}>
         <Toolbar>
           {mobileView && <DisplayMobile />}
           <div className="nav-logo">

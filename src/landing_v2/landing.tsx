@@ -27,7 +27,6 @@ function Landing() {
   return (
     <div className="landing-v2">
       <Nav />
-
       <section className="our-vision" id="our-vision">
         <div className="headingx our-vision__heading">
           Our <span> VISION </span>
@@ -49,7 +48,6 @@ function Landing() {
           </div>
         </div>
       </section>
-
       <section className="container rowx">
         <div className="container__left">
           <div className="prerequisites" id="prerequisites">
@@ -76,8 +74,7 @@ function Landing() {
 
           <div className="who_can_join" id="who_can_join">
             <div className="headingx who_can_join__heading">
-              {' '}
-              Who all can <span>JOIN </span>{' '}
+              Who all can <span>JOIN </span>
             </div>
 
             <ul className="who_can_join__list">
@@ -94,8 +91,7 @@ function Landing() {
         </div>
 
         <div className="container__right">
-          {' '}
-          <img src={Group_2479} />{' '}
+          <img src={Group_2479} />
         </div>
       </section>
 
@@ -363,7 +359,7 @@ function Landing() {
         </a> */}
       </section>
 
-      <section className="community">
+      <section id="community" className="community">
         <div className="community__top">
           <div className="headingx community__top__left-side">
             Join us on DISCORD SERVER
@@ -674,28 +670,21 @@ function Landing() {
           </div>
           <div className="footer__right-side">
             <div>
-              {' '}
-              Contact us{' '}
-              <span className="footer__email">admin@devsnest.in</span>{' '}
+              Contact us
+              <span className="footer__email">admin@devsnest.in</span>
             </div>
             <div className="footer__right-side__social">
-              <a href="">
-                {' '}
-                <i
-                  className="fa fa-linkedin-square"
-                  aria-hidden="true"
-                ></i>{' '}
+              <a
+                target="_blank"
+                href="https://in.linkedin.com/company/devsnest"
+              >
+                <i className="fa fa-linkedin-square" aria-hidden="true"></i>
               </a>
-              <a href="">
-                {' '}
-                <i
-                  className="fa fa-facebook-square"
-                  aria-hidden="true"
-                ></i>{' '}
+              <a target="_blank" href="https://www.facebook.com/devsnest/">
+                <i className="fa fa-facebook-square" aria-hidden="true"></i>
               </a>
-              <a href="">
-                {' '}
-                <i className="fa fa-instagram" aria-hidden="true"></i>{' '}
+              <a target="_blank" href="https://www.instagram.com/devsnest.in/">
+                <i className="fa fa-instagram" aria-hidden="true"></i>
               </a>
             </div>
           </div>
