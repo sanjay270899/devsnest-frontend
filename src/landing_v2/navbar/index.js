@@ -131,12 +131,14 @@ export default function NavBar() {
   }, []);
   return (
     <header>
-      <AppBar className={classes.header}>
+      <AppBar position="fixed" className={classes.header}>
         <Toolbar>
           {mobileView && <DisplayMobile />}
-          <div className="nav-logo">
-            <img src="./logo.jpg" alt="DevsNest Logo" />
-          </div>
+          <NavHashLink to="/#top-header">
+            <div className="nav-logo">
+              <img src="./logo.jpg" alt="DevsNest Logo" />
+            </div>
+          </NavHashLink>
           {!mobileView && <DisplayDesktop />}
         </Toolbar>
       </AppBar>

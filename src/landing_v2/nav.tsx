@@ -18,7 +18,7 @@ function Nav(props) {
   );
 
   const subHeading =
-    'Building a platform of peer learning enabling students to learn → grow → develop projects together';
+    'A mentorship program designed to help you get your dream job. It evolves as per your needs to mould you into a kickass developer.';
   return (
     <Fragment>
       <section className="hero rowx dark">

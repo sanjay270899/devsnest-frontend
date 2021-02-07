@@ -1,29 +1,29 @@
 const menuItems = [
   {
     id: 0,
-    title: 'Apply',
-    to:
-      'https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a',
-    type: 'external',
+    title: 'Vision',
+    to: '/#our-vision',
+    type: 'internal',
   },
   {
     id: 1,
-    title: 'Mentors',
-    to: '/#mentors',
+    title: 'Curriculum',
+    to: '/#curriculum',
     type: 'internal',
   },
   {
     id: 2,
-    title: 'FAQs',
-    to: '/faqs#read',
+    title: 'Join Now',
+    to: '/#community',
     type: 'internal',
   },
   {
     id: 3,
-    title: 'Curriculum',
-    to: '/#curriculum',
+    title: 'FAQs',
+    to: '/faqs#read',
     type: 'internal',
   },
 ];
 
 export { menuItems };
+// https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a

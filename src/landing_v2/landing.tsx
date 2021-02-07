@@ -7,141 +7,94 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './landing.scss';
 
 import achieve from '../images/achieve.png';
-import whatsappIcon from '../images/whatsappIcon.png';
-import WA_illustratration from '../images/WA_illustratration.png';
+import whatsapp_logo from '../images/WA-icon.png';
+import discord_logo from '../images/Discord-icon.png';
+import Group_15 from '../images/Group_15.svg';
+import Group_2479 from '../images/Group_2479.svg';
+import Group_2672 from '../images/Group_2672.svg';
 
-const mentorsData = [
-  {
-    name: 'Vedansh Garg',
-    company: 'Ex - HackerRank',
-    img: './mentor_ved.jpg',
-    linkedin: 'https://www.linkedin.com/in/vedanshgarg/',
-    descp: `Vedansh was a Senior Engineer at Hackerrank. In the last 5 years, he scaled the HackerRank community from 500k to 10M Developers.
+import {
+  prerequisite_data,
+  who_can_join_data,
+  mentorsData,
+  webinarData,
+  discord_server_data,
+} from './landing_data';
 
-      He was also part of Navgurukul a Non Profit where he has worked on curriculum, jobs pipeline, and mentoring 100+ underprivileged students on software engineering.`,
-  },
-  // {
-  //   name: 'Naman Malhotra',
-  //   company: 'Co-founded Alconomy',
-  //   img: './mentor_nam_f.jpg',
-  //   linkedin: 'https://www.linkedin.com/in/naman03malhotra/',
-  //   descp: `Hi, I am Naman Malhotra. I still remember the first line of code I wrote when I was 13. Since then, I have worked with many startup founders across the continents.
-
-  //   I co-founded two startups; one of them was in the Ed-Tech space, and the other was in blockchain fintech. In both of them, I lead the entire tech end to end and product to some extent.
-
-  //   I strongly believe that if you have the right set of skills, your background, traditional education, etc hardly matters. Given that you are ready to work your ass off.`,
-  // },
-  {
-    name: 'Sai Ahladni Tripathy',
-    company: 'Ex - Amazon',
-    img: './mentor_sai.jpg',
-    linkedin: 'https://www.linkedin.com/in/ahladini/',
-    descp: `Sai was a software developer at Amazon. She is an Alumni of BITS Pilani.
-
-      She has previously worked as a placement co-ordinator at BITS and understands the recruitment market really well.
-
-      Apart from this Sai enjoys playing with her paw-friend.`,
-  },
-];
-
-const responsiveMultipleItem = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 3,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
-};
-
-const responsiveSingleItem = {
-  ...responsiveMultipleItem,
-  superLargeDesktop: {
-    ...responsiveMultipleItem.superLargeDesktop,
-    items: 1,
-  },
-  desktop: {
-    ...responsiveMultipleItem.desktop,
-    items: 1,
-  },
-  tablet: {
-    ...responsiveMultipleItem.tablet,
-    items: 1,
-  },
-};
-
-const webinarData = [
-  /* {
-    name: 'Ankit Goyal',
-    title: 'Google',
-    descp: 'Graphs Minimum Spanning Trees and Interviewing at Google',
-    img: './mentors/Ankit_goyal_google.jpeg',
-  }, */
-
-  {
-    name: 'Rohit Aggarwal',
-    title: 'Lead Engineer Hackerrank',
-    descp: 'Building scalable backends and writing Microservices',
-    img: './mentors/rohit_hackerrank.jpeg',
-  },
-
-  {
-    name: 'Abhishek Gahlot',
-    title: 'Entrepreneur, EM at EduFlow',
-    descp: 'How browsers work, V8 engine and Networking in browsers',
-    img: './mentors/Abhishek_eduflow.jpeg',
-  },
-
-  {
-    name: 'Naman Malhotra',
-    title: 'Software Engineer at HackerRank',
-    descp: `Cracking Frontend Interviews and contributing to open source`,
-    img: './mentors/naman_hackerrank.jpg',
-  },
-
-  {
-    name: 'Vaibhav Gupta',
-    title: 'Nutanix Ex- Paypal',
-    descp: `System Designing and Creating a Highly Scalable URL Shortening service`,
-    img: './mentors/vaibhav_nutanix.jpeg',
-  },
-
-  {
-    name: 'Kritarth Anand',
-    title: 'Ex-Facebook',
-    descp: 'Importance of building a brand and having the right tribe',
-    img: './mentors/kritarth_facebook.jpg',
-  },
-
-  {
-    name: 'Kumar Akshay',
-    title: 'Atlassian',
-    descp: 'Starting with Opensource, GSOC and Interning at top-tech companies',
-    img: './mentors/akshay_atlassian.jpeg',
-  },
-
-  {
-    name: ' Sudhanshu Yadav',
-    title: 'Architect at HackerRank',
-    descp: 'Projects Review, JS V8 Engine and Contributing to Brahmos',
-    img: './mentors/sudhanshu_hackerrank.jpg',
-  },
-];
+import { responsiveMultipleItem, responsiveSingleItem } from './landing_utils';
 
 function Landing() {
   return (
-    <div className="landing-v2">
+    <div className="landing-v2" id="top-header">
       <Nav />
+      <section className="our-vision" id="our-vision">
+        <div className="headingx our-vision__heading">
+          Our <span> VISION </span>
+        </div>
+
+        <div className="our-vision__container rowx">
+          <div className="our-vision__container__left">
+            <img src={Group_15} />
+          </div>
+
+          <div className="our-vision__container__right">
+            We aim to create a complete eco systems with a tech - culture where
+            we will guide and teach students with a road map to become a
+            proficient developer in 6 months from scratch. <br /> <br />
+            Most students are unable to acquire the correct skillset and be job
+            ready for interviews just because they don't find the correct
+            guidance and atmosphere to learn. Devnest aims to revolutionise the
+            education industry by aiding this process.
+          </div>
+        </div>
+      </section>
+      <section className="container rowx">
+        <div className="container__left">
+          <div className="prerequisites" id="prerequisites">
+            <div className="headingx prerequisites__heading">
+              PRE<span>REQUISITES </span>
+            </div>
+
+            <ul className="prerequisites__list">
+              {prerequisite_data.map((item) => {
+                const { name, descp } = item;
+                return (
+                  <li className="prerequisites__list__item">
+                    <div>
+                      {name}
+                      <div className="prerequisites__list__item__descp">
+                        {descp ? descp : ''}
+                      </div>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          <div className="who_can_join" id="who_can_join">
+            <div className="headingx who_can_join__heading">
+              Who all can <span>JOIN </span>
+            </div>
+
+            <ul className="who_can_join__list">
+              {who_can_join_data.map((item) => {
+                const { name } = item;
+                return (
+                  <li className="who_can_join__list__item">
+                    <div> {name} </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+
+        <div className="container__right">
+          <img src={Group_2479} />
+        </div>
+      </section>
+
       <section className="unique" id="unique">
         <div className="headingx unique__heading">What makes us unique</div>
         <div className="unique__container">
@@ -216,12 +169,10 @@ function Landing() {
                 <img src="./unique4.svg" alt="" />
               </div>
               <div className="unique__right-side">
-                <div className="unique__right-side__heading">
-                  Enhancement Classes
-                </div>
+                <div className="unique__right-side__heading">Peer Learning</div>
                 <div className="unique__right-side__descp">
-                  We understand that you learn at your own pace. Our program
-                  gives you that extra boost when you are down.
+                  Discussions and debates are the best way to learn, We
+                  encourage group collaboration and pair programming.
                 </div>
               </div>
             </div>
@@ -342,7 +293,11 @@ function Landing() {
 
       <div id="mentors">
         <div className="headingx mentors__heading">Meet your mentors</div>
-        <Carousel responsive={responsiveSingleItem}>
+        <Carousel
+          responsive={responsiveSingleItem}
+          showDots={true}
+          infinite={true}
+        >
           {mentorsData.map((mentor) => {
             const { name, company, descp, img, linkedin } = mentor;
             return (
@@ -371,17 +326,16 @@ function Landing() {
           })}
         </Carousel>
       </div>
-
       <section className="plan" id="plan">
         <div className="headingx plan__heading">Be a part of this journey</div>
         <div className="plan__container">
           <div className="plan__left-side">
-            <div className="plan__left-side__heading">No Tution Fee</div>
+            <div className="plan__left-side__heading">₹0 Fee</div>
             <div className="plan__left-side__heading">
-              Pay ₹0 until you get a job of minimum 5 LPA
+              Contribute to drive this initiative.
             </div>
             <div className="plan__left-side__heading">
-              Pay only 15% of your salary for 2 years
+              Collaborate in open source projects
             </div>
           </div>
           <div className="plan__right-side">
@@ -404,53 +358,55 @@ function Landing() {
         </a>
       </section>
 
-      <section className="community">
+      <section id="community" className="community">
         <div className="community__top">
-          <div className="community__top__left-side">
-            <div className="headingx community__heading">
-              Join our Whatsapp Community
-            </div>
-
-            <div className="community__headingDesc">
-              No spam only admins send messages
-            </div>
+          <div className="headingx community__top__left-side">
+            Join us on DISCORD
           </div>
 
           <div className="community__top__right-side">
-            <img src={whatsappIcon} />
+            <img src={discord_logo} />
           </div>
         </div>
 
         <div className="community__main rowx">
           <div className="community__main__left-side">
-            <div className="community__main__left-side__heading">
-              What <span>YOU</span> will get
-            </div>
-
-            <ol className="community__main__left-side__points">
-              <li> A weekly webinar. AMAs by Industry experts. </li>
-              <li> A weekly free class on Algorithms. </li>
-              <li> A new practice problem on Algorithms daily. </li>
-            </ol>
-
-            <div className="community__main__left-side__txt1">
-              We believe in peer learning
-            </div>
-
-            <div className="community__main__left-side__txt2">
-              To discuss code, careers and cookies and find partners for
-              projects join this group.
-            </div>
+            <ul className="community__main__left-side__points mb-0">
+              {discord_server_data.map((item) => {
+                const { name } = item;
+                return (
+                  <li className="community__main__left-side__points__list__item">
+                    {name}
+                  </li>
+                );
+              })}
+            </ul>
 
             <a href="http://bit.ly/devsnest_community" target="_blank">
               <button className="community__main__left-side__btn btnx btnx-primary">
-                Join Now
+                JOIN NOW
               </button>
             </a>
+
+            <div className="community__main__left-side__whatsapp mt-3">
+              <div className="community__main__left-side__whatsapp__left">
+                <div className="community__main__left-side__whatsapp__left__txt1">
+                  Get Notified on Whatsapp
+                </div>
+
+                <div className="community__main__left-side__whatsapp__left__txt2">
+                  No spam only admins send messages
+                </div>
+              </div>
+
+              <div className="community__main__left-side__whatsapp__right">
+                <img src={whatsapp_logo} />
+              </div>
+            </div>
           </div>
 
           <div className="community__main__right-side">
-            <img src={WA_illustratration} />
+            <img src={Group_2672} />
           </div>
         </div>
 
@@ -697,22 +653,45 @@ function Landing() {
           <div className="footer__left-side">
             <div className="footer__logo"></div>
             <div className="footer__descp">
-              We aim to make young India financially self-sustainable by
-              providing equal opportunity for all.
-              <div>
-                <a
-                  href="https://drive.google.com/file/d/17TKzId-5qlRjKVLX30W1Brn_L70rcMN1/view"
-                  target="_blank"
-                  className="footer__privacy-policy"
-                >
-                  {' '}
-                  Privacy Policy{' '}
-                </a>
+              <div className="mb-2">
+                We aim to make young India financially self-sustainable by
+                providing equal opportunity for all.
               </div>
+
+              <a
+                href="https://drive.google.com/file/d/17TKzId-5qlRjKVLX30W1Brn_L70rcMN1/view"
+                target="_blank"
+                className="footer__privacy-policy"
+              >
+                Privacy Policy
+              </a>
             </div>
           </div>
           <div className="footer__right-side">
-            Contact us <span className="footer__email">admin@devsnest.in</span>
+            <div>
+              Contact us:{' '}
+              <a
+                href="mailto: admin@devsnest.in"
+                target="__blank"
+                className="footer__email text-dark text-decoration-none"
+              >
+                admin@devsnest.in
+              </a>
+            </div>
+            <div className="footer__right-side__social mt-2">
+              <a
+                target="_blank"
+                href="https://in.linkedin.com/company/devsnest"
+              >
+                <i className="fa fa-linkedin-square" aria-hidden="true"></i>
+              </a>
+              <a target="_blank" href="https://www.facebook.com/devsnest/">
+                <i className="fa fa-facebook-square" aria-hidden="true"></i>
+              </a>
+              <a target="_blank" href="https://www.instagram.com/devsnest.in/">
+                <i className="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
           </div>
         </div>
       </footer>
