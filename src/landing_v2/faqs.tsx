@@ -8,16 +8,12 @@ import './landing.scss';
 
 const faqsData = [
   {
-    question: `How do I apply for this course?`,
-    answer: `You can simply join this discord link and follow the guidelines provided on the welcome channel.`,
-  },
-  {
     question: `What is the duration of the course?`,
-    answer: `The ideal duration of the course is 6 months, some students will be able to get a job sooner and some might need some more revision classes`,
+    answer: `The ideal duration of the course is 6 months, Some students will be able to get a job sooner and some might need some more revision classes`,
   },
   {
     question: `What are the fees of the course?`,
-    answer: `0, This course is completely free for everyone, although we recommend that you donate after initial months to help us cover the operational costs`,
+    answer: `0, This course is completely free for everyone but we are open for donations if somebody wants to help us to cover the operational costs`,
   },
   {
     question: `Who are the mentors?`,
@@ -52,8 +48,8 @@ const faqsData = [
     answer: `We will record all the classes, but group meetings are mandatory for each student.You have to make sure that you can attend other mandatory meetings and do the assignments on time`,
   },
   {
-    question: `Does college, school or course matter to be a part of the course?`,
-    answer: `There are no boundations in terms of the degree you are   pursuing. This is open for everyone who is willing to put in the required effort.`,
+    question: `Does college, school or cohort matter to be a part of this course?`,
+    answer: `There are no boundations in terms of the degree you are pursuing. This is open for everyone who is willing to put in the required effort.`,
   },
   {
     question: `Does the course involve interview preparation as well?`,
@@ -61,7 +57,7 @@ const faqsData = [
   },
   {
     question: `Whom to contact in case of any doubt related to course?`,
-    answer: `You can email us at admin@devsnest.in or you can contact a mod on discord `,
+    answer: `You can email us at support@devsnest.in or you can contact a mod on discord `,
   },
   {
     question: `I work full time but I would like to join the course, what are the options?`,
@@ -74,9 +70,25 @@ function Faq() {
     <div className="landing-v2">
       <Nav faqs={true} />
       <section className="faq" id="read">
-        <div className="headingx faq__heading">ISA FAQs</div>
+        <div className="headingx faq__heading"> FAQs</div>
         <div className="faq__container">
           <Accordion>
+            <Card>
+              <Accordion.Toggle as={Card.Header} eventKey="50">
+                How do I apply for this course?
+              </Accordion.Toggle>
+              <Accordion.Collapse eventKey="50">
+                <Card.Body>
+                  {' '}
+                  You can simply join this{' '}
+                  <a href="https://discord.gg/brEeNA4vyA" target="_blank">
+                    discord link
+                  </a>{' '}
+                  and follow the guidelines provided on the welcome channel.{' '}
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+
             {faqsData.map((faq, index) => {
               const { question, answer } = faq;
 
