@@ -6,7 +6,7 @@ const prerequisite_data = [
   {
     name: 'Basic Understanding of Python Language',
     descp:
-      'If not Please do this course and learn the basics, should not take more than 10 days, Feel free to ask your doubts in the python-beginner challenge.',
+      'Don’t worry if you are new to coding, we are launching a 2 week Python Primer on 22nd Feb.',
   },
   {
     name:
@@ -53,6 +53,23 @@ const mentorsData = [
 
   //   I strongly believe that if you have the right set of skills, your background, traditional education, etc hardly matters. Given that you are ready to work your ass off.`,
   // },
+  {
+    name: 'Kshitiz Miglani',
+    company: 'Amazon',
+    img: './mentors/kshitiz.png',
+    linkedin: 'https://www.linkedin.com/in/kshitizmiglani/',
+    descp: `Kshitiz has worked as a developer in Amazon, PayTM and Samsung creating scalable solutions leading critical projects.
+
+    He has also worked in multiple early start ups related to tech and education domain. Has been mentoring masses to become great engineers and leaders for India's growing silicon valley.`,
+  },
+  {
+    name: 'Vaibhav Gupta',
+    company: 'Nutanix',
+    img: './mentors/vaibhav_nutanix.jpeg',
+    linkedin: 'https://www.linkedin.com/in/vaibhav-gupta-84a21883/',
+    descp: `Vaibhav is an alumnus of BITS Pilani. He works in Nutanix as MTS 3. He has 4+ years of experience in designing scalable distributed systems. He has also worked as part of Oracle Cloud and Paypal.
+    In the last 2 years, he has mentored many students on a 1:1 basis to get into companies like Samsung, Amazon, Flipkart, etc.`,
+  },
   {
     name: 'Sai Ahladni Tripathy',
     company: 'Ex - Amazon',
