@@ -342,20 +342,6 @@ function Landing() {
             <img src={achieve} />
           </div>
         </div>
-        <div className="plan__desc descpx">
-          Interested? Registration for the 2nd batch closes on 15th November.
-        </div>
-
-        <a
-          href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="plan__register"
-        >
-          <button className="plan__register-button btnx btnx-primary">
-            Register Now
-          </button>
-        </a>
       </section>
 
       <section id="community" className="community">
@@ -408,6 +394,30 @@ function Landing() {
           <div className="community__main__right-side">
             <img src={Group_2672} />
           </div>
+        </div>
+
+        <div className="community__join-us">
+          <div className="community__join-us__desc descpx">
+            <div className="community__join-us__desc__txt1">
+              {' '}
+              Join us as a mentor{' '}
+            </div>
+            <div className="community__join-us__desc__txt2">
+              {' '}
+              Are you interested in being guided by professionals?{' '}
+            </div>
+          </div>
+
+          <a
+            href="https://docs.google.com/forms/d/1FDUajSVjIgG-7hBBl5ekOpHxurVi-DvqQ1AcbwiJpuI/edit?ts=5f4a681a"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="plan__register"
+          >
+            <button className="community__join-us__register-button btnx btnx-primary">
+              Join us
+            </button>
+          </a>
         </div>
 
         <div className="community__carousel-div">
