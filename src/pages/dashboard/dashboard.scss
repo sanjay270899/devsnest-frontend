@@ -1,0 +1,18 @@
+.dashboard {
+  padding-top: 100px;
+  width: 90%;
+  margin: auto;
+
+  &__ul {
+    display: flex;
+    margin: 30px 0;
+  }
+
+  &__ul li {
+    list-style: none;
+    min-width: 150px;
+    font-family: 'Montserrat', Courier, monospace;
+    font-size: 24px;
+    color: #404040;
+  }
+}

@@ -9,6 +9,7 @@ import './assets/css/landing.scss';
 import Home from './pages/index';
 import Faq from './pages/faqs';
 import Navbar from './components/Navbar';
+import Dashboard from './pages/dashboard/dashboard';
 
 function App() {
   useEffect(() => {
@@ -28,6 +29,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/faqs" component={Faq} />
+          <Route exact path="/dashboard" component={Dashboard} />
         </Switch>
       </Router>
     </>
