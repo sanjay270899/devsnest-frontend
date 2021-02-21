@@ -82,7 +82,7 @@ const Dashboard = () => {
         </div>
 
         <div className="section-wrapper row">
-          <section className="questions col-9">
+          <section className="questions col-lg-9 col-md-12 order-lg-1 order-md-2 order-sm-2 order-2">
             {questions.map((question, index) => {
               return (
                 <Question
@@ -93,7 +93,7 @@ const Dashboard = () => {
               );
             })}
           </section>
-          <div className="col-3">
+          <div className="col-lg-3 col-md-12 order-lg-2 order-md-1 order-sm-1 order-1">
             <section className="questions">
               <Progress />
               <Topics topics={topics} />

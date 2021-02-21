@@ -17,7 +17,9 @@
     font-size: 20px;
     background: #efefef;
     display: inline-block;
+    margin: 0;
     margin-right: 20px;
+    margin-top: 10px;
     font-weight: 400;
   }
 
@@ -25,6 +27,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    height: 100%;
 
     &-difficulty {
       font-size: 20px;
@@ -35,6 +38,8 @@
 
     &-percentage {
       font-size: 20px;
+      min-width: 70px;
+      text-align: center;
     }
 
     img {
@@ -45,5 +50,11 @@
 
   &__tags {
     margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .question__right {
+    margin-top: 10px;
   }
 }

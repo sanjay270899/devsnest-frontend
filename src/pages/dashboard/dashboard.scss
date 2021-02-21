@@ -11,6 +11,8 @@
   &__ul {
     display: flex;
     margin: 30px 0;
+    margin-left: 0;
+    padding-left: 0;
   }
 
   &__ul li {
@@ -23,7 +25,17 @@
 }
 
 .questions {
+  height: 100%;
+
   & > * {
     margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .dashboard {
+    &__container {
+      width: 90%;
+    }
   }
 }

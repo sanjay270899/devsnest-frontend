@@ -37,7 +37,7 @@ const Question = (prop) => {
   return (
     <div className="question">
       <div className="row">
-        <div className="col-8">
+        <div className="col-xl-8 col-lg-6">
           <h1 className="question__title">
             {index}. {title}
           </h1>
@@ -49,7 +49,7 @@ const Question = (prop) => {
             ))}
           </div>
         </div>
-        <div className="col-4">
+        <div className="col-xl-4 col-lg-6">
           <div className="question__right">
             <span
               style={{ backgroundColor: getColor(difficulty) }}
