@@ -75,3 +75,41 @@ body {
     margin-left: 0 !important;
   }
 }
+
+main {
+  padding-top: calc((2 * 0.625em) + 72px);
+
+  @media only screen and (max-width: 480px) {
+    padding-top: calc((2 * 0.625em) + 40px);
+  }
+}
+
+footer {
+  background: #cccad6 0 0;
+  border: 1px solid #707070;
+
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .left-side {
+      flex: 7;
+      margin-right: auto;
+    }
+
+    .right-side {
+      flex: 3;
+    }
+
+    @media only screen and (max-width: 768px) {
+      display: block;
+
+      .right-side {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
