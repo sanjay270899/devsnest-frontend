@@ -6,9 +6,10 @@ import 'react-multi-carousel/lib/styles.css';
 import './assets/css/index.scss';
 import './assets/css/landing.scss';
 
-import Home from './pages/index';
-import Faq from './pages/faqs';
+import Landing from './pages/Landing';
+import Faq from './pages/Faqs';
 import Navbar from './components/Navbar';
+import NotFound from './pages/NotFound';
 
 function App() {
   useEffect(() => {
@@ -21,16 +22,15 @@ function App() {
   }, []);
 
   return (
-    <>
+    <Router>
       <Navbar />
 
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/faqs" component={Faq} />
-        </Switch>
-      </Router>
-    </>
+      <Switch>
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/faqs" component={Faq} />
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
   );
 }
 
