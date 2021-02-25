@@ -12,7 +12,7 @@ function Input({ value, setValue }) {
 // Main Component
 function Example() {
   // State
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(' ');
 
   // Redux state and actions
   const loginState = useSelector((state) => state.loginState);
