@@ -31,7 +31,7 @@ const fakeQuestionData = () => {
                   data_type: 'question',
                   link: 'https://leetcode.com/problems/palindrome-number/',
                   priority: 2,
-                  score: 'attempted',
+                  score: 0,
                 },
               },
               {

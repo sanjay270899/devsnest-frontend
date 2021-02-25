@@ -57,7 +57,11 @@ const initalQuestionState = {
 const transformData = (data) => {
   return data.map((each) => {
     const info = each.attributes;
-    const { unique_id: id, name: title, link, score: status } = info;
+    const { unique_id: id, name: title, link } = info;
+
+    let { score: status } = info;
+    if (!status || typeof status !== 'string') status = 'unsolved';
+
     return {
       ...initalQuestionState,
       id,

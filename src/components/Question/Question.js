@@ -1,8 +1,8 @@
 import React from 'react';
 import './Question.scss';
 
-import SolvedQuestion from '../../assets/images/dashboard/solve_question.png';
-import UnsolvedQuestion from '../../assets/images/dashboard/solved_question.png';
+import SolvedQuestion from '../../assets/images/dashboard/solved_question.png';
+import UnsolvedQuestion from '../../assets/images/dashboard/solve_question.png';
 import AttemptedQuestion from '../../assets/images/dashboard/retry_question.png';
 
 const getColor = (difficulty) => {
@@ -32,7 +32,7 @@ const getStatusImage = (status) => {
 };
 
 const Question = (prop) => {
-  const { title, tags, difficulty, percentage, index, status } = prop;
+  const { title, tags, difficulty, index, status } = prop;
 
   return (
     <div className="question">
