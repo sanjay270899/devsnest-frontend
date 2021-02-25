@@ -5,7 +5,6 @@ import ReactGA from 'react-ga';
 import 'react-multi-carousel/lib/styles.css';
 import './assets/css/index.scss';
 import './assets/css/landing.scss';
-import './assets/css/login.scss';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
