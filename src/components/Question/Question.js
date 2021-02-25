@@ -57,7 +57,6 @@ const Question = (prop) => {
             >
               {difficulty}
             </span>
-            <span className="question__right-percentage">{percentage}%</span>
             <img alt="status" src={getStatusImage(status)} />
           </div>
         </div>
