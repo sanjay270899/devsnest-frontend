@@ -1,11 +1,10 @@
 .dashboard {
   background: #f2eff7 0% 0% no-repeat padding-box;
-  min-height: 100vh;
 
   &__container {
-    padding-top: 100px;
     width: 80%;
-    margin: auto;
+    margin: 0 auto;
+    padding: 2em 0 5em;
   }
 
   &__ul {

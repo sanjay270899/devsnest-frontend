@@ -114,8 +114,7 @@ ul {
   .cool__container,
   .mentors,
   .mentors__heading,
-  .faq,
-  .footer__container {
+  .faq {
     padding: 50px 16px;
     max-width: 1200px;
     margin-right: auto;
@@ -220,7 +219,7 @@ ul {
     &__list {
       padding: 15px 23px;
       &__item {
-        padding: 6px 0px;
+        padding: 6px 0;
         font-size: 19px;
 
         &__descp {
@@ -242,7 +241,7 @@ ul {
       padding: 15px 23px;
       font-size: 19px;
       &__item {
-        padding: 6px 0px;
+        padding: 6px 0;
       }
     }
   }
@@ -343,7 +342,7 @@ ul {
     &__container {
       display: flex;
       justify-content: space-between;
-      box-shadow: 0px 0px 20px #00000029;
+      box-shadow: 0 0 20px #00000029;
       border-radius: 20px;
       margin-top: 50px;
       margin-bottom: 50px;
@@ -564,7 +563,7 @@ ul {
     }
 
     &__main {
-      margin: 20px 0px;
+      margin: 20px 0;
       display: flex;
       justify-content: space-between;
 
@@ -572,12 +571,12 @@ ul {
         &__points {
           color: #6e6e6e;
           font-size: 20px;
-          padding: 0px 20px;
+          padding: 0 20px;
         }
 
         &__btn {
-          margin: 20px 0px;
-          border: 0px;
+          margin: 20px 0;
+          border: 0;
           font-weight: 600;
           padding: 20px 60px;
           font-size: 24px;
@@ -666,17 +665,17 @@ ul {
       }
 
       &__carousel {
-        margin: 30px 0px;
+        margin: 30px 0;
       }
 
       &__webinar {
         width: 320px;
         border-radius: 12px;
-        box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
         position: relative;
 
         &__top {
-          border-radius: 12px 12px 0px 0px;
+          border-radius: 12px 12px 0 0;
           min-height: 100px;
           background-color: #c5b8e1;
         }
@@ -697,7 +696,7 @@ ul {
             color: #826e64;
             font-weight: 600;
             font-size: 13.5px;
-            padding: 10px 0px;
+            padding: 10px 0;
           }
 
           &__descp {
@@ -763,7 +762,7 @@ ul {
       justify-content: space-between;
       border-radius: 34px;
       padding: 25px;
-      box-shadow: 0px 0px 20px #00000029;
+      box-shadow: 0 0 20px #00000029;
     }
 
     &__left-side {
@@ -807,43 +806,6 @@ ul {
     }
   }
 
-  .footer {
-    background: #cccad6 0% 0% no-repeat padding-box;
-    border: 1px solid #707070;
-
-    &__container {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    &__email {
-      font-weight: 900;
-    }
-
-    &__privacy-policy {
-      text-decoration: none;
-      color: $color-text;
-      font-weight: 700;
-    }
-
-    &__desc {
-      color: #15092a;
-    }
-
-    &__right-side {
-      &__social {
-        display: flex;
-
-        a {
-          text-decoration: none;
-          color: black;
-          font-size: 20px;
-          margin-right: 15px;
-        }
-      }
-    }
-  }
-
   @media screen and (max-width: 768px) {
     // other styles
     .rowx {
@@ -860,7 +822,6 @@ ul {
     .cool__container,
     .mentors,
     .mentors__heading,
-    .footer__container,
     .nav-bar,
     .content,
     .unique {
@@ -912,7 +873,7 @@ ul {
       &__container {
         &__left {
           justify-content: center;
-          margin: 20px 0px;
+          margin: 20px 0;
           img {
             width: 50vw;
           }
@@ -937,14 +898,14 @@ ul {
     .prerequisites {
       &__list {
         margin-left: 20px;
-        padding: 15px 0px;
+        padding: 15px 0;
       }
     }
 
     .who_can_join {
       &__list {
         margin-left: 20px;
-        padding: 15px 0px;
+        padding: 15px 0;
       }
     }
 
@@ -966,7 +927,8 @@ ul {
       }
 
       &__right-side {
-        margin-left: 0px;
+        margin-left: 0;
+        margin-top: 10vh;
         padding-bottom: 30px;
         flex-basis: auto;
         max-width: 100%;
@@ -975,7 +937,7 @@ ul {
 
     .curriculum {
       &__unit {
-        margin-left: 0px;
+        margin-left: 0;
       }
     }
 
@@ -1073,16 +1035,6 @@ ul {
     //     margin-left: 0;
     //   }
     // }
-
-    .footer {
-      &__container {
-        flex-direction: column-reverse;
-      }
-
-      &__left-side {
-        margin-top: 30px;
-      }
-    }
   }
 
   @media screen and (max-width: 540px) {
@@ -1093,7 +1045,6 @@ ul {
     .cool__container,
     .mentors,
     .mentors__heading,
-    .footer__container,
     .nav-bar,
     .community,
     .content,

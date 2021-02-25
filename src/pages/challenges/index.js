@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './dashboard.scss';
 import Question from '../../components/Question/Question';
 import Progress from '../../components/Progress/Progress';
 import Topics from '../../components/Topics/Topics';
+import './challenges.scss';
 
 const initialState = [
   {
@@ -67,12 +67,12 @@ const initialTopics = [
   },
 ];
 
-const Dashboard = () => {
+function Challenges() {
   const [questions, setQuestion] = useState(initialState);
   const [topics, setTopics] = useState(initialTopics);
 
   return (
-    <main className="dashboard">
+    <div className="dashboard">
       <div className="dashboard__container">
         <div className="dashboard__heading">
           <ul className="dashboard__ul">
@@ -101,8 +101,8 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
-};
+}
 
-export default Dashboard;
+export default Challenges;
