@@ -1,32 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Question from '../../components/Question/Question';
 import Progress from '../../components/Progress/Progress';
 import Topics from '../../components/Topics/Topics';
+import { getQuestions } from '../../services/question';
 import './challenges.scss';
-
-const initialState = [
-  {
-    title: 'Longest Palindromic Subsequence',
-    tags: ['Dynamic Programming', 'String'],
-    difficulty: 'Medium',
-    percentage: 35.6,
-    status: 'attempted',
-  },
-  {
-    title: 'Necklace Assembly',
-    tags: ['Graph', 'Dynamic Programming'],
-    difficulty: 'Hard',
-    percentage: 10.5,
-    status: 'unsolved',
-  },
-  {
-    title: 'Painting Fence',
-    tags: ['Sort', 'Dynamic Programming', 'Search'],
-    difficulty: 'Easy',
-    percentage: 72.3,
-    status: 'solved',
-  },
-];
 
 const initialTopics = [
   {
@@ -67,9 +44,43 @@ const initialTopics = [
   },
 ];
 
+const initialState = {
+  title: '',
+  tags: [],
+  difficulty: 'Medium',
+  status: null,
+  id: null,
+  link: null,
+};
+
+// Transforming the data according to the needs of Question Component
+const transformData = (data) => {
+  return data.map((each) => {
+    const info = each.attributes;
+    const { unique_id: id, name: title, link, score: status } = info;
+    return {
+      ...initialState,
+      id,
+      title,
+      link,
+      status,
+    };
+  });
+};
+
 function Challenges() {
-  const [questions, setQuestion] = useState(initialState);
+  const [questions, setQuestions] = useState([]);
   const [topics, setTopics] = useState(initialTopics);
+
+  useEffect(() => {
+    getQuestions()
+      .then((res) => {
+        return setQuestions(transformData(res));
+      })
+      .catch((err) => {
+        // Error handling
+      });
+  }, []);
 
   return (
     <div className="dashboard">
