@@ -44,7 +44,7 @@ const initialTopics = [
   },
 ];
 
-const initialState = {
+const initalQuestionState = {
   title: '',
   tags: [],
   difficulty: 'Medium',
@@ -59,7 +59,7 @@ const transformData = (data) => {
     const info = each.attributes;
     const { unique_id: id, name: title, link, score: status } = info;
     return {
-      ...initialState,
+      ...initalQuestionState,
       id,
       title,
       link,
