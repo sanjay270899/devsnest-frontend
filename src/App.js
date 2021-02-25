@@ -5,12 +5,14 @@ import ReactGA from 'react-ga';
 import 'react-multi-carousel/lib/styles.css';
 import './assets/css/index.scss';
 import './assets/css/landing.scss';
+import './assets/css/login.scss';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Landing from './pages/Landing';
 import Faq from './pages/Faqs';
 import NotFound from './pages/NotFound';
+import Login from './pages/Login';
 
 function App() {
   useEffect(() => {
@@ -30,6 +32,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/faqs" component={Faq} />
+          <Route exact path="/login" component={Login} />
           <Route component={NotFound} />
         </Switch>
       </main>
