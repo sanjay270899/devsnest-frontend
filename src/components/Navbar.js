@@ -99,13 +99,15 @@ function Navbar() {
               </Link>
             </NavItem>
           ) : (
-            <></>
-            // For later uses
-            // <NavItem>
-            //   <Link className="nav-link" onClick={actions.login}>
-            //     Login
-            //   </Link>
-            // </NavItem>
+            <NavItem>
+              <Link
+                className="nav-link"
+                to="/login"
+                onClick={() => setIsOpen(false)}
+              >
+                Login
+              </Link>
+            </NavItem>
           )}
         </BSNav>
       </Collapse>
