@@ -31,7 +31,7 @@ import {
   discord_server_data,
   responsiveMultipleItem,
   responsiveSingleItem,
-} from '../constants';
+} from '../constants/mock_data';
 
 function Landing() {
   return (

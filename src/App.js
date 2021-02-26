@@ -11,8 +11,12 @@ import Footer from './components/Footer';
 import Landing from './pages/Landing';
 import Faq from './pages/Faqs';
 import NotFound from './pages/NotFound';
+import Login from './pages/Login';
+import useAuth from './hooks/useAuth';
 
 function App() {
+  useAuth();
+
   useEffect(() => {
     let code =
       process.env.NODE_ENV === 'production'
@@ -30,6 +34,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/faqs" component={Faq} />
+          <Route exact path="/login" component={Login} />
           <Route component={NotFound} />
         </Switch>
       </main>
