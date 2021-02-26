@@ -2,7 +2,7 @@
   width: 70vw;
   margin: 25vh auto;
   background-color: #fff;
-  box-shadow: 0px 0px 20px #00000045;
+  box-shadow: 0 0 20px #00000045;
   border-radius: 20px;
   overflow: hidden;
 }
@@ -17,13 +17,13 @@
   border-radius: 0.625em;
   color: white;
   background-color: #8264b4;
-  box-shadow: 0px 10px 20px #00000047;
+  box-shadow: 0 10px 20px #00000047;
 }
 
 .login-btn:hover {
   color: #fff;
   background-color: #6d5297;
-  box-shadow: 0px 10px 20px #00000047;
+  box-shadow: 0 10px 20px #00000047;
 }
 
 @media screen and (max-width: 576px) {
