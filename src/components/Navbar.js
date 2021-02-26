@@ -8,6 +8,7 @@ import {
 } from 'reactstrap';
 import { useSelector } from 'react-redux';
 import logo from '../assets/images/logo.jpg';
+import default_user from '../assets/images/default_user.png';
 import { HashLink as Link } from 'react-router-hash-link';
 
 const homeMenuItems = [
@@ -81,21 +82,21 @@ function Navbar() {
             </NavItem>
           ))}
 
-          {loginState.loggedIn ? (
+          {loginState.isLoading ? null : loginState.loggedIn ? (
             <NavItem className="nav-item-profile">
               <Link
-                to="/profile"
+                to="/dashboard"
                 className="nav-link"
                 onClick={() => setIsOpen(false)}
               >
                 <img
-                  src="https://via.placeholder.com/100"
+                  src={loginState.user.image_url || default_user}
                   height="36"
                   width="36"
                   className="rounded-pill"
-                  alt="Jane Doe"
+                  alt={loginState.user.name}
                 />
-                <span className="ml-3">Jane Doe</span>
+                <span className="ml-3">{loginState.user.name}</span>
               </Link>
             </NavItem>
           ) : (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { API_BASE_URL, API_ENDPOINTS } from '../constants/api';
 import '../assets/css/login.scss';
 
 import bg from '../assets/images/login/bg.png';
@@ -20,10 +20,9 @@ function Login() {
         <div className="login-left d-flex flex-column px-4 col-md-3">
           <div
             className="text-light my-5 mx-3 mb-auto"
-            style={{ fontSize: '0.95em' }}
+            style={{ fontSize: '1.2em' }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt.
+            Education which makes you financially independent.
           </div>
           <img
             src={left}
@@ -39,19 +38,28 @@ function Login() {
           </h2>
 
           <div className="ml-4 mr-3 my-4">
-            <h3 className="h6 mt-2">#1 : Join Our Discord Server</h3>
-            <p className="h6 text-muted ml-4 mt-2 mb-4">
+            <h3 className="h6 mt-2">
+              #1 : Be a part of your discord community,{' '}
+              <a
+                href="https://discord.gg/E8YcJpGJKB"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Join us!
+              </a>
+            </h3>
+            <p className="h6 text-muted ml-4 mt-3 mb-4">
               If you're already a part of our team proceed to step #2
             </p>
-            <h3 className="h6 mt-2">#2 : Login or Authorisation via Discord</h3>
+            <h3 className="h6 mt-2">#2 : Login/Signup via discord</h3>
           </div>
 
-          <Link
-            to="/api/v1/auth/discord"
+          <a
+            href={API_BASE_URL + API_ENDPOINTS.LOGIN_WITH_DISCORD}
             className="btn py-05 mx-auto my-3 login-btn"
           >
             Login
-          </Link>
+          </a>
         </div>
 
         <div className="col-md-3 d-flex align-items-center justify-content-center">

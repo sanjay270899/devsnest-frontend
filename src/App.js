@@ -12,8 +12,11 @@ import Landing from './pages/Landing';
 import Faq from './pages/Faqs';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
+import useAuth from './hooks/useAuth';
 
 function App() {
+  useAuth();
+
   useEffect(() => {
     let code =
       process.env.NODE_ENV === 'production'

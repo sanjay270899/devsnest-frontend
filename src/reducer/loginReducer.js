@@ -1,6 +1,7 @@
-import { LOGIN, LOGOUT } from '../constants/types';
+import { LOGIN, LOGOUT, LOGIN_LOADING } from '../constants/types';
 
 const initialState = {
+  isLoading: true,
   loggedIn: false,
   user: null,
 };
@@ -9,11 +10,14 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case LOGIN: {
       const { loggedIn, user } = action.payload;
-      return { ...state, loggedIn, user };
+      return { ...state, loggedIn, user, isLoading: false };
     }
     case LOGOUT: {
-      return { ...state, loggedIn: false, user: null };
+      return { ...state, loggedIn: false, user: null, isLoading: false };
     }
+    case LOGIN_LOADING:
+      const { isLoading } = action.payload;
+      return { ...state, isLoading };
     default:
       return state;
   }
