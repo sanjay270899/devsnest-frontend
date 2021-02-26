@@ -34,7 +34,7 @@ function Login() {
         </div>
 
         <div className="col-md-6 d-flex flex-column py-4">
-          <h2 className="h3 font-weight-bold text-primary-dark ml-4 mr-3 my-4">
+          <h2 className="h3 font-weight-bold text-primary-dark text-center mx-4 my-4">
             Welcome to DEVSNEST!
           </h2>
 
