@@ -1,9 +1,15 @@
 export const API_BASE_URL = process.env.REACT_APP_API_URL;
+export const CLIENT_ID = process.env.REACT_APP_DISCORD_CLIENT_ID;
 console.log(`using api base url:`, API_BASE_URL);
 
+const discord_redirect_uri = encodeURIComponent(
+  `http://${window.origin}/login/callback`
+);
+
 export const API_ENDPOINTS = {
-  LOGIN_WITH_DISCORD: `api/v1/users/auth/discord`,
-  LOGOUT: `api/v1/users/log_out`,
+  DISCORD_LOGIN_REDIRECT: `https://discordapp.com/api/oauth2/authorize?client_id=${CLIENT_ID}&scope=identify&response_type=code&redirect_uri=${discord_redirect_uri}`,
+  LOGOUT: `api/v1/users/logout`,
+  LOGIN: `api/v1/users/login`,
   CURRENT_USER: 'api/v1/users/me',
   CONTENTS: `api/v1/contents`,
 };

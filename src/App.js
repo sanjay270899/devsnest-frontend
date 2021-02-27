@@ -11,7 +11,8 @@ import Footer from './components/Footer';
 import Landing from './pages/Landing';
 import Faq from './pages/Faqs';
 import NotFound from './pages/NotFound';
-import Login from './pages/Login';
+import Login from './pages/login';
+import LoginCallback from './pages/login/Callback';
 import useAuth from './hooks/useAuth';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route exact path="/" component={Landing} />
           <Route exact path="/faqs" component={Faq} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/login/callback" component={LoginCallback} />
           <Route component={NotFound} />
         </Switch>
       </main>

@@ -1,12 +1,31 @@
-import React from 'react';
-import { API_BASE_URL, API_ENDPOINTS } from '../constants/api';
-import '../assets/css/login.scss';
+import React, { useEffect } from 'react';
+import { API_ENDPOINTS } from '../../constants/api';
+import { useLocation } from 'react-router-dom';
+import '../../assets/css/login.scss';
 
-import bg from '../assets/images/login/bg.png';
-import right from '../assets/images/login/Group 65.svg';
-import left from '../assets/images/login/Group 17.svg';
+import bg from '../../assets/images/login/bg.png';
+import right from '../../assets/images/login/Group 65.svg';
+import left from '../../assets/images/login/Group 17.svg';
+import axios from '../../config/axios.config';
 
-function Login() {
+export default function LoginCallback() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const code = params.get('code');
+    console.log('code', code);
+    axios
+      .post(`${API_ENDPOINTS.LOGIN}`, { code })
+      .then((data) => {
+        console.log('data from api: ', data);
+      })
+      .catch((err) => {
+        console.log('error from api: ', err);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div
       className="d-flex align-items-center justify-content-center"
@@ -54,12 +73,15 @@ function Login() {
             <h3 className="h6 mt-2">#2 : Login/Signup via discord</h3>
           </div>
 
-          <a
-            href={API_BASE_URL + API_ENDPOINTS.LOGIN_WITH_DISCORD}
-            className="btn py-05 mx-auto my-3 login-btn"
+          <button
+            className="btn py-05 mx-auto my-3 login-btn btn-disabled"
+            disabled
           >
-            Login
-          </a>
+            <div
+              class="spinner-border text-light spinner-border-sm"
+              role="status"
+            />
+          </button>
         </div>
 
         <div className="col-md-3 d-flex align-items-center justify-content-center">
@@ -73,5 +95,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;

@@ -20,7 +20,7 @@
   box-shadow: 0 10px 20px #00000047;
 }
 
-.login-btn:hover {
+.login-btn:hover:not(:disabled) {
   color: #fff;
   background-color: #6d5297;
   box-shadow: 0 10px 20px #00000047;
