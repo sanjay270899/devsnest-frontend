@@ -1,11 +1,36 @@
 import axios from '../config/axios.config';
 
-export const getQuestions = async () => {
-  const url = undefined;
-  if (url) {
-    const response = await axios.get(url);
+// https://api.devsnest.in/api/v1/contents?filter[data_type]=question&filter[parent_id]=warmup,arrays
+export const getQuestions = async (options = {}) => {
+  if (!process.env.REACT_APP_MOCK_API) {
+    const params = getParams(options);
+
+    const response = await axios.get(
+      'https://api.devsnest.in/api/v1/contents',
+      { params }
+    );
     return response.data;
   } else return (await fakeQuestionData()).data;
+};
+
+const getParams = (options) => {
+  const { topics } = options;
+  const params = {
+    filter: {
+      data_type: 'question',
+    },
+  };
+
+  if (topics.length > 0) {
+    // parent_id is the list of topics selected seperated by a comma
+    const topicStringified = joinArray(topics);
+    params.filter.parent_id = topicStringified;
+  }
+  return params;
+};
+
+const joinArray = (list) => {
+  return list.join('.');
 };
 
 const fakeQuestionData = () => {

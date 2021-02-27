@@ -57,7 +57,11 @@ const Question = (prop) => {
             >
               {difficulty}
             </span>
-            <img alt="status" src={getStatusImage(status)} />
+            <img
+              style={{ cursor: 'pointer' }}
+              alt="status"
+              src={getStatusImage(status)}
+            />
           </div>
         </div>
       </div>

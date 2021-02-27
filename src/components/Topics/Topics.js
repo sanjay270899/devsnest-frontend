@@ -2,7 +2,7 @@ import React from 'react';
 import './Topics.scss';
 import HashTag from '../../assets/images/dashboard/hashtag.png';
 
-const Topics = ({ topics }) => {
+const Topics = ({ topics, toggleTopic }) => {
   return (
     <div className="topics__container">
       <h3 className="topics__container-heading">
@@ -17,7 +17,10 @@ const Topics = ({ topics }) => {
               style={{
                 backgroundColor: topic.selected ? '#8E8D90' : '#FFFFFF',
                 color: topic.selected ? '#fff' : '#404040',
+                cursor: 'pointer',
               }}
+              key={topic.name}
+              onClick={() => toggleTopic(topic.name)}
               className="badge topics-tag"
             >
               {topic.name}

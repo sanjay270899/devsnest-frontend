@@ -3,46 +3,8 @@ import Question from '../../components/Question/Question';
 import Progress from '../../components/Progress/Progress';
 import Topics from '../../components/Topics/Topics';
 import { getQuestions } from '../../services/question';
+import { getTopics } from '../../services/topic';
 import './challenges.scss';
-
-const initialTopics = [
-  {
-    name: 'Dynamic Programming',
-    selected: false,
-  },
-  {
-    name: 'Search',
-    selected: true,
-  },
-  {
-    name: 'DFS',
-    selected: true,
-  },
-  {
-    name: 'BFS',
-    selected: false,
-  },
-  {
-    name: 'Math',
-    selected: true,
-  },
-  {
-    name: 'Number Theory',
-    selected: false,
-  },
-  {
-    name: 'Greedy',
-    selected: true,
-  },
-  {
-    name: 'Union Find',
-    selected: true,
-  },
-  {
-    name: 'Sort',
-    selected: false,
-  },
-];
 
 const initalQuestionState = {
   title: '',
@@ -72,9 +34,18 @@ const transformData = (data) => {
   });
 };
 
-function Challenges() {
+const transformTopicsData = (data) => {
+  return data.map((topic) => {
+    return {
+      selected: true,
+      name: topic.attributes.name,
+    };
+  });
+};
+
+function Challenges(props) {
   const [questions, setQuestions] = useState([]);
-  const [topics, setTopics] = useState(initialTopics);
+  const [topics, setTopics] = useState([]);
 
   useEffect(() => {
     getQuestions()
@@ -85,6 +56,42 @@ function Challenges() {
         // Error handling
       });
   }, []);
+
+  // Get all the topics
+  useEffect(() => {
+    getTopics()
+      .then((res) => {
+        setTopics(transformTopicsData(res.data));
+      })
+      .catch((err) => {
+        // Error handling
+      });
+  }, []);
+
+  // fetch new questions on updated topics list
+  useEffect(() => {
+    getQuestions({
+      parent_id: getSelectedTopics(),
+      url: 'https://api.devsnest.in/api/v1/contents',
+    }).then((res) => {
+      console.log(res);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [topics]);
+
+  function getSelectedTopics() {
+    return topics.filter((topic) => topic.selected);
+  }
+
+  function toggleTopic(name) {
+    const updatedTopics = [...topics];
+
+    const selectedTopic = updatedTopics.find((topic) => topic.name === name);
+    if (!selectedTopic) return;
+
+    selectedTopic.selected = !selectedTopic.selected;
+    setTopics(updatedTopics);
+  }
 
   return (
     <div className="dashboard">
@@ -111,7 +118,7 @@ function Challenges() {
           <div className="col-lg-3 col-md-12 order-lg-2 order-md-1 order-sm-1 order-1">
             <section className="questions">
               <Progress />
-              <Topics topics={topics} />
+              <Topics topics={topics} toggleTopic={toggleTopic} />
             </section>
           </div>
         </div>
