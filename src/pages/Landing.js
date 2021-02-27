@@ -1,6 +1,5 @@
 import React from 'react';
 import Carousel from 'react-multi-carousel';
-import Footer from '../components/Footer';
 
 import linkedin_icon from '../assets/images/linkedin.svg';
 import achieve from '../assets/images/achieve.png';
@@ -32,7 +31,7 @@ import {
   discord_server_data,
   responsiveMultipleItem,
   responsiveSingleItem,
-} from '../constants';
+} from '../constants/mock_data';
 
 function Landing() {
   return (
@@ -594,8 +593,6 @@ function Landing() {
           </div>
         </section>
       </Carousel>
-
-      <Footer />
     </div>
   );
 }

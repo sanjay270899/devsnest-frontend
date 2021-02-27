@@ -6,12 +6,17 @@ import 'react-multi-carousel/lib/styles.css';
 import './assets/css/index.scss';
 import './assets/css/landing.scss';
 
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Landing from './pages/Landing';
 import Faq from './pages/Faqs';
-import Navbar from './components/Navbar';
 import NotFound from './pages/NotFound';
+import Login from './pages/Login';
+import useAuth from './hooks/useAuth';
 
 function App() {
+  useAuth();
+
   useEffect(() => {
     let code =
       process.env.NODE_ENV === 'production'
@@ -25,11 +30,16 @@ function App() {
     <Router>
       <Navbar />
 
-      <Switch>
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/faqs" component={Faq} />
-        <Route component={NotFound} />
-      </Switch>
+      <main>
+        <Switch>
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/faqs" component={Faq} />
+          <Route exact path="/login" component={Login} />
+          <Route component={NotFound} />
+        </Switch>
+      </main>
+
+      <Footer />
     </Router>
   );
 }

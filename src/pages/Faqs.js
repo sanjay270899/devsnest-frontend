@@ -1,8 +1,7 @@
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
-import Footer from '../components/Footer';
-import { faqsData } from '../constants';
+import { faqsData } from '../constants/mock_data';
 import hero2 from '../assets/images/hero2.jpg';
 
 function Faq() {
@@ -62,8 +61,6 @@ function Faq() {
           </Accordion>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

@@ -1,10 +1,8 @@
-import axios from 'axios';
+import Axios from 'axios';
+import { API_BASE_URL } from '../constants/api';
 
-const instance = axios.create({
-  baseURL:
-    process.env.NODE_ENV === 'production'
-      ? process.env.REACT_APP_BASE_PROD_IP
-      : process.env.REACT_APP_BASE_DEV_IP,
+const axios = Axios.create({
+  baseURL: API_BASE_URL,
 });
 
-export default instance;
+export default axios;
