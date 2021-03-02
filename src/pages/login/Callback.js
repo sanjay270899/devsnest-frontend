@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { API_ENDPOINTS } from '../../constants/api';
 import { useLocation } from 'react-router-dom';
+import myLog from '../../utils/myLog';
 import '../../assets/css/login.scss';
 
 import bg from '../../assets/images/login/bg.png';
@@ -14,14 +15,14 @@ export default function LoginCallback() {
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const code = params.get('code');
-    console.log('code', code);
+    myLog('code', code);
     axios
       .post(`${API_ENDPOINTS.LOGIN}`, { code })
       .then((data) => {
-        console.log('data from api: ', data);
+        myLog('data from api: ', data);
       })
       .catch((err) => {
-        console.log('error from api: ', err);
+        myLog('error from api: ', err);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

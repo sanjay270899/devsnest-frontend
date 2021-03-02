@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useActions } from '../hooks/useActions';
 import { login } from '../actions/loginActions';
+import myLog from '../utils/myLog';
 
 // Other smaller components
 function Input({ value, setValue }) {
@@ -20,7 +21,7 @@ function Example() {
 
   // Effects
   useEffect(() => {
-    console.log('mounted');
+    myLog('mounted');
   }, []);
 
   // return

@@ -4,6 +4,7 @@ import useActions from './useActions';
 import { login, loginLoadingState } from '../actions/loginActions';
 import axios from '../config/axios.config';
 import { API_ENDPOINTS } from '../constants/api';
+import myLog from '../utils/myLog';
 
 export default function useAuth() {
   const loginState = useSelector((state) => state.loginState);
@@ -14,7 +15,7 @@ export default function useAuth() {
     axios
       .get(API_ENDPOINTS.CURRENT_USER)
       .then((resp) => {
-        console.log(resp);
+        myLog(resp);
         actions.login(resp.data.attributes);
       })
       .catch((e) => {

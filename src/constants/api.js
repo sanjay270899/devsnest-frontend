@@ -1,6 +1,8 @@
+import myLog from '../utils/myLog';
+
 export const API_BASE_URL = process.env.REACT_APP_API_URL;
 export const CLIENT_ID = process.env.REACT_APP_DISCORD_CLIENT_ID;
-console.log(`using api base url:`, API_BASE_URL);
+myLog(`using api base url:`, API_BASE_URL);
 
 const discord_redirect_uri = encodeURIComponent(
   `${window.origin}/login/callback`
