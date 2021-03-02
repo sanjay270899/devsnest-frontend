@@ -7,7 +7,7 @@ const discord_redirect_uri = encodeURIComponent(
 );
 
 export const API_ENDPOINTS = {
-  DISCORD_LOGIN_REDIRECT: `https://discordapp.com/api/oauth2/authorize?client_id=${CLIENT_ID}&scope=identify&response_type=code&redirect_uri=${discord_redirect_uri}`,
+  DISCORD_LOGIN_REDIRECT: `https://discordapp.com/api/oauth2/authorize?client_id=${CLIENT_ID}&scope=identify%20email&response_type=code&redirect_uri=${discord_redirect_uri}`,
   LOGOUT: `api/v1/users/logout`,
   LOGIN: `api/v1/users/login`,
   CURRENT_USER: 'api/v1/users/me',
