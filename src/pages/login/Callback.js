@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import { API_ENDPOINTS } from '../../constants/api';
 import { useLocation } from 'react-router-dom';
 import myLog from '../../utils/myLog';
+import axios from '../../config/axios.config';
 import '../../assets/css/login.scss';
 
 import bg from '../../assets/images/login/bg.png';
 import right from '../../assets/images/login/Group 65.svg';
 import left from '../../assets/images/login/Group 17.svg';
-import axios from '../../config/axios.config';
 
 export default function LoginCallback() {
   const location = useLocation();
