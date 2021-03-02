@@ -53,6 +53,13 @@ function Navbar() {
 
   const navItems = loginState.loggedIn ? loginMenuItems : homeMenuItems;
 
+  const offsetScroll = (e, offset) =>
+    window.scroll({
+      top: e.offsetTop - offset,
+      left: 0,
+      behavior: 'smooth',
+    });
+
   return (
     <BSNavbar color="white" light expand="md" className="shadow-sm">
       <Link to="/" className="navbar-brand">
@@ -74,9 +81,9 @@ function Navbar() {
               <NavItem key={item.id}>
                 <Link
                   to={item.to}
-                  smooth
                   className="nav-link"
                   onClick={() => setIsOpen(false)}
+                  scroll={(e) => offsetScroll(e, 70)}
                 >
                   {item.title}
                 </Link>
