@@ -1,16 +1,20 @@
 import React, { useEffect } from 'react';
 import { API_ENDPOINTS } from '../../constants/api';
-import { useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import myLog from '../../utils/myLog';
 import axios from '../../config/axios.config';
+import { login } from '../../actions/loginActions';
 import '../../assets/css/login.scss';
 
 import bg from '../../assets/images/login/bg.png';
 import right from '../../assets/images/login/Group 65.svg';
 import left from '../../assets/images/login/Group 17.svg';
+import useActions from '../../hooks/useActions';
 
 export default function LoginCallback() {
+  const history = useHistory();
   const location = useLocation();
+  const actions = useActions({ login });
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -18,8 +22,19 @@ export default function LoginCallback() {
     myLog('code', code);
     axios
       .post(`${API_ENDPOINTS.LOGIN}`, { code })
-      .then((data) => {
-        myLog('data from api: ', data);
+      .then((response) => {
+        myLog('response from api: ', response);
+        if (
+          response.data &&
+          response.data.data &&
+          response.data.data.attributes
+        ) {
+          actions.login({
+            ...response.data.data.attributes,
+            authorization: response.headers['authorization'],
+          });
+          history.push('/dashboard');
+        }
       })
       .catch((err) => {
         myLog('error from api: ', err);

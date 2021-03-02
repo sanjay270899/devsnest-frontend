@@ -68,49 +68,51 @@ function Navbar() {
       <NavbarToggler onClick={toggle} />
 
       <Collapse isOpen={isOpen} navbar>
-        <BSNav className={!loginState.loggedIn ? '' : ''} navbar>
-          {navItems.map((item) => (
-            <NavItem key={item.id}>
-              <Link
-                to={item.to}
-                smooth
-                className="nav-link"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.title}
-              </Link>
-            </NavItem>
-          ))}
+        {!loginState.isLoading && (
+          <BSNav navbar>
+            {navItems.map((item) => (
+              <NavItem key={item.id}>
+                <Link
+                  to={item.to}
+                  smooth
+                  className="nav-link"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.title}
+                </Link>
+              </NavItem>
+            ))}
 
-          {loginState.isLoading ? null : loginState.loggedIn ? (
-            <NavItem className="nav-item-profile">
-              <Link
-                to="/dashboard"
-                className="nav-link"
-                onClick={() => setIsOpen(false)}
-              >
-                <img
-                  src={loginState.user.image_url || default_user}
-                  height="36"
-                  width="36"
-                  className="rounded-pill"
-                  alt={loginState.user.name}
-                />
-                <span className="ml-3">{loginState.user.name}</span>
-              </Link>
-            </NavItem>
-          ) : (
-            <NavItem>
-              <Link
-                className="nav-link"
-                to="/login"
-                onClick={() => setIsOpen(false)}
-              >
-                Login
-              </Link>
-            </NavItem>
-          )}
-        </BSNav>
+            {loginState.loggedIn ? (
+              <NavItem className="nav-item-profile">
+                <Link
+                  to="/dashboard"
+                  className="nav-link"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <img
+                    src={loginState.user.image_url || default_user}
+                    height="36"
+                    width="36"
+                    className="rounded-pill"
+                    alt={loginState.user.name}
+                  />
+                  <span className="ml-3">{loginState.user.name}</span>
+                </Link>
+              </NavItem>
+            ) : (
+              <NavItem>
+                <Link
+                  className="nav-link"
+                  to="/login"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Login
+                </Link>
+              </NavItem>
+            )}
+          </BSNav>
+        )}
       </Collapse>
     </BSNavbar>
   );
