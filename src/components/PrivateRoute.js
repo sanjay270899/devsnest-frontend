@@ -5,7 +5,7 @@ import { Redirect, Route } from 'react-router-dom';
 export const RouteLoading = () => {
   return (
     <div style={{ height: '80vh', display: 'flex' }}>
-      <div class="spinner-border text-primary m-auto" role="status" />
+      <div className="spinner-border text-primary m-auto" />
     </div>
   );
 };

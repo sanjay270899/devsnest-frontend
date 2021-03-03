@@ -117,3 +117,43 @@ footer {
     }
   }
 }
+
+.profile-card {
+  border-radius: 18px;
+  min-width: 300px;
+  padding-bottom: 1em;
+
+  .profile-img-bg {
+    background-color: #8264b4;
+    height: 60px;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+  }
+
+  .profile-img {
+    margin-top: -30px;
+    border-radius: 0.325em;
+    height: 75px;
+    width: 75px;
+  }
+}
+
+.comming-soon-card {
+  border-radius: 18px;
+  max-width: 400px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.dropdown {
+  cursor: pointer;
+}
+
+.nav-menu.show {
+  width: calc(100% - 20px);
+  top: 4px !important;
+  left: 20px !important;
+}
