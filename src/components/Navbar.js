@@ -40,8 +40,8 @@ const homeMenuItems = [
 
 const loginMenuItems = [
   {
-    title: 'Challanges',
-    to: '/challanges',
+    title: 'Challenges',
+    to: '/challenges',
   },
   {
     title: 'Leaderboard',
