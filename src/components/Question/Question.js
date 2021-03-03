@@ -44,7 +44,7 @@ const Question = (prop) => {
           <div className="question__tags">
             {tags.map((tag) => (
               <span key={tag} class="badge question__tag">
-                {tag}
+                {tag.charAt(0).toUpperCase() + tag.slice(1)}
               </span>
             ))}
           </div>
