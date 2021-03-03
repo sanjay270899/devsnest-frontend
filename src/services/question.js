@@ -15,16 +15,13 @@ export const getQuestions = async (options = {}) => {
 
 const getParams = (options) => {
   const { topics } = options;
-  const params = {
-    filter: {
-      data_type: 'question',
-    },
-  };
+  const params = {};
+  params[`filter[data_type]`] = 'question';
 
-  if (topics.length > 0) {
+  if (topics && topics.length > 0) {
     // parent_id is the list of topics selected seperated by a comma
     const topicStringified = joinArray(topics);
-    params.filter.parent_id = topicStringified;
+    params[`filter[parent_id]`] = topicStringified;
   }
   return params;
 };
