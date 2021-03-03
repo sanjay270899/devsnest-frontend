@@ -20,14 +20,14 @@ const getParams = (options) => {
 
   if (topics && topics.length > 0) {
     // parent_id is the list of topics selected seperated by a comma
-    const topicStringified = joinArray(topics);
+    const topicStringified = joinArray(topics.map((topic) => topic.name));
     params[`filter[parent_id]`] = topicStringified;
   }
   return params;
 };
 
 const joinArray = (list) => {
-  return list.join('.');
+  return list.join(',');
 };
 
 const fakeQuestionData = () => {

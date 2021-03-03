@@ -32,7 +32,7 @@ const getStatusImage = (status) => {
 };
 
 const Question = (prop) => {
-  const { title, tags, difficulty, index, status } = prop;
+  const { title, tags, difficulty, index, status, link } = prop;
 
   return (
     <div className="question">
@@ -57,11 +57,13 @@ const Question = (prop) => {
             >
               {difficulty}
             </span>
-            <img
-              style={{ cursor: 'pointer' }}
-              alt="status"
-              src={getStatusImage(status)}
-            />
+            <a target="_blank" rel="noopener noreferrer" href={link}>
+              <img
+                style={{ cursor: 'pointer' }}
+                alt="status"
+                src={getStatusImage(status)}
+              />
+            </a>
           </div>
         </div>
       </div>

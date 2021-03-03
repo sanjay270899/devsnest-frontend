@@ -7,6 +7,7 @@ import Topics from '../../components/Topics/Topics';
 import { getQuestions } from '../../services/question';
 import { getTopics } from '../../services/topic';
 import './challenges.scss';
+import useSecondStateChange from '../../utils/useSecondStageChange';
 
 const initalQuestionState = {
   title: '',
@@ -25,9 +26,9 @@ toast.configure({
 
 // Transforming the data according to the needs of Question Component
 const transformData = (data) => {
-  return data.map((each) => {
+  return data.data.map((each) => {
     const info = each.attributes;
-    const { unique_id: id, name: title, link } = info;
+    const { unique_id: id, name: title, link, parent_id } = info;
 
     let { score: status } = info;
     if (!status || typeof status !== 'string') status = 'unsolved';
@@ -38,6 +39,7 @@ const transformData = (data) => {
       title,
       link,
       status,
+      tags: [parent_id],
     };
   });
 };
@@ -54,6 +56,8 @@ const transformTopicsData = (data) => {
 function Challenges(props) {
   const [questions, setQuestions] = useState([]);
   const [topics, setTopics] = useState([]);
+
+  const isSecondRender = useSecondStateChange(topics);
 
   useEffect(() => {
     getQuestions()
@@ -77,16 +81,23 @@ function Challenges(props) {
   }, []);
 
   // fetch new questions on updated topics list
+
+  // A seperate api call is made to get the topics.
+  // as the initial value of topics is [],
+  // It calls this function with [] which is redundant
+  // hence ignoring the first render change useEffect
   useEffect(() => {
-    getQuestions({
-      parent_id: getSelectedTopics(),
-    })
-      .then((res) => {
-        return setQuestions(transformData(res));
+    if (isSecondRender) {
+      getQuestions({
+        topics: getSelectedTopics(),
       })
-      .catch((err) => {
-        toast.error(err.message);
-      });
+        .then((res) => {
+          return setQuestions(transformData(res));
+        })
+        .catch((err) => {
+          toast.error(err.message);
+        });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [topics]);
 
@@ -118,11 +129,7 @@ function Challenges(props) {
           <section className="questions col-lg-9 col-md-12 order-lg-1 order-md-2 order-sm-2 order-2">
             {questions.map((question, index) => {
               return (
-                <Question
-                  {...question}
-                  index={index + 1}
-                  key={question.title}
-                />
+                <Question {...question} index={index + 1} key={question.id} />
               );
             })}
           </section>
