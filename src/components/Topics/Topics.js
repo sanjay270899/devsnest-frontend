@@ -23,7 +23,7 @@ const Topics = ({ topics, toggleTopic }) => {
               onClick={() => toggleTopic(topic.name)}
               className="badge topics-tag"
             >
-              {topic.name}
+              {topic.name.charAt(0).toUpperCase() + topic.name.slice(1)}
             </span>
           );
         })}

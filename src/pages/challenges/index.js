@@ -47,8 +47,8 @@ const transformData = (data) => {
 const transformTopicsData = (data) => {
   return data.map((topic) => {
     return {
-      selected: true,
-      name: topic.attributes.name,
+      selected: false,
+      name: topic.attributes.unique_id,
     };
   });
 };
