@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { API_ENDPOINTS } from '../../constants/api';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Redirect, useHistory, useLocation } from 'react-router-dom';
 import myLog from '../../utils/myLog';
 import axios from '../../config/axios.config';
 import { login } from '../../actions/loginActions';
+import { useSelector } from 'react-redux';
 import '../../assets/css/login.scss';
 
 import bg from '../../assets/images/login/bg.png';
@@ -15,6 +16,7 @@ export default function LoginCallback() {
   const history = useHistory();
   const location = useLocation();
   const actions = useActions({ login });
+  const loginState = useSelector((state) => state.loginState);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -41,6 +43,10 @@ export default function LoginCallback() {
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  if (!loginState.isLoading && loginState.loggedIn) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
     <div

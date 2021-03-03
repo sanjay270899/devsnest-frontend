@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute';
 import ReactGA from 'react-ga';
+import useAuth from './hooks/useAuth';
 
 import 'react-multi-carousel/lib/styles.css';
 import './assets/css/index.scss';
@@ -13,7 +15,7 @@ import Faq from './pages/Faqs';
 import NotFound from './pages/NotFound';
 import Login from './pages/login';
 import LoginCallback from './pages/login/Callback';
-import useAuth from './hooks/useAuth';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   useAuth();
@@ -37,6 +39,7 @@ function App() {
           <Route exact path="/faqs" component={Faq} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/login/callback" component={LoginCallback} />
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <Route component={NotFound} />
         </Switch>
       </main>

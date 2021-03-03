@@ -1,5 +1,7 @@
 import React from 'react';
 import { API_ENDPOINTS } from '../../constants/api';
+import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import '../../assets/css/login.scss';
 
 import bg from '../../assets/images/login/bg.png';
@@ -7,6 +9,12 @@ import right from '../../assets/images/login/Group 65.svg';
 import left from '../../assets/images/login/Group 17.svg';
 
 function Login() {
+  const loginState = useSelector((state) => state.loginState);
+
+  if (!loginState.isLoading && loginState.loggedIn) {
+    return <Redirect to="/dashboard" />;
+  }
+
   return (
     <div
       className="d-flex align-items-center justify-content-center"
