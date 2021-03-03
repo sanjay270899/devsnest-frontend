@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+
 import Question from '../../components/Question/Question';
 import Progress from '../../components/Progress/Progress';
 import Topics from '../../components/Topics/Topics';
@@ -14,6 +16,12 @@ const initalQuestionState = {
   id: null,
   link: null,
 };
+
+toast.configure({
+  bodyStyle: {
+    color: 'white',
+  },
+});
 
 // Transforming the data according to the needs of Question Component
 const transformData = (data) => {
@@ -53,7 +61,7 @@ function Challenges(props) {
         return setQuestions(transformData(res));
       })
       .catch((err) => {
-        // Error handling
+        toast.error(err.message);
       });
   }, []);
 
@@ -64,7 +72,7 @@ function Challenges(props) {
         setTopics(transformTopicsData(res.data));
       })
       .catch((err) => {
-        // Error handling
+        toast.error(err.message);
       });
   }, []);
 
@@ -72,10 +80,13 @@ function Challenges(props) {
   useEffect(() => {
     getQuestions({
       parent_id: getSelectedTopics(),
-      url: 'https://api.devsnest.in/api/v1/contents',
-    }).then((res) => {
-      console.log(res);
-    });
+    })
+      .then((res) => {
+        return setQuestions(transformData(res));
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [topics]);
 
