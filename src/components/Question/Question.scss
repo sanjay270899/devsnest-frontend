@@ -1,0 +1,60 @@
+.question {
+  color: #404040;
+  background: #fff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 20px #00000033;
+  border-radius: 20px;
+  opacity: 1;
+  padding: 30px;
+
+  &__title {
+    font-family: 'Montserrat';
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: 600;
+  }
+
+  &__tag {
+    font-size: 20px;
+    background: #efefef;
+    display: inline-block;
+    margin: 0;
+    margin-right: 20px;
+    margin-top: 10px;
+    font-weight: 400;
+  }
+
+  &__right {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 100%;
+
+    &-difficulty {
+      font-size: 20px;
+      font-weight: 400;
+      min-width: 100px;
+      padding: 8px 0;
+    }
+
+    &-percentage {
+      font-size: 20px;
+      min-width: 70px;
+      text-align: center;
+    }
+
+    img {
+      height: 80px;
+      width: 80px;
+    }
+  }
+
+  &__tags {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .question__right {
+    margin-top: 10px;
+  }
+}
