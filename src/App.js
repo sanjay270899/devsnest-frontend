@@ -47,7 +47,7 @@ function App() {
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <PrivateRoute exact path="/leaderboard" component={CommingSoon} />
           <PrivateRoute exact path="/groups" component={CommingSoon} />
-          <Route exact path="/challenges" component={Challenges} />
+          <PrivateRoute exact path="/challenges" component={Challenges} />
           <Route component={NotFound} />
         </Switch>
       </main>
