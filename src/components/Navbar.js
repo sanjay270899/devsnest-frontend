@@ -7,9 +7,17 @@ import {
   NavItem,
 } from 'reactstrap';
 import { useSelector } from 'react-redux';
+import useActions from '../hooks/useActions';
+import { logout } from '../actions/loginActions';
 import logo from '../assets/images/logo.jpg';
 import default_user from '../assets/images/default_user.png';
 import { HashLink as Link } from 'react-router-hash-link';
+import {
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from 'reactstrap';
 
 const homeMenuItems = [
   {
@@ -48,10 +56,18 @@ const loginMenuItems = [
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const loginState = useSelector((state) => state.loginState);
+  const actions = useActions({ logout });
 
   const toggle = () => setIsOpen(!isOpen);
 
   const navItems = loginState.loggedIn ? loginMenuItems : homeMenuItems;
+
+  const offsetScroll = (e, offset) =>
+    window.scroll({
+      top: e.offsetTop - offset,
+      left: 0,
+      behavior: 'smooth',
+    });
 
   return (
     <BSNavbar color="white" light expand="md" className="shadow-sm">
@@ -61,57 +77,65 @@ function Navbar() {
           alt="Devsnest logo"
           height="72"
           width="72"
-          class="d-inline-block align-top nav-logo"
+          className="d-inline-block align-top nav-logo"
         />
       </Link>
 
       <NavbarToggler onClick={toggle} />
 
       <Collapse isOpen={isOpen} navbar>
-        <BSNav className={!loginState.loggedIn ? '' : ''} navbar>
-          {navItems.map((item) => (
-            <NavItem key={item.id}>
-              <Link
-                to={item.to}
-                smooth
-                className="nav-link"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.title}
-              </Link>
-            </NavItem>
-          ))}
+        {!loginState.isLoading && (
+          <BSNav navbar>
+            {navItems.map((item, index) => (
+              <NavItem key={index}>
+                <Link
+                  to={item.to}
+                  className="nav-link"
+                  onClick={() => setIsOpen(false)}
+                  scroll={(e) => offsetScroll(e, 70)}
+                >
+                  {item.title}
+                </Link>
+              </NavItem>
+            ))}
 
-          {loginState.isLoading ? null : loginState.loggedIn ? (
-            <NavItem className="nav-item-profile">
-              <Link
-                to="/dashboard"
-                className="nav-link"
-                onClick={() => setIsOpen(false)}
-              >
-                <img
-                  src={loginState.user.image_url || default_user}
-                  height="36"
-                  width="36"
-                  className="rounded-pill"
-                  alt={loginState.user.name}
-                />
-                <span className="ml-3">{loginState.user.name}</span>
-              </Link>
-            </NavItem>
-          ) : (
-            <></>
-            // <NavItem>
-            //   <Link
-            //     className="nav-link"
-            //     to="/login"
-            //     onClick={() => setIsOpen(false)}
-            //   >
-            //     Login
-            //   </Link>
-            // </NavItem>
-          )}
-        </BSNav>
+            {loginState.loggedIn ? (
+              <NavItem className="nav-item-profile">
+                <UncontrolledDropdown>
+                  <DropdownToggle tag="div" className="nav-link">
+                    <img
+                      src={loginState.user.image_url || default_user}
+                      height="36"
+                      width="36"
+                      className="rounded-pill"
+                      alt={loginState.user.name}
+                    />
+                    <span className="ml-3">{loginState.user.name}</span>
+                  </DropdownToggle>
+                  <DropdownMenu className="nav-menu">
+                    <Link to="/dashboard" className="dropdown-item">
+                      Dashboard
+                    </Link>
+                    <DropdownItem divider />
+                    <DropdownItem tag="div" onClick={() => actions.logout()}>
+                      Logout
+                    </DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+              </NavItem>
+            ) : (
+              <NavItem>
+                <Link
+                  className="nav-link"
+                  to="/login"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Login
+                </Link>
+              </NavItem>
+            )}
+          </BSNav>
+        )}
       </Collapse>
     </BSNavbar>
   );

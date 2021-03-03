@@ -15,6 +15,8 @@
 3. Main component (Eg: Addons in addons.js)
 4. `export default MainComponent;`
 
+- Use `mylog` function instead of console.log!
+
 ## Reusable components
 
 - Do not make a new file for smaller components.
