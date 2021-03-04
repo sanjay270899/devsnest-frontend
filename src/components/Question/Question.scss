@@ -6,11 +6,24 @@
   opacity: 1;
   padding: 30px;
 
+  &__heading-anchor {
+    color: inherit;
+  }
+
+  &__heading-anchor:hover {
+    text-decoration: none;
+  }
+
   &__title {
     font-family: 'Montserrat';
     font-size: 26px;
     line-height: 32px;
     font-weight: 600;
+    transition: all 0.1s ease-in;
+  }
+
+  &__title:hover {
+    color: #9c85d2;
   }
 
   &__tag {
@@ -57,4 +70,8 @@
   .question__right {
     margin-top: 10px;
   }
+}
+
+.row-wrapper {
+  display: flex;
 }
