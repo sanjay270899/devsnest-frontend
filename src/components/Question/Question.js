@@ -1,5 +1,5 @@
-import React from 'react';
-import Tippy from '@tippyjs/react';
+import React, { useState } from 'react';
+import { UncontrolledTooltip } from 'reactstrap';
 import './Question.scss';
 
 import SolvedQuestion from '../../assets/images/dashboard/solved_question.png';
@@ -77,18 +77,22 @@ const Question = (prop) => {
             >
               {difficulty}
             </span>
-            <Tippy
-              content={
-                <span style={{ color: 'white' }}>{getStatusText(status)}</span>
-              }
+            {<span style={{ color: 'white' }}>{getStatusText(status)}</span>}
+
+            <img
+              style={{ cursor: 'pointer' }}
+              alt="status"
+              src={getStatusImage(status)}
+              id={`questionStatus-${id}`}
+              onClick={() => onSubmitStatus(id, getNewStatus(status))}
+            />
+
+            <UncontrolledTooltip
+              placement="right"
+              target={`questionStatus-${id}`}
             >
-              <img
-                style={{ cursor: 'pointer' }}
-                alt="status"
-                src={getStatusImage(status)}
-                onClick={() => onSubmitStatus(id, getNewStatus(status))}
-              />
-            </Tippy>
+              {getStatusText(status)}
+            </UncontrolledTooltip>
           </div>
         </div>
       </div>
