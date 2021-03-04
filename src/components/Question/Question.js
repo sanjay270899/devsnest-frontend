@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { UncontrolledTooltip } from 'reactstrap';
 import './Question.scss';
 
 import SolvedQuestion from '../../assets/images/dashboard/solved_question.png';
@@ -20,11 +21,11 @@ const getColor = (difficulty) => {
 
 const getStatusImage = (status) => {
   switch (status.toLowerCase()) {
-    case 'attempted':
+    case 'doubt':
       return AttemptedQuestion;
-    case 'solved':
+    case 'done':
       return SolvedQuestion;
-    case 'unsolved':
+    case 'notdone':
       return UnsolvedQuestion;
     default:
       return UnsolvedQuestion;
@@ -32,15 +33,34 @@ const getStatusImage = (status) => {
 };
 
 const Question = (prop) => {
-  const { title, tags, difficulty, index, status, link } = prop;
+  const {
+    title,
+    tags,
+    difficulty,
+    index,
+    status,
+    link,
+    id,
+    onSubmitStatus,
+  } = prop;
 
   return (
     <div className="question">
       <div className="row">
         <div className="col-xl-8 col-lg-6">
-          <h1 className="question__title">
-            {index}. {title}
-          </h1>
+          <div className="row-wrapper">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={link}
+              className="question__heading-anchor"
+            >
+              <h1 className="question__title">
+                {index}. {title}
+              </h1>
+            </a>
+          </div>
+
           <div className="question__tags">
             {tags.map((tag) => (
               <span key={tag} class="badge question__tag">
@@ -57,18 +77,46 @@ const Question = (prop) => {
             >
               {difficulty}
             </span>
-            <a target="_blank" rel="noopener noreferrer" href={link}>
-              <img
-                style={{ cursor: 'pointer' }}
-                alt="status"
-                src={getStatusImage(status)}
-              />
-            </a>
+            {<span style={{ color: 'white' }}>{getStatusText(status)}</span>}
+
+            <img
+              style={{ cursor: 'pointer' }}
+              alt="status"
+              src={getStatusImage(status)}
+              id={`questionStatus-${id}`}
+              onClick={() => onSubmitStatus(id, getNewStatus(status))}
+            />
+
+            <UncontrolledTooltip
+              placement="right"
+              target={`questionStatus-${id}`}
+            >
+              {getStatusText(status)}
+            </UncontrolledTooltip>
           </div>
         </div>
       </div>
     </div>
   );
 };
+
+function getNewStatus(prevStatus) {
+  let prevNumState;
+  if (prevStatus === 'doubt') {
+    prevNumState = 2;
+  } else if (prevStatus === 'done') {
+    prevNumState = 0;
+  } else {
+    prevNumState = 1;
+  }
+
+  return (prevNumState + 1) % 3;
+}
+
+function getStatusText(status) {
+  if (status === 'done') return 'Marked as done';
+  if (status === 'notdone') return 'Marked as not done';
+  return 'Marked as doubt';
+}
 
 export default Question;

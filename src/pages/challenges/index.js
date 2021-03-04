@@ -8,6 +8,7 @@ import { getQuestions } from '../../services/question';
 import { getTopics } from '../../services/topic';
 import './challenges.scss';
 import useSecondStateChange from '../../utils/useSecondStageChange';
+import { submitQuestion } from '../../services/submission';
 
 const initalQuestionState = {
   title: '',
@@ -28,10 +29,7 @@ toast.configure({
 const transformData = (data) => {
   return data.data.map((each) => {
     const info = each.attributes;
-    const { unique_id: id, name: title, link, parent_id } = info;
-
-    let { score: status } = info;
-    if (!status || typeof status !== 'string') status = 'unsolved';
+    const { unique_id: id, name: title, link, parent_id, status } = info;
 
     return {
       ...initalQuestionState,
@@ -53,11 +51,32 @@ const transformTopicsData = (data) => {
   });
 };
 
+function getTextStatus(statusInNum) {
+  if (statusInNum === 0) return 'done';
+  else if (statusInNum === 1) return 'notdone';
+  else return 'doubt';
+}
+
 function Challenges(props) {
   const [questions, setQuestions] = useState([]);
   const [topics, setTopics] = useState([]);
 
   const isSecondRender = useSecondStateChange(topics);
+
+  async function onSubmitQuestion(question_unique_id, status) {
+    const textStatus = getTextStatus(status);
+
+    const updatedQuestions = [...questions];
+    const updatedQuestion = questions.find(
+      (question) => question.id === question_unique_id
+    );
+    updatedQuestion.status = textStatus;
+
+    setQuestions(updatedQuestions);
+
+    const res = await submitQuestion({ question_unique_id, status });
+    console.log(res);
+  }
 
   useEffect(() => {
     getQuestions()
@@ -129,7 +148,12 @@ function Challenges(props) {
           <section className="questions col-lg-9 col-md-12 order-lg-1 order-md-2 order-sm-2 order-2">
             {questions.map((question, index) => {
               return (
-                <Question {...question} index={index + 1} key={question.id} />
+                <Question
+                  onSubmitStatus={onSubmitQuestion}
+                  {...question}
+                  index={index + 1}
+                  key={question.id}
+                />
               );
             })}
           </section>
