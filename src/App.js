@@ -10,6 +10,7 @@ import 'react-multi-carousel/lib/styles.css';
 import './assets/css/index.scss';
 import './assets/css/landing.scss';
 import 'react-toastify/dist/ReactToastify.css';
+import 'tippy.js/dist/tippy.css';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
