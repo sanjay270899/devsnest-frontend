@@ -15,7 +15,6 @@ export default function useAuth() {
     axios
       .get(API_ENDPOINTS.CURRENT_USER)
       .then((response) => {
-        myLog(response);
         actions.login(response.data.data.attributes);
       })
       .catch((e) => {
