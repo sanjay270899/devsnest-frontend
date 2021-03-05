@@ -1,10 +1,12 @@
 .dashboard {
+  min-height: calc(100vh - 92px);
   background: #f2eff7 0% 0% no-repeat padding-box;
 
   &__container {
-    width: 80%;
+    max-width: 1440px;
+    width: 90%;
     margin: 0 auto;
-    padding: 2em 0 5em;
+    padding: 2em 0;
   }
 
   &__ul {
@@ -28,13 +30,5 @@
 
   & > * {
     margin-bottom: 40px;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .dashboard {
-    &__container {
-      width: 90%;
-    }
   }
 }
