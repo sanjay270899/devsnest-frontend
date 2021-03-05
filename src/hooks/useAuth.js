@@ -11,7 +11,6 @@ export default function useAuth() {
   const actions = useActions({ login, logout, loginLoadingState });
 
   useEffect(() => {
-    actions.loginLoadingState(true);
     axios
       .get(API_ENDPOINTS.CURRENT_USER)
       .then((response) => {

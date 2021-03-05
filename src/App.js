@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-
-import PrivateRoute from './components/PrivateRoute';
 import ReactGA from 'react-ga';
+import { ToastContainer } from 'react-toastify';
+import PrivateRoute from './components/PrivateRoute';
 import useAuth from './hooks/useAuth';
 
 import 'react-multi-carousel/lib/styles.css';

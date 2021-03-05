@@ -9,6 +9,8 @@ import { getTopics } from '../../services/topic';
 import './challenges.scss';
 import useSecondStateChange from '../../utils/useSecondStageChange';
 import { submitQuestion } from '../../services/submission';
+import axios from '../../config/axios.config';
+import { API_ENDPOINTS } from '../../constants/api';
 
 const initalQuestionState = {
   title: '',
@@ -51,6 +53,27 @@ const transformTopicsData = (data) => {
   });
 };
 
+const transformReportData = (data) => {
+  const { total_solved_ques, total_ques } = data;
+  const total_unsolved_ques = total_ques - total_solved_ques;
+  let topic_wise = [];
+
+  Object.entries(data).forEach(([key, value]) => {
+    if (key !== 'total_ques' && key !== 'total_solved_ques') {
+      const title = key[0].toUpperCase() + key.slice(1);
+      topic_wise.push([title, value]);
+    }
+  });
+  topic_wise.push(['Unsolved', total_unsolved_ques]);
+
+  return {
+    topic_wise,
+    total_ques,
+    total_solved_ques,
+    total_unsolved_ques,
+  };
+};
+
 function getTextStatus(statusInNum) {
   if (statusInNum === 0) return 'done';
   else if (statusInNum === 1) return 'notdone';
@@ -60,8 +83,19 @@ function getTextStatus(statusInNum) {
 function Challenges(props) {
   const [questions, setQuestions] = useState([]);
   const [topics, setTopics] = useState([]);
+  const [reportData, setReportData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   const isSecondRender = useSecondStateChange(topics);
+
+  const getProgressData = async () => {
+    try {
+      const res = await axios.get(API_ENDPOINTS.REPORT);
+      setReportData(transformReportData(res.data));
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   async function onSubmitQuestion(question_unique_id, status) {
     const textStatus = getTextStatus(status);
@@ -75,12 +109,15 @@ function Challenges(props) {
     setQuestions(updatedQuestions);
 
     await submitQuestion({ question_unique_id, status });
+    await getProgressData();
   }
 
   useEffect(() => {
+    getProgressData();
     getQuestions()
       .then((res) => {
-        return setQuestions(transformData(res));
+        setQuestions(transformData(res));
+        setIsLoading(false);
       })
       .catch((err) => {
         toast.error(err.message);
@@ -133,17 +170,25 @@ function Challenges(props) {
     setTopics(updatedTopics);
   }
 
+  if (isLoading) {
+    return (
+      <div className="dashboard d-flex">
+        <div class="spinner-border text-primary m-auto" role="status" />
+      </div>
+    );
+  }
+
   return (
     <div className="dashboard">
       <div className="dashboard__container">
-        <div className="dashboard__heading">
+        {/* <div className="dashboard__heading">
           <ul className="dashboard__ul">
             <li>Algorithm</li>
             <li>Data Structures</li>
           </ul>
-        </div>
+        </div> */}
 
-        <div className="section-wrapper row">
+        <div className="section-wrapper row mt-4">
           <section className="questions col-lg-9 col-md-12 order-lg-1 order-md-2 order-sm-2 order-2">
             {questions.map((question, index) => {
               return (
@@ -158,7 +203,7 @@ function Challenges(props) {
           </section>
           <div className="col-lg-3 col-md-12 order-lg-2 order-md-1 order-sm-1 order-1">
             <section className="questions">
-              <Progress />
+              <Progress reportData={reportData} />
               <Topics topics={topics} toggleTopic={toggleTopic} />
             </section>
           </div>

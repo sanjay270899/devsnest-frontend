@@ -15,4 +15,5 @@ export const API_ENDPOINTS = {
   CURRENT_USER: 'api/v1/users/me',
   CONTENTS: `api/v1/contents`,
   SUBMISSIONS: `api/v1/submissions`,
+  REPORT: `api/v1/users/report`,
 };

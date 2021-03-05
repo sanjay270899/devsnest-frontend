@@ -8,7 +8,7 @@ export default function Dashboard() {
   return (
     <div
       className="my-5 d-flex flex-wrap align-items-start justify-content-center"
-      style={{ minHeight: '70vh' }}
+      style={{ minHeight: 'calc(100vh - 92px)' }}
     >
       <div className="d-flex flex-column shadow profile-card mb-4 mx-5">
         <div className="profile-img-bg" />

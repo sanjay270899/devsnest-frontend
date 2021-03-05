@@ -5,7 +5,7 @@ import taken_by_ufo from '../assets/images/taken_by_ufo.svg';
 function NotFound() {
   return (
     <div
-      style={{ height: '100vh' }}
+      style={{ minHeight: 'calc(100vh - 92px)' }}
       className="d-flex flex-column align-items-center justify-content-center mx-4"
     >
       <img
