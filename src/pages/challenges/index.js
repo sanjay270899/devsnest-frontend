@@ -74,8 +74,7 @@ function Challenges(props) {
 
     setQuestions(updatedQuestions);
 
-    const res = await submitQuestion({ question_unique_id, status });
-    console.log(res);
+    await submitQuestion({ question_unique_id, status });
   }
 
   useEffect(() => {

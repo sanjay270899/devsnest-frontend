@@ -14,4 +14,5 @@ export const API_ENDPOINTS = {
   LOGIN: `api/v1/users/login`,
   CURRENT_USER: 'api/v1/users/me',
   CONTENTS: `api/v1/contents`,
+  SUBMISSIONS: `api/v1/submissions`,
 };

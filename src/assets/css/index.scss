@@ -45,12 +45,15 @@ body {
   }
 }
 
+.nav-item {
+  margin: 0 0 0 1.25rem !important;
+}
+
 .nav-link {
   text-decoration: none;
   color: #9c85d2 !important;
   font-size: 1.25rem;
   transition: 150ms color ease-in;
-  padding: 0 0 0 1.25rem !important;
 
   &:hover {
     color: #ff7d59 !important;
@@ -153,7 +156,6 @@ footer {
 }
 
 .nav-menu.show {
-  width: calc(100% - 20px);
+  width: 100%;
   top: 4px !important;
-  left: 20px !important;
 }

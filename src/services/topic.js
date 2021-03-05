@@ -1,12 +1,10 @@
 import axios from '../config/axios.config';
+import { API_ENDPOINTS } from '../constants/api';
 
 export const getTopics = async (options = {}) => {
   if (!process.env.REACT_APP_MOCK_API) {
     const params = getParams(options);
-    const response = await axios.get(
-      'https://api.devsnest.in/api/v1/contents',
-      { params }
-    );
+    const response = await axios.get(API_ENDPOINTS.CONTENTS, { params });
     return response.data;
   } else return (await fakeTopic()).data;
 };

@@ -6,7 +6,7 @@ import SolvedQuestion from '../../assets/images/dashboard/solved_question.png';
 import UnsolvedQuestion from '../../assets/images/dashboard/solve_question.png';
 import AttemptedQuestion from '../../assets/images/dashboard/retry_question.png';
 
-const getColor = (difficulty) => {
+const getColor = (difficulty = '') => {
   switch (difficulty.toLowerCase()) {
     case 'medium':
       return '#FFF796';
@@ -19,7 +19,7 @@ const getColor = (difficulty) => {
   }
 };
 
-const getStatusImage = (status) => {
+const getStatusImage = (status = '') => {
   switch (status.toLowerCase()) {
     case 'doubt':
       return AttemptedQuestion;
@@ -77,7 +77,6 @@ const Question = (prop) => {
             >
               {difficulty}
             </span>
-            {<span style={{ color: 'white' }}>{getStatusText(status)}</span>}
 
             <img
               style={{ cursor: 'pointer' }}
