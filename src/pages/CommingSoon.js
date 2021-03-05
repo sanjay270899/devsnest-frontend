@@ -4,7 +4,7 @@ export default function CommingSoon() {
   return (
     <div
       className="my-5 d-flex flex-wrap align-items-start justify-content-center"
-      style={{ minHeight: '70vh' }}
+      style={{ minHeight: 'calc(100vh - 92px)' }}
     >
       <div className="d-flex flex-column shadow mx-4 comming-soon-card">
         <img
