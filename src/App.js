@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ReactGA from 'react-ga';
 import { ToastContainer } from 'react-toastify';
 import PrivateRoute from './components/PrivateRoute';
-import ReactGA from 'react-ga';
 import useAuth from './hooks/useAuth';
 
 import 'react-multi-carousel/lib/styles.css';
-import 'react-toastify/dist/ReactToastify.css';
 import './assets/css/index.scss';
+import './assets/css/landing.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -19,7 +20,6 @@ import LoginCallback from './pages/login/Callback';
 import Dashboard from './pages/Dashboard';
 import CommingSoon from './pages/CommingSoon';
 import Challenges from './pages/challenges';
-import Leaderboard from './pages/leaderboard';
 
 function App() {
   useAuth();
@@ -44,9 +44,9 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/login/callback" component={LoginCallback} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute exact path="/challenges" component={Challenges} />
-          <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
+          <PrivateRoute exact path="/leaderboard" component={CommingSoon} />
           <PrivateRoute exact path="/groups" component={CommingSoon} />
+          <PrivateRoute exact path="/challenges" component={Challenges} />
           <Route component={NotFound} />
         </Switch>
       </main>

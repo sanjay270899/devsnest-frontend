@@ -1,6 +1,5 @@
 import React from 'react';
 import Carousel from 'react-multi-carousel';
-import '../assets/css/landing.scss';
 
 import linkedin_icon from '../assets/images/linkedin.svg';
 import achieve from '../assets/images/achieve.png';
