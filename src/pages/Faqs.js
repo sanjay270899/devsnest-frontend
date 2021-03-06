@@ -2,6 +2,8 @@ import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import { faqsData } from '../constants/mock_data';
+import '../assets/css/landing.scss';
+
 import hero2 from '../assets/images/hero2.jpg';
 
 function Faq() {
