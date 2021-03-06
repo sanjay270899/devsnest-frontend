@@ -5,19 +5,20 @@ import { API_ENDPOINTS } from '../../constants/api';
 import './leaderboard.scss';
 
 export default function Leaderboard() {
-  const [leaderboardData, setLeaderboardData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [leaderboardData, setLeaderboardData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const user = useSelector((state) => state.loginState.user);
 
   useEffect(() => {
     axios
-      .get(API_ENDPOINTS.LEADERBOARD)
+      .get(`${API_ENDPOINTS.LEADERBOARD}?page=${currentPage}&size=20`)
       .then((res) => {
-        setLeaderboardData(res.data.scoreboard);
+        setLeaderboardData(res.data);
         setIsLoading(false);
       })
       .catch((e) => console.error(e));
-  }, []);
+  }, [currentPage]);
 
   if (isLoading) {
     return (
@@ -38,8 +39,8 @@ export default function Leaderboard() {
               <div className="h5 mb-0 text-center col-4">Score</div>
             </div>
 
-            {leaderboardData &&
-              leaderboardData.map((item, index) => (
+            {leaderboardData.scoreboard &&
+              leaderboardData.scoreboard.map((item, index) => (
                 <div
                   className={`row py-3 mx-4 ${
                     item.id === user.id ? 'current-user my-2' : 'my-0'
