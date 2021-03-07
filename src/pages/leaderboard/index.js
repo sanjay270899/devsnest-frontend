@@ -19,7 +19,8 @@ export default function Leaderboard() {
     if (!element) return;
     if (
       element.scrollHeight - element.scrollTop <= element.clientHeight + 100 &&
-      currentPage < leaderboardData.count
+      currentPage < leaderboardData.count &&
+      !isLoadingMore
     ) {
       setIsLoadingMore(true);
       setCurrentPage(currentPage + 1);
