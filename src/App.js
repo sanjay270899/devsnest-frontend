@@ -20,6 +20,7 @@ import LoginCallback from './pages/login/Callback';
 import Dashboard from './pages/Dashboard';
 import CommingSoon from './pages/CommingSoon';
 import Challenges from './pages/challenges';
+import Leaderboard from './pages/leaderboard';
 
 function App() {
   useAuth();
@@ -44,9 +45,9 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/login/callback" component={LoginCallback} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute exact path="/leaderboard" component={CommingSoon} />
           <PrivateRoute exact path="/groups" component={CommingSoon} />
           <PrivateRoute exact path="/challenges" component={Challenges} />
+          <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
           <Route component={NotFound} />
         </Switch>
       </main>
