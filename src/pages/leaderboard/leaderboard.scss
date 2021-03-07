@@ -1,5 +1,5 @@
 .leaderboard {
-  min-height: calc(100vh - 92px);
+  height: calc(100vh - 92px);
   background: #f2eff7;
 
   &__container {
@@ -7,6 +7,7 @@
     width: 90%;
     margin: 0 auto;
     padding: 2em 0;
+    height: 100%;
   }
 
   &__table {
@@ -14,6 +15,14 @@
     box-shadow: 0 0 20px #00000033;
     background-color: #fff;
     overflow-y: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &-rows {
+      overflow-x: auto;
+      flex: 1;
+    }
 
     &-header {
       border-bottom: 2px solid #d0d0d0;
