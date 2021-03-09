@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ReactGA from 'react-ga';
 import { ToastContainer, toast } from 'react-toastify';
 import PrivateRoute from './components/PrivateRoute';
+import ConditionalRoute from './components/ConditionalRoute';
 import useAuth from './hooks/useAuth';
 
 import 'react-multi-carousel/lib/styles.css';
@@ -46,11 +47,17 @@ function App() {
 
       <main>
         <Switch>
-          <Route exact path="/" component={Landing} />
+          {/* <Route exact path="/" component={Landing} /> */}
+          <ConditionalRoute
+            exact
+            path="/"
+            loggedInComponent={Dashboard}
+            loggedOutComponent={Landing}
+          />
           <Route exact path="/faqs" component={Faq} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/login/callback" component={LoginCallback} />
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          {/* <PrivateRoute exact path="/dashboard" component={Dashboard} /> */}
           <PrivateRoute exact path="/challenges" component={Challenges} />
           <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
           <PrivateRoute exact path="/groups" component={CommingSoon} />

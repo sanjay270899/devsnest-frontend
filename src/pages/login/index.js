@@ -12,7 +12,7 @@ function Login() {
   const loginState = useSelector((state) => state.loginState);
 
   if (!loginState.isLoading && loginState.loggedIn) {
-    return <Redirect to="/dashboard" />;
+    return <Redirect to="/" />;
   }
 
   return (
