@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import useScroll from '../../hooks/useScroll';
-import axios from '../../config/axios.config';
-import { API_ENDPOINTS } from '../../constants/api';
-import './leaderboard.scss';
+import useScroll from '../hooks/useScroll';
+import axios from '../config/axios.config';
+import { API_ENDPOINTS } from '../constants/api';
+import '../assets/css/leaderboard.scss';
 
 export default function Leaderboard() {
   const [currentPage, setCurrentPage] = useState(1);

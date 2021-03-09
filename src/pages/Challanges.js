@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-
-import Question from '../../components/Question/Question';
-import Progress from '../../components/Progress/Progress';
-import Topics from '../../components/Topics/Topics';
-import { getQuestions } from '../../services/question';
-import { getTopics } from '../../services/topic';
-import './challenges.scss';
-import useSecondStateChange from '../../utils/useSecondStageChange';
-import { submitQuestion } from '../../services/submission';
-import axios from '../../config/axios.config';
-import { API_ENDPOINTS } from '../../constants/api';
+import Question from '../components/Question';
+import Progress from '../components/Progress';
+import Topics from '../components/Topics';
+import { getQuestions } from '../services/question';
+import { getTopics } from '../services/topic';
+import useSecondStateChange from '../utils/useSecondStageChange';
+import { submitQuestion } from '../services/submission';
+import axios from '../config/axios.config';
+import { API_ENDPOINTS } from '../constants/api';
+import '../assets/css/challenges.scss';
 
 const initalQuestionState = {
   title: '',
@@ -20,12 +19,6 @@ const initalQuestionState = {
   id: null,
   link: null,
 };
-
-toast.configure({
-  bodyStyle: {
-    color: 'white',
-  },
-});
 
 // Transforming the data according to the needs of Question Component
 const transformData = (data) => {
