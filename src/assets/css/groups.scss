@@ -1,0 +1,60 @@
+.groups {
+  min-height: calc(100vh - 92px);
+  background: #f2eff7;
+
+  &__container {
+    min-height: calc(100vh - 92px);
+    width: 95%;
+    margin: 0 auto;
+    padding: 2em 0;
+  }
+
+  .group-title {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform-origin: left;
+    transform: rotate(-90deg);
+    width: 500px;
+    opacity: 0.7;
+  }
+
+  .team-list {
+    height: 100%;
+    width: 100%;
+    border-radius: 18px;
+    background-color: #fff;
+    box-shadow: 0 0 20px #0003;
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      .team-list-item {
+        display: flex;
+        align-items: center;
+
+        &-avatar {
+          height: 40px;
+          width: 40px;
+          border-radius: 100px;
+        }
+
+        span {
+          color: #707070;
+        }
+
+        &-leader {
+          height: 25px;
+          width: 25px;
+        }
+      }
+    }
+  }
+
+  .group-activities-list {
+    height: 100%;
+    width: 100%;
+    list-style-type: none;
+  }
+}

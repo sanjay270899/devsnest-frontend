@@ -1,8 +1,7 @@
 import React from 'react';
 import Chart from 'react-google-charts';
-import './Progress.scss';
 
-import ProgressImage from '../../assets/images/dashboard/progress.png';
+import ProgressImage from '../assets/images/dashboard/progress.png';
 
 function Progress(props) {
   const {

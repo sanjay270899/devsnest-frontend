@@ -1,16 +1,20 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Redirect, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import RouteLoading from './RouteLoading';
 
-export default function PrivateRoute({ ...props }) {
+export default function ConditionalRoute({
+  loggedInComponent,
+  loggedOutComponent,
+  ...props
+}) {
   const loginState = useSelector((state) => state.loginState);
 
   if (loginState.isLoading) {
     return <Route {...props} component={RouteLoading} />;
   } else if (!loginState.loggedIn) {
-    return <Redirect to="/login" />;
+    return <Route {...props} component={loggedOutComponent} />;
   } else {
-    return <Route {...props} />;
+    return <Route {...props} component={loggedInComponent} />;
   }
 }

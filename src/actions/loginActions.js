@@ -1,3 +1,5 @@
+// import axios from '../config/axios.config';
+// import { API_ENDPOINTS } from '../constants/api';
 import { LOGIN, LOGIN_LOADING, LOGOUT } from '../constants/types';
 
 export const loginLoadingState = (loadingState) => {
@@ -25,6 +27,7 @@ export const login = (user) => {
 
 export const logout = () => {
   return async (dispatch) => {
+    // await axios.get(API_ENDPOINTS.LOGOUT);
     dispatch({
       type: LOGOUT,
       payload: {

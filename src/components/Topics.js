@@ -1,6 +1,6 @@
 import React from 'react';
-import './Topics.scss';
-import HashTag from '../../assets/images/dashboard/hashtag.png';
+
+import HashTag from '../assets/images/dashboard/hashtag.png';
 
 const Topics = ({ topics, toggleTopic }) => {
   return (

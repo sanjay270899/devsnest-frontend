@@ -482,6 +482,7 @@ function Landing() {
           </div>
 
           <Carousel
+            infinite={true}
             responsive={responsiveMultipleItem}
             className="community__carousel-div__carousel"
           >
@@ -513,7 +514,7 @@ function Landing() {
         </div>
       </section>
 
-      <Carousel responsive={responsiveSingleItem}>
+      <Carousel infinite={true} responsive={responsiveSingleItem}>
         <section className="stories">
           <div className="stories__container">
             <div className="stories__left-side">

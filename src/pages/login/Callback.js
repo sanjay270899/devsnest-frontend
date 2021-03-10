@@ -35,7 +35,7 @@ export default function LoginCallback() {
             ...response.data.data.attributes,
             authorization: response.headers['authorization'],
           });
-          history.push('/dashboard');
+          history.push('/');
         }
       })
       .catch((err) => {
@@ -45,7 +45,7 @@ export default function LoginCallback() {
   }, []);
 
   if (!loginState.isLoading && loginState.loggedIn) {
-    return <Redirect to="/dashboard" />;
+    return <Redirect to="/" />;
   }
 
   return (
