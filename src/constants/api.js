@@ -17,4 +17,5 @@ export const API_ENDPOINTS = {
   SUBMISSIONS: `api/v1/submissions`,
   REPORT: `api/v1/users/report`,
   LEADERBOARD: `api/v1/users/leaderboard`,
+  GROUPS: `api/v1/groups`,
 };
