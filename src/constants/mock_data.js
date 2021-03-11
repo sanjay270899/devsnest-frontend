@@ -1,13 +1,13 @@
-import ved from '../assets/images/mentor_ved.jpg';
-import kshitiz from '../assets/images/mentors/kshitiz.png';
-import vaibhav from '../assets/images/mentors/vaibhav_nutanix.jpg';
-import sai from '../assets/images/mentor_sai.jpg';
-import abhishek from '../assets/images/mentors/Abhishek_eduflow.jpg';
-import naman from '../assets/images/mentors/naman_hackerrank.jpg';
-import kritarth from '../assets/images/mentors/kritarth_facebook.jpg';
-import akshay from '../assets/images/mentors/akshay_atlassian.jpg';
-import sudhanshu from '../assets/images/mentors/sudhanshu_hackerrank.jpg';
-import rohit from '../assets/images/mentors/rohit_hackerrank.jpg';
+import ved from '../assets/images/people/mentor_ved.jpg';
+import kshitiz from '../assets/images/people/kshitiz.png';
+import vaibhav from '../assets/images/people/vaibhav_nutanix.jpg';
+import sai from '../assets/images/people/mentor_sai.jpg';
+import abhishek from '../assets/images/people/Abhishek_eduflow.jpg';
+import naman from '../assets/images/people/naman_hackerrank.jpg';
+import kritarth from '../assets/images/people/kritarth_facebook.jpg';
+import akshay from '../assets/images/people/akshay_atlassian.jpg';
+import sudhanshu from '../assets/images/people/sudhanshu_hackerrank.jpg';
+import rohit from '../assets/images/people/rohit_hackerrank.jpg';
 
 export const faqsData = [
   {
@@ -166,7 +166,7 @@ export const webinarData = [
     name: 'Ankit Goyal',
     title: 'Google',
     descp: 'Graphs Minimum Spanning Trees and Interviewing at Google',
-    img: './mentors/Ankit_goyal_google.jpeg',
+    img: './people/Ankit_goyal_google.jpeg',
   }, */
 
   {
