@@ -14,11 +14,22 @@ import '../assets/css/challenges.scss';
 const initalQuestionState = {
   title: '',
   tags: [],
-  difficulty: 'Medium',
+  difficulty: '',
   status: null,
   id: null,
   link: null,
 };
+
+const DIFFICULTIES = [
+  { title: 'Easy', key: 'easy' },
+  { title: 'Medium', key: 'medium' },
+  { title: 'Hard', key: 'hard' },
+];
+
+const QUESTION_TYPES = [
+  { title: 'Class', key: 'class' },
+  { title: 'Assignment', key: 'assignment' },
+];
 
 // Transforming the data according to the needs of Question Component
 const transformData = (data) => {
@@ -86,6 +97,8 @@ function getTextStatus(statusInNum) {
 function Challenges(props) {
   const [questions, setQuestions] = useState([]);
   const [topics, setTopics] = useState([]);
+  const [difficulty, setDifficulty] = useState('');
+  const [questionType, setQuestionType] = useState('');
   const [reportData, setReportData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -148,6 +161,8 @@ function Challenges(props) {
     if (isSecondRender) {
       getQuestions({
         topics: getSelectedTopics(),
+        difficulty: difficulty,
+        question_type: questionType,
       })
         .then((res) => {
           return setQuestions(transformData(res));
@@ -157,7 +172,7 @@ function Challenges(props) {
         });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [topics]);
+  }, [topics, difficulty, questionType]);
 
   function getSelectedTopics() {
     return topics.filter((topic) => topic.selected);
@@ -208,7 +223,17 @@ function Challenges(props) {
           <div className="col-lg-3 col-md-12 order-lg-2 order-md-1 order-sm-1 order-1">
             <section className="questions">
               <Progress reportData={reportData} />
-              <Topics topics={topics} toggleTopic={toggleTopic} />
+
+              <Topics
+                topics={topics}
+                toggleTopic={toggleTopic}
+                difficulties={DIFFICULTIES}
+                difficulty={difficulty}
+                setDifficulty={setDifficulty}
+                questionTypes={QUESTION_TYPES}
+                questionType={questionType}
+                setQuestionType={setQuestionType}
+              />
             </section>
           </div>
         </div>

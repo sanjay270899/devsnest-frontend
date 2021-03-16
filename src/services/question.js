@@ -11,10 +11,12 @@ export const getQuestions = async (options = {}) => {
   } else return (await fakeQuestionData()).data;
 };
 
-const getParams = (options) => {
-  const { topics } = options;
+const getParams = (options = {}) => {
+  const { topics, difficulty, question_type } = options;
   const params = {};
   params[`filter[data_type]`] = 'question';
+  if (difficulty) params[`filter[difficulty]`] = difficulty;
+  if (question_type) params[`filter[question_type]`] = question_type;
 
   if (topics && topics.length > 0) {
     // parent_id is the list of topics selected seperated by a comma

@@ -131,6 +131,7 @@
 .topics {
   &__container {
     width: 100%;
+    margin-bottom: 36px;
 
     &-heading {
       font-size: 20px;
@@ -148,5 +149,6 @@
     margin: 10px 5px;
     padding: 8px;
     border-radius: 10px;
+    text-transform: capitalize;
   }
 }
