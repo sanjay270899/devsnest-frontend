@@ -438,7 +438,7 @@ function Landing() {
 
               <div className="community__main__left-side__whatsapp__right">
                 <a
-                  href="https://chat.whatsapp.com/HiydVcSC5TSLuiJWvX9GYi"
+                  href="https://chat.whatsapp.com/JuPPTZLCSYkIxOMR9FaRAr"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
