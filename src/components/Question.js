@@ -36,6 +36,7 @@ const Question = (prop) => {
     title,
     tags,
     difficulty,
+    question_type,
     index,
     status,
     link,
@@ -61,6 +62,11 @@ const Question = (prop) => {
           </div>
 
           <div className="question__tags">
+            {question_type && (
+              <span className="badge question__tag">
+                {question_type.charAt(0).toUpperCase() + question_type.slice(1)}
+              </span>
+            )}
             {tags.map((tag) => (
               <span key={tag} className="badge question__tag">
                 {tag.charAt(0).toUpperCase() + tag.slice(1)}

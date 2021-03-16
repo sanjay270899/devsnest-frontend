@@ -24,7 +24,15 @@ const initalQuestionState = {
 const transformData = (data) => {
   return data.data.map((each) => {
     const info = each.attributes;
-    const { unique_id: id, name: title, link, parent_id, status } = info;
+    const {
+      unique_id: id,
+      name: title,
+      link,
+      parent_id,
+      status,
+      difficulty,
+      question_type,
+    } = info;
 
     return {
       ...initalQuestionState,
@@ -32,6 +40,8 @@ const transformData = (data) => {
       title,
       link,
       status,
+      difficulty,
+      question_type,
       tags: [parent_id],
     };
   });
@@ -194,6 +204,7 @@ function Challenges(props) {
               );
             })}
           </section>
+
           <div className="col-lg-3 col-md-12 order-lg-2 order-md-1 order-sm-1 order-1">
             <section className="questions">
               <Progress reportData={reportData} />
