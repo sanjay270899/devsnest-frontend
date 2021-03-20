@@ -101,6 +101,9 @@ function Challenges(props) {
   const [questionType, setQuestionType] = useState('');
   const [reportData, setReportData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [disableQuestionSubmission, setDisableQuestionSubmission] = useState(
+    false
+  );
 
   const isSecondRender = useSecondStateChange(topics);
 
@@ -114,6 +117,7 @@ function Challenges(props) {
   };
 
   async function onSubmitQuestion(question_unique_id, status) {
+    setDisableQuestionSubmission(true);
     const textStatus = getTextStatus(status);
 
     const updatedQuestions = [...questions];
@@ -126,6 +130,7 @@ function Challenges(props) {
 
     await submitQuestion({ question_unique_id, status });
     await getProgressData();
+    setDisableQuestionSubmission(false);
   }
 
   useEffect(() => {
@@ -215,6 +220,7 @@ function Challenges(props) {
                   {...question}
                   index={index + 1}
                   key={question.id}
+                  disableQuestionSubmission={disableQuestionSubmission}
                 />
               );
             })}

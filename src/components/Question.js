@@ -42,6 +42,7 @@ const Question = (prop) => {
     link,
     id,
     onSubmitStatus,
+    disableQuestionSubmission,
   } = prop;
 
   return (
@@ -88,14 +89,20 @@ const Question = (prop) => {
               alt="status"
               src={getStatusImage(status)}
               id={`questionStatus-${id}`}
-              onClick={() => onSubmitStatus(id, getNewStatus(status))}
+              onClick={() =>
+                disableQuestionSubmission
+                  ? null
+                  : onSubmitStatus(id, getNewStatus(status))
+              }
             />
 
             <UncontrolledTooltip
               placement="right"
               target={`questionStatus-${id}`}
             >
-              {getStatusText(status)}
+              {disableQuestionSubmission
+                ? 'Submitting...'
+                : getStatusText(status)}
             </UncontrolledTooltip>
           </div>
         </div>
