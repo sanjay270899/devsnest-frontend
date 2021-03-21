@@ -2,23 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import Question from '../components/Question';
 import Progress from '../components/Progress';
-import Topics from '../components/Topics';
+import QuestionFilters from '../components/QuestionFilters';
 import { getQuestions } from '../services/question';
 import { getTopics } from '../services/topic';
-import useSecondStateChange from '../utils/useSecondStageChange';
 import { submitQuestion } from '../services/submission';
 import axios from '../config/axios.config';
 import { API_ENDPOINTS } from '../constants/api';
 import '../assets/css/challenges.scss';
-
-const initalQuestionState = {
-  title: '',
-  tags: [],
-  difficulty: '',
-  status: null,
-  id: null,
-  link: null,
-};
 
 const DIFFICULTIES = [
   { title: 'Easy', key: 'easy' },
@@ -31,10 +21,8 @@ const QUESTION_TYPES = [
   { title: 'Assignment', key: 'assignment' },
 ];
 
-// Transforming the data according to the needs of Question Component
-const transformData = (data) => {
-  return data.data.map((each) => {
-    const info = each.attributes;
+const transformQuestionsData = (data) => {
+  return data.data.map((question) => {
     const {
       unique_id: id,
       name: title,
@@ -43,10 +31,9 @@ const transformData = (data) => {
       status,
       difficulty,
       question_type,
-    } = info;
+    } = question.attributes;
 
     return {
-      ...initalQuestionState,
       id,
       title,
       link,
@@ -105,7 +92,19 @@ function Challenges(props) {
     false
   );
 
-  const isSecondRender = useSecondStateChange(topics);
+  function toggleTopic(name) {
+    const updatedTopics = [...topics];
+
+    const selectedTopic = updatedTopics.find((topic) => topic.name === name);
+    if (!selectedTopic) return;
+
+    selectedTopic.selected = !selectedTopic.selected;
+    setTopics(updatedTopics);
+  }
+
+  function getSelectedTopics() {
+    return topics.filter((topic) => topic.selected);
+  }
 
   const getProgressData = async () => {
     try {
@@ -135,18 +134,7 @@ function Challenges(props) {
 
   useEffect(() => {
     getProgressData();
-    getQuestions()
-      .then((res) => {
-        setQuestions(transformData(res));
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        toast.error(err.message);
-      });
-  }, []);
 
-  // Get all the topics
-  useEffect(() => {
     getTopics()
       .then((res) => {
         setTopics(transformTopicsData(res.data));
@@ -156,42 +144,24 @@ function Challenges(props) {
       });
   }, []);
 
-  // fetch new questions on updated topics list
-
-  // A seperate api call is made to get the topics.
-  // as the initial value of topics is [],
-  // It calls this function with [] which is redundant
-  // hence ignoring the first render change useEffect
   useEffect(() => {
-    if (isSecondRender) {
-      getQuestions({
-        topics: getSelectedTopics(),
-        difficulty: difficulty,
-        question_type: questionType,
+    // let topics load first
+    if (topics.length === 0) return;
+
+    getQuestions({
+      topics: getSelectedTopics(),
+      difficulty: difficulty,
+      question_type: questionType,
+    })
+      .then((res) => {
+        setQuestions(transformQuestionsData(res));
+        isLoading && setIsLoading(false);
       })
-        .then((res) => {
-          return setQuestions(transformData(res));
-        })
-        .catch((err) => {
-          toast.error(err.message);
-        });
-    }
+      .catch((err) => {
+        toast.error(err.message);
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [topics, difficulty, questionType]);
-
-  function getSelectedTopics() {
-    return topics.filter((topic) => topic.selected);
-  }
-
-  function toggleTopic(name) {
-    const updatedTopics = [...topics];
-
-    const selectedTopic = updatedTopics.find((topic) => topic.name === name);
-    if (!selectedTopic) return;
-
-    selectedTopic.selected = !selectedTopic.selected;
-    setTopics(updatedTopics);
-  }
 
   if (isLoading) {
     return (
@@ -213,35 +183,31 @@ function Challenges(props) {
 
         <div className="section-wrapper row mt-4">
           <section className="questions col-lg-9 col-md-12 order-lg-1 order-md-2 order-sm-2 order-2">
-            {questions.map((question, index) => {
-              return (
-                <Question
-                  onSubmitStatus={onSubmitQuestion}
-                  {...question}
-                  index={index + 1}
-                  key={question.id}
-                  disableQuestionSubmission={disableQuestionSubmission}
-                />
-              );
-            })}
+            {questions.map((question, index) => (
+              <Question
+                key={question.id}
+                index={index + 1}
+                {...question}
+                onSubmitStatus={onSubmitQuestion}
+                disableQuestionSubmission={disableQuestionSubmission}
+              />
+            ))}
           </section>
 
-          <div className="col-lg-3 col-md-12 order-lg-2 order-md-1 order-sm-1 order-1">
-            <section className="questions">
-              <Progress reportData={reportData} />
+          <section className="col-lg-3 col-md-12 order-lg-2 order-md-1 order-sm-1 order-1">
+            <Progress reportData={reportData} />
 
-              <Topics
-                topics={topics}
-                toggleTopic={toggleTopic}
-                difficulties={DIFFICULTIES}
-                difficulty={difficulty}
-                setDifficulty={setDifficulty}
-                questionTypes={QUESTION_TYPES}
-                questionType={questionType}
-                setQuestionType={setQuestionType}
-              />
-            </section>
-          </div>
+            <QuestionFilters
+              topics={topics}
+              toggleTopic={toggleTopic}
+              difficulties={DIFFICULTIES}
+              difficulty={difficulty}
+              setDifficulty={setDifficulty}
+              questionTypes={QUESTION_TYPES}
+              questionType={questionType}
+              setQuestionType={setQuestionType}
+            />
+          </section>
         </div>
       </div>
     </div>

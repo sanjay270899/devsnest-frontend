@@ -2,7 +2,7 @@ import React from 'react';
 
 import HashTag from '../assets/images/dashboard/hashtag.png';
 
-const Topics = ({
+const QuestionFilters = ({
   topics,
   toggleTopic,
   difficulties,
@@ -14,13 +14,13 @@ const Topics = ({
 }) => {
   return (
     <>
-      <div className="topics__container">
-        <h3 className="topics__container-heading">
-          <img src={HashTag} alt="topics icon" />
+      <div className="qfilter__container">
+        <h3 className="qfilter__container-heading">
+          <img src={HashTag} alt="qfiltericon" />
           <span>Topics:</span>
         </h3>
 
-        <div className="topics__wrapper">
+        <div className="qfilter__wrapper">
           {topics.map((topic) => {
             return (
               <span
@@ -31,7 +31,7 @@ const Topics = ({
                 }}
                 key={topic.name}
                 onClick={() => toggleTopic(topic.name)}
-                className="badge topics-tag"
+                className="badge qfilter-tag"
               >
                 {topic.name}
               </span>
@@ -40,13 +40,13 @@ const Topics = ({
         </div>
       </div>
 
-      <div className="topics__container">
-        <h3 className="topics__container-heading">
-          <img src={HashTag} alt="topics icon" />
+      <div className="qfilter__container">
+        <h3 className="qfilter__container-heading">
+          <img src={HashTag} alt="qfiltericon" />
           <span>Difficulty:</span>
         </h3>
 
-        <div className="topics__wrapper">
+        <div className="qfilter__wrapper">
           {difficulties.map((diff) => {
             const isSelected = diff.key === difficulty;
             return (
@@ -60,7 +60,7 @@ const Topics = ({
                 onClick={() =>
                   isSelected ? setDifficulty('') : setDifficulty(diff.key)
                 }
-                className="badge topics-tag"
+                className="badge qfilter-tag"
               >
                 {diff.title}
               </span>
@@ -69,13 +69,13 @@ const Topics = ({
         </div>
       </div>
 
-      <div className="topics__container">
-        <h3 className="topics__container-heading">
-          <img src={HashTag} alt="topics icon" />
+      <div className="qfilter__container">
+        <h3 className="qfilter__container-heading">
+          <img src={HashTag} alt="qfiltericon" />
           <span>Question Type:</span>
         </h3>
 
-        <div className="topics__wrapper">
+        <div className="qfilter__wrapper">
           {questionTypes.map((queType) => {
             const isSelected = queType.key === questionType;
             return (
@@ -91,7 +91,7 @@ const Topics = ({
                     ? setQuestionType('')
                     : setQuestionType(queType.key)
                 }
-                className="badge topics-tag"
+                className="badge qfilter-tag"
               >
                 {queType.title}
               </span>
@@ -103,4 +103,4 @@ const Topics = ({
   );
 };
 
-export default Topics;
+export default QuestionFilters;
