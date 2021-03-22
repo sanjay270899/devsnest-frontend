@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import default_user from '../assets/images/default_user.png';
+import UserImage from '../components/UserImage';
 
 export default function Dashboard() {
   const user = useSelector((state) => state.loginState.user);
@@ -14,7 +15,7 @@ export default function Dashboard() {
         <div className="profile-img-bg" />
 
         <div className="mx-4">
-          <img
+          <UserImage
             src={user.image_url || default_user}
             alt={`${user.name}'s profile`}
             className="profile-img"

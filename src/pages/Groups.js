@@ -15,8 +15,9 @@ import mentor_feedback from '../assets/images/groups/mentor_feedback.svg';
 import mentor_mentee_feedback from '../assets/images/groups/mentor_mentee_feedback.svg';
 import peer_interviews from '../assets/images/groups/peer_interviews.svg';
 import scrums from '../assets/images/groups/scrums.svg';
+import UserImage from '../components/UserImage';
 
-const show_groups_feature = false;
+const show_groups_feature = true;
 
 const group_activities = [
   { title: 'Scrums', key: 'scrums', img: scrums },
@@ -121,10 +122,10 @@ export default function Groups() {
                   key={item.user_id}
                   className="px-3 py-2 my-1 rounded-lg team-list-item"
                 >
-                  <img
+                  <UserImage
                     className="team-list-item-avatar"
                     src={item.user_details.avatar || default_user}
-                    alt="user"
+                    alt=""
                   />
                   <span className="ml-3 h5 mb-0 text-truncate">
                     {item.user_details.username || 'Team Member'}
@@ -162,7 +163,9 @@ export default function Groups() {
             </div>
 
             <div className="col d-flex flex-column align-items-center justify-content-center">
-              {!currentTab ? (
+              {currentTab === 'scrum' ? (
+                <div className=""></div>
+              ) : !currentTab ? (
                 <>
                   <img
                     className="img-fluid mx-3"
