@@ -16,6 +16,9 @@ $color-grey: #707070;
 .text-primary-dark {
   color: #8264b4 !important;
 }
+.text-muted-dark {
+  color: #707070 !important;
+}
 
 body {
   line-height: 1.2;
@@ -161,4 +164,62 @@ footer {
 .nav-menu.show {
   width: 100%;
   top: 4px !important;
+}
+
+.custom-switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: '';
+    height: 13px;
+    width: 13px;
+    left: 2px;
+    top: 2px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+
+  input:disabled + .slider {
+    opacity: 0.85;
+    cursor: default;
+  }
+
+  input:checked + .slider {
+    background-color: var(--secondary);
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px var(--secondary);
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(calc(100% + 6px));
+    -ms-transform: translateX(calc(100% + 6px));
+    transform: translateX(calc(100% + 6px));
+  }
 }

@@ -3,6 +3,8 @@ import axios from '../config/axios.config';
 import { API_ENDPOINTS } from '../constants/api';
 import { useSelector } from 'react-redux';
 import myLog from '../utils/myLog';
+import UserImage from '../components/UserImage';
+import Scrums from '../components/groups/Scrums';
 import '../assets/css/groups.scss';
 
 import default_user from '../assets/images/default_user.png';
@@ -15,9 +17,6 @@ import mentor_feedback from '../assets/images/groups/mentor_feedback.svg';
 import mentor_mentee_feedback from '../assets/images/groups/mentor_mentee_feedback.svg';
 import peer_interviews from '../assets/images/groups/peer_interviews.svg';
 import scrums from '../assets/images/groups/scrums.svg';
-import UserImage from '../components/UserImage';
-
-const show_groups_feature = true;
 
 const group_activities = [
   { title: 'Scrums', key: 'scrums', img: scrums },
@@ -34,7 +33,7 @@ const group_activities = [
     img: mentor_mentee_feedback,
   },
   {
-    title: 'Assignment Checking/Feedback',
+    title: 'Assignment Checking',
     key: 'assignment_checking',
     img: assignment_checking,
   },
@@ -45,7 +44,7 @@ export default function Groups() {
   const user = useSelector((state) => state.loginState.user);
   const [isLoading, setIsLoading] = useState(true);
   const [groupData, setGroupData] = useState({});
-  const [currentTab, setCurrentTab] = useState('');
+  const [currentTab, setCurrentTab] = useState('scrums');
 
   const loadData = async () => {
     try {
@@ -143,65 +142,68 @@ export default function Groups() {
           </div>
         </div>
 
-        {show_groups_feature ? (
-          <>
-            <div className="col group-activities">
-              <ul className="group-activities-list">
-                {group_activities.map((item, index) => {
-                  const onClick = () => {
-                    if (item.key === currentTab) setCurrentTab('');
-                    else setCurrentTab(item.key);
-                  };
+        <div className="col group-activities">
+          <ul className="group-activities-list">
+            {group_activities.map((item, index) => {
+              const isSelected = item.key === currentTab;
+              const onClick = () => {
+                if (isSelected) setCurrentTab('');
+                else setCurrentTab(item.key);
+              };
 
-                  return (
-                    <li key={index} onClick={onClick}>
+              return (
+                <li
+                  key={index}
+                  onClick={onClick}
+                  className={isSelected ? 'active' : ''}
+                >
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    id={`item-img-${item.key}`}
+                  />
+                  <div className="activity-item-hover">
+                    <div>
                       <img src={item.img} alt={item.title} />
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+                      <span className="text-muted-dark mx-3">{item.title}</span>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
 
-            <div className="col d-flex flex-column align-items-center justify-content-center">
-              {currentTab === 'scrum' ? (
-                <div className=""></div>
-              ) : !currentTab ? (
-                <>
-                  <img
-                    className="img-fluid mx-3"
-                    src={no_data}
-                    alt="New things are comming soon!"
-                  />
-                  <h5 className="text-center text-muted mt-5 mb-0">
-                    Select a tab from left.
-                  </h5>
-                </>
-              ) : (
-                <>
-                  <img
-                    className="img-fluid mx-3"
-                    src={no_data}
-                    alt="New things are comming soon!"
-                  />
-                  <h5 className="text-center text-muted mt-5 mb-0">
-                    Interesting things are comming soon!
-                  </h5>
-                </>
-              )}
-            </div>
-          </>
-        ) : (
-          <div className="col d-flex flex-column align-items-center justify-content-center">
-            <img
-              className="img-fluid"
-              src={no_data}
-              alt="New things are comming soon!"
+        <div className="col d-flex flex-column align-items-center justify-content-center">
+          {currentTab === 'scrums' ? (
+            <Scrums
+              group={groupData.group}
+              groupMembers={groupData.groupMembers}
             />
-            <h5 className="text-center text-muted mt-5 mb-0">
-              Interesting things are comming soon!
-            </h5>
-          </div>
-        )}
+          ) : !currentTab ? (
+            <>
+              <img
+                className="img-fluid mx-3"
+                src={no_data}
+                alt="New things are comming soon!"
+              />
+              <h5 className="text-center text-muted mt-5 mb-0">
+                Select a tab from left.
+              </h5>
+            </>
+          ) : (
+            <>
+              <img
+                className="img-fluid mx-3"
+                src={no_data}
+                alt="New things are comming soon!"
+              />
+              <h5 className="text-center text-muted mt-5 mb-0">
+                Interesting things are comming soon!
+              </h5>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
