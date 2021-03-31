@@ -11,9 +11,9 @@ import {
 
 export default function Scrums({ group, groupMembers }) {
   const user = useSelector((state) => state.loginState.user);
-  const isTeamOwner = group.owner_id === user.user_id;
+  const isTeamOwner = group.owner_id === user.id;
   const [members, setMembers] = useState(
-    groupMembers.map((item) => ({ data: '', attendance: false, ...item }))
+    groupMembers.map((item) => ({ data: '', attendence: false, ...item }))
   );
   const [isSaving, setIsSaving] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +22,11 @@ export default function Scrums({ group, groupMembers }) {
     setIsSaving(true);
     if (isTeamOwner) {
       for (let member of members) {
-        await saveScrum(member);
+        if (member.user_id === user.id) {
+          await saveCurrentUserScrum(member, true);
+        } else {
+          await saveScrum(member);
+        }
       }
     } else {
       const data = members.find((member) => member.user_id === user.id);
@@ -91,15 +95,15 @@ export default function Scrums({ group, groupMembers }) {
 
                   <label
                     className="custom-switch"
-                    htmlFor={`${member.user_id}-attendance`}
+                    htmlFor={`${member.user_id}-attendence`}
                   >
                     <input
-                      id={`${member.user_id}-attendance`}
+                      id={`${member.user_id}-attendence`}
                       type="checkbox"
                       disabled={!isTeamOwner}
-                      checked={member.attendance}
+                      checked={member.attendence}
                       onChange={(e) =>
-                        updateMember(member, { attendance: e.target.checked })
+                        updateMember(member, { attendence: e.target.checked })
                       }
                     />
                     <span className="slider round"></span>
