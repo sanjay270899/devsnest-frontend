@@ -229,14 +229,17 @@ footer {
   width: 8px;
   height: 8px;
 }
+
 .custom-scrollbars ::-webkit-scrollbar-track {
   border-radius: 10px;
   background-color: #fff;
 }
+
 .custom-scrollbars ::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.15);
   border-radius: 10px;
 }
+
 .custom-scrollbars ::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.2);
 }
