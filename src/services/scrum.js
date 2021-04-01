@@ -63,7 +63,7 @@ export const saveCurrentUserScrum = async (member, sendAttendence) => {
     rate_yesterday_class,
   };
 
-  if (data.id) {
+  if (id) {
     const response = await axios.put(`${API_ENDPOINTS.SCRUMS}/${id}`, {
       data: { attributes, id, type: 'scrums' },
     });
