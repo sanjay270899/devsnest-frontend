@@ -247,7 +247,7 @@ export default function Scrums({ group, groupMembers }) {
                           <input
                             id={`saw_last_lecture-${index}`}
                             type="checkbox"
-                            disabled={!isTeamOwner}
+                            disabled={disableInputs}
                             checked={member.saw_last_lecture || false}
                             onChange={(e) =>
                               updateMember(member, {
