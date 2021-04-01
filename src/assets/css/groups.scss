@@ -124,37 +124,76 @@
       align-items: stretch;
 
       .scrums-wrapper {
-        overflow-y: scroll;
         flex: 1;
+        overflow-y: scroll;
 
-        .scrum-input {
-          background-color: #f8f7fc;
+        .scrum-questions-wrapper {
           width: 100%;
-          padding: 8px;
           border-radius: 14px;
-          border: 0px;
-          resize: vertical;
+          background-color: #f8f7fb;
         }
 
-        .scrum-save-btn {
+        .form-group {
+          width: 100%;
           border: 0px;
-          border-radius: 4px;
-          background: transparent;
-          padding: 0.325rem 0.5rem;
-          color: var(--primary);
-          outline: none;
+          outline: 0px;
+          margin: 0px !important;
+          border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+          display: flex;
+          align-items: center;
 
-          &:hover {
-            background-color: rgba(0, 0, 0, 0.05);
+          label {
+            color: #4d4d4d;
+            margin: 0px;
+            padding: 12px 14px;
+            font-weight: 500;
+            border-right: 2px solid rgba(0, 0, 0, 0.05);
           }
+
+          input {
+            background-color: transparent;
+            border-color: transparent;
+            padding: 12px 14px;
+            margin: 0px;
+          }
+        }
+
+        .scrum-input {
+          width: 100%;
+          border: 0px;
+          padding: 12px 14px;
+          outline: 0px;
+          resize: vertical;
+          background-color: transparent;
+          border: 1px solid transparent;
+          transition: 0.1s border-color ease-in;
+          border-bottom-left-radius: 14px;
+          border-bottom-right-radius: 14px;
 
           &:focus {
-            background-color: rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
           }
+        }
+      }
 
-          &:disabled {
-            opacity: 0.85;
-          }
+      .scrum-save-btn {
+        border: 0px;
+        outline: none;
+        border-radius: 4px;
+        color: var(--primary);
+        background: transparent;
+        padding: 0.325rem 0.5rem;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        &:focus {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        &:disabled {
+          opacity: 0.85;
         }
       }
     }

@@ -113,7 +113,7 @@ export default function Groups() {
           </h1>
         </div>
 
-        <div className="col-4" style={{ maxWidth: 400 }}>
+        <div className="col-3" style={{ maxWidth: 400 }}>
           <div className="team-list p-2">
             <ul className="d-flex flex-column">
               {groupData.groupMembers.map((item) => (

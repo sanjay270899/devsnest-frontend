@@ -186,8 +186,8 @@ footer {
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
     border-radius: 34px;
   }
 
@@ -199,8 +199,8 @@ footer {
     left: 2px;
     top: 2px;
     background-color: white;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
     border-radius: 50%;
   }
 
@@ -222,4 +222,20 @@ footer {
     -ms-transform: translateX(calc(100% + 6px));
     transform: translateX(calc(100% + 6px));
   }
+}
+
+.custom-scrollbars ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.custom-scrollbars ::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #fff;
+}
+.custom-scrollbars ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+.custom-scrollbars ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
 }
