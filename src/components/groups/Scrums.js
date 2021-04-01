@@ -57,6 +57,7 @@ export default function Scrums({ group, groupMembers }) {
         setMembers(newMembers);
       }
       loadScrums();
+      toast('Saved successfully', { type: 'success' });
     } catch (e) {
       console.error(e);
       toast('An error occured while saving', { type: 'error' });
@@ -69,9 +70,11 @@ export default function Scrums({ group, groupMembers }) {
     try {
       const scrums = await getScrums();
       const newMembers = members.map((mem) => {
-        const data = scrums.find((sc) => sc.user_id === mem.user_id);
+        const data = scrums.data.find(
+          (sc) => sc.attributes.user_id === mem.user_id
+        );
         return data
-          ? { ...mem, ...data, id: data.id }
+          ? { ...mem, ...data.attributes, id: data.id }
           : { ...mem, ...DEFAULT_MEMBER_OBJECT };
       });
       setMembers(newMembers);
@@ -172,24 +175,6 @@ export default function Scrums({ group, groupMembers }) {
                     </div>
 
                     <div className="form-group row align-items-strech">
-                      <label className="col">
-                        Did you watch the last lecture?
-                      </label>
-                      <input
-                        className="col"
-                        type="text"
-                        disabled={disableInputs}
-                        value={member.saw_last_lecture}
-                        onChange={(e) =>
-                          updateMember(member, {
-                            saw_last_lecture: e.target.value,
-                          })
-                        }
-                        placeholder="Your answer..."
-                      />
-                    </div>
-
-                    <div className="form-group row align-items-strech">
                       <label className="col">Reason for backlog</label>
                       <input
                         className="col"
@@ -203,6 +188,47 @@ export default function Scrums({ group, groupMembers }) {
                         }
                         placeholder="Your answer..."
                       />
+                    </div>
+
+                    <div className="form-group row align-items-strech">
+                      <label className="col">What did you cover today?</label>
+                      <input
+                        className="col"
+                        type="text"
+                        disabled={disableInputs}
+                        value={member.what_cover_today}
+                        onChange={(e) =>
+                          updateMember(member, {
+                            what_cover_today: e.target.value,
+                          })
+                        }
+                        placeholder="Your answer..."
+                      />
+                    </div>
+
+                    <div className="form-group row align-items-strech">
+                      <label className="col">
+                        Did you watch the last lecture?
+                      </label>
+                      <div className="d-flex align-items-center">
+                        <label
+                          className="custom-switch m-0"
+                          htmlFor={`saw_last_lecture-${index}`}
+                        >
+                          <input
+                            id={`saw_last_lecture-${index}`}
+                            type="checkbox"
+                            disabled={!isTeamOwner}
+                            checked={member.saw_last_lecture || false}
+                            onChange={(e) =>
+                              updateMember(member, {
+                                saw_last_lecture: e.target.checked,
+                              })
+                            }
+                          />
+                          <span className="slider round"></span>
+                        </label>
+                      </div>
                     </div>
 
                     <div className="form-group row align-items-strech">

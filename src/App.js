@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ReactGA from 'react-ga';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import PrivateRoute from './components/PrivateRoute';
 import ConditionalRoute from './components/ConditionalRoute';
 import useAuth from './hooks/useAuth';
@@ -22,12 +22,6 @@ import Dashboard from './pages/Dashboard';
 import Challenges from './pages/Challanges';
 import Leaderboard from './pages/Leaderboard';
 import Groups from './pages/Groups';
-
-toast.configure({
-  bodyStyle: {
-    color: 'white',
-  },
-});
 
 function App() {
   useAuth();
@@ -64,7 +58,18 @@ function App() {
       </main>
 
       <Footer />
-      <ToastContainer />
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </Router>
   );
 }

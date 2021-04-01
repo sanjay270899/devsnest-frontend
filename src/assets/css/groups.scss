@@ -142,7 +142,12 @@
           display: flex;
           align-items: center;
 
-          label {
+          & > div {
+            flex: 1;
+            padding: 12px 14px;
+          }
+
+          & > label {
             color: #4d4d4d;
             margin: 0px;
             padding: 12px 14px;
