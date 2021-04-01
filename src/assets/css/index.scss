@@ -16,6 +16,7 @@ $color-grey: #707070;
 .text-primary-dark {
   color: #8264b4 !important;
 }
+
 .text-muted-dark {
   color: #707070 !important;
 }
@@ -192,7 +193,7 @@ footer {
     border: 1px solid transparent;
   }
 
-  .slider:before {
+  .slider::before {
     position: absolute;
     content: '';
     height: 13px;
@@ -218,7 +219,7 @@ footer {
     border-color: var(--primary);
   }
 
-  input:checked + .slider:before {
+  input:checked + .slider::before {
     -webkit-transform: translateX(calc(100% + 5px));
     -ms-transform: translateX(calc(100% + 5px));
     transform: translateX(calc(100% + 5px));
