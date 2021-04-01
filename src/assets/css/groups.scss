@@ -155,11 +155,22 @@
             border-right: 2px solid rgba(0, 0, 0, 0.05);
           }
 
+          &:first-child > input {
+            border-top-right-radius: 14px;
+          }
+
           input {
-            background-color: transparent;
-            border-color: transparent;
-            padding: 12px 14px;
             margin: 0px;
+            outline: none;
+            padding: 12px 14px;
+            border-radius: 0px;
+            background-color: transparent;
+            border: 1px solid transparent;
+            transition: 0.1s border-color ease-in;
+
+            &:focus {
+              border-color: var(--primary);
+            }
           }
         }
 

@@ -150,17 +150,21 @@ export default function Scrums({ group, groupMembers }) {
                       }
                       placeholder="Your answer..."
                     />
-                    <span className="slider round"></span>
+                    <span className="slider"></span>
                   </label>
                 </div>
 
                 <div className="col-8">
                   <div className="scrum-questions-wrapper">
                     <div className="form-group row align-items-strech">
-                      <label className="col">
+                      <label
+                        className="col"
+                        htmlFor="till_which_tha_you_are_done"
+                      >
                         How many THAs have you done?
                       </label>
                       <input
+                        id="till_which_tha_you_are_done"
                         className="col"
                         type="text"
                         disabled={disableInputs}
@@ -175,8 +179,11 @@ export default function Scrums({ group, groupMembers }) {
                     </div>
 
                     <div className="form-group row align-items-strech">
-                      <label className="col">Reason for backlog</label>
+                      <label className="col" htmlFor="reason_for_backlog">
+                        Reason for backlog
+                      </label>
                       <input
+                        id="reason_for_backlog"
                         className="col"
                         type="text"
                         disabled={disableInputs}
@@ -191,8 +198,11 @@ export default function Scrums({ group, groupMembers }) {
                     </div>
 
                     <div className="form-group row align-items-strech">
-                      <label className="col">What did you cover today?</label>
+                      <label className="col" htmlFor="what_cover_today">
+                        What did you cover today?
+                      </label>
                       <input
+                        id="what_cover_today"
                         className="col"
                         type="text"
                         disabled={disableInputs}
@@ -200,6 +210,25 @@ export default function Scrums({ group, groupMembers }) {
                         onChange={(e) =>
                           updateMember(member, {
                             what_cover_today: e.target.value,
+                          })
+                        }
+                        placeholder="Your answer..."
+                      />
+                    </div>
+
+                    <div className="form-group row align-items-strech">
+                      <label className="col" htmlFor="rate_yesterday_class">
+                        Rate yesterday's class
+                      </label>
+                      <input
+                        id="rate_yesterday_class"
+                        className="col"
+                        type="number"
+                        disabled={disableInputs}
+                        value={member.rate_yesterday_class}
+                        onChange={(e) =>
+                          updateMember(member, {
+                            rate_yesterday_class: e.target.valueAsNumber,
                           })
                         }
                         placeholder="Your answer..."
@@ -226,30 +255,15 @@ export default function Scrums({ group, groupMembers }) {
                               })
                             }
                           />
-                          <span className="slider round"></span>
+                          <span className="slider"></span>
                         </label>
                       </div>
                     </div>
 
-                    <div className="form-group row align-items-strech">
-                      <label className="col">Rate yesterday's class</label>
-                      <input
-                        className="col"
-                        type="number"
-                        disabled={disableInputs}
-                        value={member.rate_yesterday_class}
-                        onChange={(e) =>
-                          updateMember(member, {
-                            rate_yesterday_class: e.target.valueAsNumber,
-                          })
-                        }
-                        placeholder="Your answer..."
-                      />
-                    </div>
-
                     <textarea
+                      id={`${index}-other-feedback`}
                       className="scrum-input"
-                      placeholder="Write scrum here..."
+                      placeholder="Any other feedback..."
                       rows="5"
                       disabled={disableInputs}
                       value={member.data || ''}

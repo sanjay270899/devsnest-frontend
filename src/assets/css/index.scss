@@ -189,6 +189,7 @@ footer {
     -webkit-transition: 0.2s;
     transition: 0.2s;
     border-radius: 34px;
+    border: 1px solid transparent;
   }
 
   .slider:before {
@@ -197,7 +198,7 @@ footer {
     height: 13px;
     width: 13px;
     left: 2px;
-    top: 2px;
+    top: 1px;
     background-color: white;
     -webkit-transition: 0.2s;
     transition: 0.2s;
@@ -214,13 +215,13 @@ footer {
   }
 
   input:focus + .slider {
-    box-shadow: 0 0 1px var(--secondary);
+    border-color: var(--primary);
   }
 
   input:checked + .slider:before {
-    -webkit-transform: translateX(calc(100% + 6px));
-    -ms-transform: translateX(calc(100% + 6px));
-    transform: translateX(calc(100% + 6px));
+    -webkit-transform: translateX(calc(100% + 5px));
+    -ms-transform: translateX(calc(100% + 5px));
+    transform: translateX(calc(100% + 5px));
   }
 }
 
