@@ -36,7 +36,12 @@ export default function LoginCallback() {
             ...response.data.data.attributes,
             authorization: response.headers['authorization'],
           });
-          history.push('/');
+          axios.get(API_ENDPOINTS.CURRENT_USER).then((resp) => {
+            actions.login({
+              ...resp.data.data.attributes,
+            });
+            history.push('/');
+          });
         }
       })
       .catch((err) => {
