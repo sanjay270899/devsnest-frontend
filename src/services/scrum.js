@@ -47,7 +47,6 @@ export const saveCurrentUserScrum = async (member, sendAttendence) => {
   const {
     id,
     data,
-    attendence,
     saw_last_lecture,
     till_which_tha_you_are_done,
     what_cover_today,
@@ -56,7 +55,6 @@ export const saveCurrentUserScrum = async (member, sendAttendence) => {
   } = member;
 
   const attributes = {
-    attendence,
     data,
     saw_last_lecture,
     till_which_tha_you_are_done,

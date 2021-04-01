@@ -8,15 +8,16 @@ import {
   saveCurrentUserScrum,
   saveScrum,
 } from '../../services/scrum';
+import { toast } from 'react-toastify';
 
 const DEFAULT_MEMBER_OBJECT = {
   data: '',
   attendence: false,
-  // saw_last_lecture: false,
-  // till_which_tha_you_are_done: '',
-  // what_cover_today: '',
-  // reason_for_backlog: '',
-  // rate_yesterday_class: 5,
+  saw_last_lecture: false,
+  till_which_tha_you_are_done: '',
+  what_cover_today: '',
+  reason_for_backlog: '',
+  rate_yesterday_class: 5,
 };
 
 export default function Scrums({ group, groupMembers }) {
@@ -58,6 +59,7 @@ export default function Scrums({ group, groupMembers }) {
       loadScrums();
     } catch (e) {
       console.error(e);
+      toast('An error occured while saving', { type: 'error' });
     }
     setIsSaving(false);
   };
