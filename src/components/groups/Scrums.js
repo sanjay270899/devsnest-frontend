@@ -12,7 +12,7 @@ import { toast } from 'react-toastify';
 
 const DEFAULT_MEMBER_OBJECT = {
   data: '',
-  attendence: false,
+  attendance: false,
   saw_last_lecture: false,
   till_which_tha_you_are_done: '',
   what_cover_today: '',
@@ -138,15 +138,15 @@ export default function Scrums({ group, groupMembers }) {
 
                   <label
                     className="custom-switch"
-                    htmlFor={`${member.user_id}-attendence`}
+                    htmlFor={`${member.user_id}-attendance`}
                   >
                     <input
-                      id={`${member.user_id}-attendence`}
+                      id={`${member.user_id}-attendance`}
                       type="checkbox"
                       disabled={!isTeamOwner}
-                      checked={member.attendence || false}
+                      checked={member.attendance || false}
                       onChange={(e) =>
-                        updateMember(member, { attendence: e.target.checked })
+                        updateMember(member, { attendance: e.target.checked })
                       }
                       placeholder="Your answer..."
                     />
