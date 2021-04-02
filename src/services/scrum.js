@@ -22,7 +22,6 @@ export const saveScrum = async (member) => {
   const attributes = {
     attendance,
     data,
-    user_id,
     saw_last_lecture,
     till_which_tha_you_are_done,
     what_cover_today,
@@ -37,7 +36,7 @@ export const saveScrum = async (member) => {
     return response.data;
   } else {
     const response = await axios.post(`${API_ENDPOINTS.SCRUMS}`, {
-      data: { attributes, type: 'scrums' },
+      data: { attributes: { ...attributes, user_id }, type: 'scrums' },
     });
     return response.data;
   }
