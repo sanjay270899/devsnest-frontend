@@ -1,26 +1,40 @@
 import React, { useCallback } from 'react';
+import { Redirect, useHistory } from 'react-router-dom';
 import { API_ENDPOINTS } from '../../constants/api';
+import { login } from '../../actions/loginActions';
 import { useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import useActions from '../../hooks/useActions';
+import GoogleLogin from 'react-google-login';
+import axios from '../../config/axios.config';
+import myLog from '../../utils/myLog';
 import '../../assets/css/login.scss';
 
 import bg from '../../assets/images/login/bg.png';
 import right from '../../assets/images/login/Group 65.svg';
 import left from '../../assets/images/login/Group 17.svg';
-import GoogleLogin from 'react-google-login';
-import axios from '../../config/axios.config';
-import myLog from '../../utils/myLog';
 
 function Login() {
+  const history = useHistory();
   const loginState = useSelector((state) => state.loginState);
+  const actions = useActions({ login });
 
-  const onGoogleLogin = useCallback(async (data) => {
-    myLog('id_token:', data.tokenObj.id_token);
-    await axios.post(`${API_ENDPOINTS.LOGIN}`, {
-      type: 'google',
-      code: data.tokenObj.id_token,
-    });
-  }, []);
+  const onGoogleLogin = useCallback(
+    async (data) => {
+      myLog('id_token:', data.tokenObj.id_token);
+      const loginResponse = await axios.post(`${API_ENDPOINTS.LOGIN}`, {
+        type: 'google',
+        code: data.tokenObj.id_token,
+      });
+      actions.login({
+        ...loginResponse.data.data.attributes,
+        authorization: loginResponse.headers['authorization'],
+      });
+      const userResponse = await axios.get(API_ENDPOINTS.CURRENT_USER);
+      actions.login({ ...userResponse.data.data.attributes });
+      history.push('/');
+    },
+    [actions, history]
+  );
 
   if (!loginState.isLoading && loginState.loggedIn) {
     return <Redirect to="/" />;
