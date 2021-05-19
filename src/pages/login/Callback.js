@@ -24,7 +24,7 @@ export default function LoginCallback() {
     const code = params.get('code');
     myLog('code', code);
     axios
-      .post(`${API_ENDPOINTS.LOGIN}`, { code })
+      .post(`${API_ENDPOINTS.LOGIN}`, { code, type: 'discord' })
       .then((response) => {
         myLog('response from api: ', response);
         if (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { API_ENDPOINTS } from '../../constants/api';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -7,9 +7,20 @@ import '../../assets/css/login.scss';
 import bg from '../../assets/images/login/bg.png';
 import right from '../../assets/images/login/Group 65.svg';
 import left from '../../assets/images/login/Group 17.svg';
+import GoogleLogin from 'react-google-login';
+import axios from '../../config/axios.config';
+import myLog from '../../utils/myLog';
 
 function Login() {
   const loginState = useSelector((state) => state.loginState);
+
+  const onGoogleLogin = useCallback(async (data) => {
+    myLog('id_token:', data.tokenObj.id_token);
+    await axios.post(`${API_ENDPOINTS.LOGIN}`, {
+      type: 'google',
+      code: data.tokenObj.id_token,
+    });
+  }, []);
 
   if (!loginState.isLoading && loginState.loggedIn) {
     return <Redirect to="/" />;
@@ -62,14 +73,31 @@ function Login() {
             <h3 className="h6 mt-2">#2 : Login/Signup via discord</h3>
           </div>
 
-          <button
-            onClick={() => {
-              window.location = API_ENDPOINTS.DISCORD_LOGIN_REDIRECT;
-            }}
-            className="btn py-05 mx-auto my-3 login-btn"
-          >
-            Login
-          </button>
+          <div className="login-btns">
+            <GoogleLogin
+              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+              onSuccess={onGoogleLogin}
+              onFailure={() => {}}
+              render={(props) => (
+                <button
+                  className="btn py-05 mx-auto my-2 login-btn"
+                  onClick={props.onClick}
+                  disabled={props.disabled}
+                >
+                  <i className="fa fa-google" aria-hidden="true"></i>
+                  <span className="ml-2">Login with Google</span>
+                </button>
+              )}
+            />
+            <button
+              onClick={() => {
+                window.location = API_ENDPOINTS.DISCORD_LOGIN_REDIRECT;
+              }}
+              className="btn py-05 mx-auto my-2 login-btn"
+            >
+              <span>Login with Discord</span>
+            </button>
+          </div>
         </div>
 
         <div className="col-md-3 d-flex align-items-center justify-content-center">
