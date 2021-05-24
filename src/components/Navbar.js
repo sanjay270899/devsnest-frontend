@@ -64,12 +64,13 @@ function Navbar() {
 
   const navItems = loginState.loggedIn ? loginMenuItems : homeMenuItems;
 
-  const offsetScroll = (e, offset) =>
+  const offsetScroll = (e, offset) => {
     window.scroll({
       top: e.offsetTop - offset,
       left: 0,
       behavior: 'smooth',
     });
+  };
 
   return (
     <>
