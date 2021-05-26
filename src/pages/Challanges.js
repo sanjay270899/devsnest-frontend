@@ -9,7 +9,6 @@ import { submitQuestion } from '../services/submission';
 import axios from '../config/axios.config';
 import { API_ENDPOINTS } from '../constants/api';
 import '../assets/css/challenges.scss';
-import { useSelector } from 'react-redux';
 
 const DIFFICULTIES = [
   { title: 'Easy', key: 'easy' },
@@ -83,7 +82,6 @@ function getTextStatus(statusInNum) {
 }
 
 function Challenges(props) {
-  const loginState = useSelector((state) => state.loginState);
   const [questions, setQuestions] = useState([]);
   const [topics, setTopics] = useState([]);
   const [difficulty, setDifficulty] = useState('');
@@ -129,11 +127,7 @@ function Challenges(props) {
 
     setQuestions(updatedQuestions);
 
-    await submitQuestion({
-      question_unique_id,
-      status,
-      user_id: loginState.user.id,
-    });
+    await submitQuestion({ question_unique_id, status });
     await getProgressData();
     setDisableQuestionSubmission(false);
   }
