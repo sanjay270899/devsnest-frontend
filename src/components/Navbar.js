@@ -6,10 +6,13 @@ import {
   Nav as BSNav,
   NavItem,
   Col,
+  Modal,
+  ModalHeader,
+  ModalBody,
 } from 'reactstrap';
 import { useSelector } from 'react-redux';
 import useActions from '../hooks/useActions';
-import { logout } from '../actions/loginActions';
+import { logout, login } from '../actions/loginActions';
 import logo from '../assets/images/logo.jpg';
 import default_user from '../assets/images/default_user.png';
 import { HashLink as Link } from 'react-router-hash-link';
@@ -20,6 +23,8 @@ import {
   DropdownItem,
 } from 'reactstrap';
 import { API_ENDPOINTS } from '../constants/api';
+import axios from '../config/axios.config';
+import { toast } from 'react-toastify';
 
 const homeMenuItems = [
   {
@@ -147,8 +152,34 @@ function Navbar() {
 }
 
 export const ConnectWithDiscordBanner = () => {
+  const actions = useActions({ login });
   const loginState = useSelector((state) => state.loginState);
   const connectWithDiscordOpen = loginState.user && !loginState.user.discord_id;
+  const [connectOpen, setConnectOpen] = useState(false);
+  const toggleConnectOpen = () => setConnectOpen(!connectOpen);
+  const [botToken, setBotToken] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const connectRequest = async () => {
+    setIsLoading(true);
+    try {
+      await axios.put(API_ENDPOINTS.UPDATE_GOOGLE_USER, {
+        data: {
+          attributes: {
+            bot_token: botToken,
+          },
+          type: 'users',
+        },
+      });
+      const userResp = await axios.get(API_ENDPOINTS.CURRENT_USER);
+      actions.login({
+        ...userResp.data.data.attributes,
+      });
+      setConnectOpen(false);
+      toast.success('Successfully connected');
+    } catch (e) {}
+    setIsLoading(true);
+  };
 
   return (
     <Collapse isOpen={connectWithDiscordOpen}>
@@ -157,14 +188,43 @@ export const ConnectWithDiscordBanner = () => {
           <div className="ml-2 text-light" style={{ flex: 1 }}>
             Connect your account with discord to use our discord bot.
           </div>
-          <a
-            href={API_ENDPOINTS.DISCORD_LOGIN_REDIRECT}
+          <button
             className="btn bg-light text-dark rounded-lg"
+            onClick={toggleConnectOpen}
           >
             Connect with Discord
-          </a>
+          </button>
         </div>
       </div>
+
+      <Modal isOpen={connectOpen} toggle={toggleConnectOpen}>
+        <ModalHeader toggle={toggleConnectOpen}>
+          Connect with Discord
+        </ModalHeader>
+        <ModalBody>
+          <div className="form-group">
+            <label htmlFor="bot_token">Your token</label>
+            <input
+              className="form-control"
+              type="text"
+              name="bot_token"
+              id="bot_token"
+              autoComplete="false"
+              autoFocus={true}
+              value={botToken}
+              onChange={(e) => setBotToken(e.target.value)}
+            />
+          </div>
+          <button
+            type="button"
+            className="btn btn-primary btn-block"
+            disabled={isLoading}
+            onClick={connectRequest}
+          >
+            {isLoading ? 'Loading...' : 'Connect'}
+          </button>
+        </ModalBody>
+      </Modal>
     </Collapse>
   );
 };

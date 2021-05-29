@@ -17,4 +17,5 @@ export const API_ENDPOINTS = {
   LEADERBOARD: `api/v1/users/leaderboard`,
   GROUPS: `api/v1/groups`,
   SCRUMS: `api/v1/scrums`,
+  UPDATE_GOOGLE_USER: `api/v1/users/update_bot_token_to_google_user`,
 };
