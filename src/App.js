@@ -22,7 +22,7 @@ import Dashboard from './pages/Dashboard';
 import Challenges from './pages/Challanges';
 import Leaderboard from './pages/Leaderboard';
 import Groups from './pages/Groups';
-import UserDashboard from './pages/UserDashboard';
+import UserProfile from './pages/dashboard/index';
 
 toast.configure({
   bodyStyle: {
@@ -54,7 +54,7 @@ function App() {
             loggedInComponent={Dashboard}
             loggedOutComponent={Landing}
           />
-          <Route exact path="/me" component={UserDashboard} />
+          <Route exact path="/me" component={UserProfile} />
           <Route exact path="/faqs" component={Faq} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/login/callback" component={LoginCallback} />

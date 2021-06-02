@@ -135,6 +135,13 @@ footer {
     height: 60px;
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 15px;
+    padding-bottom: 11px;
+    font-size: 1.3rem;
   }
 
   .profile-img {
@@ -143,6 +150,21 @@ footer {
     height: 75px;
     width: 75px;
   }
+}
+
+// Activity HeapMap
+
+.react-calendar-heatmap .color-scale-1 {
+  fill: #d6e685;
+}
+.react-calendar-heatmap .color-scale-2 {
+  fill: #8cc665;
+}
+.react-calendar-heatmap .color-scale-3 {
+  fill: #44a340;
+}
+.react-calendar-heatmap .color-scale-4 {
+  fill: #1e6823;
 }
 
 .user-detail-card {
