@@ -50,6 +50,7 @@ function Login() {
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const code = params.get('code');
+
     const loginCallback = async () => {
       setIsLoading(true);
       try {
@@ -87,7 +88,7 @@ function Login() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (!loginState.isLoading && loginState.loggedIn) {
+  if (!loginState.isLoading && !isLoading && loginState.loggedIn) {
     return <Redirect to="/" />;
   }
 
@@ -100,7 +101,7 @@ function Login() {
         backgroundSize: 'cover',
       }}
     >
-      <div className="login-main row align-items-strech">
+      <div className="login-main row align-items-stretch">
         <div className="login-left d-flex flex-column px-4 col-md-3">
           <div
             className="text-light my-5 mx-3 mb-auto"
@@ -110,7 +111,7 @@ function Login() {
           </div>
           <img
             src={left}
-            alt="discord sheild and hammer"
+            alt="discord shield and hammer"
             className="mt-4 mx-auto"
             style={{ maxWidth: 250, width: '100%' }}
           />
@@ -163,23 +164,28 @@ function Login() {
                   onFailure={() => {}}
                   render={(props) => (
                     <button
-                      className="btn py-05 mx-auto my-2 login-btn"
+                      className="btn py-2 d-flex align-items-center mx-auto my-2 rounded-lg"
+                      style={{
+                        boxShadow: '0px 0px 20px #00000033',
+                      }}
                       onClick={props.onClick}
                       disabled={props.disabled}
                     >
-                      <i className="fa fa-google" aria-hidden="true"></i>
-                      <span className="ml-2">Login with Google</span>
+                      <i className="fa fa-google h3 mb-0" aria-hidden="true" />
+                      <span className="text-muted font-weight-bold ml-3">
+                        Login with Google
+                      </span>
                     </button>
                   )}
                 />
-                <button
+                {/* <button
                   onClick={() => {
                     window.location = API_ENDPOINTS.DISCORD_LOGIN_REDIRECT;
                   }}
                   className="btn py-05 mx-auto my-2 login-btn"
                 >
                   <span>Login with Discord</span>
-                </button>
+                </button> */}
               </>
             )}
           </div>

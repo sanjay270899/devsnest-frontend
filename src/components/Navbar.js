@@ -5,7 +5,6 @@ import {
   NavbarToggler,
   Nav as BSNav,
   NavItem,
-  Col,
   Modal,
   ModalHeader,
   ModalBody,
@@ -221,7 +220,22 @@ export const ConnectWithDiscordBanner = () => {
             disabled={isLoading}
             onClick={connectRequest}
           >
-            {isLoading ? 'Loading...' : 'Connect'}
+            {isLoading ? 'Loading...' : 'Connect with token'}
+          </button>
+          <p className="d-flex align-items-center text-center my-2">
+            <div style={{ flex: 1, height: 1, background: '#f2f2f2' }} />
+            <span>OR</span>
+            <div style={{ flex: 1, height: 1, background: '#f2f2f2' }} />
+          </p>
+          <button
+            type="button"
+            className="btn btn-primary btn-block"
+            disabled={isLoading}
+            onClick={() => {
+              window.location = API_ENDPOINTS.DISCORD_LOGIN_REDIRECT;
+            }}
+          >
+            Continue with discord
           </button>
         </ModalBody>
       </Modal>
