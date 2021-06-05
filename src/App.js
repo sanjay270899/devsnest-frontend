@@ -9,6 +9,7 @@ import 'react-multi-carousel/lib/styles.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './assets/css/index.scss';
 import './assets/css/landing.scss';
+import 'react-calendar-heatmap/dist/styles.css';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';

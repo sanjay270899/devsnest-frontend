@@ -1,16 +1,18 @@
 import React from 'react';
 
 export const ProblemsDetails = ({ user }) => {
+  // Solved Question by User by Difficulty
   const easy = user.solved?.easy;
   const medium = user.solved?.medium;
   const hard = user.solved?.hard;
 
+  // Total Queustion by Difficulty
   const easy_t = user.total_by_difficulty?.easy;
   const medium_t = user.total_by_difficulty?.medium;
   const hard_t = user.total_by_difficulty?.hard;
 
-  const solved = easy + medium + hard;
-  const total = easy_t + medium_t + hard_t;
+  const solved = easy + medium + hard; // Total Solved
+  const total = easy_t + medium_t + hard_t; // Total Questions
 
   return (
     <div className="d-flex flex-column shadow user-detail-card m-4 py-3 px-1">
@@ -23,19 +25,19 @@ export const ProblemsDetails = ({ user }) => {
           <div className="my-4 progress">
             <div
               className="progress-bar progress-bar-easy"
-              style={{ width: `${(easy * 100) / easy_t}%` }}
+              style={{ width: `${(easy * 100) / easy_t}%` }} // Easy Percentage
             ></div>
           </div>
           <div className="my-4 progress">
             <div
               className="progress-bar progress-bar-medium"
-              style={{ width: `${(medium * 100) / medium_t}%` }}
+              style={{ width: `${(medium * 100) / medium_t}%` }} // Medium Percentage
             ></div>
           </div>
           <div className="progress my-2">
             <div
               className="progress-bar progress-bar-hard"
-              style={{ width: `${(hard * 100) / hard_t}%` }}
+              style={{ width: `${(hard * 100) / hard_t}%` }} // Hard Percentage
             ></div>
           </div>
         </div>

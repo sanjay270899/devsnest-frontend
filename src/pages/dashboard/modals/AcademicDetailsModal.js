@@ -5,17 +5,24 @@ import college from '../../../assets/images/dashboard/college.svg';
 import year from '../../../assets/images/dashboard/year.svg';
 import save from '../../../assets/images/dashboard/save.svg';
 import degree from '../../../assets/images/dashboard/academicLevel.svg';
+import gradStartIcon from '../../../assets/images/dashboard/grad-start.svg';
+import gradEndIcon from '../../../assets/images/dashboard/grad-end.svg';
 
 import { Modal } from 'react-bootstrap';
 import myLog from '../../../utils/myLog';
 import { API_ENDPOINTS } from '../../../constants/api';
 import axios from '../../../config/axios.config';
+import useActions from '../../../hooks/useActions';
+import { login } from '../../../actions/loginActions';
 
 export const AcademicDetailsModal = ({
   modalProps,
   userAcademicDetails,
   id,
 }) => {
+  const [details, setDetails] = useState(userAcademicDetails);
+  const actions = useActions({ login });
+
   const handleSumbit = () => {
     myLog(details);
 
@@ -42,6 +49,7 @@ export const AcademicDetailsModal = ({
           response.data.data &&
           response.data.data.attributes
         ) {
+          actions.login(response.data.data.attributes);
           myLog('User Detail Updated');
         }
         modalProps.onHide();
@@ -51,8 +59,6 @@ export const AcademicDetailsModal = ({
         modalProps.onHide();
       });
   };
-
-  const [details, setDetails] = useState(userAcademicDetails);
 
   return (
     <Modal
@@ -124,6 +130,54 @@ export const AcademicDetailsModal = ({
                 borderRadius: '13px',
               }}
               placeholder="Enter your Branch"
+            />
+          </div>
+          <div className="m-2 my-3 px-3 d-flex align-items-center w-100">
+            <img
+              src={gradStartIcon}
+              alt="grad-start-icon"
+              height="25px"
+              width="25px"
+            />
+            <input
+              type="number"
+              min="1800"
+              max={new Date().getFullYear()}
+              className="p-2 ml-3 w-100"
+              value={details.grad_start}
+              onChange={(e) =>
+                setDetails({ ...details, grad_start: e.target.value })
+              }
+              style={{
+                boxShadow: '0px 0px 10px #8264B433',
+                border: '0.800000011920929px solid #D6CCE6',
+                borderRadius: '13px',
+              }}
+              placeholder="College Start Year"
+            />
+          </div>
+          <div className="m-2 my-3 px-3 d-flex align-items-center w-100">
+            <img
+              src={gradEndIcon}
+              alt="grad-end-icon"
+              height="25px"
+              width="25px"
+            />
+            <input
+              type="number"
+              min="1800"
+              max={new Date().getFullYear()}
+              className="p-2 ml-3 w-100"
+              value={details.grad_end}
+              onChange={(e) =>
+                setDetails({ ...details, grad_end: e.target.value })
+              }
+              style={{
+                boxShadow: '0px 0px 10px #8264B433',
+                border: '0.800000011920929px solid #D6CCE6',
+                borderRadius: '13px',
+              }}
+              placeholder="College End Year"
             />
           </div>
           <div className="m-2 my-3 px-3 d-flex align-items-center w-100">

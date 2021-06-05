@@ -1,8 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-// Images export
-
+// COMPONENTS
 import { BasicDetails } from './BasicDetails';
 import { AcademicDetails } from './AcademicDetails';
 import { ProblemsDetails } from './ProblemsDetails';

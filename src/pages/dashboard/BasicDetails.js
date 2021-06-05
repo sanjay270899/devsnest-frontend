@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+// ICONS
 import default_user from '../../assets/images/default_user.svg';
 import UserImage from '../../components/UserImage';
 import birthday from '../../assets/images/dashboard/birthday.svg';
@@ -9,16 +10,20 @@ import resume from '../../assets/images/dashboard/resume.svg';
 import team from '../../assets/images/dashboard/team.svg';
 import batch from '../../assets/images/dashboard/batch.svg';
 import edit from '../../assets/images/dashboard/edit.svg';
+
+// COMPONENTS
 import { BasicDetailsModal } from './modals/BasicDetailsModal';
 import { Row } from './components/Row';
 
 export const BasicDetails = ({ user }) => {
   const [modalShow, setModalShow] = useState(false);
 
+  // Default values
   const DEFAULT_DOB = '-- N/A --';
   const DEFAULT_GROUP_NAME = '-- N/A --';
   const DEFAULT_BATCH = '-- N/A --';
 
+  // State for Modal
   const [userBasicDetails] = useState({
     name: user.name ? user.name : '',
     github_url: user.github_url ? user.github_url : '',
@@ -90,11 +95,13 @@ export const BasicDetails = ({ user }) => {
             value={`Batch : ${user.batch ? user.batch : DEFAULT_BATCH}`}
           />
         </div>
-        <div
-          className="d-flex justify-content-end"
-          style={{ cursor: 'pointer' }}
-        >
-          <img src={edit} alt="edit" onClick={() => setModalShow(true)} />
+        <div className="d-flex justify-content-end">
+          <img
+            src={edit}
+            alt="edit"
+            onClick={() => setModalShow(true)}
+            style={{ cursor: 'pointer' }}
+          />
         </div>
       </div>
       {modalShow && (

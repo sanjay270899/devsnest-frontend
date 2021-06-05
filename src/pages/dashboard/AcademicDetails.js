@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+// ICONS
 import academicLevel from '../../assets/images/dashboard/academicLevel.svg';
 import branch from '../../assets/images/dashboard/branch.svg';
 import college from '../../assets/images/dashboard/college.svg';
@@ -7,12 +8,15 @@ import rollNumber from '../../assets/images/dashboard/rollNumber.svg';
 import session from '../../assets/images/dashboard/session.svg';
 import year from '../../assets/images/dashboard/year.svg';
 import edit from '../../assets/images/dashboard/edit.svg';
+
+// COMPONENTS
 import { AcademicDetailsModal } from './modals/AcademicDetailsModal';
 import { Row } from './components/Row';
 
 export const AcademicDetails = ({ user }) => {
   const [modalShow, setModalShow] = useState(false);
 
+  // Default Values
   const DEFAULT_GRAD_STATUS = '-- N/A --';
   const DEFAULT_COLLEGE_NAME = '-- N/A --';
   const DEFAULT_ID = '-- N/A --';
@@ -21,6 +25,7 @@ export const AcademicDetails = ({ user }) => {
   const DEFAULT_GRAD_END = '-- N/A --';
   const DEFAULT_GRAD_YEAR = '-- N/A --';
 
+  // State for Modal
   const [userAcademicDetails] = useState({
     grad_status: user.grad_status ? user.grad_status : '',
     college_name: user.college_name ? user.college_name : '',
@@ -68,11 +73,13 @@ export const AcademicDetails = ({ user }) => {
             value={user.grad_year ? user.grad_year : DEFAULT_GRAD_YEAR}
           />
         </div>
-        <div
-          className="d-flex justify-content-end"
-          style={{ cursor: 'pointer' }}
-        >
-          <img src={edit} alt="edit" onClick={() => setModalShow(true)} />
+        <div className="d-flex justify-content-end">
+          <img
+            src={edit}
+            alt="edit"
+            onClick={() => setModalShow(true)}
+            style={{ cursor: 'pointer' }}
+          />
         </div>
       </div>
       {modalShow && (

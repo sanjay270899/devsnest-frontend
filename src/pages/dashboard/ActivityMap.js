@@ -1,19 +1,19 @@
 import React from 'react';
-
-// import Calendar from 'react-github-contribution-calendar';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import ReactTooltip from 'react-tooltip';
-import 'react-calendar-heatmap/dist/styles.css';
 
 export const ActivityMap = ({ user }) => {
-  let vals = Object.entries(user.activity).map((one) => {
-    return {
-      date: one[0],
-      count: one[1],
-    };
-  });
+  // User Activity Array for HeatMap
+  let vals = user.activity
+    ? Object.entries(user.activity).map((one) => {
+        return {
+          date: one[0],
+          count: one[1],
+        };
+      })
+    : []; // till fetching user data, let's keep it empty array
 
-  // Will Remove the Extra Space at Bottom: https://github.com/kevinsqi/react-calendar-heatmap/issues/146
+  // REFER: Will Remove the Extra Space at Bottom: https://github.com/kevinsqi/react-calendar-heatmap/issues/146
   CalendarHeatmap.prototype.getHeight = function () {
     return (
       this.getWeekWidth() + (this.getMonthLabelSize() - this.props.gutterSize)

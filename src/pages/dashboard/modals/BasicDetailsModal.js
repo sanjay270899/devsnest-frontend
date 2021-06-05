@@ -11,10 +11,12 @@ import { Modal } from 'react-bootstrap';
 import { API_ENDPOINTS } from '../../../constants/api';
 import axios from '../../../config/axios.config';
 import myLog from '../../../utils/myLog';
-import useAuth from '../../../hooks/useAuth';
+import useActions from '../../../hooks/useActions';
+import { login } from '../../../actions/loginActions';
 
 export const BasicDetailsModal = ({ modalProps, userBasicDetails, id }) => {
   const [details, setDetails] = useState(userBasicDetails);
+  const actions = useActions({ login });
 
   const handleSumbit = () => {
     myLog(details);
@@ -42,6 +44,7 @@ export const BasicDetailsModal = ({ modalProps, userBasicDetails, id }) => {
           response.data.data &&
           response.data.data.attributes
         ) {
+          actions.login(response.data.data.attributes);
           myLog('User Detail Updated');
         }
         modalProps.onHide();
