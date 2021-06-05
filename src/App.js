@@ -4,7 +4,6 @@ import ReactGA from 'react-ga';
 import { ToastContainer, toast } from 'react-toastify';
 import PrivateRoute from './components/PrivateRoute';
 import ConditionalRoute from './components/ConditionalRoute';
-import useAuth from './hooks/useAuth';
 
 import 'react-multi-carousel/lib/styles.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -31,8 +30,6 @@ toast.configure({
 });
 
 function App() {
-  useAuth();
-
   useEffect(() => {
     let code =
       process.env.NODE_ENV === 'production'
@@ -54,10 +51,10 @@ function App() {
             loggedInComponent={Dashboard}
             loggedOutComponent={Landing}
           />
-          <Route exact path="/me" component={UserProfile} />
           <Route exact path="/faqs" component={Faq} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/login/callback" component={LoginCallback} />
+          <PrivateRoute exact path="/me" component={UserProfile} />
           <PrivateRoute exact path="/challenges" component={Challenges} />
           <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
           <PrivateRoute exact path="/groups" component={Groups} />
