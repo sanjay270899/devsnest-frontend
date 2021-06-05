@@ -113,6 +113,10 @@ function Navbar() {
                     <span className="ml-3">{loginState.user.name}</span>
                   </DropdownToggle>
                   <DropdownMenu className="nav-menu">
+                    <Link to="/me" className="dropdown-item">
+                      Profile
+                    </Link>
+                    <DropdownItem divider />
                     <Link to="/" className="dropdown-item">
                       Dashboard
                     </Link>

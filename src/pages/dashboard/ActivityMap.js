@@ -5,37 +5,13 @@ import CalendarHeatmap from 'react-calendar-heatmap';
 import ReactTooltip from 'react-tooltip';
 import 'react-calendar-heatmap/dist/styles.css';
 
-export const ActivityMap = () => {
-  var values = [
-    { date: '2020-03-30', count: 11 },
-    { date: '2021-05-31', count: 1 },
-    { date: '2020-06-07', count: 3 },
-    { date: '2020-06-30', count: 1 },
-    { date: '2020-07-01', count: 5 },
-    { date: '2021-01-01', count: 1 },
-    { date: '2021-03-01', count: 0 },
-    { date: '2021-03-02', count: 2 },
-    { date: '2021-03-03', count: 3 },
-    { date: '2021-03-04', count: 4 },
-    { date: '2021-03-05', count: 5 },
-    { date: '2021-03-06', count: 6 },
-    { date: '2021-05-21', count: 1 },
-    { date: '2021-05-30', count: 3 },
-    { date: '2021-05-31', count: 3 },
-  ];
-
-  const vals = [
-    { date: '2021-02-01', count: 1 },
-    { date: '2021-01-01', count: 0 },
-    { date: '2021-01-02', count: 1 },
-    { date: '2021-01-03', count: 2 },
-    { date: '2021-01-04', count: 3 },
-    { date: '2021-01-05', count: 4 },
-    { date: '2021-01-06', count: 5 },
-    { date: '2021-01-07', count: 6 },
-  ];
-
-  var panelColors = ['#EEEBF3', '#ACFFBE', '#57DB73', '#259B3E'];
+export const ActivityMap = ({ user }) => {
+  let vals = Object.entries(user.activity).map((one) => {
+    return {
+      date: one[0],
+      count: one[1],
+    };
+  });
 
   // Will Remove the Extra Space at Bottom: https://github.com/kevinsqi/react-calendar-heatmap/issues/146
   CalendarHeatmap.prototype.getHeight = function () {
@@ -45,7 +21,7 @@ export const ActivityMap = () => {
   };
 
   return (
-    <div className="shadow profile-card ml-5 mt-5 p-3 pr-4">
+    <div className="shadow profile-card m-4 p-4">
       <h1 className="h5 my-2 font-weight-bold">Activity:</h1>
       <CalendarHeatmap
         values={vals}
@@ -57,6 +33,9 @@ export const ActivityMap = () => {
           }
           if (value.count === 0) {
             return 'color-empty';
+          }
+          if (value.count > 4) {
+            return 'color-max';
           }
           return `color-scale-${value.count}`;
         }}

@@ -1,39 +1,87 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import academicLevel from '../../assets/images/dashboard/academicLevel.svg';
 import branch from '../../assets/images/dashboard/branch.svg';
 import college from '../../assets/images/dashboard/college.svg';
+import rollNumber from '../../assets/images/dashboard/rollNumber.svg';
 import session from '../../assets/images/dashboard/session.svg';
 import year from '../../assets/images/dashboard/year.svg';
+import edit from '../../assets/images/dashboard/edit.svg';
+import { AcademicDetailsModal } from './modals/AcademicDetailsModal';
+import { Row } from './components/Row';
 
-export const AcademicDetails = () => {
+export const AcademicDetails = ({ user }) => {
+  const [modalShow, setModalShow] = useState(false);
+
+  const DEFAULT_GRAD_STATUS = '-- N/A --';
+  const DEFAULT_COLLEGE_NAME = '-- N/A --';
+  const DEFAULT_ID = '-- N/A --';
+  const DEFAULT_GRAD_SPECIALIZATION = '-- N/A --';
+  const DEFAULT_GRAD_START = '-- N/A -- ';
+  const DEFAULT_GRAD_END = '-- N/A --';
+  const DEFAULT_GRAD_YEAR = '-- N/A --';
+
+  const [userAcademicDetails] = useState({
+    grad_status: user.grad_status ? user.grad_status : '',
+    college_name: user.college_name ? user.college_name : '',
+    grad_specialization: user.grad_specialization
+      ? user.grad_specialization
+      : '',
+    grad_start: user.grad_start ? user.grad_start : '',
+    grad_end: user.grad_end ? user.grad_end : '',
+    grad_year: user.grad_year ? user.grad_year : '',
+  });
+
   return (
-    <div className="d-flex flex-column shadow user-detail-card ml-5 py-3 px-1">
-      <div className="profile-img-bg" />
-
+    <div
+      className="d-flex flex-column shadow user-detail-card m-4 py-3 px-1"
+      style={{ maxWidth: '410px', height: 'fit-content' }}
+    >
       <div className="mx-4" style={{ backgroundColor: '#FFFFFF' }}>
         <h1 className="h5 my-2 font-weight-bold mb-3">Academic Details:</h1>
-        <h5 className="h6 text-muted my-2">
-          <img src={academicLevel} alt={academicLevel} />
-          <span className="px-2">Undergraduate</span>
-        </h5>
-        <h5 className="h6 text-muted my-2">
-          <img src={college} alt={college} />
-          <span className="px-2">IIT Bhubaneswar</span>
-        </h5>
-        <h5 className="h6 text-muted my-2">
-          <img src={branch} alt={branch} />
-          <span className="px-2"> Electronics & Communication Engg.</span>
-        </h5>
-        <h5 className="h6 text-muted my-2">
-          <img src={session} alt={session} />
-          <span className="px-2"> 2018 - 2022</span>
-        </h5>
-        <h5 className="h6 text-muted my-2">
-          <img src={year} alt={year} />
-          <span className="px-2"> 3rd year</span>
-        </h5>
+        <div className="py-1">
+          <Row
+            icon={academicLevel}
+            value={user.grad_status ? user.grad_status : DEFAULT_GRAD_STATUS}
+          />
+          <Row
+            icon={college}
+            value={user.college_name ? user.college_name : DEFAULT_COLLEGE_NAME}
+          />
+          <Row icon={rollNumber} value={user.id ? user.id : DEFAULT_ID} />
+          <Row
+            icon={branch}
+            value={
+              user.grad_specialization
+                ? user.grad_specialization
+                : DEFAULT_GRAD_SPECIALIZATION
+            }
+          />
+          <Row
+            icon={session}
+            value={`${
+              user.grad_start ? user.grad_start : DEFAULT_GRAD_START
+            } - ${user.grad_end ? user.grad_end : DEFAULT_GRAD_END}`}
+          />
+          <Row
+            icon={year}
+            value={user.grad_year ? user.grad_year : DEFAULT_GRAD_YEAR}
+          />
+        </div>
+        <div
+          className="d-flex justify-content-end"
+          style={{ cursor: 'pointer' }}
+        >
+          <img src={edit} alt="edit" onClick={() => setModalShow(true)} />
+        </div>
       </div>
+      {modalShow && (
+        <AcademicDetailsModal
+          modalProps={{ show: modalShow, onHide: () => setModalShow(false) }}
+          userAcademicDetails={userAcademicDetails}
+          id={user.id}
+        />
+      )}
     </div>
   );
 };

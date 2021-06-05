@@ -6,6 +6,7 @@ import UnsolvedQuestion from '../assets/images/dashboard/solve_question.png';
 import AttemptedQuestion from '../assets/images/dashboard/retry_question.png';
 
 const getColor = (difficulty = '') => {
+  difficulty = difficulty || '';
   switch (difficulty.toLowerCase()) {
     case 'medium':
       return '#FFF796';
