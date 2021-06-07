@@ -1,6 +1,9 @@
 $cardColor: #b9a5db;
+$backgroundColor: #f2eff7;
+$paddingConstant: 15vmax;
 .TeamView {
-  padding: 8vmin 15vmax;
+  padding: 1vmin $paddingConstant;
+  padding-bottom: 4vmin;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -8,9 +11,32 @@ $cardColor: #b9a5db;
   justify-content: flex-start;
   align-content: space-between;
   align-items: flex-start;
-  background-color: #f2eff7;
+  background-color: $backgroundColor;
+}
+p {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 20px $paddingConstant;
+  color: #707070;
+  background-color: $backgroundColor;
+}
+p::before,
+p::after {
+  content: '';
+  flex: 1 1;
+  border-bottom: 1px solid;
+  margin: auto;
 }
 
+#myTeam {
+  padding-top: 2vw;
+  background-color: $backgroundColor;
+  .TeamCard {
+    width: 20vmax;
+    margin-left: $paddingConstant;
+  }
+}
 .TeamCard {
   @mixin theme($size, $color) {
     font-family: 'Montserrat';
@@ -85,13 +111,14 @@ $cardColor: #b9a5db;
 }
 
 @media screen and (max-width: 768px) {
+  $tabPaddingConstant: 15vmin;
   .TeamView {
     gap: 2vw 2vw;
-    padding: 4vmin 15vmin;
+    padding: 4vmin $tabPaddingConstant;
     & > div {
-      flex-basis: 35%;
+      flex-basis: 48%;
       flex-shrink: 0;
-      flex-grow: 1;
+      flex-grow: 0;
     }
   }
   .TeamCard {
@@ -111,8 +138,15 @@ $cardColor: #b9a5db;
       }
     }
   }
+  #myTeam {
+    .TeamCard {
+      width: 32.1vw;
+      margin-left: $tabPaddingConstant;
+    }
+  }
 }
 @media screen and (max-width: 576px) {
+  $padding: 2vw;
   .TeamView {
     gap: 9vw 5vw;
     padding-left: 2vw;
@@ -124,7 +158,6 @@ $cardColor: #b9a5db;
     }
   }
   .TeamCard {
-    $padding: 2vw;
     h1 {
       font-size: 1rem;
       padding-left: $padding;
@@ -138,6 +171,12 @@ $cardColor: #b9a5db;
         height: 30px;
         width: 30px;
       }
+    }
+  }
+  #myTeam {
+    .TeamCard {
+      width: 43vw;
+      margin-left: $padding;
     }
   }
 }

@@ -8,62 +8,43 @@ import { useSelector } from 'react-redux';
 
 export default function AllGroups() {
   const [allTeams, setAllTeams] = useState([]);
-  const [realAllTeams, setRealAllTeams] = useState([]);
+  const [myTeam, setMyTeam] = useState({});
 
   const { group_id } = useSelector((state) => state.loginState.user);
 
   useEffect(() => {
     async function getAllTeams() {
-      const { data } = await axios.get(`${API_ENDPOINTS.GROUPS}`);
+      const {
+        data: { data, my_group_id },
+      } = await axios.get(`${API_ENDPOINTS.GROUPS}`);
 
-      setAllTeams(data);
+      setAllTeams(() => {
+        const otherTeam = data.filter(({ id }) => {
+          return id !== my_group_id;
+        });
+        return otherTeam;
+      });
+      setMyTeam(() => {
+        const myT = data.filter(({ id }) => {
+          return id === my_group_id;
+        });
+
+        return myT[0];
+      });
     }
     getAllTeams();
   }, []);
 
-  useEffect(() => {
-    async function getLeaderName() {
-      try {
-        let groupData = [];
-        for (let i = 0; i < allTeams.length; i++) {
-          let temp = await axios.get(
-            `${API_ENDPOINTS.GROUPS}/${allTeams[i].owner_id}/group-members`
-          );
-          groupData.push(temp);
-        }
-
-        for (let i = 0; i < groupData.length; i++) {
-          const {
-            data: { data: realData },
-          } = groupData[i];
-          for (let j = 0; j < realData.length; j++) {
-            const {
-              attributes: {
-                user_id,
-                user_details: { username },
-              },
-            } = realData[j];
-
-            for (let k = 0; k < allTeams.length; k++) {
-              if (user_id === allTeams[k].owner_id) {
-                allTeams[k].leaderName = username;
-              }
-            }
-          }
-        }
-
-        setRealAllTeams(allTeams);
-      } catch (e) {}
-    }
-
-    getLeaderName();
-  }, [allTeams]);
-
   return (
     <>
-      <Link to={`/groups/${group_id}`}>View My Team</Link>
+      <div id={styles.myTeam}>
+        <TeamCard key={myTeam.id} {...myTeam} />
+      </div>
+      <p
+        dangerouslySetInnerHTML={{ __html: '&nbsp&nbspOther Groups&nbsp&nbsp' }}
+      ></p>
       <div className={styles.TeamView}>
-        {realAllTeams.map((team) => (
+        {allTeams.map((team) => (
           <TeamCard key={team.id} {...team}></TeamCard>
         ))}
       </div>

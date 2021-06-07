@@ -59,7 +59,7 @@ function App() {
           <Route exact path="/login/callback" component={LoginCallback} />
           <PrivateRoute exact path="/challenges" component={Challenges} />
           <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
-          <PrivateRoute exact path="/groups/:groupId" component={Groups} />
+          <PrivateRoute exact path="/groups/:slug" component={Groups} />
           <PrivateRoute exact path="/groups" component={ViewAllGroups} />
           <Route component={NotFound} />
         </Switch>
