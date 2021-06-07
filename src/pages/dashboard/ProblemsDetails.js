@@ -15,7 +15,10 @@ export const ProblemsDetails = ({ user }) => {
   const total = easy_t + medium_t + hard_t; // Total Questions
 
   return (
-    <div className="d-flex flex-column shadow user-detail-card m-4 py-3 px-1">
+    <div
+      className="d-flex flex-column shadow user-detail-card m-3 py-3 px-1"
+      style={{ width: '350px' }}
+    >
       <div className="mx-4" style={{ backgroundColor: '#FFFFFF' }}>
         <h1 className="h5 my-2">
           <span className="font-weight-bold">Problems Solved:</span> {solved}/

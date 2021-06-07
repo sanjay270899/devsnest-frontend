@@ -207,6 +207,7 @@ export const AcademicDetailsModal = ({
           alt="save-icon"
           className="mx-2"
           height="35px"
+          style={{ cursor: 'pointer' }}
           onClick={() => handleSumbit()}
         />
       </Modal.Footer>

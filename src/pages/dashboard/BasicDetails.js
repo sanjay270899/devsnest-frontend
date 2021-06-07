@@ -34,8 +34,8 @@ export const BasicDetails = ({ user }) => {
 
   return (
     <div
-      className="d-flex flex-column shadow profile-card"
-      style={{ maxWidth: '330px', height: 'fit-content' }}
+      className="d-flex flex-column shadow profile-card mb-4"
+      style={{ width: '350px', height: 'fit-content' }}
     >
       <div className="profile-img-bg">{user.username}</div>
       <div className="mx-4">
@@ -101,6 +101,8 @@ export const BasicDetails = ({ user }) => {
             alt="edit"
             onClick={() => setModalShow(true)}
             style={{ cursor: 'pointer' }}
+            height="20px"
+            width="20px"
           />
         </div>
       </div>

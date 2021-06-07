@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 // COMPONENTS
 import { BasicDetails } from './BasicDetails';
+import { ProjectsComingSoon } from './ProjectsComingSoon';
 import { AcademicDetails } from './AcademicDetails';
 import { ProblemsDetails } from './ProblemsDetails';
 import { ActivityMap } from './ActivityMap';
@@ -14,19 +15,20 @@ export default function Dashboard() {
 
   return (
     <div
+      className="p-1 py-3 pt-5"
       style={{
         minHeight: 'calc(100vh - 92px)',
         backgroundColor: '#F2EFF7',
-        padding: '2rem 3rem',
       }}
     >
       <div
         className="d-flex m-auto flex-wrap justify-content-center"
-        style={{ width: 'fit-content' }}
+        style={{ maxWidth: '1300px' }}
       >
         {/* Left */}
-        <div className="p-4">
+        <div className="p-3 d-flex flex-column">
           <BasicDetails user={user} />
+          <ProjectsComingSoon />
         </div>
 
         {/* Right */}

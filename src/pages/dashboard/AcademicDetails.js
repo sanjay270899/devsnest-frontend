@@ -39,8 +39,8 @@ export const AcademicDetails = ({ user }) => {
 
   return (
     <div
-      className="d-flex flex-column shadow user-detail-card m-4 py-3 px-1"
-      style={{ maxWidth: '410px', height: 'fit-content' }}
+      className="d-flex flex-column shadow user-detail-card m-3 py-3 px-1"
+      style={{ height: 'fit-content', width: '350px' }}
     >
       <div className="mx-4" style={{ backgroundColor: '#FFFFFF' }}>
         <h1 className="h5 my-2 font-weight-bold mb-3">Academic Details:</h1>
@@ -79,6 +79,8 @@ export const AcademicDetails = ({ user }) => {
             alt="edit"
             onClick={() => setModalShow(true)}
             style={{ cursor: 'pointer' }}
+            height="20px"
+            width="20px"
           />
         </div>
       </div>
