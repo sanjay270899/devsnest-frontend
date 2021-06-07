@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Collapse,
   Navbar as BSNavbar,
@@ -24,6 +24,7 @@ import {
 import { API_ENDPOINTS } from '../constants/api';
 import axios from '../config/axios.config';
 import { toast } from 'react-toastify';
+import { useLocation } from 'react-router';
 
 const homeMenuItems = [
   {
@@ -151,6 +152,7 @@ function Navbar() {
 }
 
 export const ConnectWithDiscordBanner = () => {
+  const location = useLocation();
   const actions = useActions({ login });
   const loginState = useSelector((state) => state.loginState);
   const connectWithDiscordOpen = loginState.user && !loginState.user.discord_id;
@@ -158,11 +160,43 @@ export const ConnectWithDiscordBanner = () => {
   const toggleConnectOpen = () => setConnectOpen(!connectOpen);
   const [botToken, setBotToken] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isTokenLoading, setIsTokenLoading] = useState(false);
+
+  useEffect(() => {
+    const load = async () => {
+      const params = new URLSearchParams(location.search);
+      const code = params.get('code');
+
+      if (code) {
+        setConnectOpen(true);
+        setIsLoading(true);
+        try {
+          await axios.post(API_ENDPOINTS.CONNECT_DISCORD, {
+            code,
+          });
+          const userResp = await axios.get(API_ENDPOINTS.CURRENT_USER);
+          actions.login({
+            ...userResp.data.data.attributes,
+          });
+          setConnectOpen(false);
+          toast.success('Successfully connected');
+        } catch (e) {
+          // can break anywhere lmao
+          const message = e?.response?.data?.data?.attributes?.error?.message;
+          toast.error(message || 'Could not connect');
+        }
+        setIsLoading(false);
+      }
+    };
+
+    load();
+  }, [actions, location]);
 
   const connectRequest = async () => {
     setIsLoading(true);
+    setIsTokenLoading(true);
     try {
-      await axios.put(API_ENDPOINTS.UPDATE_GOOGLE_USER, {
+      await axios.post(API_ENDPOINTS.CONNECT_DISCORD, {
         data: {
           attributes: {
             bot_token: botToken,
@@ -176,8 +210,13 @@ export const ConnectWithDiscordBanner = () => {
       });
       setConnectOpen(false);
       toast.success('Successfully connected');
-    } catch (e) {}
-    setIsLoading(true);
+    } catch (e) {
+      const message =
+        e.response.data && e.response.data.data.attributes.error.message;
+      toast.error(message || 'Could not connect');
+    }
+    setIsLoading(false);
+    setIsTokenLoading(false);
   };
 
   return (
@@ -212,6 +251,7 @@ export const ConnectWithDiscordBanner = () => {
               autoFocus={true}
               value={botToken}
               onChange={(e) => setBotToken(e.target.value)}
+              disabled={isLoading}
             />
           </div>
           <button
@@ -220,7 +260,7 @@ export const ConnectWithDiscordBanner = () => {
             disabled={isLoading}
             onClick={connectRequest}
           >
-            {isLoading ? 'Loading...' : 'Connect with token'}
+            {isTokenLoading ? 'Loading...' : 'Connect with token'}
           </button>
           <p className="d-flex align-items-center text-center my-2">
             <div style={{ flex: 1, height: 1, background: '#f2f2f2' }} />
@@ -235,7 +275,9 @@ export const ConnectWithDiscordBanner = () => {
               window.location = API_ENDPOINTS.DISCORD_LOGIN_REDIRECT;
             }}
           >
-            Continue with discord
+            {isLoading && !isTokenLoading
+              ? 'Loading...'
+              : 'Continue with discord'}
           </button>
         </ModalBody>
       </Modal>
