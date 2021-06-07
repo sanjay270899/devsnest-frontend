@@ -19,7 +19,7 @@ export const AcademicDetails = ({ user }) => {
   // Default Values
   const DEFAULT_GRAD_STATUS = '-- N/A --';
   const DEFAULT_COLLEGE_NAME = '-- N/A --';
-  const DEFAULT_ID = '-- N/A --';
+  const DEFAULT_REGISTRATION_NUM = '-- N/A --';
   const DEFAULT_GRAD_SPECIALIZATION = '-- N/A --';
   const DEFAULT_GRAD_START = '-- N/A -- ';
   const DEFAULT_GRAD_END = '-- N/A --';
@@ -41,7 +41,14 @@ export const AcademicDetails = ({ user }) => {
             icon={college}
             value={user.college_name ? user.college_name : DEFAULT_COLLEGE_NAME}
           />
-          <Row icon={rollNumber} value={user.id ? user.id : DEFAULT_ID} />
+          <Row
+            icon={rollNumber}
+            value={
+              user.registration_num
+                ? user.registration_num
+                : DEFAULT_REGISTRATION_NUM
+            }
+          />
           <Row
             icon={branch}
             value={

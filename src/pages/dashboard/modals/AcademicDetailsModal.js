@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+// ICONS
 import branch from '../../../assets/images/dashboard/branch.svg';
 import college from '../../../assets/images/dashboard/college.svg';
 import year from '../../../assets/images/dashboard/year.svg';
@@ -7,6 +8,7 @@ import save from '../../../assets/images/dashboard/save.svg';
 import degree from '../../../assets/images/dashboard/academicLevel.svg';
 import gradStartIcon from '../../../assets/images/dashboard/grad-start.svg';
 import gradEndIcon from '../../../assets/images/dashboard/grad-end.svg';
+import rollNumberIcon from '../../../assets/images/dashboard/rollNumber.svg';
 
 import { Modal } from 'react-bootstrap';
 import myLog from '../../../utils/myLog';
@@ -26,6 +28,7 @@ export const AcademicDetailsModal = ({ modalProps, user, id }) => {
     grad_start: user.grad_start ? user.grad_start : '',
     grad_end: user.grad_end ? user.grad_end : '',
     grad_year: user.grad_year ? user.grad_year : '',
+    registration_num: user.registration_num ? user.registration_num : '',
   });
 
   const actions = useActions({ login });
@@ -120,6 +123,28 @@ export const AcademicDetailsModal = ({ modalProps, user, id }) => {
                 borderRadius: '13px',
               }}
               placeholder="Enter your degree"
+            />
+          </div>
+          <div className="m-2 my-3 px-3 d-flex align-items-center w-100">
+            <img
+              src={rollNumberIcon}
+              alt="roll-number-icon"
+              height="25px"
+              width="25px"
+            />
+            <input
+              type="text"
+              className="p-2 ml-3 w-100"
+              value={details.registration_num}
+              onChange={(e) =>
+                setDetails({ ...details, registration_num: e.target.value })
+              }
+              style={{
+                boxShadow: '0px 0px 10px #8264B433',
+                border: '0.800000011920929px solid #D6CCE6',
+                borderRadius: '13px',
+              }}
+              placeholder="Enter your college roll number"
             />
           </div>
           <div className="m-2 my-3 px-3 d-flex align-items-center w-100">

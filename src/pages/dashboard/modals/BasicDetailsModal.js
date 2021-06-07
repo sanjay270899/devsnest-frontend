@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+// ICONS
 import userIcon from '../../../assets/images/dashboard/user-outline.svg';
 import birthdayIcon from '../../../assets/images/dashboard/birthday.svg';
 import linkedinIcon from '../../../assets/images/dashboard/linkedin-outline.svg';
