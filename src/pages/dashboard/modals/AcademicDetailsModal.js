@@ -15,12 +15,19 @@ import axios from '../../../config/axios.config';
 import useActions from '../../../hooks/useActions';
 import { login } from '../../../actions/loginActions';
 
-export const AcademicDetailsModal = ({
-  modalProps,
-  userAcademicDetails,
-  id,
-}) => {
-  const [details, setDetails] = useState(userAcademicDetails);
+export const AcademicDetailsModal = ({ modalProps, user, id }) => {
+  // State for Modal
+  const [details, setDetails] = useState({
+    grad_status: user.grad_status ? user.grad_status : '',
+    college_name: user.college_name ? user.college_name : '',
+    grad_specialization: user.grad_specialization
+      ? user.grad_specialization
+      : '',
+    grad_start: user.grad_start ? user.grad_start : '',
+    grad_end: user.grad_end ? user.grad_end : '',
+    grad_year: user.grad_year ? user.grad_year : '',
+  });
+
   const actions = useActions({ login });
 
   const handleSumbit = () => {

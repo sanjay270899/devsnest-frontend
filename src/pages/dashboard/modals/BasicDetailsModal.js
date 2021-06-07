@@ -14,8 +14,16 @@ import myLog from '../../../utils/myLog';
 import useActions from '../../../hooks/useActions';
 import { login } from '../../../actions/loginActions';
 
-export const BasicDetailsModal = ({ modalProps, userBasicDetails, id }) => {
-  const [details, setDetails] = useState(userBasicDetails);
+export const BasicDetailsModal = ({ modalProps, user, id }) => {
+  // State for Modal
+  const [details, setDetails] = useState({
+    name: user.name ? user.name : '',
+    github_url: user.github_url ? user.github_url : '',
+    linkedin_url: user.linkedin_url ? user.linkedin_url : '',
+    resume_url: user.resume_url ? user.resume_url : '',
+    dob: user.dob ? user.dob : '',
+  });
+
   const actions = useActions({ login });
 
   const handleSumbit = () => {

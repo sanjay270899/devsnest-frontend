@@ -23,15 +23,6 @@ export const BasicDetails = ({ user }) => {
   const DEFAULT_GROUP_NAME = '-- N/A --';
   const DEFAULT_BATCH = '-- N/A --';
 
-  // State for Modal
-  const [userBasicDetails] = useState({
-    name: user.name ? user.name : '',
-    github_url: user.github_url ? user.github_url : '',
-    linkedin_url: user.linkedin_url ? user.linkedin_url : '',
-    resume_url: user.resume_url ? user.resume_url : '',
-    dob: user.dob ? user.dob : '',
-  });
-
   return (
     <div
       className="d-flex flex-column shadow profile-card mb-4"
@@ -48,37 +39,51 @@ export const BasicDetails = ({ user }) => {
             />
           </div>
           <div className="pt-3">
-            <a href={user.github_url} target="_blank" rel="noopener noreferrer">
-              <img
-                src={github}
-                alt={github}
-                className="pl-3"
-                height="27px"
-                style={{ cursor: 'pointer' }}
-              />
-            </a>
-            <a
-              href={user.linkedin_url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src={linkedin}
-                alt={linkedin}
-                className="pl-3"
-                height="27px"
-                style={{ cursor: 'pointer' }}
-              />
-            </a>
-            <a href={user.resume_url} target="_blank" rel="noopener noreferrer">
-              <img
-                src={resume}
-                alt={resume}
-                className="pl-3"
-                height="27px"
-                style={{ cursor: 'pointer' }}
-              />
-            </a>
+            {user.github_url && (
+              <a
+                href={user.github_url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={github}
+                  alt={github}
+                  className="pl-3"
+                  height="27px"
+                  style={{ cursor: 'pointer' }}
+                />
+              </a>
+            )}
+            {user.linkedin_url && (
+              <a
+                href={user.linkedin_url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={linkedin}
+                  alt={linkedin}
+                  className="pl-3"
+                  height="27px"
+                  style={{ cursor: 'pointer' }}
+                />
+              </a>
+            )}
+            {user.resume_url && (
+              <a
+                href={user.resume_url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={resume}
+                  alt={resume}
+                  className="pl-3"
+                  height="27px"
+                  style={{ cursor: 'pointer' }}
+                />
+              </a>
+            )}
           </div>
         </div>
         <h1 className="h5 my-2 font-weight-bold">{user.name}</h1>
@@ -109,7 +114,7 @@ export const BasicDetails = ({ user }) => {
       {modalShow && (
         <BasicDetailsModal
           modalProps={{ show: modalShow, onHide: () => setModalShow(false) }}
-          userBasicDetails={userBasicDetails}
+          user={user}
           id={user.id}
         />
       )}

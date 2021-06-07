@@ -25,18 +25,6 @@ export const AcademicDetails = ({ user }) => {
   const DEFAULT_GRAD_END = '-- N/A --';
   const DEFAULT_GRAD_YEAR = '-- N/A --';
 
-  // State for Modal
-  const [userAcademicDetails] = useState({
-    grad_status: user.grad_status ? user.grad_status : '',
-    college_name: user.college_name ? user.college_name : '',
-    grad_specialization: user.grad_specialization
-      ? user.grad_specialization
-      : '',
-    grad_start: user.grad_start ? user.grad_start : '',
-    grad_end: user.grad_end ? user.grad_end : '',
-    grad_year: user.grad_year ? user.grad_year : '',
-  });
-
   return (
     <div
       className="d-flex flex-column shadow user-detail-card m-3 py-3 px-1"
@@ -87,7 +75,7 @@ export const AcademicDetails = ({ user }) => {
       {modalShow && (
         <AcademicDetailsModal
           modalProps={{ show: modalShow, onHide: () => setModalShow(false) }}
-          userAcademicDetails={userAcademicDetails}
+          user={user}
           id={user.id}
         />
       )}
