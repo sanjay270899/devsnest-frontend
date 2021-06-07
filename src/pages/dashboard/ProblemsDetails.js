@@ -5,22 +5,22 @@ export const ProblemsDetails = ({ user }) => {
   let easy = user.solved?.easy;
   easy = easy ? easy : 0;
   let medium = user.solved?.medium;
-  medium = medium ? easy : 0;
+  medium = medium ? medium : 0;
   let hard = user.solved?.hard;
-  hard = hard ? easy : 0;
+  hard = hard ? hard : 0;
 
   // Total Queustion by Difficulty
   let easy_t = user.total_by_difficulty?.easy;
-  easy_t = easy_t ? easy : 0;
+  easy_t = easy_t ? easy_t : 0;
   let medium_t = user.total_by_difficulty?.medium;
-  medium_t = medium_t ? easy : 0;
+  medium_t = medium_t ? medium_t : 0;
   let hard_t = user.total_by_difficulty?.hard;
-  hard_t = hard_t ? easy : 0;
+  hard_t = hard_t ? hard_t : 0;
 
   let solved = easy + medium + hard; // Total Solved
-  solved = solved ? easy : 0;
+  solved = solved ? solved : 0;
   let total = easy_t + medium_t + hard_t; // Total Questions
-  total = total ? easy : 0;
+  total = total ? total : 0;
 
   return (
     <div
