@@ -15,28 +15,29 @@ export default function Dashboard() {
 
   return (
     <div
-      className="p-1 py-3 pt-5"
+      className="p-1 py-4"
       style={{
         minHeight: 'calc(100vh - 92px)',
         backgroundColor: '#F2EFF7',
       }}
     >
       <div
-        className="d-flex m-auto flex-wrap justify-content-center"
-        style={{ maxWidth: '1300px' }}
+        className="d-flex flex-column m-auto justify-content-center"
+        style={{ maxWidth: '1225px' }}
       >
-        {/* Left */}
-        <div className="p-3 d-flex flex-column">
-          <BasicDetails user={user} />
-          <ProjectsComingSoon />
-        </div>
+        {/* Row 1 */}
 
-        {/* Right */}
-        <div className="d-flex flex-column" style={{ width: 'fit-content' }}>
-          <div className="d-flex flex-wrap justify-content-center">
+        <div className="d-flex flex-wrap justify-content-center">
+          <BasicDetails user={user} />
+          <div className="d-flex flex-wrap flex-fill justify-content-center">
             <AcademicDetails user={user} />
             <ProblemsDetails user={user} />
           </div>
+        </div>
+
+        {/* Row 2 */}
+        <div className="d-flex flex-wrap justify-content-center">
+          <ProjectsComingSoon />
           <ActivityMap user={user} />
         </div>
       </div>

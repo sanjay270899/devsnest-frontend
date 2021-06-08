@@ -27,8 +27,8 @@ export const AcademicDetails = ({ user }) => {
 
   return (
     <div
-      className="d-flex flex-column shadow user-detail-card m-3 py-3 px-1"
-      style={{ height: 'fit-content', width: '350px' }}
+      className="d-flex flex-column flex-fill shadow user-detail-card py-3 px-1 m-3"
+      style={{ maxWidth: '400px' }}
     >
       <div className="mx-4" style={{ backgroundColor: '#FFFFFF' }}>
         <h1 className="h5 my-2 font-weight-bold mb-3">Academic Details:</h1>

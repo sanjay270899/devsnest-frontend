@@ -25,8 +25,8 @@ export const BasicDetails = ({ user }) => {
 
   return (
     <div
-      className="d-flex flex-column shadow profile-card mb-4"
-      style={{ width: '350px', height: 'fit-content' }}
+      className="d-flex flex-column shadow profile-card m-3"
+      style={{ width: '350px' }}
     >
       <div className="profile-img-bg">{user.username}</div>
       <div className="mx-4">

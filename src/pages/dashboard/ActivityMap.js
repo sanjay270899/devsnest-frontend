@@ -21,7 +21,7 @@ export const ActivityMap = ({ user }) => {
   };
 
   return (
-    <div className="shadow profile-card m-3 p-4">
+    <div className="shadow profile-card p-4 flex-fill m-3 d-flex flex-column justify-content-center">
       <h1 className="h5 my-2 font-weight-bold">Activity:</h1>
       <CalendarHeatmap
         values={vals}
