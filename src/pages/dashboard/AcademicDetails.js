@@ -25,6 +25,22 @@ export const AcademicDetails = ({ user }) => {
   const DEFAULT_GRAD_END = '-- N/A --';
   const DEFAULT_GRAD_YEAR = '-- N/A --';
 
+  // Function to add Ordinal Suffix to a Number: Example 1 -> 1st, 2 -> 2nd, 3 -> 3rd
+  const addOrdinalSuffix = (i) => {
+    let j = i % 10,
+      k = i % 100;
+    if (j === 1 && k !== 11) {
+      return i + 'st';
+    }
+    if (j === 2 && k !== 12) {
+      return i + 'nd';
+    }
+    if (j === 3 && k !== 13) {
+      return i + 'rd';
+    }
+    return i + 'th';
+  };
+
   return (
     <div
       className="d-flex flex-column flex-fill shadow user-detail-card py-3 px-1 m-3"
@@ -65,7 +81,11 @@ export const AcademicDetails = ({ user }) => {
           />
           <Row
             icon={year}
-            value={user.grad_year ? user.grad_year : DEFAULT_GRAD_YEAR}
+            value={
+              user.grad_year
+                ? `${addOrdinalSuffix(user.grad_year)} Year`
+                : DEFAULT_GRAD_YEAR
+            }
           />
         </div>
         <div className="d-flex justify-content-end">
