@@ -124,7 +124,7 @@ function Login() {
 
           <div className="ml-4 mr-3 my-4">
             <h3 className="h6 mt-2">
-              #1 : Be a part of your discord community,
+              #1: Be a part of your discord community,{' '}
               <a
                 href="https://discord.gg/E8YcJpGJKB"
                 target="_blank"
@@ -136,26 +136,14 @@ function Login() {
             <p className="h6 text-muted ml-4 mt-3 mb-4">
               If you're already a part of our team proceed to step #2
             </p>
-            <h3 className="h6 mt-2">#2 : Login/Signup via discord</h3>
+            <h3 className="h6 mt-2">#2: Login/Signup via google</h3>
           </div>
 
           <div className="login-btns">
-            {isLoading || hasError ? (
-              hasError ? (
-                <p className="py-1 text-danger text-center m-0">
-                  Something went wrong, Reach out to us at support@devsnest.in
-                </p>
-              ) : (
-                <button
-                  className="btn py-05 mx-auto my-3 login-btn btn-disabled"
-                  disabled
-                >
-                  <div
-                    class="spinner-border text-light spinner-border-sm"
-                    role="status"
-                  />
-                </button>
-              )
+            {hasError ? (
+              <p className="py-1 text-danger text-center m-0">
+                Something went wrong, Reach out to us at support@devsnest.in
+              </p>
             ) : (
               <>
                 <GoogleLogin
@@ -169,9 +157,19 @@ function Login() {
                         boxShadow: '0px 0px 20px #00000033',
                       }}
                       onClick={props.onClick}
-                      disabled={props.disabled}
+                      disabled={props.disabled || isLoading}
                     >
-                      <i className="fa fa-google h3 mb-0" aria-hidden="true" />
+                      {isLoading ? (
+                        <div
+                          className="spinner-border text-dark spinner-border-sm"
+                          role="status"
+                        />
+                      ) : (
+                        <i
+                          className="fa fa-google h3 mb-0"
+                          aria-hidden="true"
+                        />
+                      )}
                       <span className="text-muted font-weight-bold ml-3">
                         Login with Google
                       </span>
