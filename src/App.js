@@ -18,11 +18,10 @@ import Faq from './pages/Faqs';
 import NotFound from './pages/NotFound';
 import Login from './pages/login';
 import LoginCallback from './pages/login/Callback';
-import Dashboard from './pages/Dashboard';
+import UserProfile from './pages/dashboard/';
 import Challenges from './pages/Challanges';
 import Leaderboard from './pages/Leaderboard';
 import Groups from './pages/Groups';
-import UserProfile from './pages/dashboard/index';
 
 toast.configure({
   bodyStyle: {
@@ -49,13 +48,12 @@ function App() {
           <ConditionalRoute
             exact
             path="/"
-            loggedInComponent={Dashboard}
+            loggedInComponent={UserProfile}
             loggedOutComponent={Landing}
           />
           <Route exact path="/faqs" component={Faq} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/login/callback" component={LoginCallback} />
-          <PrivateRoute exact path="/me" component={UserProfile} />
           <PrivateRoute exact path="/challenges" component={Challenges} />
           <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
           <PrivateRoute exact path="/groups" component={Groups} />
