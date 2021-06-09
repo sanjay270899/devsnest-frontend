@@ -41,7 +41,7 @@ const group_activities = [
   { title: 'Mentor Feedback', key: 'mentor_feedback', img: mentor_feedback },
 ];
 
-export default function Groups({ location }) {
+export default function Groups() {
   const { slug } = useParams();
   const user = useSelector((state) => state.loginState.user);
   const [isLoading, setIsLoading] = useState(true);
@@ -51,8 +51,13 @@ export default function Groups({ location }) {
   const loadData = async () => {
     try {
       const groupReq = await axios.get(`${API_ENDPOINTS.GROUPS}/${slug}`);
+      const {
+        data: {
+          data: { id },
+        },
+      } = groupReq;
       const groupMembers = await axios.get(
-        `${API_ENDPOINTS.GROUPS}/${location.state}/group-members`
+        `${API_ENDPOINTS.GROUPS}/${id}/group-members`
       );
       setGroupData({
         group: groupReq.data.data.attributes,

@@ -22,7 +22,7 @@ import Dashboard from './pages/Dashboard';
 import Challenges from './pages/Challanges';
 import Leaderboard from './pages/Leaderboard';
 import Groups from './pages/Groups';
-import ViewAllGroups from './pages/groupsView/viewAll';
+import ViewAllGroups from './pages/AllTeams';
 
 toast.configure({
   bodyStyle: {

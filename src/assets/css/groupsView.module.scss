@@ -1,43 +1,53 @@
 $cardColor: #b9a5db;
 $backgroundColor: #f2eff7;
-$paddingConstant: 15vmax;
+$paddingConstant: 15rem;
 
 .TeamView {
-  padding: 1vmin $paddingConstant;
+  padding: 2rem $paddingConstant;
   padding-bottom: 4vmin;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  gap: 2vw 2vw;
-  justify-content: flex-start;
+  row-gap: 2rem;
+  justify-content: space-between;
   align-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   background-color: $backgroundColor;
 }
 
-p {
+#OtherTeamDemarcation {
+  $lineColor: #707070;
+  background-color: $backgroundColor;
   display: flex;
   flex-direction: row;
-  margin: 0;
-  padding: 20px $paddingConstant;
-  color: #707070;
-  background-color: $backgroundColor;
-}
+  align-items: center;
+  justify-content: center;
 
-p::before,
-p::after {
-  content: '';
-  flex: 1 1;
-  border-bottom: 1px solid;
-  margin: auto;
+  div {
+    height: 2px;
+    flex: 3;
+    background-color: $lineColor;
+  }
+  div:nth-of-type(1) {
+    margin-left: $paddingConstant;
+  }
+  div:nth-of-type(2) {
+    margin-right: $paddingConstant;
+  }
+  p {
+    color: $lineColor;
+    flex: 1;
+    margin-bottom: 0;
+    text-align: center;
+  }
 }
 
 #myTeam {
-  padding-top: 2vw;
+  padding: 2rem 0;
   background-color: $backgroundColor;
 
   .TeamCard {
-    width: 20vmax;
+    width: 18.5vmax;
     margin-left: $paddingConstant;
   }
 }
@@ -68,13 +78,13 @@ p::after {
   h2 {
     @include theme(2.5vmin, #606060);
 
-    padding-left: 1.4vw;
+    padding-left: 1.4rem;
     font-weight: 400;
   }
 
   h2:nth-of-type(1) {
-    padding-top: 1.5vw;
-    padding-bottom: 0.1vw;
+    padding-top: 1.5rem;
+    padding-bottom: 0.1rem;
   }
 
   button {
@@ -121,18 +131,44 @@ p::after {
     box-shadow: 0 0 10px 1px rgb(0 0 0 / 15%);
   }
 }
+@media screen and(max-width:992px) {
+  .TeamView {
+    padding: 2rem 2rem;
+  }
+  #OtherTeamDemarcation {
+    div:nth-of-type(1) {
+      margin-left: 2rem;
+    }
+    div:nth-of-type(2) {
+      margin-right: 2rem;
+    }
+  }
+  #myTeam {
+    .TeamCard {
+      width: 27vmax;
+      margin-left: 2rem;
+    }
+  }
+}
 
 @media screen and (max-width: 768px) {
-  $tabPaddingConstant: 15vmin;
+  $tabPaddingConstant: 6rem;
 
   .TeamView {
-    gap: 2vw 2vw;
-    padding: 4vmin $tabPaddingConstant;
+    padding: 2rem $tabPaddingConstant;
 
     & > div {
       flex-basis: 48%;
       flex-shrink: 0;
       flex-grow: 0;
+    }
+  }
+  #OtherTeamDemarcation {
+    div:nth-of-type(1) {
+      margin-left: $tabPaddingConstant;
+    }
+    div:nth-of-type(2) {
+      margin-right: $tabPaddingConstant;
     }
   }
 
@@ -146,7 +182,7 @@ p::after {
     }
 
     h2:nth-of-type(2) {
-      margin-top: 3vw;
+      margin-top: 1rem;
     }
 
     button {
@@ -169,7 +205,6 @@ p::after {
   $padding: 2vw;
 
   .TeamView {
-    gap: 9vw 5vw;
     padding-left: 2vw;
     padding-right: 2vw;
 
