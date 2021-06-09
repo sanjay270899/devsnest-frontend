@@ -2,25 +2,17 @@ import React from 'react';
 
 export const ProblemsDetails = ({ user }) => {
   // Solved Question by User by Difficulty
-  let easy = user.solved?.easy;
-  easy = easy ? easy : 0;
-  let medium = user.solved?.medium;
-  medium = medium ? medium : 0;
-  let hard = user.solved?.hard;
-  hard = hard ? hard : 0;
+  const easy = user.solved?.easy || 0;
+  const medium = user.solved?.medium || 0;
+  const hard = user.solved?.hard || 0;
 
   // Total Queustion by Difficulty
-  let easy_t = user.total_by_difficulty?.easy;
-  easy_t = easy_t ? easy_t : 0;
-  let medium_t = user.total_by_difficulty?.medium;
-  medium_t = medium_t ? medium_t : 0;
-  let hard_t = user.total_by_difficulty?.hard;
-  hard_t = hard_t ? hard_t : 0;
+  const easy_t = user.total_by_difficulty?.easy || 0;
+  const medium_t = user.total_by_difficulty?.medium || 0;
+  const hard_t = user.total_by_difficulty?.hard || 0;
 
-  let solved = easy + medium + hard; // Total Solved
-  solved = solved ? solved : 0;
-  let total = easy_t + medium_t + hard_t; // Total Questions
-  total = total ? total : 0;
+  const solved = easy + medium + hard; // Total Solved
+  const total = easy_t + medium_t + hard_t; // Total Questions
 
   return (
     <div

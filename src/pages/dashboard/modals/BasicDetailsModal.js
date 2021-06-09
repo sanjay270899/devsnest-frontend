@@ -18,20 +18,20 @@ import { login } from '../../../actions/loginActions';
 export const BasicDetailsModal = ({ modalProps, user, id }) => {
   // State for Modal
   const [details, setDetails] = useState({
-    name: user.name ? user.name : '',
-    github_url: user.github_url ? user.github_url : '',
-    linkedin_url: user.linkedin_url ? user.linkedin_url : '',
-    resume_url: user.resume_url ? user.resume_url : '',
-    dob: user.dob ? user.dob : '',
+    name: user.name || '',
+    github_url: user.github_url || '',
+    linkedin_url: user.linkedin_url || '',
+    resume_url: user.resume_url || '',
+    dob: user.dob || '',
   });
 
   const actions = useActions({ login });
 
-  const handleSumbit = () => {
+  const handleSumbit = async () => {
     myLog(details);
 
-    axios
-      .put(
+    try {
+      const response = await axios.put(
         `${API_ENDPOINTS.UPDATE_USER}/${id}`,
         {
           data: {
@@ -45,23 +45,21 @@ export const BasicDetailsModal = ({ modalProps, user, id }) => {
             'content-type': 'application/vnd.api+json',
           },
         }
-      )
-      .then((response) => {
-        myLog('response from api: ', response);
-        if (
-          response.data &&
-          response.data.data &&
-          response.data.data.attributes
-        ) {
-          actions.login(response.data.data.attributes);
-          myLog('User Detail Updated');
-        }
-        modalProps.onHide();
-      })
-      .catch((err) => {
-        myLog('error from api: ', err);
-        modalProps.onHide();
-      });
+      );
+      myLog('response from api: ', response);
+      if (
+        response.data &&
+        response.data.data &&
+        response.data.data.attributes
+      ) {
+        actions.login(response.data.data.attributes);
+        myLog('User Detail Updated');
+      }
+      modalProps.onHide();
+    } catch (err) {
+      myLog('error from api: ', err);
+      modalProps.onHide();
+    }
   };
 
   return (

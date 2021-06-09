@@ -19,9 +19,7 @@ export const BasicDetails = ({ user }) => {
   const [modalShow, setModalShow] = useState(false);
 
   // Default values
-  const DEFAULT_DOB = '-- N/A --';
-  const DEFAULT_GROUP_NAME = '-- N/A --';
-  const DEFAULT_BATCH = '-- N/A --';
+  const DEFAULT_VALUE = '-- N/A --';
 
   return (
     <div
@@ -88,16 +86,16 @@ export const BasicDetails = ({ user }) => {
         </div>
         <h1 className="h5 my-2 font-weight-bold">{user.name}</h1>
         <div className="py-1">
-          <Row icon={birthday} value={user.dob ? user.dob : DEFAULT_DOB} />
+          <Row icon={birthday} value={user.dob ? user.dob : DEFAULT_VALUE} />
           <Row
             icon={team}
             value={`Team : ${
-              user.group_name ? user.group_name : DEFAULT_GROUP_NAME
+              user.group_name ? user.group_name : DEFAULT_VALUE
             }`}
           />
           <Row
             icon={batch}
-            value={`Batch : ${user.batch ? user.batch : DEFAULT_BATCH}`}
+            value={`Batch : ${user.batch ? user.batch : DEFAULT_VALUE}`}
           />
         </div>
         <div className="d-flex justify-content-end">

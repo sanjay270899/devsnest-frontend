@@ -20,24 +20,22 @@ import { login } from '../../../actions/loginActions';
 export const AcademicDetailsModal = ({ modalProps, user, id }) => {
   // State for Modal
   const [details, setDetails] = useState({
-    grad_status: user.grad_status ? user.grad_status : '',
-    college_name: user.college_name ? user.college_name : '',
-    grad_specialization: user.grad_specialization
-      ? user.grad_specialization
-      : '',
-    grad_start: user.grad_start ? user.grad_start : '',
-    grad_end: user.grad_end ? user.grad_end : '',
-    grad_year: user.grad_year ? user.grad_year : '',
-    registration_num: user.registration_num ? user.registration_num : '',
+    grad_status: user.grad_status || '',
+    college_name: user.college_name || '',
+    grad_specialization: user.grad_specialization || '',
+    grad_start: user.grad_start || '',
+    grad_end: user.grad_end || '',
+    grad_year: user.grad_year || '',
+    registration_num: user.registration_num || '',
   });
 
   const actions = useActions({ login });
 
-  const handleSumbit = () => {
+  const handleSumbit = async () => {
     myLog(details);
 
-    axios
-      .put(
+    try {
+      const response = await axios.put(
         `${API_ENDPOINTS.UPDATE_USER}/${id}`,
         {
           data: {
@@ -51,23 +49,21 @@ export const AcademicDetailsModal = ({ modalProps, user, id }) => {
             'content-type': 'application/vnd.api+json',
           },
         }
-      )
-      .then((response) => {
-        myLog('response from api: ', response);
-        if (
-          response.data &&
-          response.data.data &&
-          response.data.data.attributes
-        ) {
-          actions.login(response.data.data.attributes);
-          myLog('User Detail Updated');
-        }
-        modalProps.onHide();
-      })
-      .catch((err) => {
-        myLog('error from api: ', err);
-        modalProps.onHide();
-      });
+      );
+      myLog('response from api: ', response);
+      if (
+        response.data &&
+        response.data.data &&
+        response.data.data.attributes
+      ) {
+        actions.login(response.data.data.attributes);
+        myLog('User Detail Updated');
+      }
+      modalProps.onHide();
+    } catch (err) {
+      myLog('error from api: ', err);
+      modalProps.onHide();
+    }
   };
 
   return (

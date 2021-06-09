@@ -13,33 +13,14 @@ import edit from '../../assets/images/dashboard/edit.svg';
 import { AcademicDetailsModal } from './modals/AcademicDetailsModal';
 import { Row } from './components/Row';
 
+// UTILS
+import { addOrdinalSuffix } from '../../utils/addOrdinalSuffix';
+
 export const AcademicDetails = ({ user }) => {
   const [modalShow, setModalShow] = useState(false);
 
   // Default Values
-  const DEFAULT_GRAD_STATUS = '-- N/A --';
-  const DEFAULT_COLLEGE_NAME = '-- N/A --';
-  const DEFAULT_REGISTRATION_NUM = '-- N/A --';
-  const DEFAULT_GRAD_SPECIALIZATION = '-- N/A --';
-  const DEFAULT_GRAD_START = '-- N/A -- ';
-  const DEFAULT_GRAD_END = '-- N/A --';
-  const DEFAULT_GRAD_YEAR = '-- N/A --';
-
-  // Function to add Ordinal Suffix to a Number: Example 1 -> 1st, 2 -> 2nd, 3 -> 3rd
-  const addOrdinalSuffix = (i) => {
-    let j = i % 10,
-      k = i % 100;
-    if (j === 1 && k !== 11) {
-      return i + 'st';
-    }
-    if (j === 2 && k !== 12) {
-      return i + 'nd';
-    }
-    if (j === 3 && k !== 13) {
-      return i + 'rd';
-    }
-    return i + 'th';
-  };
+  const DEFAULT_VALUE = '-- N/A --';
 
   return (
     <div
@@ -49,42 +30,28 @@ export const AcademicDetails = ({ user }) => {
       <div className="mx-4" style={{ backgroundColor: '#FFFFFF' }}>
         <h1 className="h5 my-2 font-weight-bold mb-3">Academic Details:</h1>
         <div className="py-1">
-          <Row
-            icon={academicLevel}
-            value={user.grad_status ? user.grad_status : DEFAULT_GRAD_STATUS}
-          />
-          <Row
-            icon={college}
-            value={user.college_name ? user.college_name : DEFAULT_COLLEGE_NAME}
-          />
+          <Row icon={academicLevel} value={user.grad_status || DEFAULT_VALUE} />
+          <Row icon={college} value={user.college_name || DEFAULT_VALUE} />
           <Row
             icon={rollNumber}
-            value={
-              user.registration_num
-                ? user.registration_num
-                : DEFAULT_REGISTRATION_NUM
-            }
+            value={user.registration_num || DEFAULT_VALUE}
           />
           <Row
             icon={branch}
-            value={
-              user.grad_specialization
-                ? user.grad_specialization
-                : DEFAULT_GRAD_SPECIALIZATION
-            }
+            value={user.grad_specialization || DEFAULT_VALUE}
           />
           <Row
             icon={session}
-            value={`${
-              user.grad_start ? user.grad_start : DEFAULT_GRAD_START
-            } - ${user.grad_end ? user.grad_end : DEFAULT_GRAD_END}`}
+            value={`${user.grad_start || DEFAULT_VALUE} - ${
+              user.grad_end || DEFAULT_VALUE
+            }`}
           />
           <Row
             icon={year}
             value={
               user.grad_year
                 ? `${addOrdinalSuffix(user.grad_year)} Year`
-                : DEFAULT_GRAD_YEAR
+                : DEFAULT_VALUE
             }
           />
         </div>
