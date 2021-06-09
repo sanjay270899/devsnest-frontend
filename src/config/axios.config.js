@@ -5,6 +5,9 @@ import myLog from '../utils/myLog';
 
 const axios = Axios.create({
   baseURL: API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/vnd.api+json',
+  },
 });
 
 axios.interceptors.request.use(
