@@ -183,9 +183,7 @@ export const ConnectWithDiscordBanner = () => {
           toast.success('Successfully connected');
         } catch (e) {
           // can break anywhere lmao
-          const message =
-            e?.response?.data?.data?.attributes?.error?.message ||
-            e?.response?.data;
+          const message = e?.response?.data?.data?.attributes?.error?.message;
           toast.error(message || 'Could not connect');
         }
         setIsLoading(false);
@@ -216,9 +214,7 @@ export const ConnectWithDiscordBanner = () => {
         toast.success('Successfully connected');
       } catch (e) {
         // can break anywhere lmao
-        const message =
-          e?.response?.data?.data?.attributes?.error?.message ||
-          e?.response?.data;
+        const message = e?.response?.data?.data?.attributes?.error?.message;
         toast.error(message || 'Could not connect');
       }
       setIsLoading(false);
