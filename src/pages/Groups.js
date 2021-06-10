@@ -175,12 +175,13 @@ export default function Groups() {
         </div>
 
         <div className="col d-flex flex-column align-items-center justify-content-center">
-          {currentTab === 'scrums' ? (
+          {/* currentTab === 'scrums' ? (
             <Scrums
               group={groupData.group}
               groupMembers={groupData.groupMembers}
             />
-          ) : !currentTab ? (
+          ) :  */}
+          {!currentTab ? (
             <>
               <img
                 className="img-fluid mx-3"
