@@ -4,7 +4,6 @@ import { API_ENDPOINTS } from '../constants/api';
 import { useSelector } from 'react-redux';
 import myLog from '../utils/myLog';
 import UserImage from '../components/UserImage';
-import Scrums from '../components/groups/Scrums';
 import '../assets/css/groups.scss';
 
 import default_user from '../assets/images/default_user.png';
