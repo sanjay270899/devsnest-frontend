@@ -41,8 +41,8 @@ export const ProblemsDetails = ({ user }) => {
         </h1>
         <div>
           {renderProgress('easy', (easy * 100) / easy_t)}
-          {renderProgress('easy', (medium * 100) / medium_t)}
-          {renderProgress('easy', (hard * 100) / hard_t)}
+          {renderProgress('medium', (medium * 100) / medium_t)}
+          {renderProgress('hard', (hard * 100) / hard_t)}
         </div>
         <div className="d-flex justify-content-between my-2">
           <div>
