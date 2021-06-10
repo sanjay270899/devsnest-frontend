@@ -14,14 +14,17 @@ export const ProblemsDetails = ({ user }) => {
   const solved = easy + medium + hard; // Total Solved
   const total = easy_t + medium_t + hard_t; // Total Questions
 
-  const renderProgress = useCallback((style, percentage) => (
-    <div className="my-4 progress">
-      <div
-        className={`progress-bar progress-bar-${style}`}
-        style={{ width: `${percentage}%` }}
-      ></div>
-    </div>
-  ));
+  const renderProgress = useCallback(
+    (style, percentage) => (
+      <div className="my-4 progress">
+        <div
+          className={`progress-bar progress-bar-${style}`}
+          style={{ width: `${percentage}%` }}
+        ></div>
+      </div>
+    ),
+    []
+  );
 
   return (
     <div
