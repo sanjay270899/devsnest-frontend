@@ -114,7 +114,7 @@ function Navbar() {
                   </DropdownToggle>
                   <DropdownMenu className="nav-menu">
                     <Link to="/" className="dropdown-item">
-                      Dashboard
+                      Profile
                     </Link>
                     <DropdownItem divider />
                     <DropdownItem tag="div" onClick={() => actions.logout()}>
