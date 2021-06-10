@@ -22,6 +22,7 @@ import UserProfile from './pages/dashboard/';
 import Challenges from './pages/Challanges';
 import Leaderboard from './pages/Leaderboard';
 import Groups from './pages/Groups';
+import useAuth from './hooks/useAuth';
 
 toast.configure({
   bodyStyle: {
@@ -30,6 +31,8 @@ toast.configure({
 });
 
 function App() {
+  useAuth();
+
   useEffect(() => {
     let code =
       process.env.NODE_ENV === 'production'

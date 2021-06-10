@@ -1,16 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-
-// COMPONENTS
-import { BasicDetails } from './BasicDetails';
-import { ProjectsComingSoon } from './ProjectsComingSoon';
 import { AcademicDetails } from './AcademicDetails';
-import { ProblemsDetails } from './ProblemsDetails';
 import { ActivityMap } from './ActivityMap';
-import useAuth from '../../hooks/useAuth';
+import { BasicDetails } from './BasicDetails';
+import { ProblemsDetails } from './ProblemsDetails';
+import { ProjectsComingSoon } from './ProjectsComingSoon';
 
 export default function Dashboard() {
-  useAuth();
   const user = useSelector((state) => state.loginState.user);
 
   return (
@@ -26,7 +22,6 @@ export default function Dashboard() {
         style={{ maxWidth: '1225px' }}
       >
         {/* Row 1 */}
-
         <div className="d-flex flex-wrap justify-content-center">
           <BasicDetails user={user} />
           <div className="d-flex flex-wrap flex-fill justify-content-center">
