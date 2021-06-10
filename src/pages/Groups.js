@@ -75,7 +75,7 @@ export default function Groups() {
         <img
           className="img-fluid"
           src={no_data}
-          alt="New things are comming soon!"
+          alt="New things are coming soon!"
         />
         <h5 className="text-center text-muted mt-5 mb-2">
           You're not in any group yet.
@@ -185,7 +185,7 @@ export default function Groups() {
               <img
                 className="img-fluid mx-3"
                 src={no_data}
-                alt="New things are comming soon!"
+                alt="New things are coming soon!"
               />
               <h5 className="text-center text-muted mt-5 mb-0">
                 Select a tab from left.
@@ -196,10 +196,10 @@ export default function Groups() {
               <img
                 className="img-fluid mx-3"
                 src={no_data}
-                alt="New things are comming soon!"
+                alt="New things are coming soon!"
               />
               <h5 className="text-center text-muted mt-5 mb-0">
-                Interesting things are comming soon!
+                Interesting things are coming soon!
               </h5>
             </>
           )}

@@ -132,12 +132,20 @@ footer {
   border-radius: 18px;
   min-width: 300px;
   padding-bottom: 1em;
+  background-color: #fff;
 
   .profile-img-bg {
     background-color: #8264b4;
     height: 60px;
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 15px;
+    padding-bottom: 11px;
+    font-size: 1.3rem;
   }
 
   .profile-img {
@@ -146,6 +154,61 @@ footer {
     height: 75px;
     width: 75px;
   }
+}
+
+// Activity HeapMap
+
+.react-calendar-heatmap .color-scale-1 {
+  fill: #d6e685;
+}
+
+.react-calendar-heatmap .color-scale-2 {
+  fill: #8cc665;
+}
+
+.react-calendar-heatmap .color-scale-3 {
+  fill: #44a340;
+}
+
+.react-calendar-heatmap .color-scale-4 {
+  fill: #1e6823;
+}
+
+.react-calendar-heatmap .color-max {
+  fill: #002100;
+}
+
+.user-detail-card {
+  border-radius: 18px;
+  min-width: 300px;
+  padding-bottom: 1em;
+  background-color: #fff;
+
+  .profile-img {
+    margin-top: -30px;
+    border-radius: 0.325em;
+    height: 75px;
+    width: 75px;
+  }
+}
+
+.progress {
+  border-radius: 25px;
+}
+
+.progress-bar-easy {
+  background-color: #86dc98 !important;
+  border-radius: 25px;
+}
+
+.progress-bar-medium {
+  background-color: #ebd271 !important;
+  border-radius: 25px;
+}
+
+.progress-bar-hard {
+  background-color: #f6a981 !important;
+  border-radius: 25px;
 }
 
 .comming-soon-card {

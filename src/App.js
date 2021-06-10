@@ -4,12 +4,12 @@ import ReactGA from 'react-ga';
 import { ToastContainer } from 'react-toastify';
 import PrivateRoute from './components/PrivateRoute';
 import ConditionalRoute from './components/ConditionalRoute';
-import useAuth from './hooks/useAuth';
 
 import 'react-multi-carousel/lib/styles.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './assets/css/index.scss';
 import './assets/css/landing.scss';
+import 'react-calendar-heatmap/dist/styles.css';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -18,10 +18,11 @@ import Faq from './pages/Faqs';
 import NotFound from './pages/NotFound';
 import Login from './pages/login';
 import LoginCallback from './pages/login/Callback';
-import Dashboard from './pages/Dashboard';
+import UserProfile from './pages/dashboard/';
 import Challenges from './pages/Challanges';
 import Leaderboard from './pages/Leaderboard';
 import Groups from './pages/Groups';
+import useAuth from './hooks/useAuth';
 
 function App() {
   useAuth();
@@ -44,7 +45,7 @@ function App() {
           <ConditionalRoute
             exact
             path="/"
-            loggedInComponent={Dashboard}
+            loggedInComponent={UserProfile}
             loggedOutComponent={Landing}
           />
           <Route exact path="/faqs" component={Faq} />
