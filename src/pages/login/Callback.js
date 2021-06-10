@@ -1,22 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { API_ENDPOINTS } from '../../constants/api';
 import { Redirect, useHistory, useLocation } from 'react-router-dom';
 import myLog from '../../utils/myLog';
 import axios from '../../config/axios.config';
 import { login } from '../../actions/loginActions';
 import { useSelector } from 'react-redux';
+import useActions from '../../hooks/useActions';
 import '../../assets/css/login.scss';
 
 import bg from '../../assets/images/login/bg.png';
 import right from '../../assets/images/login/Group 65.svg';
 import left from '../../assets/images/login/Group 17.svg';
-import useActions from '../../hooks/useActions';
 
 export default function LoginCallback() {
   const history = useHistory();
   const location = useLocation();
   const actions = useActions({ login });
   const loginState = useSelector((state) => state.loginState);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -35,11 +36,17 @@ export default function LoginCallback() {
             ...response.data.data.attributes,
             authorization: response.headers['authorization'],
           });
-          history.push('/');
+          axios.get(API_ENDPOINTS.CURRENT_USER).then((resp) => {
+            actions.login({
+              ...resp.data.data.attributes,
+            });
+            history.push('/');
+          });
         }
       })
       .catch((err) => {
         myLog('error from api: ', err);
+        setHasError(true);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -95,15 +102,21 @@ export default function LoginCallback() {
             <h3 className="h6 mt-2">#2 : Login/Signup via discord</h3>
           </div>
 
-          <button
-            className="btn py-05 mx-auto my-3 login-btn btn-disabled"
-            disabled
-          >
-            <div
-              class="spinner-border text-light spinner-border-sm"
-              role="status"
-            />
-          </button>
+          {hasError ? (
+            <p className="py-1 text-danger text-center m-0">
+              Something went wrong, Reach out to us at support@devsnest.in
+            </p>
+          ) : (
+            <button
+              className="btn py-05 mx-auto my-3 login-btn btn-disabled"
+              disabled
+            >
+              <div
+                class="spinner-border text-light spinner-border-sm"
+                role="status"
+              />
+            </button>
+          )}
         </div>
 
         <div className="col-md-3 d-flex align-items-center justify-content-center">

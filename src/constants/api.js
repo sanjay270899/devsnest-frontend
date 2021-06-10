@@ -18,4 +18,5 @@ export const API_ENDPOINTS = {
   REPORT: `api/v1/users/report`,
   LEADERBOARD: `api/v1/users/leaderboard`,
   GROUPS: `api/v1/groups`,
+  SCRUMS: `api/v1/scrums`,
 };

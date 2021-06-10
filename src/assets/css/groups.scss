@@ -68,10 +68,147 @@
       li {
         padding: 0.325rem 0;
         cursor: pointer;
+        position: relative;
+
+        .activity-item-hover {
+          position: absolute;
+          top: -0.325rem;
+          bottom: -0.325rem;
+          left: -0.325rem;
+          transition: 0.15s opacity ease-in;
+          width: 0;
+          z-index: 100;
+          background-color: #fff;
+          border-radius: 12px;
+          box-shadow: 0 0 12px #0003;
+          opacity: 0;
+          overflow: hidden;
+
+          & > div {
+            display: flex;
+            align-items: center;
+            padding: calc(2 * 0.325rem) 0.325rem;
+          }
+
+          img {
+            height: 40px;
+            width: 40px;
+          }
+        }
+
+        &:hover .activity-item-hover {
+          opacity: 1;
+          width: auto;
+        }
 
         img {
           height: 40px;
           width: 40px;
+        }
+      }
+    }
+  }
+
+  .group-activity {
+    background-color: #fff;
+    box-shadow: 0 0 20px #0003;
+    height: 100%;
+    width: 100%;
+    max-height: calc(100vh - 92px - 4em);
+    border-radius: 18px;
+    padding: 1.5rem 1.5rem;
+
+    &-scrums {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+
+      .scrums-wrapper {
+        flex: 1;
+        overflow-y: scroll;
+
+        .scrum-questions-wrapper {
+          width: 100%;
+          border-radius: 14px;
+          background-color: #f8f7fb;
+        }
+
+        .form-group {
+          width: 100%;
+          border: 0;
+          outline: 0;
+          margin: 0 !important;
+          border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+          display: flex;
+          align-items: center;
+
+          & > div {
+            flex: 1;
+            padding: 12px 14px;
+          }
+
+          & > label {
+            color: #4d4d4d;
+            margin: 0;
+            padding: 12px 14px;
+            font-weight: 500;
+            border-right: 2px solid rgba(0, 0, 0, 0.05);
+          }
+
+          input {
+            margin: 0;
+            outline: none;
+            padding: 12px 14px;
+            border-radius: 0;
+            background-color: transparent;
+            border: 1px solid transparent;
+            transition: 0.1s border-color ease-in;
+
+            &:focus {
+              border-color: var(--primary);
+            }
+          }
+
+          &:first-child > input {
+            border-top-right-radius: 14px;
+          }
+        }
+
+        .scrum-input {
+          width: 100%;
+          padding: 12px 14px;
+          outline: 0;
+          resize: vertical;
+          background-color: transparent;
+          border: 1px solid transparent;
+          transition: 0.1s border-color ease-in;
+          border-bottom-left-radius: 14px;
+          border-bottom-right-radius: 14px;
+
+          &:focus {
+            border-color: var(--primary);
+          }
+        }
+      }
+
+      .scrum-save-btn {
+        border: 0;
+        outline: none;
+        border-radius: 4px;
+        color: var(--primary);
+        background: transparent;
+        padding: 0.325rem 0.5rem;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        &:focus {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        &:disabled {
+          opacity: 0.85;
         }
       }
     }
