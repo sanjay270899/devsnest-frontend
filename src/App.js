@@ -16,9 +16,8 @@ import Footer from './components/Footer';
 import Landing from './pages/Landing';
 import Faq from './pages/Faqs';
 import NotFound from './pages/NotFound';
-import Login from './pages/login';
-import LoginCallback from './pages/login/Callback';
-import UserProfile from './pages/dashboard/';
+import Login from './pages/Login';
+import Dashboard from './pages/dashboard';
 import Challenges from './pages/Challanges';
 import Leaderboard from './pages/Leaderboard';
 import Groups from './pages/Groups';
@@ -45,12 +44,11 @@ function App() {
           <ConditionalRoute
             exact
             path="/"
-            loggedInComponent={UserProfile}
+            loggedInComponent={Dashboard}
             loggedOutComponent={Landing}
           />
           <Route exact path="/faqs" component={Faq} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/login/callback" component={LoginCallback} />
           <PrivateRoute exact path="/challenges" component={Challenges} />
           <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
           <PrivateRoute exact path="/groups" component={Groups} />
