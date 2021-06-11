@@ -11,19 +11,29 @@
   background-color: #404040;
 }
 
+.login-btns {
+  width: 90%;
+  margin: 1.5em auto;
+
+  button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 .login-btn {
-  width: calc(90%);
   text-align: center;
-  border-radius: 0.625em;
+  border-radius: 0.325em;
   color: white;
   background-color: #8264b4;
   box-shadow: 0 10px 20px #00000047;
+  transition: 150ms all ease-in;
 }
 
 .login-btn:hover:not(:disabled) {
   color: #fff;
   background-color: #6d5297;
-  box-shadow: 0 10px 20px #00000047;
+  box-shadow: 0 10px 30px #0000006c;
 }
 
 @media screen and (max-width: 576px) {
