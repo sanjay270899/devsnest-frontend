@@ -35,7 +35,8 @@
     "build": "CI= react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start:mock": "REACT_APP_MOCK_API=true npm start"
+    "start:mock": "REACT_APP_MOCK_API=true npm start",
+    "prettier:fix": "prettier --write ."
   },
   "eslintConfig": {
     "extends": "react-app"
