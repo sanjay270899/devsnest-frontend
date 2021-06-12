@@ -21,6 +21,7 @@ import Dashboard from './pages/dashboard';
 import Challenges from './pages/Challanges';
 import Leaderboard from './pages/Leaderboard';
 import Groups from './pages/Groups';
+import ViewAllGroups from './pages/AllTeams';
 import useAuth from './hooks/useAuth';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 
@@ -52,7 +53,8 @@ function App() {
           <Route exact path="/login" component={Login} />
           <PrivateRoute exact path="/challenges" component={Challenges} />
           <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
-          <PrivateRoute exact path="/groups" component={Groups} />
+          <PrivateRoute exact path="/groups/:slug" component={Groups} />
+          <PrivateRoute exact path="/groups" component={ViewAllGroups} />
           <Route exact path="/privacyPolicy" component={PrivacyPolicy} />
           <Route component={NotFound} />
         </Switch>

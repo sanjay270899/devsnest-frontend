@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.2",
+    "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-bootstrap": "^1.3.0",
     "react-calendar-heatmap": "^1.8.1",
@@ -34,7 +35,8 @@
     "build": "CI= react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start:mock": "REACT_APP_MOCK_API=true npm start"
+    "start:mock": "REACT_APP_MOCK_API=true npm start",
+    "prettier:fix": "prettier --write ."
   },
   "eslintConfig": {
     "extends": "react-app"

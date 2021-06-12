@@ -3,9 +3,9 @@ import axios from '../config/axios.config';
 import { API_ENDPOINTS } from '../constants/api';
 import { useSelector } from 'react-redux';
 import myLog from '../utils/myLog';
+import { useParams } from 'react-router-dom';
 import UserImage from '../components/UserImage';
 import '../assets/css/groups.scss';
-
 import default_user from '../assets/images/default_user.png';
 import team_leader from '../assets/images/groups/team_leader.svg';
 import no_data from '../assets/images/groups/no_data.svg';
@@ -40,6 +40,7 @@ const group_activities = [
 ];
 
 export default function Groups() {
+  const { slug } = useParams();
   const user = useSelector((state) => state.loginState.user);
   const [isLoading, setIsLoading] = useState(true);
   const [groupData, setGroupData] = useState({});
@@ -47,11 +48,14 @@ export default function Groups() {
 
   const loadData = async () => {
     try {
-      const groupReq = await axios.get(
-        `${API_ENDPOINTS.GROUPS}/${user.group_id}`
-      );
+      const groupReq = await axios.get(`${API_ENDPOINTS.GROUPS}/${slug}`);
+      const {
+        data: {
+          data: { id },
+        },
+      } = groupReq;
       const groupMembers = await axios.get(
-        `${API_ENDPOINTS.GROUPS}/${user.group_id}/group-members`
+        `${API_ENDPOINTS.GROUPS}/${id}/group-members`
       );
       setGroupData({
         group: groupReq.data.data.attributes,
