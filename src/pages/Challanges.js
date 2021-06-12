@@ -166,7 +166,7 @@ function Challenges(props) {
   if (isLoading) {
     return (
       <div className="dashboard d-flex">
-        <div class="spinner-border text-primary m-auto" role="status" />
+        <div className="spinner-border text-primary m-auto" role="status" />
       </div>
     );
   }

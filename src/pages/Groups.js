@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import myLog from '../utils/myLog';
 import { useParams } from 'react-router-dom';
 import UserImage from '../components/UserImage';
-import Scrums from '../components/groups/Scrums';
 import '../assets/css/groups.scss';
 import default_user from '../assets/images/default_user.png';
 import team_leader from '../assets/images/groups/team_leader.svg';
@@ -79,7 +78,7 @@ export default function Groups() {
         <img
           className="img-fluid"
           src={no_data}
-          alt="New things are comming soon!"
+          alt="New things are coming soon!"
         />
         <h5 className="text-center text-muted mt-5 mb-2">
           You're not in any group yet.
@@ -179,17 +178,18 @@ export default function Groups() {
         </div>
 
         <div className="col d-flex flex-column align-items-center justify-content-center">
-          {currentTab === 'scrums' ? (
+          {/* currentTab === 'scrums' ? (
             <Scrums
               group={groupData.group}
               groupMembers={groupData.groupMembers}
             />
-          ) : !currentTab ? (
+          ) :  */}
+          {!currentTab ? (
             <>
               <img
                 className="img-fluid mx-3"
                 src={no_data}
-                alt="New things are comming soon!"
+                alt="New things are coming soon!"
               />
               <h5 className="text-center text-muted mt-5 mb-0">
                 Select a tab from left.
@@ -200,10 +200,10 @@ export default function Groups() {
               <img
                 className="img-fluid mx-3"
                 src={no_data}
-                alt="New things are comming soon!"
+                alt="New things are coming soon!"
               />
               <h5 className="text-center text-muted mt-5 mb-0">
-                Interesting things are comming soon!
+                Interesting things are coming soon!
               </h5>
             </>
           )}

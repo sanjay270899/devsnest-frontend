@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import default_user from '../assets/images/default_user.png';
+import default_user from '../assets/images/default_user.svg';
 
 export default function UserImage({ src, ...props }) {
   const [error, setError] = useState(false);
