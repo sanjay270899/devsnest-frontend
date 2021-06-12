@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -10,14 +11,21 @@ export default function Footer() {
             equal opportunity for all.
           </div>
 
-          <a
-            href="https://drive.google.com/file/d/17TKzId-5qlRjKVLX30W1Brn_L70rcMN1/view"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-dark font-weight-bold text-decoration-none"
-          >
-            Privacy Policy
-          </a>
+          <div className="d-flex">
+            <Link
+              to="/privacyPolicy"
+              className="text-dark font-weight-bold text-decoration-none d-block"
+            >
+              Privacy Policy
+            </Link>
+
+            <a
+              href="/Terms-Of-Service.doc"
+              className="text-dark font-weight-bold text-decoration-none d-block ml-2"
+            >
+              Terms of Use
+            </a>
+          </div>
         </div>
 
         <div className="right-side">
