@@ -5,7 +5,6 @@ import styles from '../assets/css/groupsView.module.scss';
 import { API_ENDPOINTS } from '../constants/api';
 import axios from '../config/axios.config';
 import myLog from '../utils/myLog';
-import no_data from '../assets/images/groups/no_data.svg';
 
 export default function AllGroups() {
   const [allTeams, setAllTeams] = useState([]);
@@ -14,8 +13,6 @@ export default function AllGroups() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (!my_group_id) return;
-
     async function getAllTeams() {
       setIsLoading(true);
       try {
@@ -44,30 +41,6 @@ export default function AllGroups() {
     getAllTeams();
   }, [my_group_id]);
 
-  if (!my_group_id) {
-    return (
-      <div className="groups d-flex flex-column align-items-center justify-content-center px-3">
-        <img
-          className="img-fluid"
-          src={no_data}
-          alt="New things are coming soon!"
-        />
-        <h5 className="text-center text-muted mt-5 mb-2">
-          You're not in any group yet.
-          <br />
-          Join our server and find one that fits you!
-        </h5>
-        <a
-          href="https://discord.gg/DVmruvFfDN"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Join our discord server
-        </a>
-      </div>
-    );
-  }
-
   if (isLoading) {
     return (
       <div className="groups d-flex">
@@ -77,10 +50,12 @@ export default function AllGroups() {
   }
 
   return (
-    <>
-      <div id={styles.myTeam}>
-        <TeamCard key={myTeam.id} {...myTeam.attributes} />
-      </div>
+    <div className="groups">
+      {myTeam && (
+        <div id={styles.myTeam}>
+          <TeamCard key={myTeam.id} {...myTeam.attributes} />
+        </div>
+      )}
       {allTeams.length > 1 && (
         <div id={styles.OtherTeamDemarcation}>
           <div></div>
@@ -90,9 +65,9 @@ export default function AllGroups() {
       )}
       <div className={styles.TeamView}>
         {allTeams.map((team) => (
-          <TeamCard key={team.id} {...team.attributes}></TeamCard>
+          <TeamCard key={team.id} {...team.attributes} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
