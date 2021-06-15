@@ -13,6 +13,15 @@ export const ActivityMap = ({ user }) => {
       })
     : []; // till fetching user data, let's keep it empty array
 
+  // Dummy Vals for color check.
+  // let vals = [
+  //   { date: '2021-06-10', count: 1 },
+  //   { date: '2021-06-11', count: 2 },
+  //   { date: '2021-06-12', count: 5 },
+  //   { date: '2021-06-13', count: 7 },
+  //   { date: '2021-06-14', count: 10 },
+  // ];
+
   // REFER: Will Remove the Extra Space at Bottom: https://github.com/kevinsqi/react-calendar-heatmap/issues/146
   CalendarHeatmap.prototype.getHeight = function () {
     return (
@@ -33,15 +42,21 @@ export const ActivityMap = ({ user }) => {
           }
           if (value.count === 0) {
             return 'color-empty';
+          } else if (value.count === 1) {
+            return 'color-scale-low';
+          } else if (value.count <= 4) {
+            return 'color-scale-mid';
+          } else if (value.count <= 9) {
+            return 'color-scale-high';
+          } else {
+            return `color-scale-max`;
           }
-          if (value.count > 4) {
-            return 'color-max';
-          }
-          return `color-scale-${value.count}`;
         }}
         tooltipDataAttrs={(value) => {
           if (!value || !value.date) {
-            return { 'data-tip': 'No Activity' };
+            return {
+              'data-tip': 'No Activity',
+            };
           }
           return {
             'data-tip': `${value.count} on ${value.date}`,

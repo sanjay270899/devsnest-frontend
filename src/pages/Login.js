@@ -12,6 +12,7 @@ import '../assets/css/login.scss';
 import bg from '../assets/images/login/bg.png';
 import right from '../assets/images/login/Group 65.svg';
 import left from '../assets/images/login/Group 17.svg';
+import googleIcon from '../assets/images/login/google.svg';
 
 function Login() {
   const history = useHistory();
@@ -159,15 +160,17 @@ function Login() {
                       onClick={props.onClick}
                       disabled={props.disabled || isLoading}
                     >
-                      {isLoading ? (
+                      {props.disabled || isLoading ? (
                         <div
                           className="spinner-border text-dark spinner-border-sm"
                           role="status"
                         />
                       ) : (
-                        <i
-                          className="fa fa-google h3 mb-0"
-                          aria-hidden="true"
+                        <img
+                          src={googleIcon}
+                          alt="google-icon"
+                          height="25px"
+                          width="25px"
                         />
                       )}
                       <span className="text-muted font-weight-bold ml-3">
