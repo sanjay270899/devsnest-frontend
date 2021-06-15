@@ -158,24 +158,20 @@ footer {
 
 // Activity HeapMap
 
-.react-calendar-heatmap .color-scale-1 {
-  fill: #d6e685;
+.react-calendar-heatmap .color-scale-low {
+  fill: #9be9a8;
 }
 
-.react-calendar-heatmap .color-scale-2 {
-  fill: #8cc665;
+.react-calendar-heatmap .color-scale-mid {
+  fill: #40c463;
 }
 
-.react-calendar-heatmap .color-scale-3 {
-  fill: #44a340;
+.react-calendar-heatmap .color-scale-high {
+  fill: #30a14e;
 }
 
-.react-calendar-heatmap .color-scale-4 {
-  fill: #1e6823;
-}
-
-.react-calendar-heatmap .color-max {
-  fill: #002100;
+.react-calendar-heatmap .color-scale-max {
+  fill: #216e39;
 }
 
 .user-detail-card {
