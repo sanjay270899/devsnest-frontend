@@ -4,7 +4,7 @@ import { API_ENDPOINTS } from '../constants/api';
 import { useSelector } from 'react-redux';
 import myLog from '../utils/myLog';
 import { useParams } from 'react-router-dom';
-import UserImage from '../components/UserImage';
+import UserImage from '../components/Layout/UserImage';
 import '../assets/css/groups.scss';
 import default_user from '../assets/images/default_user.png';
 import team_leader from '../assets/images/groups/team_leader.svg';

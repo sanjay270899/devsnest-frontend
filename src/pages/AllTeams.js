@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import TeamCard from '../components/TeamCard';
+import TeamCard from '../components/AllTeams/TeamCard';
 import { useSelector } from 'react-redux';
 import styles from '../assets/css/groupsView.module.scss';
 import { API_ENDPOINTS } from '../constants/api';
