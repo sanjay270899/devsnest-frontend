@@ -1,4 +1,4 @@
-# Coding Style
+# Coding Style Guide
 
 ## Folder Layout
 
@@ -11,7 +11,7 @@
 ## File Layout
 
 1. Imports
-2. Reusabe components needed for the main component
+2. Reusable components needed for the main component
 3. Main component (Eg: Addons in addons.js)
 4. `export default MainComponent;`
 
@@ -20,7 +20,7 @@
 ## Reusable components
 
 - Do not make a new file for smaller components.
-- Smaller, reusable components neeeded in the main components should be added **above** the main component, **not** inside it.
+- Smaller, reusable components needed in the main components should be added **above** the main component, **not** inside it.
 
 ## Spacing
 
@@ -43,7 +43,21 @@
    }
    ```
 
-2. **JS:**
+2. **Images:**
+
+   Put images in the `src/assets/images/<module>` folder and add it in `utils/getIcons` and use from there.
+
+3. **New Components:**
+
+   Put new components in `src/components/<module>/<component>.js` file.
+
+4. **New Pages:**
+
+   Put new pages in `src/pages/<page>.js` file. If the page is at a sub path eg. `/group/scrum` it should be in `src/pages/group/Scrum.js`.
+
+   The structure of `src/pages` folder should mimic the routes available.
+
+5. **JS:**
 
    - Use a space after `if`, `for`, `while`, `switch`.
    - Do not use a space after the opening `(` and before the closing `)`.
@@ -64,7 +78,7 @@
    const UglyComponent = ({ prop1, prop2 }) => {};
    ```
 
-3. **JSX:**
+6. **JSX:**
 
    - Use a space before the forward slash (`/`) of a self-closing tag
 

@@ -77,7 +77,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "echo TODO"
+      "pre-commit": "yarn verify"
     }
   }
 }
