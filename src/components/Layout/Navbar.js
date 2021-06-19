@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router';
+import { HashLink as Link } from 'react-router-hash-link';
+import { toast } from 'react-toastify';
 import {
   Collapse,
-  Navbar as BSNavbar,
-  NavbarToggler,
-  Nav as BSNav,
-  NavItem,
   Modal,
   ModalBody,
+  Nav as BSNav,
+  Navbar as BSNavbar,
+  NavbarToggler,
+  NavItem,
 } from 'reactstrap';
-import { useSelector } from 'react-redux';
-import useActions from '../../hooks/useActions';
-import { logout, login } from '../../actions/loginActions';
-import logo from '../../assets/images/logo.jpg';
+import {
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  UncontrolledDropdown,
+} from 'reactstrap';
+
+import { login, logout } from '../../actions/loginActions';
 import default_user from '../../assets/images/default_user.png';
 import discord_icon from '../../assets/images/login/discord-icon.svg';
 import phone_message from '../../assets/images/login/phone-message.svg';
-import { HashLink as Link } from 'react-router-hash-link';
-import {
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from 'reactstrap';
-import { API_ENDPOINTS } from '../../constants/api';
+import logo from '../../assets/images/logo.jpg';
 import axios from '../../config/axios.config';
-import { toast } from 'react-toastify';
-import { useLocation } from 'react-router';
+import { API_ENDPOINTS } from '../../constants/api';
+import useActions from '../../hooks/useActions';
 
 const homeMenuItems = [
   {

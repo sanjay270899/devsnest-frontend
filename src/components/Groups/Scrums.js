@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import UserImage from '../../components/UserImage';
+import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import default_user from '../../assets/images/default_user.png';
-import { useSelector } from 'react-redux';
+import UserImage from '../../components/UserImage';
 import {
   getScrums,
   saveCurrentUserScrum,
   saveScrum,
 } from '../../services/scrum';
-import { toast } from 'react-toastify';
 
 const DEFAULT_MEMBER_OBJECT = {
   data: '',
@@ -218,7 +218,7 @@ export default function Scrums({ group, groupMembers }) {
 
                     <div className="form-group row align-items-strech">
                       <label className="col" htmlFor="rate_yesterday_class">
-                        Rate yesterday's class
+                        Rate {"yesterday's"} class
                       </label>
                       <input
                         id="rate_yesterday_class"

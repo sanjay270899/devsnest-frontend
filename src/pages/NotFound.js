@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import taken_by_ufo from '../assets/images/taken_by_ufo.svg';
 
 function NotFound() {
@@ -19,7 +20,7 @@ function NotFound() {
         }}
       />
       <h2 className="text-secondary text-center mt-5 mb-3">
-        This page doesn't exists.
+        This page {"doesn't"} exists.
       </h2>
       <Link to="/" className="text-center">
         Go back home

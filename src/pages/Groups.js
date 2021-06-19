@@ -1,21 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import axios from '../config/axios.config';
-import { API_ENDPOINTS } from '../constants/api';
-import { useSelector } from 'react-redux';
-import myLog from '../utils/myLog';
-import { useParams } from 'react-router-dom';
-import UserImage from '../components/Layout/UserImage';
 import '../assets/css/groups.scss';
+
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+
 import default_user from '../assets/images/default_user.png';
-import team_leader from '../assets/images/groups/team_leader.svg';
-import no_data from '../assets/images/groups/no_data.svg';
 import assignment_checking from '../assets/images/groups/assignment_checking.svg';
 import discussions_doubts from '../assets/images/groups/discussions_doubts.svg';
 import doubt_class from '../assets/images/groups/doubt_class.svg';
 import mentor_feedback from '../assets/images/groups/mentor_feedback.svg';
 import mentor_mentee_feedback from '../assets/images/groups/mentor_mentee_feedback.svg';
+import no_data from '../assets/images/groups/no_data.svg';
 import peer_interviews from '../assets/images/groups/peer_interviews.svg';
 import scrums from '../assets/images/groups/scrums.svg';
+import team_leader from '../assets/images/groups/team_leader.svg';
+import UserImage from '../components/Layout/UserImage';
+import axios from '../config/axios.config';
+import { API_ENDPOINTS } from '../constants/api';
+import myLog from '../utils/myLog';
 
 const group_activities = [
   { title: 'Scrums', key: 'scrums', img: scrums },
@@ -81,7 +83,7 @@ export default function Groups() {
           alt="New things are coming soon!"
         />
         <h5 className="text-center text-muted mt-5 mb-2">
-          You're not in any group yet.
+          {"You're"} not in any group yet.
           <br />
           Join our server and find one that fits you!
         </h5>

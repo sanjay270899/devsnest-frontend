@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, LOGIN_LOADING } from '../constants/types';
+import { LOGIN, LOGIN_LOADING, LOGOUT } from '../constants/types';
 
 const initialState = {
   isLoading: true,
@@ -6,7 +6,7 @@ const initialState = {
   user: null,
 };
 
-export default (state = initialState, action) => {
+const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN: {
       const { loggedIn, user } = action.payload;
@@ -27,3 +27,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export default loginReducer;

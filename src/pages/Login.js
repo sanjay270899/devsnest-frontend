@@ -1,18 +1,19 @@
-import React, { useCallback, useState, useEffect } from 'react';
-import { Redirect, useHistory, useLocation } from 'react-router-dom';
-import { API_ENDPOINTS } from '../constants/api';
-import { login } from '../actions/loginActions';
-import { useSelector } from 'react-redux';
-import useActions from '../hooks/useActions';
-import GoogleLogin from 'react-google-login';
-import axios from '../config/axios.config';
-import myLog from '../utils/myLog';
 import '../assets/css/login.scss';
 
+import React, { useCallback, useEffect, useState } from 'react';
+import GoogleLogin from 'react-google-login';
+import { useSelector } from 'react-redux';
+import { Redirect, useHistory, useLocation } from 'react-router-dom';
+
+import { login } from '../actions/loginActions';
 import bg from '../assets/images/login/bg.png';
-import right from '../assets/images/login/Group 65.svg';
-import left from '../assets/images/login/Group 17.svg';
 import googleIcon from '../assets/images/login/google.svg';
+import left from '../assets/images/login/Group 17.svg';
+import right from '../assets/images/login/Group 65.svg';
+import axios from '../config/axios.config';
+import { API_ENDPOINTS } from '../constants/api';
+import useActions from '../hooks/useActions';
+import myLog from '../utils/myLog';
 
 function Login() {
   const history = useHistory();
@@ -135,7 +136,7 @@ function Login() {
               </a>
             </h3>
             <p className="h6 text-muted ml-4 mt-3 mb-4">
-              If you're already a part of our team proceed to step #2
+              If {"you're"} already a part of our team proceed to step #2
             </p>
             <h3 className="h6 mt-2">#2: Login/Signup via google</h3>
           </div>

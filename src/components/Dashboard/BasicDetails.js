@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+
 import UserImage from '../../components/Layout/UserImage';
+import icons from '../../utils/getIcons';
 import { BasicDetailsModal } from './BasicDetailsModal';
 import { Row } from './Row';
-import icons from '../../utils/getIcons';
 
 export const BasicDetails = ({ user }) => {
   const [modalShow, setModalShow] = useState(false);
