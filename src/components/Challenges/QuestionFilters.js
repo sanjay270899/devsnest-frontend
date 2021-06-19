@@ -1,4 +1,5 @@
 import React from 'react';
+
 import icons from '../../utils/getIcons';
 
 const QuestionFilters = ({

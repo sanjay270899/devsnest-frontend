@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+
+import icons from '../../utils/getIcons';
 import { AcademicDetailsModal } from './AcademicDetailsModal';
 import { Row } from './Row';
-import icons from '../../utils/getIcons';
 
 export const AcademicDetails = ({ user }) => {
   const [modalShow, setModalShow] = useState(false);

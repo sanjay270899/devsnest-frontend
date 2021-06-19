@@ -1,36 +1,35 @@
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 
-import linkedin_icon from '../assets/images/linkedin.svg';
-import whatsapp_logo from '../assets/images/icon-whatsapp.png';
 import discord_logo from '../assets/images/icon-discord.png';
+import whatsapp_logo from '../assets/images/icon-whatsapp.png';
 import achieve from '../assets/images/landing/achieve.png';
+import curr0 from '../assets/images/landing/curr0.svg';
+import curr1 from '../assets/images/landing/curr1.svg';
+import curr2 from '../assets/images/landing/curr2.svg';
+import curr3 from '../assets/images/landing/curr3.svg';
 import Group_15 from '../assets/images/landing/Group_15.svg';
 import Group_2479 from '../assets/images/landing/Group_2479.svg';
 import Group_2672 from '../assets/images/landing/Group_2672.svg';
+import hero2 from '../assets/images/landing/hero2.jpg';
 import unique0 from '../assets/images/landing/unique0.svg';
 import unique1 from '../assets/images/landing/unique1.svg';
 import unique2 from '../assets/images/landing/unique2.svg';
 import unique3 from '../assets/images/landing/unique3.svg';
 import unique4 from '../assets/images/landing/unique4.svg';
 import unique5 from '../assets/images/landing/unique5.svg';
-import curr0 from '../assets/images/landing/curr0.svg';
-import curr1 from '../assets/images/landing/curr1.svg';
-import curr2 from '../assets/images/landing/curr2.svg';
-import curr3 from '../assets/images/landing/curr3.svg';
+import linkedin_icon from '../assets/images/linkedin.svg';
 import abhishek from '../assets/images/people/abhishek.jpg';
 import priya from '../assets/images/people/priya.png';
 import vashu from '../assets/images/people/vashu_f.png';
-import hero2 from '../assets/images/landing/hero2.jpg';
-
 import {
-  prerequisite_data,
-  who_can_join_data,
-  mentorsData,
-  webinarData,
   discord_server_data,
+  mentorsData,
+  prerequisite_data,
   responsiveMultipleItem,
   responsiveSingleItem,
+  webinarData,
+  who_can_join_data,
 } from '../constants/mock_data';
 
 function Landing() {
@@ -69,9 +68,9 @@ function Landing() {
             students to become a proficient developer in 6 months from scratch.
             <br /> <br />
             Most students are unable to acquire the correct skillset and be
-            job-ready for interviews just because they don't find the correct
-            guidance and atmosphere to learn. Devsnest aims to revolutionize the
-            education industry by aiding this process.
+            job-ready for interviews just because they {"don't"} find the
+            correct guidance and atmosphere to learn. Devsnest aims to
+            revolutionize the education industry by aiding this process.
           </div>
         </div>
       </section>
@@ -84,10 +83,10 @@ function Landing() {
             </div>
 
             <ul className="prerequisites__list">
-              {prerequisite_data.map((item) => {
+              {prerequisite_data.map((item, index) => {
                 const { name, descp } = item;
                 return (
-                  <li className="prerequisites__list__item">
+                  <li className="prerequisites__list__item" key={index}>
                     <div>
                       {name}
                       <div className="prerequisites__list__item__descp">
@@ -106,10 +105,10 @@ function Landing() {
             </div>
 
             <ul className="who_can_join__list">
-              {who_can_join_data.map((item) => {
+              {who_can_join_data.map((item, index) => {
                 const { name } = item;
                 return (
-                  <li className="who_can_join__list__item">
+                  <li className="who_can_join__list__item" key={index}>
                     <div> {name} </div>
                   </li>
                 );
@@ -137,7 +136,7 @@ function Landing() {
                   Live Classes Everyday
                 </div>
                 <div className="unique__right-side__descp">
-                  It’s COVID, we know you can't even meet your next door
+                  It’s COVID, we know you {"can't"} even meet your next door
                   neighbours. But we do bring a fun class-like experience
                   virtually.
                 </div>
@@ -186,7 +185,7 @@ function Landing() {
                   Guest Tech Talk
                 </div>
                 <div className="unique__right-side__descp">
-                  Our “Cool Tech Talks” by industry experts on trending
+                  Our {`“Cool Tech Talks”`} by industry experts on trending
                   technologies keep you upgraded to the latest version.
                 </div>
               </div>
@@ -216,8 +215,9 @@ function Landing() {
                   Mock Interviews By Industry
                 </div>
                 <div className="unique__right-side__descp">
-                  We end your stage fear of interviews, by having mock "live
-                  like" interviews by mentors from FAANG type companies.
+                  We end your stage fear of interviews, by having mock
+                  {` "live like" `}
+                  interviews by mentors from FAANG type companies.
                 </div>
               </div>
             </div>
@@ -335,10 +335,10 @@ function Landing() {
           showDots={true}
           infinite={true}
         >
-          {mentorsData.map((mentor) => {
+          {mentorsData.map((mentor, index) => {
             const { name, company, descp, img, linkedin } = mentor;
             return (
-              <section className="mentors">
+              <section className="mentors" key={index}>
                 <div className="mentors__container">
                   <div className="mentors__left-side">
                     <img
@@ -405,10 +405,13 @@ function Landing() {
         <div className="community__main rowx">
           <div className="community__main__left-side">
             <ul className="community__main__left-side__points mb-0">
-              {discord_server_data.map((item) => {
+              {discord_server_data.map((item, index) => {
                 const { name } = item;
                 return (
-                  <li className="community__main__left-side__points__list__item">
+                  <li
+                    className="community__main__left-side__points__list__item"
+                    key={index}
+                  >
                     {name}
                   </li>
                 );
@@ -486,10 +489,10 @@ function Landing() {
             responsive={responsiveMultipleItem}
             className="community__carousel-div__carousel"
           >
-            {webinarData.map((item) => {
+            {webinarData.map((item, index) => {
               const { name, title, descp, img } = item;
               return (
-                <div className="community__carousel-div__webinar">
+                <div className="community__carousel-div__webinar" key={index}>
                   <div className="community__carousel-div__webinar__top"> </div>
 
                   <div className="community__carousel-div__webinar__body">
@@ -551,10 +554,10 @@ function Landing() {
             <div className="stories__right-side">
               <div className="descpx stories__descp">
                 <p>
-                  The mentors here don't teach you solutions, they teach you how
-                  to think towards it. The self-assessment chart on the website
-                  and weekly targets along with guest lectures on weekends from
-                  industry experts keep me motivated.
+                  The mentors here {"don't"} teach you solutions, they teach you
+                  how to think towards it. The self-assessment chart on the
+                  website and weekly targets along with guest lectures on
+                  weekends from industry experts keep me motivated.
                 </p>
                 <p>
                   I was an average student but here I realized I m capable of
@@ -578,12 +581,12 @@ function Landing() {
               <div className="stories__descp">
                 <p>
                   Devsnest is by all measures the best investment I have made in
-                  my last 4 years. Within past few months, I'm surprised to see
-                  the positive changes not only in my web dev and CS skills but
-                  within myself as an individual as well.
+                  my last 4 years. Within past few months, {"I'm"} surprised to
+                  see the positive changes not only in my web dev and CS skills
+                  but within myself as an individual as well.
                 </p>
                 <p>
-                  Truly, I owe it all to Devnest's program and I would
+                  Truly, I owe it all to {"Devnest's"} program and I would
                   wholeheartedly recommend it to anybody considering it,
                   especially those with a desire to improve and strengthen their
                   capabilities, as a fully fledge software engineer, everyday.

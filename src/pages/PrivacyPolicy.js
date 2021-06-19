@@ -19,13 +19,14 @@ export default function PrivacyPolicy() {
       <p>
         Devsnest follows a standard procedure of using log files. These files
         log visitors when they visit websites. All hosting companies do this and
-        a part of hosting services' analytics. The information collected by log
-        files include internet protocol (IP) addresses, browser type, Internet
-        Service Provider (ISP), date and time stamp, referring/exit pages, and
-        possibly the number of clicks. These are not linked to any information
-        that is personally identifiable. The purpose of the information is for
-        analyzing trends, administering the site, tracking users' movement on
-        the website, and gathering demographic information.
+        a part of hosting {"services'"} analytics. The information collected by
+        log files include internet protocol (IP) addresses, browser type,
+        Internet Service Provider (ISP), date and time stamp, referring/exit
+        pages, and possibly the number of clicks. These are not linked to any
+        information that is personally identifiable. The purpose of the
+        information is for analyzing trends, administering the site, tracking
+        {"users'"} movement on the website, and gathering demographic
+        information.
       </p>
       <h2>Cookies and Web Beacons</h2>
       <p>
@@ -36,9 +37,9 @@ export default function PrivacyPolicy() {
         mechanism to determine user trends. The data thus retrieved from the
         user’s IP address, enables us to enhance our offers, including but not
         limited to more content in areas of greater interest to a majority of
-        users. Our Website uses "Cookies" to identify the areas of our Website
-        that you have visited. A Cookie is a small piece of data stored on your
-        computer or mobile device by your web browser.We use Cookies to
+        users. Our Website uses {`"Cookies"`} to identify the areas of our
+        Website that you have visited. A Cookie is a small piece of data stored
+        on your computer or mobile device by your web browser.We use Cookies to
         personalize the Content that you see on our Website. Most web browsers
         can be set to disable the use of Cookies.However, if you disable
         Cookies, you may not be able to access functionality on our Website
@@ -52,16 +53,16 @@ export default function PrivacyPolicy() {
         the help of the Privacy Policy Generator. Third-party ad servers or ad
         networks use technologies like cookies, JavaScript, or Web Beacons that
         are used in their respective advertisements and links that appear on
-        Devsnest which are sent directly to users' browsers. They automatically
-        receive your IP address when this occurs. These technologies are used to
-        measure the effectiveness of their advertising campaigns and/or to
-        personalize the advertising content that you see on websites that you
-        visit. Note that Devsnest has no access to or control over these cookies
-        that are used by third-party advertisers.
+        Devsnest which are sent directly to {"users'"} browsers. They
+        automatically receive your IP address when this occurs. These
+        technologies are used to measure the effectiveness of their advertising
+        campaigns and/or to personalize the advertising content that you see on
+        websites that you visit. Note that Devsnest has no access to or control
+        over these cookies that are used by third-party advertisers.
       </p>
       <h2>Third Party Privacy Policies</h2>
       <p>
-        Devsnest's Privacy Policy does not apply to other advertisers or
+        {"Devsnest's"} Privacy Policy does not apply to other advertisers or
         websites. Thus, we are advising you to consult the respective Privacy
         Policies of these third-party ad servers for more detailed information.
         It may include their practices and instructions about how to opt-out of
@@ -71,10 +72,10 @@ export default function PrivacyPolicy() {
       <p>
         You can choose to disable cookies through your individual browser
         options. To know more detailed information about cookie management with
-        specific web browsers, it can be found at the browsers' respective
+        specific web browsers, it can be found at the {"browsers'"} respective
         websites.
       </p>
-      <h2>Children's Information</h2>
+      <h2>{"Children's"} Information</h2>
       <p>
         Another part of our priority is adding protection for children while
         using the internet. We encourage parents and guardians to observe,

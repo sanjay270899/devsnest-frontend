@@ -2,7 +2,9 @@ const initialState = {
   questions: [],
 };
 
-export default (state = initialState, action) => {
+const questionReducer = (state = initialState, action) => {
   const { questions } = action.payload;
   return [questions];
 };
+
+export default questionReducer;

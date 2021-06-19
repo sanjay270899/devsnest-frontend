@@ -1,14 +1,16 @@
+import '../assets/css/challenges.scss';
+
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import Question from '../components/Challenges/Question';
+
 import Progress from '../components/Challenges/Progress';
+import Question from '../components/Challenges/Question';
 import QuestionFilters from '../components/Challenges/QuestionFilters';
-import { getQuestions } from '../services/question';
-import { getTopics } from '../services/topic';
-import { submitQuestion } from '../services/submission';
 import axios from '../config/axios.config';
 import { API_ENDPOINTS } from '../constants/api';
-import '../assets/css/challenges.scss';
+import { getQuestions } from '../services/question';
+import { submitQuestion } from '../services/submission';
+import { getTopics } from '../services/topic';
 
 const DIFFICULTIES = [
   { title: 'Easy', key: 'easy' },

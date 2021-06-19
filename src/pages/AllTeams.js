@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import TeamCard from '../components/AllTeams/TeamCard';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+
 import styles from '../assets/css/groupsView.module.scss';
-import { API_ENDPOINTS } from '../constants/api';
+import TeamCard from '../components/AllTeams/TeamCard';
 import axios from '../config/axios.config';
+import { API_ENDPOINTS } from '../constants/api';
 import myLog from '../utils/myLog';
 
 export default function AllGroups() {

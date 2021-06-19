@@ -1,5 +1,6 @@
 import React from 'react';
 import { UncontrolledTooltip } from 'reactstrap';
+
 import icons from '../../utils/getIcons';
 
 const getColor = (difficulty = '') => {

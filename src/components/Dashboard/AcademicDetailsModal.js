@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import myLog from '../../utils/myLog';
-import { API_ENDPOINTS } from '../../constants/api';
-import axios from '../../config/axios.config';
-import useActions from '../../hooks/useActions';
+
 import { login } from '../../actions/loginActions';
+import axios from '../../config/axios.config';
+import { API_ENDPOINTS } from '../../constants/api';
+import useActions from '../../hooks/useActions';
 import icons from '../../utils/getIcons';
+import myLog from '../../utils/myLog';
 
 export const AcademicDetailsModal = ({ modalProps, user, id }) => {
   // State for Modal
