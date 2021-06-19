@@ -83,7 +83,7 @@ export default function AllGroups() {
               <div style={{ height: 1, flex: 1 }} className="bg-dark" />
             </h3>
 
-            <div className="d-flex flex-wrap">
+            <div className="d-flex align-items-stretch justify-content-around flex-wrap">
               {allTeams.map((team) => (
                 <TeamCard key={team.id} {...team.attributes} />
               ))}
