@@ -1,3 +1,5 @@
+# Devsnest frontend
+
 ## Setup
 
 1. Install yarn
@@ -12,28 +14,28 @@ $ npm install -g yarn
 $ yarn install
 ```
 
-3. Run Server in development mode
+3. Run Server
 
-```
+```shell script
 $ yarn start
 ```
 
-Note: Please make sure you have nodejs installed on your machine.
+> Make sure you have nodejs installed on your machine.
 
-How can you contribute?
+## How can you contribute?
 
-1. Create a new branch
+1. Create a new branch from dev with name as <your-first-name>/<feature-name>
 
 ```shell script
-$ git checkout -b feature/<your-feature-name>
+$ git checkout -b jane/cool-feature
 ```
 
 2. Commit your changes and push it on github
 
 ```shell script
-$ git commit -am "<what changes you have made" && git push origin feature/<your-feature-name>
+$ git commit -am "<what changes you have made>" && git push origin jane/cool-feature
 ```
 
-3. Create a PR, and get it reviewed, that's it.
+3. Rebase from `dev` to sync any new changes and create a PR to `dev` branch, and get it reviewed.
 
-Note: Master is our holy grail, never push anything to master
+>
