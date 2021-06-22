@@ -7,6 +7,7 @@ import calendar_start from '../assets/images/calendar_start.svg';
 // General
 import discord_outline from '../assets/images/discord_outline.svg';
 import edit_outline from '../assets/images/edit_outline.svg';
+import filter from '../assets/images/filter.svg';
 // Group
 import group_assignment from '../assets/images/groups/assignment_checking.svg';
 import group_discussion_doubt from '../assets/images/groups/discussions_doubts.svg';
@@ -19,10 +20,15 @@ import group_scrums from '../assets/images/groups/scrums.svg';
 import group_leader from '../assets/images/groups/team_leader.svg';
 import group_left_arrow from '../assets/images/groups/teamCardArrow.svg';
 import hash from '../assets/images/hash.svg';
+import hash_bold from '../assets/images/hash_bold.svg';
+import question_class_assignment from '../assets/images/question/class_assignment.svg';
+import question_code from '../assets/images/question/code.svg';
 import question_doubt from '../assets/images/question/doubt.svg';
 // Question
 import question_progress from '../assets/images/question/progress.svg';
+import question_reading from '../assets/images/question/reading.svg';
 import question_solve from '../assets/images/question/solve.svg';
+import question_tha from '../assets/images/question/tha.svg';
 import question_tick from '../assets/images/question/tick.svg';
 import save from '../assets/images/save.svg';
 // Social
@@ -55,6 +61,10 @@ const icons = {
   question_tick,
   question_doubt,
   question_solve,
+  question_tha,
+  question_class_assignment,
+  question_code,
+  question_reading,
   group_assignment,
   group_discussion_doubt,
   group_class_doubt,
@@ -73,6 +83,8 @@ const icons = {
   resume_outline,
   discord_outline,
   edit_outline,
+  filter,
+  hash_bold,
   calendar_start,
   calendar_end,
   save,
