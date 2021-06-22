@@ -25,6 +25,7 @@ import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Question from './pages/Question';
+import Videos from './pages/Videos';
 
 function App() {
   useAuth();
@@ -57,6 +58,7 @@ function App() {
           <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
           <PrivateRoute exact path="/groups/:slug" component={Group} />
           <PrivateRoute exact path="/groups" component={Groups} />
+          <PrivateRoute exact path="/videos" component={Videos} />
           <Route exact path="/privacyPolicy" component={PrivacyPolicy} />
           <Route component={NotFound} />
         </Switch>
