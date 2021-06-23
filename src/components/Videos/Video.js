@@ -5,7 +5,7 @@ import styles from '../../assets/css/videos.module.scss';
 import icons from '../../utils/getIcons';
 import { Question } from './Question';
 
-export const Video = ({ video }) => {
+export const Video = ({ video, setVideos }) => {
   const [selected, setSelected] = useState(0);
   return (
     <div className={`${styles['card']} d-flex`}>
@@ -56,7 +56,12 @@ export const Video = ({ video }) => {
           {selected === 0
             ? video.questions && video.questions.length > 0
               ? video.questions.map((q, index) => (
-                  <Question question={q} key={index} />
+                  <Question
+                    question={q}
+                    key={index}
+                    setVideos={setVideos}
+                    video_id={video.id}
+                  />
                 ))
               : 'No Questions'
             : video.references && video.references.length > 0

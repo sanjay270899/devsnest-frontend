@@ -1,6 +1,6 @@
 .videos {
   min-height: calc(100vh - 92px);
-  background: #D8D1E3;
+  background: #d8d1e3;
   padding: 1.5rem 0;
 }
 
@@ -42,12 +42,12 @@
 .right-title {
   font-size: 1.3rem;
   font-weight: bold;
-  color: #99979B;
+  color: #99979b;
   white-space: nowrap;
 }
 
 .right-line {
-  border-right: 3px solid #B1AFB3;
+  border-right: 3px solid #b1afb3;
   padding-right: 1rem;
   margin-right: 1rem;
 }
@@ -70,14 +70,14 @@
   background-color: white;
   border-radius: 9px;
   font-size: 0.9rem;
-  margin: 0.55rem 0;
+  margin: 1.3rem 0;
   overflow: hidden;
   box-shadow: 0px 0px 10px #00000029;
 
   .img {
     display: flex;
     align-items: center;
-    padding: 11px;
+    padding: 15px;
 
     img {
       cursor: pointer;
@@ -92,16 +92,18 @@
     color: #404040;
     cursor: pointer;
     text-decoration: none;
-
-    &:hover {
-      font-weight: bold;
-    }
   }
 }
 
 @media screen and (min-width: 1100px) and (max-width: 1300px) {
   .margin-controller {
     margin: 0 2rem;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .questions {
+    margin: 0.55rem 0;
   }
 }
 
@@ -185,4 +187,3 @@
     font-size: 0.8rem;
   }
 }
-
