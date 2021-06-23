@@ -8,7 +8,7 @@ export const getQuestionTypeIcon = (type) => {
       return icons.question_tha;
     case 'code':
       return icons.question_code;
-    case 'reading':
+    case 'article':
       return icons.question_reading;
     default:
       return 'no-image';
@@ -30,17 +30,17 @@ export const getQuestionColor = (difficulty) => {
 
 export const dummyData = [
   {
-    title: 'Week 10: Graphs',
-    url: 'https://youtu.be/zYOVF6B8nUc',
-    tag: 'Graph',
+    title: 'Week 10: Graphs', // name
+    url: 'https://youtu.be/zYOVF6B8nUc', // link
+    tag: 'Graph', // parent_id
     questions: [
       {
-        title: 'Longest Substring Without Repeating Characters',
-        difficulty: 'easy',
-        type: 'class',
-        status: 'solved',
+        title: 'Longest Substring Without Repeating Characters', // name
+        difficulty: 'easy', // difficulty ['easy', 'medium', 'hard']
+        type: 'class', // question_type ['class', 'assignment']
+        status: 'solved', // status ['notdone', 'done', 'doubt']
         link:
-          'https://leetcode.com/problems/longest-substring-without-repeating-characters',
+          'https://leetcode.com/problems/longest-substring-without-repeating-characters', // link
       },
       {
         title: 'Valid Anagram',
@@ -63,19 +63,19 @@ export const dummyData = [
         status: 'solve',
         link: 'https://leetcode.com/problems/validate-binary-search-tree/',
       },
-      {
-        title: 'Valid Binary Search Tree',
-        difficulty: 'hard',
-        type: 'assignment',
-        status: 'solve',
-        link: 'https://leetcode.com/problems/validate-binary-search-tree/',
-      },
+      // {
+      //   title: 'Valid Binary Search Tree',
+      //   difficulty: 'hard',
+      //   type: 'assignment',
+      //   status: 'solve',
+      //   link: 'https://leetcode.com/problems/validate-binary-search-tree/',
+      // },
     ],
     references: [
       {
-        title: 'Graph',
-        type: 'code',
-        link: 'https://www.programiz.com/dsa/graph',
+        title: 'Graph', // title
+        type: 'code', // type ['article', 'code']
+        link: 'https://www.programiz.com/dsa/graph', // link
       },
     ],
   },

@@ -15,7 +15,7 @@ function VideoScreen() {
     values: [],
     selected: -1,
   });
-  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [videos, setVideos] = useState([]);
 
   const onFilterChange = (index) => {
@@ -42,7 +42,7 @@ function VideoScreen() {
         link: url,
         parent_id: tag_,
         questions_list: questions,
-        reference_list: references,
+        reference_data: references,
       } = question.attributes;
 
       const tag = tag_ ? tag_[0].toUpperCase() + tag_.slice(1) : '';
@@ -59,6 +59,7 @@ function VideoScreen() {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     getTopics()
       .then((res) => {
         setFilter((current) => ({
@@ -71,16 +72,28 @@ function VideoScreen() {
         })
           .then((res) => {
             setVideos(transformQuestionsData(res));
+            // setVideos(dummyData);
             myLog(transformQuestionsData(res));
+            setIsLoading(false);
           })
           .catch((err) => {
             toast.error(err.message);
+            setIsLoading(false);
           });
       })
       .catch((err) => {
         toast.error(err.message);
+        setIsLoading(false);
       });
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className="dashboard d-flex">
+        <div className="spinner-border text-primary m-auto" role="status" />
+      </div>
+    );
+  }
 
   return (
     <div className={`${styles['videos']}`}>
@@ -110,7 +123,7 @@ function VideoScreen() {
               filter.selected === -1 ||
               filter.values[filter.selected] === video.tag
             ) {
-              return <Video video={video} key={index} />;
+              return <Video video={video} key={index} setVideos={setVideos} />;
             }
             return '';
           })}
