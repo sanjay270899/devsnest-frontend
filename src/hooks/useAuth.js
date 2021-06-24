@@ -13,15 +13,13 @@ export default function useAuth() {
       dispatch(setLoginLoading(true));
       try {
         const response = await axios.get(API_ENDPOINTS.CURRENT_USER);
-        // actions.login(response.data.data.attributes);
         dispatch(login(response.data.data.attributes));
       } catch (e) {
         dispatch(logout());
       }
+      dispatch(setLoginLoading(false));
     };
     loadData();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   return null;

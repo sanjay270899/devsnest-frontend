@@ -13,6 +13,7 @@ import Navbar from './components/Layout/Navbar';
 import Toastify from './components/Layout/Toast';
 import ConditionalRoute from './components/Route/ConditionalRoute';
 import PrivateRoute from './components/Route/PrivateRoute';
+import useAuth from './hooks/useAuth';
 import Challenges from './pages/Challenges';
 import Dashboard from './pages/Dashboard';
 import Faq from './pages/Faqs';
@@ -26,6 +27,8 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import Question from './pages/Question';
 
 function App() {
+  useAuth();
+
   useEffect(() => {
     let code =
       process.env.NODE_ENV === 'production'

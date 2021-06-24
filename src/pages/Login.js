@@ -1,9 +1,10 @@
 import '../assets/css/login.scss';
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import GoogleLogin from 'react-google-login';
 import { useDispatch } from 'react-redux';
-import { Redirect, useHistory, useLocation } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import bg from '../assets/images/login/bg.png';
 import googleIcon from '../assets/images/login/google.svg';
@@ -16,7 +17,6 @@ import myLog from '../utils/myLog';
 
 function Login() {
   const history = useHistory();
-  const location = useLocation();
   const loginState = useLoginState();
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
@@ -41,58 +41,16 @@ function Login() {
         const userResponse = await axios.get(API_ENDPOINTS.CURRENT_USER);
         dispatch(updateUser(userResponse.data.data.attributes));
         history.push('/');
+        toast.success('Successfully signed in!');
       } catch (e) {
         console.error(e.message);
         setHasError(true);
+        toast.error('An error occurred!');
       }
       setIsLoading(false);
     },
     [dispatch, history]
   );
-
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const code = params.get('code');
-
-    const loginCallback = async () => {
-      setIsLoading(true);
-      try {
-        myLog('code', code);
-        const loginResp = await axios.post(`${API_ENDPOINTS.LOGIN}`, {
-          code,
-          type: 'discord',
-        });
-        myLog('response from api: ', loginResp);
-        if (
-          loginResp.data &&
-          loginResp.data.data &&
-          loginResp.data.data.attributes
-        ) {
-          dispatch(
-            login({
-              ...loginResp.data.data.attributes,
-              authorization: loginResp.headers['authorization'],
-            })
-          );
-          const userResp = await axios.get(API_ENDPOINTS.CURRENT_USER);
-          dispatch(
-            login({
-              ...userResp.data.data.attributes,
-            })
-          );
-          history.push('/');
-        }
-      } catch (err) {
-        myLog('error from api: ', err);
-        setHasError(true);
-      }
-      setIsLoading(false);
-    };
-
-    if (code) {
-      loginCallback();
-    }
-  }, [dispatch, history, location.search]);
 
   if (!loginState.isLoading && !isLoading && loginState.loggedIn) {
     return <Redirect to="/" />;
@@ -151,48 +109,38 @@ function Login() {
                 Something went wrong, Reach out to us at support@devsnest.in
               </p>
             ) : (
-              <>
-                <GoogleLogin
-                  clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-                  onSuccess={onGoogleLogin}
-                  onFailure={() => {}}
-                  render={(props) => (
-                    <button
-                      className="btn py-2 d-flex align-items-center mx-auto my-2 rounded-lg"
-                      style={{
-                        boxShadow: '0px 0px 20px #00000033',
-                      }}
-                      onClick={props.onClick}
-                      disabled={props.disabled || isLoading}
-                    >
-                      {props.disabled || isLoading ? (
-                        <div
-                          className="spinner-border text-dark spinner-border-sm"
-                          role="status"
-                        />
-                      ) : (
-                        <img
-                          src={googleIcon}
-                          alt="google-icon"
-                          height="25px"
-                          width="25px"
-                        />
-                      )}
-                      <span className="text-muted font-weight-bold ml-3">
-                        Login with Google
-                      </span>
-                    </button>
-                  )}
-                />
-                {/* <button
-                  onClick={() => {
-                    window.location = API_ENDPOINTS.DISCORD_LOGIN_REDIRECT;
-                  }}
-                  className="btn py-05 mx-auto my-2 login-btn"
-                >
-                  <span>Login with Discord</span>
-                </button> */}
-              </>
+              <GoogleLogin
+                clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                onSuccess={onGoogleLogin}
+                onFailure={() => {}}
+                render={(props) => (
+                  <button
+                    className="btn py-2 d-flex align-items-center mx-auto my-2 rounded-lg"
+                    style={{
+                      boxShadow: '0px 0px 20px #00000033',
+                    }}
+                    onClick={props.onClick}
+                    disabled={props.disabled || isLoading}
+                  >
+                    {props.disabled || isLoading ? (
+                      <div
+                        className="spinner-border text-dark spinner-border-sm"
+                        role="status"
+                      />
+                    ) : (
+                      <img
+                        src={googleIcon}
+                        alt="google-icon"
+                        height="25px"
+                        width="25px"
+                      />
+                    )}
+                    <span className="text-muted font-weight-bold ml-3">
+                      Login with Google
+                    </span>
+                  </button>
+                )}
+              />
             )}
           </div>
         </div>

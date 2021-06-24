@@ -307,3 +307,24 @@ footer {
 .Toastify__toast-body {
   color: #fff !important;
 }
+
+// Toast classes
+.Toastify__toast {
+  box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+}
+.Toastify__toast--default {
+}
+.Toastify__toast--info {
+  background-color: #2176ff;
+}
+.Toastify__toast--success {
+  background-color: #1eae4e;
+}
+.Toastify__toast--warning {
+  background-color: #ffba49;
+}
+.Toastify__toast--error {
+  background-color: #e63946;
+}
+.Toastify__toast-body {
+}
