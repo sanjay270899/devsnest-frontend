@@ -25,7 +25,7 @@ export const AcademicDetailsModal = ({ modalProps, user, id }) => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.put(`${API_ENDPOINTS.UPDATE_USER}/${id}`, {
+      const response = await axios.put(`${API_ENDPOINTS.USER}/${id}`, {
         data: {
           id: id.toString(),
           type: 'users',
