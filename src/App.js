@@ -24,8 +24,8 @@ import Leaderboard from './pages/Leaderboard';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import Profile from './pages/Profile';
 import Question from './pages/Question';
-
 function App() {
   useAuth();
 
@@ -52,6 +52,7 @@ function App() {
           />
           <Route exact path="/faqs" component={Faq} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/u/:username" component={Profile} />
           <PrivateRoute exact path="/challenges" component={Challenges} />
           <PrivateRoute exact path="/question" component={Question} />
           <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
