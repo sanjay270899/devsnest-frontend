@@ -59,32 +59,27 @@ function VideoScreen() {
   };
 
   useEffect(() => {
-    setIsLoading(true);
-    getTopics()
-      .then((res) => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        const topicRes = await getTopics();
         setFilter((current) => ({
           ...current,
-          values: transformTopicsData(res.data),
+          values: transformTopicsData(topicRes.data),
         }));
-
-        getQuestions({
+        const questionsRes = await getQuestions({
           data_type: 'video',
-        })
-          .then((res) => {
-            setVideos(transformQuestionsData(res));
-            // setVideos(dummyData);
-            myLog(transformQuestionsData(res));
-            setIsLoading(false);
-          })
-          .catch((err) => {
-            toast.error(err.message);
-            setIsLoading(false);
-          });
-      })
-      .catch((err) => {
+        });
+        setVideos(transformQuestionsData(questionsRes));
+        // setVideos(dummyData);
+        myLog(transformQuestionsData(questionsRes));
+        setIsLoading(false);
+      } catch (err) {
         toast.error(err.message);
         setIsLoading(false);
-      });
+      }
+    };
+    fetchData();
   }, []);
 
   if (isLoading) {

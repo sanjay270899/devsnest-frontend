@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 
 import styles from '../../assets/css/videos.module.scss';
-import { submitQuestion } from '../../services/submission';
+import {
+  nextStatus,
+  statusToString,
+  submitQuestion,
+} from '../../services/submission';
 import icons from '../../utils/getIcons';
 import myLog from '../../utils/myLog';
 import {
@@ -25,20 +29,8 @@ export const Question = ({ question, setVideos, video_id }) => {
   );
 
   const onSubmitQuestion = async (question_unique_id, status) => {
-    let status_ = '';
-    if (status === 'notdone') {
-      // 1
-      status = 2; // doubt
-      status_ = 'doubt';
-    } else if (status === 'doubt') {
-      // 2
-      status = 0; // done
-      status_ = 'done';
-    } else if (status === 'done') {
-      // 0
-      status = 1; // notdone
-      status_ = 'notdone';
-    }
+    status = nextStatus(status);
+    let status_ = statusToString(status);
     setDisableQuestionSubmission(true);
     try {
       await submitQuestion({ question_unique_id, status });
