@@ -1,7 +1,6 @@
 import '../../assets/css/groups.scss';
 
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import default_user from '../../assets/images/default_user.png';
@@ -45,7 +44,6 @@ const group_activities = [
 
 export default function Groups() {
   const { slug } = useParams();
-  const user = useSelector((state) => state.loginState.user);
   const [isLoading, setIsLoading] = useState(true);
   const [groupData, setGroupData] = useState(null);
   const [currentTab, setCurrentTab] = useState('scrums');
@@ -84,7 +82,7 @@ export default function Groups() {
     );
   }
 
-  if (!user.group_id || !groupData) {
+  if (!groupData) {
     return <NoGroupData />;
   }
 
