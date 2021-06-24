@@ -45,4 +45,4 @@ function nextStatus(number) {
   return (number + 1) % 3;
 }
 
-export { submitQuestion, statusToString, statusToNumber, nextStatus };
+export { nextStatus, statusToNumber, statusToString, submitQuestion };
