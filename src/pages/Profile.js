@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
+import { AcademicDetails } from '../components/Dashboard/AcademicDetails';
+import { ActivityMap } from '../components/Dashboard/ActivityMap';
+import { BasicDetails } from '../components/Dashboard/BasicDetails';
+import { ProblemsDetails } from '../components/Dashboard/ProblemsDetails';
+import { ProjectsComingSoon } from '../components/Dashboard/ProjectsComingSoon';
 import axios from '../config/axios.config';
 import { API_ENDPOINTS } from '../constants/api';
-import { AcademicDetails } from '../pages/dashboard/AcademicDetails';
-import { ActivityMap } from '../pages/dashboard/ActivityMap';
-import { BasicDetails } from '../pages/dashboard/BasicDetails';
-import { ProblemsDetails } from '../pages/dashboard/ProblemsDetails';
-import { ProjectsComingSoon } from '../pages/dashboard/ProjectsComingSoon';
 import myLog from '../utils/myLog';
 
 export default function Profile() {

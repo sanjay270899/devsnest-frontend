@@ -89,7 +89,7 @@ export const BasicDetails = ({ user }) => {
           />
         </div>
         <div className="d-flex justify-content-end">
-          {currentUsername === user && (
+          {currentUsername === user.username && (
             <img
               src={icons.edit_outline}
               alt="edit"

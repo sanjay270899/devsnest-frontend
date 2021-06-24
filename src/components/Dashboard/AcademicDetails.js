@@ -9,6 +9,7 @@ export const AcademicDetails = ({ user }) => {
   const [modalShow, setModalShow] = useState(false);
   const loginState = useSelector((state) => state.loginState);
   const currentUsername = loginState.loggedIn ? loginState.user.username : null;
+  console.log(user);
   // Default Values
   const DEFAULT_VALUE = '-- N/A --';
 
@@ -40,7 +41,7 @@ export const AcademicDetails = ({ user }) => {
           />
         </div>
         <div className="d-flex justify-content-end">
-          {currentUsername === user && (
+          {currentUsername === user.username && (
             <img
               src={icons.edit_outline}
               alt="edit"
