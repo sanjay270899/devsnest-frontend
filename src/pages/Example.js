@@ -1,9 +1,8 @@
 // Imports
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { login } from '../actions/loginActions';
-import { useActions } from '../hooks/useActions';
+import { login, useLoginState } from '../redux';
 import myLog from '../utils/myLog';
 
 // Other smaller components
@@ -17,8 +16,8 @@ function Example() {
   const [value, setValue] = useState(' ');
 
   // Redux state and actions
-  const loginState = useSelector((state) => state.loginState);
-  const actions = useActions({ login });
+  const loginState = useLoginState();
+  const dispatch = useDispatch();
 
   // Effects
   useEffect(() => {
@@ -29,7 +28,7 @@ function Example() {
   return (
     <div style={{ paddingTop: '92px' }}>
       <div className="mb-2">loginState: {JSON.stringify(loginState)}</div>
-      <button onClick={() => actions.login({})}>Login</button>
+      <button onClick={() => dispatch(login({}))}>Login</button>
 
       <Input value={value} setValue={setValue} />
     </div>

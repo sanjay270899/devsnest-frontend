@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 
-import { login } from '../../actions/loginActions';
 import axios from '../../config/axios.config';
 import { API_ENDPOINTS } from '../../constants/api';
-import useActions from '../../hooks/useActions';
+import { login } from '../../redux';
 import icons from '../../utils/getIcons';
 import myLog from '../../utils/myLog';
 
@@ -20,7 +20,7 @@ export const AcademicDetailsModal = ({ modalProps, user, id }) => {
     registration_num: user.registration_num || '',
   });
 
-  const actions = useActions({ login });
+  const dispatch = useDispatch();
 
   const handleSumbit = async () => {
     myLog(details);
@@ -47,7 +47,7 @@ export const AcademicDetailsModal = ({ modalProps, user, id }) => {
         response.data.data &&
         response.data.data.attributes
       ) {
-        actions.login(response.data.data.attributes);
+        dispatch(login(response.data.data.attributes));
         myLog('User Detail Updated');
       }
       modalProps.onHide();

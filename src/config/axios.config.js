@@ -17,11 +17,11 @@ axios.interceptors.request.use(
     const state = loadStorage(`${window.origin}/state`);
     if (
       state &&
-      state.loginState &&
-      state.loginState.user &&
-      state.loginState.user.authorization
+      state.login &&
+      state.login.user &&
+      state.login.user.authorization
     ) {
-      request.headers['Authorization'] = state.loginState.user.authorization;
+      request.headers['Authorization'] = state.login.user.authorization;
     }
     return request;
   },

@@ -1,32 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router';
 import { HashLink as Link } from 'react-router-hash-link';
 import { toast } from 'react-toastify';
 import {
   Collapse,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
   Modal,
   ModalBody,
   Nav as BSNav,
   Navbar as BSNavbar,
   NavbarToggler,
   NavItem,
-} from 'reactstrap';
-import {
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle,
   UncontrolledDropdown,
 } from 'reactstrap';
 
-import { login, logout } from '../../actions/loginActions';
 import default_user from '../../assets/images/default_user.png';
 import discord_icon from '../../assets/images/login/discord-icon.svg';
 import phone_message from '../../assets/images/login/phone-message.svg';
 import logo from '../../assets/images/logo.jpg';
 import axios from '../../config/axios.config';
 import { API_ENDPOINTS } from '../../constants/api';
-import useActions from '../../hooks/useActions';
+import { login, logout, useLoginState } from '../../redux';
 
 const homeMenuItems = [
   {
@@ -64,8 +61,8 @@ const loginMenuItems = [
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const loginState = useSelector((state) => state.loginState);
-  const actions = useActions({ logout });
+  const loginState = useLoginState();
+  const dispatch = useDispatch();
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -128,7 +125,10 @@ function Navbar() {
                         Dashboard
                       </Link>
                       <DropdownItem divider />
-                      <DropdownItem tag="div" onClick={() => actions.logout()}>
+                      <DropdownItem
+                        tag="div"
+                        onClick={() => dispatch(logout())}
+                      >
                         Logout
                       </DropdownItem>
                     </DropdownMenu>
@@ -155,8 +155,8 @@ function Navbar() {
 
 export const ConnectWithDiscordBanner = () => {
   const location = useLocation();
-  const actions = useActions({ login });
-  const loginState = useSelector((state) => state.loginState);
+  const dispatch = useDispatch();
+  const loginState = useLoginState();
   const connectWithDiscordOpen = loginState.user && !loginState.user.discord_id;
   const [connectOpen, setConnectOpen] = useState(false);
   const toggleConnectOpen = () => setConnectOpen(!connectOpen);
@@ -177,9 +177,7 @@ export const ConnectWithDiscordBanner = () => {
             code,
           });
           const userResp = await axios.get(API_ENDPOINTS.CURRENT_USER);
-          actions.login({
-            ...userResp.data.data.attributes,
-          });
+          dispatch(login(userResp.data.data.attributes));
           setConnectOpen(false);
           toast.success('Successfully connected');
         } catch (e) {
@@ -192,7 +190,7 @@ export const ConnectWithDiscordBanner = () => {
     };
 
     load();
-  }, [actions, location]);
+  }, [dispatch, location]);
 
   useEffect(() => {
     const connectRequest = async () => {
@@ -208,9 +206,7 @@ export const ConnectWithDiscordBanner = () => {
           },
         });
         const userResp = await axios.get(API_ENDPOINTS.CURRENT_USER);
-        actions.login({
-          ...userResp.data.data.attributes,
-        });
+        dispatch(login(userResp.data.data.attributes));
         setConnectOpen(false);
         toast.success('Successfully connected');
       } catch (e) {
@@ -226,7 +222,7 @@ export const ConnectWithDiscordBanner = () => {
     if (botToken.length === 40) {
       connectRequest();
     }
-  }, [actions, botToken]);
+  }, [dispatch, botToken]);
 
   return (
     <Collapse isOpen={connectWithDiscordOpen}>

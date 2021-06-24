@@ -2,24 +2,23 @@ import '../assets/css/login.scss';
 
 import React, { useCallback, useEffect, useState } from 'react';
 import GoogleLogin from 'react-google-login';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Redirect, useHistory, useLocation } from 'react-router-dom';
 
-import { login } from '../actions/loginActions';
 import bg from '../assets/images/login/bg.png';
 import googleIcon from '../assets/images/login/google.svg';
 import left from '../assets/images/login/Group 17.svg';
 import right from '../assets/images/login/Group 65.svg';
 import axios from '../config/axios.config';
 import { API_ENDPOINTS } from '../constants/api';
-import useActions from '../hooks/useActions';
+import { login, updateUser, useLoginState } from '../redux';
 import myLog from '../utils/myLog';
 
 function Login() {
   const history = useHistory();
   const location = useLocation();
-  const loginState = useSelector((state) => state.loginState);
-  const actions = useActions({ login });
+  const loginState = useLoginState();
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
 
@@ -33,12 +32,14 @@ function Login() {
           code: data.tokenObj.id_token,
           googleId: data.profileObj.googleId,
         });
-        actions.login({
-          ...loginResponse.data.data.attributes,
-          authorization: loginResponse.headers['authorization'],
-        });
+        dispatch(
+          login({
+            ...loginResponse.data.data.attributes,
+            authorization: loginResponse.headers['authorization'],
+          })
+        );
         const userResponse = await axios.get(API_ENDPOINTS.CURRENT_USER);
-        actions.login({ ...userResponse.data.data.attributes });
+        dispatch(updateUser(userResponse.data.data.attributes));
         history.push('/');
       } catch (e) {
         console.error(e.message);
@@ -46,7 +47,7 @@ function Login() {
       }
       setIsLoading(false);
     },
-    [actions, history]
+    [dispatch, history]
   );
 
   useEffect(() => {
@@ -67,14 +68,18 @@ function Login() {
           loginResp.data.data &&
           loginResp.data.data.attributes
         ) {
-          actions.login({
-            ...loginResp.data.data.attributes,
-            authorization: loginResp.headers['authorization'],
-          });
+          dispatch(
+            login({
+              ...loginResp.data.data.attributes,
+              authorization: loginResp.headers['authorization'],
+            })
+          );
           const userResp = await axios.get(API_ENDPOINTS.CURRENT_USER);
-          actions.login({
-            ...userResp.data.data.attributes,
-          });
+          dispatch(
+            login({
+              ...userResp.data.data.attributes,
+            })
+          );
           history.push('/');
         }
       } catch (err) {
@@ -87,8 +92,7 @@ function Login() {
     if (code) {
       loginCallback();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch, history, location.search]);
 
   if (!loginState.isLoading && !isLoading && loginState.loggedIn) {
     return <Redirect to="/" />;

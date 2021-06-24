@@ -21,7 +21,7 @@ const DEFAULT_MEMBER_OBJECT = {
 };
 
 export default function Scrums({ group, groupMembers }) {
-  const user = useSelector((state) => state.loginState.user);
+  const user = useSelector((state) => state.login.user);
   const isTeamOwner = group.owner_id === user.id;
   const [members, setMembers] = useState([...groupMembers]);
   const [isSaving, setIsSaving] = useState(false);

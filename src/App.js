@@ -7,13 +7,12 @@ import './assets/css/landing.scss';
 import React, { useEffect } from 'react';
 import ReactGA from 'react-ga';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 
 import Footer from './components/Layout/Footer';
 import Navbar from './components/Layout/Navbar';
+import Toastify from './components/Layout/Toast';
 import ConditionalRoute from './components/Route/ConditionalRoute';
 import PrivateRoute from './components/Route/PrivateRoute';
-import useAuth from './hooks/useAuth';
 import Challenges from './pages/Challenges';
 import Dashboard from './pages/Dashboard';
 import Faq from './pages/Faqs';
@@ -27,8 +26,6 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import Question from './pages/Question';
 
 function App() {
-  useAuth();
-
   useEffect(() => {
     let code =
       process.env.NODE_ENV === 'production'
@@ -64,17 +61,7 @@ function App() {
 
       <Footer />
 
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={true}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
+      <Toastify />
     </Router>
   );
 }
