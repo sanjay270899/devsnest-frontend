@@ -91,8 +91,8 @@ function VideoScreen() {
   }
 
   return (
-    <div className={`${styles['videos']}`}>
-      <div className={`${styles['margin-controller']}`}>
+    <div className={`${styles['videos']} py-4`}>
+      <div className={`d-flex flex-column ${styles['margin-controller']}`}>
         {filter.values.length > 0 ? (
           <div className="d-flex align-items-center px-3">
             <img

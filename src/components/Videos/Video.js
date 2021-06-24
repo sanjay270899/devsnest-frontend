@@ -8,7 +8,9 @@ import { Question } from './Question';
 export const Video = ({ video, setVideos }) => {
   const [selected, setSelected] = useState(0);
   return (
-    <div className={`${styles['card']} d-flex`}>
+    <div
+      className={`${styles['card']} d-flex my-4 p-sm-4 p-2 flex-column flex-xl-row`}
+    >
       <div className="w-100">
         <div className="d-flex align-items-center justify-content-between">
           <span className="d-flex align-items-center">
@@ -17,7 +19,9 @@ export const Video = ({ video, setVideos }) => {
               {video.title}
             </span>
           </span>
-          <span className="bg-white rounded p-1 shadow-sm">{video.tag}</span>
+          <span className="bg-white rounded p-1 shadow-sm ml-1">
+            {video.tag}
+          </span>
         </div>
         <div
           className={`mt-3 rounded overflow-hidden ${styles['player-wrapper']}`}
@@ -33,12 +37,14 @@ export const Video = ({ video, setVideos }) => {
         </div>
       </div>
 
-      <div className={`${styles['question-main']}`}>
+      <div className="mx-xl-4 ml-xl-5 mt-3 mt-xl-0">
         <div className="d-flex pb-1">
           <div
-            className={`cursor-pointer ${styles['right-title']} ${
-              styles['right-line']
-            } ${selected === 0 && styles['right-title-selected']}`}
+            className={`cursor-pointer pr-sm-3 mr-sm-3 pr-2 mr-2 ${
+              styles['right-title']
+            } ${styles['right-line']} ${
+              selected === 0 && styles['right-title-selected']
+            }`}
             onClick={() => setSelected(0)}
           >
             Related Questions
@@ -52,7 +58,7 @@ export const Video = ({ video, setVideos }) => {
             References
           </div>
         </div>
-        <div className={`${styles['questions-container']} mt-2`}>
+        <div className="mt-2 d-flex flex-column">
           {selected === 0
             ? video.questions && video.questions.length > 0
               ? video.questions.map((q, index) => (

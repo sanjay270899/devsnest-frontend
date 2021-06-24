@@ -55,7 +55,9 @@ export const Question = ({ question, setVideos, video_id }) => {
   };
 
   return (
-    <div className={`d-flex align-items-center ${styles['questions']}`}>
+    <div
+      className={`d-flex align-items-center ${styles['questions']} my-sm-4 my-2`}
+    >
       <div
         className={`${styles['img']}`}
         style={{ backgroundColor: QUESTION_DIFFICULTY_COLOR }}
@@ -71,7 +73,7 @@ export const Question = ({ question, setVideos, video_id }) => {
         href={question.link}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${styles['title']}`}
+        className={`d-flex align-items-center ${styles['title']}`}
       >
         {question.name || question.title}
       </a>
@@ -89,7 +91,7 @@ export const Question = ({ question, setVideos, video_id }) => {
             }
           />
         ) : (
-          <a href={question.link} target="_blank" rel="noreferrer">
+          <a href={question.link} target="_blank" rel="noopener noreferrer">
             <img
               src={QUESTION_STATUS_IMG}
               alt={question.status}
