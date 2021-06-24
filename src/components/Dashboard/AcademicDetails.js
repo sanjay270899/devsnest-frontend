@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import icons from '../../utils/getIcons';
 import { AcademicDetailsModal } from './AcademicDetailsModal';
@@ -6,7 +7,8 @@ import { Row } from './Row';
 
 export const AcademicDetails = ({ user }) => {
   const [modalShow, setModalShow] = useState(false);
-
+  const loginState = useSelector((state) => state.loginState);
+  const currentUsername = loginState.loggedIn ? loginState.user.username : null;
   // Default Values
   const DEFAULT_VALUE = '-- N/A --';
 
@@ -38,14 +40,16 @@ export const AcademicDetails = ({ user }) => {
           />
         </div>
         <div className="d-flex justify-content-end">
-          <img
-            src={icons.edit_outline}
-            alt="edit"
-            onClick={() => setModalShow(true)}
-            style={{ cursor: 'pointer' }}
-            height="20px"
-            width="20px"
-          />
+          {currentUsername === user && (
+            <img
+              src={icons.edit_outline}
+              alt="edit"
+              onClick={() => setModalShow(true)}
+              style={{ cursor: 'pointer' }}
+              height="20px"
+              width="20px"
+            />
+          )}
         </div>
       </div>
       {modalShow && (
