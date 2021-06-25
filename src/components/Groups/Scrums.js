@@ -14,146 +14,74 @@ import {
   saveScrum,
 } from '../../services/scrum';
 import icons from '../../utils/getIcons';
+import NoGroupData from './NoGroupData';
 // import axios from '../config/axios.config';
 // import { API_ENDPOINTS } from '../constants/api';
 
-export default function Scrums({ group, groupMembers }) {
+export default function Scrums({ group, groupMembers, groupId }) {
   const user = useSelector((state) => state.loginState.user);
   const isTeamOwner = group.owner_id === user.id;
-  const [membPers, setMembers] = useState([...groupMembers]);
+  const [members, setMembers] = useState([...groupMembers]);
+  const [questions, setQuestions] = useState([]);
+
   const [isSaving, setIsSaving] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-
-  // console.log('group data =>');
-  // console.log(group);
-  // console.log('groupMembers data =>');
-  // console.log(groupMembers);
-
-  let initialState = [
-    {
-      user_id: 'mohd baqer haider',
-      attendance: null,
-      saw_last_lecture: null,
-      till_which_tha_you_are_done: null,
-      what_will_you_cover_today: null,
-      reason_for_backlog_if_any: null,
-      rate_yesterday_class: null,
-    },
-    {
-      user_id: 'Ashirbad',
-      attendance: null,
-      saw_last_lecture: null,
-      till_which_tha_you_are_done: null,
-      what_will_you_cover_today: null,
-      reason_for_backlog_if_any: null,
-      rate_yesterday_class: null,
-    },
-    {
-      user_id: 'Barney stinson',
-      attendance: null,
-      saw_last_lecture: null,
-      till_which_tha_you_are_done: null,
-      what_will_you_cover_today: null,
-      reason_for_backlog_if_any: null,
-      rate_yesterday_class: null,
-    },
-    {
-      user_id: 'swaijot',
-      attendance: null,
-      saw_last_lecture: null,
-      till_which_tha_you_are_done: null,
-      what_will_you_cover_today: null,
-      reason_for_backlog_if_any: null,
-      rate_yesterday_class: null,
-    },
-    {
-      user_id: 'mohd baqer haider',
-      attendance: null,
-      saw_last_lecture: null,
-      till_which_tha_you_are_done: null,
-      what_will_you_cover_today: null,
-      reason_for_backlog_if_any: null,
-      rate_yesterday_class: null,
-    },
-    {
-      user_id: 'Ashirbad',
-      attendance: null,
-      saw_last_lecture: null,
-      till_which_tha_you_are_done: null,
-      what_will_you_cover_today: null,
-      reason_for_backlog_if_any: null,
-      rate_yesterday_class: null,
-    },
-    {
-      user_id: 'Barney stinson',
-      attendance: null,
-      saw_last_lecture: null,
-      till_which_tha_you_are_done: null,
-      what_will_you_cover_today: null,
-      reason_for_backlog_if_any: null,
-      rate_yesterday_class: null,
-    },
-    {
-      user_id: 'swaijot',
-      attendance: null,
-      saw_last_lecture: null,
-      till_which_tha_you_are_done: null,
-      what_will_you_cover_today: null,
-      reason_for_backlog_if_any: null,
-      rate_yesterday_class: null,
-    },
-    {
-      user_id: 'mohd baqer haider',
-      attendance: null,
-      saw_last_lecture: null,
-      till_which_tha_you_are_done: null,
-      what_will_you_cover_today: null,
-      reason_for_backlog_if_any: null,
-      rate_yesterday_class: null,
-    },
-    {
-      user_id: 'Ashirbad',
-      attendance: null,
-      saw_last_lecture: null,
-      till_which_tha_you_are_done: null,
-      what_will_you_cover_today: null,
-      reason_for_backlog_if_any: null,
-      rate_yesterday_class: null,
-    },
-    {
-      user_id: 'Barney stinson',
-      attendance: null,
-      saw_last_lecture: null,
-      till_which_tha_you_are_done: null,
-      what_will_you_cover_today: null,
-      reason_for_backlog_if_any: null,
-      rate_yesterday_class: null,
-    },
-    {
-      user_id: 'swaijot',
-      attendance: null,
-      saw_last_lecture: null,
-      till_which_tha_you_are_done: null,
-      what_will_you_cover_today: null,
-      reason_for_backlog_if_any: null,
-      rate_yesterday_class: null,
-    },
-  ];
-
-  const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
     async function fetchScrum() {
       try {
-        const response = await getScrums(2);
+        console.log(members);
+        const response = await getScrums(1);
         console.log(response);
+
+        // Saved Users ID
+        const savedUsersID = [];
+        response.forEach((member) => {
+          savedUsersID.push(member.user_id);
+        });
+        console.log(savedUsersID);
+
+        members.forEach((member) => {
+          if (!savedUsersID.includes(member.user_id)) {
+            response.push({
+              user_id: member.user_id,
+              group_id: groupId,
+              attendance: null,
+              saw_last_lecture: null,
+              tha_progress: null,
+              topics_to_cover: null,
+              backlog_reasons: null,
+              class_rating: null,
+            });
+          }
+        });
+
+        const idToDetails = {};
+        members.forEach((member) => {
+          idToDetails[member.user_id] = {
+            name: member.user_details.username,
+            avatar: member.user_details.avatar,
+          };
+        });
+
+        // Name and Avatar
+        response.forEach((member) => {
+          const id = member.user_id;
+          const { name, avatar } = idToDetails[id];
+          member.name = name;
+          member.avatar = avatar;
+        });
+
+        console.log(response);
+        console.log(group);
+
         setQuestions(response);
       } catch (e) {
         console.log(e);
       }
     }
     fetchScrum();
-  });
+  }, []);
 
   const updateQuestions = (index, newData) => {
     setQuestions((arr) =>
@@ -170,29 +98,16 @@ export default function Scrums({ group, groupMembers }) {
     );
   };
 
-  // const postData = {
-  //   data: {
-  //     attributes: {
-  //       saw_last_lecture: 'Yes',
-  //       till_which_tha_you_are_done: 93,
-  //       what_will_you_cover_today: null,
-  //       reason_for_backlog_if_any: null,
-  //       rate_yesterday_class: null,
-  //     },
-  //     id: 6,
-  //     type: 'scrums',
-  //   },
-  // };
+  const postScrumData = () => {};
 
   return (
-    <Container
-      fluid
+    <div
       style={{
         backgroundColor: '#fff',
         boxShadow: '0 0 20px #0003',
-        width: 'fit-content',
         height: '100%',
         borderRadius: '18px',
+        maxWidth: 'calc(100vw - 250px)',
         padding: '40px 40px',
         marginLeft: '60px',
       }}
@@ -208,7 +123,6 @@ export default function Scrums({ group, groupMembers }) {
           </div>
         </div>
       </div>
-
       <Table
         responsive
         bordered
@@ -236,7 +150,7 @@ export default function Scrums({ group, groupMembers }) {
           ))}
         </tbody>
       </Table>
-    </Container>
+    </div>
   );
 }
 
@@ -266,7 +180,7 @@ const TableRow = ({ updateQuestions, question, index, isTeamOwner }) => {
                 width: '30px',
                 borderRadius: '100px',
               }}
-              src={default_user}
+              src={question.avatar || default_user}
               alt=""
             />
           </div>
@@ -275,7 +189,7 @@ const TableRow = ({ updateQuestions, question, index, isTeamOwner }) => {
             style={{ margin: '1px 1px', cursor: 'pointer' }}
             onClick={() => setModalShow(true)}
           >
-            {limitForStr(question.user_id, 'name')}
+            {limitForStr(question.name || 'No Name', 'name')}
           </div>
         </div>
 
@@ -300,13 +214,25 @@ const TableRow = ({ updateQuestions, question, index, isTeamOwner }) => {
       </td>
 
       <td>
-        <input
+        {/* <input
           type="text"
-          name={'till_which_tha_you_are_done'}
-          value={question.till_which_tha_you_are_done}
+          value={question.tha_progress}
           onChange={(e) =>
             updateQuestions(index, {
-              till_which_tha_you_are_done: e.target.value,
+              tha_progress: e.target.value,
+            })
+          }
+        /> */}
+        {question.tha_progress}
+      </td>
+
+      <td>
+        <input
+          type="text"
+          value={question.topics_to_cover}
+          onChange={(e) =>
+            updateQuestions(index, {
+              topics_to_cover: e.target.value,
             })
           }
         />
@@ -315,24 +241,10 @@ const TableRow = ({ updateQuestions, question, index, isTeamOwner }) => {
       <td>
         <input
           type="text"
-          name="what_will_you_cover_today"
-          value={question.what_will_you_cover_today}
+          value={question.backlog_reasons}
           onChange={(e) =>
             updateQuestions(index, {
-              what_will_you_cover_today: e.target.value,
-            })
-          }
-        />
-      </td>
-
-      <td>
-        <input
-          type="text"
-          name="reason_for_backlog_if_any"
-          value={question.reason_for_backlog_if_any}
-          onChange={(e) =>
-            updateQuestions(index, {
-              reason_for_backlog_if_any: e.target.value,
+              backlog_reasons: e.target.value,
             })
           }
         />
@@ -340,9 +252,9 @@ const TableRow = ({ updateQuestions, question, index, isTeamOwner }) => {
 
       <td>
         <StarRating
-          value={question.rate_yesterday_class || 0}
+          value={question.class_rating || 0}
           onChange={(newValue) => {
-            updateQuestions(index, { rate_yesterday_class: newValue });
+            updateQuestions(index, { class_rating: newValue });
           }}
           size={20}
         ></StarRating>
@@ -385,7 +297,9 @@ const MyVerticallyCenteredModal = (props) => {
           <span className="ml-4 mt-1">
             <h2 style={{ color: '#707070' }}>
               Edit Scrums for{' '}
-              <span style={{ color: '#301E4A' }}>{props.question.user_id}</span>
+              <span style={{ color: '#301E4A' }}>
+                {props.question.name || 'No Name'}
+              </span>
             </h2>
           </span>
         </Modal.Title>
@@ -444,11 +358,10 @@ const MyVerticallyCenteredModal = (props) => {
                       }}
                       type="text"
                       size={60}
-                      name="till_which_tha_you_are_done"
-                      value={props.question.till_which_tha_you_are_done}
+                      value={props.question.tha_progress}
                       onChange={(e) =>
                         props.updateQuestion({
-                          till_which_tha_you_are_done: e.target.value,
+                          tha_progress: e.target.value,
                         })
                       }
                       onKeyPress={(e) => {
@@ -462,6 +375,7 @@ const MyVerticallyCenteredModal = (props) => {
                         borderRightStyle: 'hidden',
                         borderLeftStyle: 'hidden',
                         borderBottomStyle: 'groove',
+                        backgroundColor: 'transparent',
                       }}
                     />
                   </div>
@@ -490,11 +404,10 @@ const MyVerticallyCenteredModal = (props) => {
                     <input
                       size={60}
                       type="text"
-                      name="what_will_you_cover_today"
-                      value={props.question.what_will_you_cover_today}
+                      value={props.question.topics_to_cover}
                       onChange={(e) =>
                         props.updateQuestion({
-                          what_will_you_cover_today: e.target.value,
+                          topics_to_cover: e.target.value,
                         })
                       }
                       onKeyPress={(e) => {
@@ -536,11 +449,10 @@ const MyVerticallyCenteredModal = (props) => {
                     <input
                       size={60}
                       type="text"
-                      name="reason_for_backlog_if_any"
-                      value={props.question.reason_for_backlog_if_any}
+                      value={props.question.backlog_reasons}
                       onChange={(e) =>
                         props.updateQuestion({
-                          reason_for_backlog_if_any: e.target.value,
+                          backlog_reasons: e.target.value,
                         })
                       }
                       onKeyPress={(e) => {
@@ -582,10 +494,10 @@ const MyVerticallyCenteredModal = (props) => {
                   <div>
                     <div className="pl-8 d-flex">
                       <StarRating
-                        value={props.question.rate_yesterday_class}
+                        value={props.question.class_rating}
                         onChange={(newValue) => {
                           props.updateQuestion({
-                            rate_yesterday_class: newValue,
+                            class_rating: newValue,
                           });
                           nextFormStep();
                         }}
@@ -683,7 +595,6 @@ const MyVerticallyCenteredModal = (props) => {
                 </div>
               )}
 
-             
               {formStep === 5 && (
                 <div
                   style={{

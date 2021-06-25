@@ -48,7 +48,7 @@ export default function Groups() {
   const { slug } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [groupData, setGroupData] = useState(null);
-  const [currentTab, setCurrentTab] = useState('scrums');
+  const [currentTab, setCurrentTab] = useState('group_info');
 
   useEffect(() => {
     const loadData = async () => {
@@ -65,7 +65,9 @@ export default function Groups() {
         setGroupData({
           group: groupReq.data.data.attributes,
           groupMembers: groupMembers.data.data.map((item) => item.attributes),
+          group_id: id,
         });
+        console.log(groupMembers);
         setIsLoading(false);
       } catch (e) {
         myLog(e);
@@ -90,7 +92,7 @@ export default function Groups() {
 
   return (
     <div className="groups">
-      <div className="groups__container row align-items-stretch">
+      <div className="groups__container d-flex">
         <div className="col group-activities">
           <ul className="group-activities-list">
             {group_activities.map((item, index) => {
@@ -124,45 +126,44 @@ export default function Groups() {
         </div>
 
         {currentTab === 'group_info' && (
-          <div
-            className="col p-0"
-            style={{ position: 'relative', maxWidth: '5rem' }}
-          >
-            <h1 className="group-title text-truncate text-primary font-weight-bold display-4">
-              {groupData.group.name}
-            </h1>
-          </div>
-        )}
-
-        {currentTab === 'group_info' && (
-          <div className="col-3" style={{ maxWidth: 400 }}>
-            <div className="team-list p-2">
-              <ul className="d-flex flex-column">
-                {groupData.groupMembers.map((item) => (
-                  <li
-                    key={item.user_id}
-                    className="px-3 py-2 my-1 rounded-lg team-list-item"
-                  >
-                    <UserImage
-                      className="team-list-item-avatar"
-                      src={item.user_details.avatar || default_user}
-                      alt=""
-                    />
-                    <span className="ml-3 h5 mb-0 text-truncate">
-                      {item.user_details.username || 'Team Member'}
-                    </span>
-                    {item.user_id === groupData.group.owner_id && (
-                      <img
-                        className="team-list-item-leader ml-3"
-                        src={team_leader}
-                        alt="Team Leader"
-                      />
-                    )}
-                  </li>
-                ))}
-              </ul>
+          <>
+            <div
+              className="col p-0"
+              style={{ position: 'relative', maxWidth: '5rem' }}
+            >
+              <h1 className="group-title text-truncate text-primary font-weight-bold display-4">
+                {groupData.group.name}
+              </h1>
             </div>
-          </div>
+            <div className="col-3" style={{ maxWidth: 400 }}>
+              <div className="team-list p-2">
+                <ul className="d-flex flex-column">
+                  {groupData.groupMembers.map((item) => (
+                    <li
+                      key={item.user_id}
+                      className="px-3 py-2 my-1 rounded-lg team-list-item"
+                    >
+                      <UserImage
+                        className="team-list-item-avatar"
+                        src={item.user_details.avatar || default_user}
+                        alt=""
+                      />
+                      <span className="ml-3 h5 mb-0 text-truncate">
+                        {item.user_details.username || 'Team Member'}
+                      </span>
+                      {item.user_id === groupData.group.owner_id && (
+                        <img
+                          className="team-list-item-leader ml-3"
+                          src={team_leader}
+                          alt="Team Leader"
+                        />
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </>
         )}
 
         <div className="col d-flex flex-column align-items-center justify-content-center ">
@@ -170,6 +171,7 @@ export default function Groups() {
             <Scrums
               group={groupData.group}
               groupMembers={groupData.groupMembers}
+              groupId={groupData.group_id}
             />
           ) : !currentTab ? (
             <>

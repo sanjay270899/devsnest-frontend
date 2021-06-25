@@ -14,10 +14,10 @@ import { API_ENDPOINTS } from '../constants/api';
 //       "group_id": "1",
 //               "attendance": null,
 //               "saw_last_lecture": null,
-//               "till_which_tha_you_are_done": null,
-//               "what_will_you_cover_today": null,
-//               "reason_for_backlog_if_any": null,
-//               "rate_yesterday_class": null
+//               "tha_progress": null,
+//               "topics_to_cover": null,
+//               "backlog_reasons": null,
+//               "class_rating": null
 //       },
 //       "type": "scrums"
 //   }
@@ -31,10 +31,10 @@ import { API_ENDPOINTS } from '../constants/api';
 //       "attributes":{
 //               "attendance": true,
 //               "saw_last_lecture": false,
-//               "till_which_tha_you_are_done": "55",
-//               "what_will_you_cover_today":"bdhcbhe" ,
-//               "reason_for_backlog_if_any": "kuch nahi",
-//               "rate_yesterday_class": 5
+//               "tha_progress": "55",
+//               "topics_to_cover":"bdhcbhe" ,
+//               "backlog_reasons": "kuch nahi",
+//               "class_rating": 5
 //       },
 //       "type": "scrums"
 //   }
@@ -42,11 +42,29 @@ import { API_ENDPOINTS } from '../constants/api';
 
 // GET - http://localhost:8000/api/v1/scrums?group_id=1
 
-export const getScrums = (group_id) => {
-  // const params = { group_id: group_id };
-  // const response = await axios.get(`${API_ENDPOINTS.SCRUMS}`, { params });
-  // return response.data;
-  return transformData(dummy_Scrum_get.data);
+export const getScrums = async (group_id) => {
+  const params = { group_id: group_id };
+  const response = await axios.get(`${API_ENDPOINTS.SCRUMS}`, { params });
+  response.data.data.push({
+    id: '14',
+    type: 'scrums',
+    links: {
+      self: 'http://localhost:8000/api/v1/scrums/14',
+    },
+    attributes: {
+      user_id: 3,
+      group_id: 1,
+      attendance: true,
+      saw_last_lecture: true,
+      tha_progress: '55',
+      topics_to_cover: null,
+      backlog_reasons: null,
+      class_rating: 5,
+      creation_date: '2021-06-21T13:42:57.534+05:30',
+    },
+  });
+  return transformData(response.data.data);
+  // return transformData(dummy_Scrum_get.data);
 };
 
 export function transformData(data) {
@@ -57,11 +75,11 @@ export function transformData(data) {
       group_id,
       attendance,
       saw_last_lecture,
-      till_which_tha_you_are_done,
-      what_will_you_cover_today,
-      reason_for_backlog_if_any,
-      rate_yesterday_class,
-      created_at,
+      tha_progress,
+      topics_to_cover,
+      backlog_reasons,
+      class_rating,
+      creation_date,
     } = scrum.attributes;
     const scrum_id = scrum.id;
     return {
@@ -70,11 +88,11 @@ export function transformData(data) {
       group_id,
       attendance,
       saw_last_lecture,
-      till_which_tha_you_are_done,
-      what_will_you_cover_today,
-      reason_for_backlog_if_any,
-      rate_yesterday_class,
-      created_at,
+      tha_progress,
+      topics_to_cover,
+      backlog_reasons,
+      class_rating,
+      creation_date,
     };
   });
 }
@@ -85,20 +103,20 @@ export const saveScrum = async (member) => {
     data,
     attendance,
     saw_last_lecture,
-    till_which_tha_you_are_done,
+    tha_progress,
     what_cover_today,
     reason_for_backlog,
-    rate_yesterday_class,
+    class_rating,
   } = member;
 
   const attributes = {
     attendance,
     data,
     saw_last_lecture,
-    till_which_tha_you_are_done,
+    tha_progress,
     what_cover_today,
     reason_for_backlog,
-    rate_yesterday_class,
+    class_rating,
   };
 
   if (id) {
@@ -119,19 +137,19 @@ export const saveCurrentUserScrum = async (member, sendattendance) => {
     id,
     data,
     saw_last_lecture,
-    till_which_tha_you_are_done,
+    tha_progress,
     what_cover_today,
     reason_for_backlog,
-    rate_yesterday_class,
+    class_rating,
   } = member;
 
   const attributes = {
     data,
     saw_last_lecture,
-    till_which_tha_you_are_done,
+    tha_progress,
     what_cover_today,
     reason_for_backlog,
-    rate_yesterday_class,
+    class_rating,
   };
 
   if (id) {
@@ -160,11 +178,11 @@ const dummy_Scrum_get = {
         group_id: 1,
         attendance: true,
         saw_last_lecture: true,
-        till_which_tha_you_are_done: '55',
-        what_will_you_cover_today: null,
-        reason_for_backlog_if_any: null,
-        rate_yesterday_class: 5,
-        created_at: '2021-06-21T13:42:57.534+05:30',
+        tha_progress: '55',
+        topics_to_cover: null,
+        backlog_reasons: null,
+        class_rating: 5,
+        creation_date: '2021-06-21T13:42:57.534+05:30',
       },
     },
     {
@@ -178,11 +196,11 @@ const dummy_Scrum_get = {
         group_id: 1,
         attendance: null,
         saw_last_lecture: null,
-        till_which_tha_you_are_done: null,
-        what_will_you_cover_today: null,
-        reason_for_backlog_if_any: null,
-        rate_yesterday_class: null,
-        created_at: '2021-06-21T14:27:29.507+05:30',
+        tha_progress: null,
+        topics_to_cover: null,
+        backlog_reasons: null,
+        class_rating: null,
+        creation_date: '2021-06-21T14:27:29.507+05:30',
       },
     },
     {
@@ -196,11 +214,11 @@ const dummy_Scrum_get = {
         group_id: 1,
         attendance: null,
         saw_last_lecture: null,
-        till_which_tha_you_are_done: null,
-        what_will_you_cover_today: null,
-        reason_for_backlog_if_any: null,
-        rate_yesterday_class: null,
-        created_at: '2021-06-21T14:27:32.751+05:30',
+        tha_progress: null,
+        topics_to_cover: null,
+        backlog_reasons: null,
+        class_rating: null,
+        creation_date: '2021-06-21T14:27:32.751+05:30',
       },
     },
     {
@@ -214,21 +232,17 @@ const dummy_Scrum_get = {
         group_id: 1,
         attendance: null,
         saw_last_lecture: null,
-        till_which_tha_you_are_done: null,
-        what_will_you_cover_today: null,
-        reason_for_backlog_if_any: null,
-        rate_yesterday_class: null,
-        created_at: '2021-06-21T14:27:35.626+05:30',
+        tha_progress: null,
+        topics_to_cover: null,
+        backlog_reasons: null,
+        class_rating: null,
+        creation_date: '2021-06-21T14:27:35.626+05:30',
       },
     },
   ],
 };
 
-
- function getInitialScrumData(groupMembers){
+function getInitialScrumData(groupMembers) {
   console.log(groupMembers);
-  const dummyData={
-
-
-  }
+  const dummyData = {};
 }

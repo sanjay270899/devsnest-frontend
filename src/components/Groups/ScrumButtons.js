@@ -76,7 +76,7 @@ export const CheckButton = ({ onChange, isTeamOwner, value }) => {
             setShow({ ...show, attend: false, absent: true });
             onChange(false);
           }}
-          disabled={isTeamOwner}
+          disabled={!isTeamOwner}
         >
           <img src={icons.scrums_attendence_true} alt="" />
         </button>
@@ -89,7 +89,7 @@ export const CheckButton = ({ onChange, isTeamOwner, value }) => {
             setShow({ ...show, attend: true, absent: false });
             onChange(true);
           }}
-          disabled={isTeamOwner}
+          disabled={!isTeamOwner}
         >
           <img src={icons.scrums_attendence_false} alt="" />
         </button>
