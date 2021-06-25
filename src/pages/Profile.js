@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
 import { AcademicDetails } from '../components/Dashboard/AcademicDetails';
@@ -9,18 +8,17 @@ import { ProblemsDetails } from '../components/Dashboard/ProblemsDetails';
 import { ProjectsComingSoon } from '../components/Dashboard/ProjectsComingSoon';
 import axios from '../config/axios.config';
 import { API_ENDPOINTS } from '../constants/api';
+import { useUser } from '../redux';
 import myLog from '../utils/myLog';
 
 export default function Profile() {
   const { username } = useParams();
   const [user, setUser] = useState(null);
   const [error, setError] = useState('');
-  const loginState = useSelector((state) => state.loginState);
+  const currentUser = useUser();
 
   let history = useHistory();
-  if (loginState.loggedIn && username === loginState.user.username) {
-    history.push('/');
-  }
+
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -33,12 +31,17 @@ export default function Profile() {
         myLog(e);
       }
     };
-    loadData();
-  }, [username]);
+    if (username === currentUser?.username) {
+      history.push('/');
+    } else {
+      loadData();
+    }
+  }, [username, currentUser, history]);
 
   if (error) {
     return <div> {error} </div>;
   }
+
   if (!user) {
     return <div>Loading...</div>;
   }

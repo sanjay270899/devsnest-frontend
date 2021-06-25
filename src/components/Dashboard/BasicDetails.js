@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 
 import UserImage from '../../components/Layout/UserImage';
+import { useLoginState } from '../../redux';
 import icons from '../../utils/getIcons';
 import { BasicDetailsModal } from './BasicDetailsModal';
 import { Row } from './Row';
 
 export const BasicDetails = ({ user }) => {
   const [modalShow, setModalShow] = useState(false);
-  const loginState = useSelector((state) => state.loginState);
-  const currentUsername = loginState.loggedIn ? loginState.user.username : null;
+  const loginState = useLoginState();
+  const currentUsername = loginState.user?.username;
   // Default values
   const DEFAULT_VALUE = '-- N/A --';
 
