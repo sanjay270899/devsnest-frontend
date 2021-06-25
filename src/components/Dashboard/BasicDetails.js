@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 
 import UserImage from '../../components/Layout/UserImage';
-import { useLoginState } from '../../redux';
 import icons from '../../utils/getIcons';
 import { BasicDetailsModal } from './BasicDetailsModal';
 import { Row } from './Row';
 
-export const BasicDetails = ({ user }) => {
+export const BasicDetails = ({ user, editable }) => {
   const [modalShow, setModalShow] = useState(false);
-  const loginState = useLoginState();
-  const currentUsername = loginState.user?.username;
+
   // Default values
   const DEFAULT_VALUE = '-- N/A --';
 
@@ -89,7 +87,7 @@ export const BasicDetails = ({ user }) => {
           />
         </div>
         <div className="d-flex justify-content-end">
-          {currentUsername === user.username && (
+          {editable && (
             <img
               src={icons.edit_outline}
               alt="edit"

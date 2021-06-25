@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 
-import { useLoginState } from '../../redux';
 import icons from '../../utils/getIcons';
 import { AcademicDetailsModal } from './AcademicDetailsModal';
 import { Row } from './Row';
 
-export const AcademicDetails = ({ user }) => {
+export const AcademicDetails = ({ user, editable }) => {
   const [modalShow, setModalShow] = useState(false);
-  const loginState = useLoginState();
-  const currentUsername = loginState.user?.username;
+
   // Default Values
   const DEFAULT_VALUE = '-- N/A --';
 
@@ -40,7 +38,7 @@ export const AcademicDetails = ({ user }) => {
           />
         </div>
         <div className="d-flex justify-content-end">
-          {currentUsername === user.username && (
+          {editable && (
             <img
               src={icons.edit_outline}
               alt="edit"

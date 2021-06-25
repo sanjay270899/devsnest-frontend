@@ -61,9 +61,15 @@ export default function Profile() {
         >
           {/* Row 1 */}
           <div className="d-flex flex-wrap justify-content-center">
-            <BasicDetails user={user} />
+            <BasicDetails
+              user={user}
+              editable={username === currentUser?.username}
+            />
             <div className="d-flex flex-wrap flex-fill justify-content-center">
-              <AcademicDetails user={user} />
+              <AcademicDetails
+                user={user}
+                editable={username === currentUser?.username}
+              />
               <ProblemsDetails user={user} />
             </div>
           </div>
