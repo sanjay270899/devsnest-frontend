@@ -44,7 +44,7 @@ import temp_group from '../assets/images/temp/group.svg';
 import user_batch from '../assets/images/user/batch.svg';
 import user_birthday from '../assets/images/user/birthday.svg';
 import user_default_profile from '../assets/images/user/default_profile.svg';
-import realNameIcon from '../assets/images/user/icon_name.svg';
+import real_name_icon from '../assets/images/user/icon_name.svg';
 import user_team from '../assets/images/user/team.svg';
 import user_outline from '../assets/images/user/user_outline.svg';
 
@@ -58,7 +58,7 @@ const icons = {
   user_default_profile,
   user_team,
   user_outline,
-  realNameIcon,
+  real_name_icon,
   question_progress,
   question_tick,
   question_doubt,

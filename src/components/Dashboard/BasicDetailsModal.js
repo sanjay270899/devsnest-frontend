@@ -85,7 +85,7 @@ export const BasicDetailsModal = ({ modalProps, user, id }) => {
           </div>
           <div className="m-2 my-3 px-3 d-flex align-items-center w-100">
             <img
-              src={icons.realNameIcon}
+              src={icons.real_name_icon}
               alt="user-icon"
               height="25px"
               width="25px"
