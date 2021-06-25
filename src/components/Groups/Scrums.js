@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import default_user from '../../assets/images/default_user.png';
 import UserImage from '../../components/UserImage';
+import { useUser } from '../../redux/slices/loginSlice';
 import {
   getScrums,
   saveCurrentUserScrum,
@@ -21,7 +21,7 @@ const DEFAULT_MEMBER_OBJECT = {
 };
 
 export default function Scrums({ group, groupMembers }) {
-  const user = useSelector((state) => state.login.user);
+  const user = useUser();
   const isTeamOwner = group.owner_id === user.id;
   const [members, setMembers] = useState([...groupMembers]);
   const [isSaving, setIsSaving] = useState(false);
