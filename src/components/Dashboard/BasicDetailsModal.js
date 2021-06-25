@@ -85,7 +85,7 @@ export const BasicDetailsModal = ({ modalProps, user, id }) => {
           </div>
           <div className="m-2 my-3 px-3 d-flex align-items-center w-100">
             <img
-              src={icons.user_outline}
+              src={icons.realNameIcon}
               alt="user-icon"
               height="25px"
               width="25px"
@@ -103,8 +103,16 @@ export const BasicDetailsModal = ({ modalProps, user, id }) => {
                 borderRadius: '13px',
               }}
               placeholder="username"
+              disabled={user?.update_count >= 2}
             />
           </div>
+
+          <small className="text-muted">
+            You Can Edit your Username
+            <span className="text-danger"> {2 - user?.update_count} </span> more
+            time
+          </small>
+
           <div className="m-2 my-3 px-3 d-flex align-items-center w-100">
             <img
               src={icons.user_birthday}
