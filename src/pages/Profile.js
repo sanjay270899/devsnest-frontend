@@ -39,11 +39,19 @@ export default function Profile() {
   }, [username, currentUser, history]);
 
   if (error) {
-    return <div> {error} </div>;
+    return (
+      <div style={{ height: 'calc(100vh - 92px)', display: 'flex' }}>
+        <div className="text-danger m-auto">{error}</div>
+      </div>
+    );
   }
 
   if (!user) {
-    return <div>Loading...</div>;
+    return (
+      <div style={{ height: 'calc(100vh - 92px)', display: 'flex' }}>
+        <div className="spinner-border text-primary m-auto" />
+      </div>
+    );
   }
 
   return (
