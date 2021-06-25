@@ -5,7 +5,7 @@ import icons from '../../utils/getIcons';
 import { BasicDetailsModal } from './BasicDetailsModal';
 import { Row } from './Row';
 
-export const BasicDetails = ({ user }) => {
+export const BasicDetails = ({ user, editable }) => {
   const [modalShow, setModalShow] = useState(false);
 
   // Default values
@@ -87,14 +87,16 @@ export const BasicDetails = ({ user }) => {
           />
         </div>
         <div className="d-flex justify-content-end">
-          <img
-            src={icons.edit_outline}
-            alt="edit"
-            onClick={() => setModalShow(true)}
-            style={{ cursor: 'pointer' }}
-            height="20px"
-            width="20px"
-          />
+          {editable && (
+            <img
+              src={icons.edit_outline}
+              alt="edit"
+              onClick={() => setModalShow(true)}
+              style={{ cursor: 'pointer' }}
+              height="20px"
+              width="20px"
+            />
+          )}
         </div>
       </div>
       {modalShow && (

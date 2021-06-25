@@ -1,31 +1,31 @@
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-import { login, loginLoadingState, logout } from '../actions/loginActions';
 import axios from '../config/axios.config';
 import { API_ENDPOINTS } from '../constants/api';
-import myLog from '../utils/myLog';
-import useActions from './useActions';
+import { logout, setLoginLoading, updateUser, useUser } from '../redux';
 
 export default function useAuth() {
-  const loginState = useSelector((state) => state.loginState);
-  const actions = useActions({ login, logout, loginLoadingState });
+  const user = useUser();
+  const dispatch = useDispatch();
+  const [initial, setInitial] = useState(true);
 
   useEffect(() => {
-    axios
-      .get(API_ENDPOINTS.CURRENT_USER)
-      .then((response) => {
-        actions.login(response.data.data.attributes);
-      })
-      .catch((e) => {
-        myLog(e);
-        actions.logout();
-        actions.loginLoadingState(false);
-      });
+    const loadData = async () => {
+      dispatch(setLoginLoading(true));
+      try {
+        const response = await axios.get(API_ENDPOINTS.CURRENT_USER);
+        dispatch(updateUser(response.data.data.attributes));
+      } catch (e) {
+        dispatch(logout());
+      }
+      dispatch(setLoginLoading(false));
+    };
+    if (initial && user) {
+      loadData();
+      setInitial(false);
+    }
+  }, [initial, user, dispatch]);
 
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return loginState;
+  return null;
 }

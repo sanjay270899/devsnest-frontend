@@ -1,57 +1,44 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
-import { login } from '../../actions/loginActions';
 import axios from '../../config/axios.config';
 import { API_ENDPOINTS } from '../../constants/api';
-import useActions from '../../hooks/useActions';
+import { updateUser } from '../../redux';
 import icons from '../../utils/getIcons';
 import myLog from '../../utils/myLog';
 
 export const BasicDetailsModal = ({ modalProps, user, id }) => {
-  // State for Modal
   const [details, setDetails] = useState({
     name: user.name || '',
+    username: user.username || '',
     github_url: user.github_url || '',
     linkedin_url: user.linkedin_url || '',
     resume_url: user.resume_url || '',
     dob: user.dob || '',
   });
 
-  const actions = useActions({ login });
+  const dispatch = useDispatch();
 
-  const handleSumbit = async () => {
-    myLog(details);
-
+  const handleSubmit = async () => {
     try {
-      const response = await axios.put(
-        `${API_ENDPOINTS.UPDATE_USER}/${id}`,
-        {
-          data: {
-            id: id.toString(),
-            type: 'users',
-            attributes: details,
-          },
+      console.log(user);
+      const response = await axios.put(`${API_ENDPOINTS.USER}/${user.id}`, {
+        data: {
+          id: user.id.toString(),
+          type: 'users',
+          attributes: details,
         },
-        {
-          headers: {
-            'content-type': 'application/vnd.api+json',
-          },
-        }
-      );
-      myLog('response from api: ', response);
-      if (
-        response.data &&
-        response.data.data &&
-        response.data.data.attributes
-      ) {
-        actions.login(response.data.data.attributes);
-        myLog('User Detail Updated');
+      });
+      if (response.data?.data?.attributes) {
+        dispatch(updateUser(response.data.data.attributes));
+        toast.success('Details updated successfully');
       }
       modalProps.onHide();
     } catch (err) {
       myLog('error from api: ', err);
-      modalProps.onHide();
+      toast.error('An error occurred while updating');
     }
   };
 
@@ -90,10 +77,32 @@ export const BasicDetailsModal = ({ modalProps, user, id }) => {
               onChange={(e) => setDetails({ ...details, name: e.target.value })}
               style={{
                 boxShadow: '0px 0px 10px #8264B433',
-                border: '0.800000011920929px solid #D6CCE6',
+                border: '1px solid #D6CCE6',
                 borderRadius: '13px',
               }}
               placeholder="Name"
+            />
+          </div>
+          <div className="m-2 my-3 px-3 d-flex align-items-center w-100">
+            <img
+              src={icons.user_outline}
+              alt="user-icon"
+              height="25px"
+              width="25px"
+            />
+            <input
+              type="text"
+              className="p-2 ml-3 w-100"
+              value={details.username}
+              onChange={(e) =>
+                setDetails({ ...details, username: e.target.value })
+              }
+              style={{
+                boxShadow: '0px 0px 10px #8264B433',
+                border: '0.800000011920929px solid #D6CCE6',
+                borderRadius: '13px',
+              }}
+              placeholder="username"
             />
           </div>
           <div className="m-2 my-3 px-3 d-flex align-items-center w-100">
@@ -190,7 +199,7 @@ export const BasicDetailsModal = ({ modalProps, user, id }) => {
           alt="save-icon"
           className="mx-2"
           height="35px"
-          onClick={() => handleSumbit()}
+          onClick={() => handleSubmit()}
           style={{ cursor: 'pointer' }}
         />
       </Modal.Footer>

@@ -12,9 +12,10 @@ export const getQuestions = async (options = {}) => {
 };
 
 const getParams = (options = {}) => {
-  const { topics, difficulty, question_type } = options;
+  const { topics, difficulty, question_type, data_type } = options;
   const params = {};
   params[`filter[data_type]`] = 'question';
+  if (data_type) params[`filter[data_type]`] = data_type;
   if (difficulty) params[`filter[difficulty]`] = difficulty;
   if (question_type) params[`filter[question_type]`] = question_type;
 

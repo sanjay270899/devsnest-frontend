@@ -7,10 +7,10 @@ import './assets/css/landing.scss';
 import React, { useEffect } from 'react';
 import ReactGA from 'react-ga';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 
 import Footer from './components/Layout/Footer';
 import Navbar from './components/Layout/Navbar';
+import Toastify from './components/Layout/Toast';
 import ConditionalRoute from './components/Route/ConditionalRoute';
 import PrivateRoute from './components/Route/PrivateRoute';
 import useAuth from './hooks/useAuth';
@@ -24,7 +24,9 @@ import Leaderboard from './pages/Leaderboard';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import Profile from './pages/Profile';
 import Question from './pages/Question';
+import Videos from './pages/Videos';
 
 function App() {
   useAuth();
@@ -52,11 +54,13 @@ function App() {
           />
           <Route exact path="/faqs" component={Faq} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/u/:username" component={Profile} />
           <PrivateRoute exact path="/challenges" component={Challenges} />
           <PrivateRoute exact path="/question" component={Question} />
           <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
           <PrivateRoute exact path="/groups/:slug" component={Group} />
           <PrivateRoute exact path="/groups" component={Groups} />
+          <PrivateRoute exact path="/videos" component={Videos} />
           <Route exact path="/privacyPolicy" component={PrivacyPolicy} />
           <Route component={NotFound} />
         </Switch>
@@ -64,17 +68,7 @@ function App() {
 
       <Footer />
 
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={true}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
+      <Toastify />
     </Router>
   );
 }

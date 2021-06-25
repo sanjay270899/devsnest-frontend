@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
 import { AcademicDetails } from '../components/Dashboard/AcademicDetails';
 import { ActivityMap } from '../components/Dashboard/ActivityMap';
@@ -7,9 +6,10 @@ import { BasicDetails } from '../components/Dashboard/BasicDetails';
 import { ProblemsDetails } from '../components/Dashboard/ProblemsDetails';
 import { ProjectsComingSoon } from '../components/Dashboard/ProjectsComingSoon';
 import { ConnectWithDiscordBanner } from '../components/Layout/Navbar';
+import { useUser } from '../redux';
 
 export default function Dashboard() {
-  const user = useSelector((state) => state.loginState.user);
+  const user = useUser();
 
   return (
     <>
@@ -28,9 +28,9 @@ export default function Dashboard() {
         >
           {/* Row 1 */}
           <div className="d-flex flex-wrap justify-content-center">
-            <BasicDetails user={user} />
+            <BasicDetails user={user} editable={true} />
             <div className="d-flex flex-wrap flex-fill justify-content-center">
-              <AcademicDetails user={user} />
+              <AcademicDetails user={user} editable={true} />
               <ProblemsDetails user={user} />
             </div>
           </div>
