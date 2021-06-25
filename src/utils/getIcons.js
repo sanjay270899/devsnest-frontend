@@ -18,8 +18,19 @@ import group_peer_interview from '../assets/images/groups/peer_interviews.svg';
 import group_scrums from '../assets/images/groups/scrums.svg';
 import group_leader from '../assets/images/groups/team_leader.svg';
 import group_left_arrow from '../assets/images/groups/teamCardArrow.svg';
+import group_info from '../assets/images/groups/group_info.svg';
 import hash from '../assets/images/hash.svg';
 import question_doubt from '../assets/images/question/doubt.svg';
+//Scrums
+import scrums_calender from '../assets/images/groups/scrums/calendar_icon.svg';
+import scrums_attendence_true from '../assets/images/groups/scrums/attendance_present_button.svg';
+import scrums_attendence_false from '../assets/images/groups/scrums/attendance_absent_button.svg';
+import scrums_cut_button from '../assets/images/groups/scrums/cut_button.svg';
+import scrums_back_button from '../assets/images/groups/scrums/backward_button.svg';
+import scrums_next_button from '../assets/images/groups/scrums/forward_button.svg';
+import scrums_thanks_icon from '../assets/images/groups/scrums/thanks_page_calender_and_clock.svg';
+import scrums_bg_img from '../assets/images/groups/scrums/scrums_bg_img.svg';
+
 // Question
 import question_progress from '../assets/images/question/progress.svg';
 import question_solve from '../assets/images/question/solve.svg';
@@ -65,6 +76,7 @@ const icons = {
   group_scrums,
   group_leader,
   group_left_arrow,
+  group_info,
   github,
   github_outline,
   linkedin,
@@ -78,6 +90,14 @@ const icons = {
   save,
   hash,
   temp_group,
+  scrums_calender,
+  scrums_attendence_true,
+  scrums_attendence_false,
+  scrums_cut_button,
+  scrums_back_button,
+  scrums_next_button,
+  scrums_thanks_icon,
+  scrums_bg_img,
 };
 
 export default icons;

@@ -11,8 +11,10 @@ import axios from '../../config/axios.config';
 import { API_ENDPOINTS } from '../../constants/api';
 import icons from '../../utils/getIcons';
 import myLog from '../../utils/myLog';
+import Scrums from '../../components/Groups/Scrums';
 
 const group_activities = [
+  { title: 'Group Info', key: 'group_info', img: icons.group_info },
   { title: 'Scrums', key: 'scrums', img: icons.group_scrums },
   {
     title: 'Discussions & Doubts',
@@ -89,44 +91,6 @@ export default function Groups() {
   return (
     <div className="groups">
       <div className="groups__container row align-items-stretch">
-        <div
-          className="col p-0"
-          style={{ position: 'relative', maxWidth: '5rem' }}
-        >
-          <h1 className="group-title text-truncate text-primary font-weight-bold display-4">
-            {groupData.group.name}
-          </h1>
-        </div>
-
-        <div className="col-3" style={{ maxWidth: 400 }}>
-          <div className="team-list p-2">
-            <ul className="d-flex flex-column">
-              {groupData.groupMembers.map((item) => (
-                <li
-                  key={item.user_id}
-                  className="px-3 py-2 my-1 rounded-lg team-list-item"
-                >
-                  <UserImage
-                    className="team-list-item-avatar"
-                    src={item.user_details.avatar || default_user}
-                    alt=""
-                  />
-                  <span className="ml-3 h5 mb-0 text-truncate">
-                    {item.user_details.username || 'Team Member'}
-                  </span>
-                  {item.user_id === groupData.group.owner_id && (
-                    <img
-                      className="team-list-item-leader ml-3"
-                      src={team_leader}
-                      alt="Team Leader"
-                    />
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
         <div className="col group-activities">
           <ul className="group-activities-list">
             {group_activities.map((item, index) => {
@@ -159,14 +123,55 @@ export default function Groups() {
           </ul>
         </div>
 
-        <div className="col d-flex flex-column align-items-center justify-content-center">
-          {/* currentTab === 'scrums' ? (
+        {currentTab === 'group_info' && (
+          <div
+            className="col p-0"
+            style={{ position: 'relative', maxWidth: '5rem' }}
+          >
+            <h1 className="group-title text-truncate text-primary font-weight-bold display-4">
+              {groupData.group.name}
+            </h1>
+          </div>
+        )}
+
+        {currentTab === 'group_info' && (
+          <div className="col-3" style={{ maxWidth: 400 }}>
+            <div className="team-list p-2">
+              <ul className="d-flex flex-column">
+                {groupData.groupMembers.map((item) => (
+                  <li
+                    key={item.user_id}
+                    className="px-3 py-2 my-1 rounded-lg team-list-item"
+                  >
+                    <UserImage
+                      className="team-list-item-avatar"
+                      src={item.user_details.avatar || default_user}
+                      alt=""
+                    />
+                    <span className="ml-3 h5 mb-0 text-truncate">
+                      {item.user_details.username || 'Team Member'}
+                    </span>
+                    {item.user_id === groupData.group.owner_id && (
+                      <img
+                        className="team-list-item-leader ml-3"
+                        src={team_leader}
+                        alt="Team Leader"
+                      />
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+
+        <div className="col d-flex flex-column align-items-center justify-content-center ">
+          {currentTab === 'scrums' ? (
             <Scrums
               group={groupData.group}
               groupMembers={groupData.groupMembers}
             />
-          ) :  */}
-          {!currentTab ? (
+          ) : !currentTab ? (
             <>
               <img
                 className="img-fluid mx-3"
