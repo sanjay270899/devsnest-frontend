@@ -12,6 +12,7 @@ import myLog from '../../utils/myLog';
 export const BasicDetailsModal = ({ modalProps, user, id }) => {
   const [details, setDetails] = useState({
     name: user.name || '',
+    username: user.username || '',
     github_url: user.github_url || '',
     linkedin_url: user.linkedin_url || '',
     resume_url: user.resume_url || '',
@@ -22,9 +23,10 @@ export const BasicDetailsModal = ({ modalProps, user, id }) => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.put(`${API_ENDPOINTS.UPDATE_USER}/${id}`, {
+      console.log(user);
+      const response = await axios.put(`${API_ENDPOINTS.USER}/${user.id}`, {
         data: {
-          id: id.toString(),
+          id: user.id.toString(),
           type: 'users',
           attributes: details,
         },
@@ -75,10 +77,32 @@ export const BasicDetailsModal = ({ modalProps, user, id }) => {
               onChange={(e) => setDetails({ ...details, name: e.target.value })}
               style={{
                 boxShadow: '0px 0px 10px #8264B433',
-                border: '0.800000011920929px solid #D6CCE6',
+                border: '1px solid #D6CCE6',
                 borderRadius: '13px',
               }}
               placeholder="Name"
+            />
+          </div>
+          <div className="m-2 my-3 px-3 d-flex align-items-center w-100">
+            <img
+              src={icons.user_outline}
+              alt="user-icon"
+              height="25px"
+              width="25px"
+            />
+            <input
+              type="text"
+              className="p-2 ml-3 w-100"
+              value={details.username}
+              onChange={(e) =>
+                setDetails({ ...details, username: e.target.value })
+              }
+              style={{
+                boxShadow: '0px 0px 10px #8264B433',
+                border: '0.800000011920929px solid #D6CCE6',
+                borderRadius: '13px',
+              }}
+              placeholder="username"
             />
           </div>
           <div className="m-2 my-3 px-3 d-flex align-items-center w-100">

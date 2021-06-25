@@ -4,7 +4,7 @@ import icons from '../../utils/getIcons';
 import { AcademicDetailsModal } from './AcademicDetailsModal';
 import { Row } from './Row';
 
-export const AcademicDetails = ({ user }) => {
+export const AcademicDetails = ({ user, editable }) => {
   const [modalShow, setModalShow] = useState(false);
 
   // Default Values
@@ -38,14 +38,16 @@ export const AcademicDetails = ({ user }) => {
           />
         </div>
         <div className="d-flex justify-content-end">
-          <img
-            src={icons.edit_outline}
-            alt="edit"
-            onClick={() => setModalShow(true)}
-            style={{ cursor: 'pointer' }}
-            height="20px"
-            width="20px"
-          />
+          {editable && (
+            <img
+              src={icons.edit_outline}
+              alt="edit"
+              onClick={() => setModalShow(true)}
+              style={{ cursor: 'pointer' }}
+              height="20px"
+              width="20px"
+            />
+          )}
         </div>
       </div>
       {modalShow && (

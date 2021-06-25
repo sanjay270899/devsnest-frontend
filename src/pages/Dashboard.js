@@ -28,9 +28,9 @@ export default function Dashboard() {
         >
           {/* Row 1 */}
           <div className="d-flex flex-wrap justify-content-center">
-            <BasicDetails user={user} />
+            <BasicDetails user={user} editable={true} />
             <div className="d-flex flex-wrap flex-fill justify-content-center">
-              <AcademicDetails user={user} />
+              <AcademicDetails user={user} editable={true} />
               <ProblemsDetails user={user} />
             </div>
           </div>
