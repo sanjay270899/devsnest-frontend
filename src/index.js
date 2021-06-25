@@ -3,14 +3,11 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import App from './App';
-import configureStore from './utils/configureStore';
+import store from './redux/store';
 import { saveStorage } from './utils/localStorage';
 
-const store = configureStore();
-
 store.subscribe(() => {
-  var state = store.getState();
-  saveStorage(`${window.origin}/state`, { ...state });
+  saveStorage(`${window.origin}/state`, store.getState());
 });
 
 ReactDOM.render(

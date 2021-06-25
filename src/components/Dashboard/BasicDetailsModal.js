@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
-import { login } from '../../actions/loginActions';
 import axios from '../../config/axios.config';
 import { API_ENDPOINTS } from '../../constants/api';
-import useActions from '../../hooks/useActions';
+import { updateUser } from '../../redux';
 import icons from '../../utils/getIcons';
 import myLog from '../../utils/myLog';
 
 export const BasicDetailsModal = ({ modalProps, user, id }) => {
-  // State for Modal
   const [details, setDetails] = useState({
     name: user.name || '',
     github_url: user.github_url || '',
@@ -18,40 +18,25 @@ export const BasicDetailsModal = ({ modalProps, user, id }) => {
     dob: user.dob || '',
   });
 
-  const actions = useActions({ login });
+  const dispatch = useDispatch();
 
-  const handleSumbit = async () => {
-    myLog(details);
-
+  const handleSubmit = async () => {
     try {
-      const response = await axios.put(
-        `${API_ENDPOINTS.UPDATE_USER}/${id}`,
-        {
-          data: {
-            id: id.toString(),
-            type: 'users',
-            attributes: details,
-          },
+      const response = await axios.put(`${API_ENDPOINTS.UPDATE_USER}/${id}`, {
+        data: {
+          id: id.toString(),
+          type: 'users',
+          attributes: details,
         },
-        {
-          headers: {
-            'content-type': 'application/vnd.api+json',
-          },
-        }
-      );
-      myLog('response from api: ', response);
-      if (
-        response.data &&
-        response.data.data &&
-        response.data.data.attributes
-      ) {
-        actions.login(response.data.data.attributes);
-        myLog('User Detail Updated');
+      });
+      if (response.data?.data?.attributes) {
+        dispatch(updateUser(response.data.data.attributes));
+        toast.success('Details updated successfully');
       }
       modalProps.onHide();
     } catch (err) {
       myLog('error from api: ', err);
-      modalProps.onHide();
+      toast.error('An error occurred while updating');
     }
   };
 
@@ -190,7 +175,7 @@ export const BasicDetailsModal = ({ modalProps, user, id }) => {
           alt="save-icon"
           className="mx-2"
           height="35px"
-          onClick={() => handleSumbit()}
+          onClick={() => handleSubmit()}
           style={{ cursor: 'pointer' }}
         />
       </Modal.Footer>
