@@ -77,7 +77,7 @@ export const BasicDetailsModal = ({ modalProps, user, id }) => {
               onChange={(e) => setDetails({ ...details, name: e.target.value })}
               style={{
                 boxShadow: '0px 0px 10px #8264B433',
-                border: '0.800000011920929px solid #D6CCE6',
+                border: '1px solid #D6CCE6',
                 borderRadius: '13px',
               }}
               placeholder="Name"
