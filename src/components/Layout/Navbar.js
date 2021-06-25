@@ -24,6 +24,7 @@ import logo from '../../assets/images/logo.jpg';
 import axios from '../../config/axios.config';
 import { API_ENDPOINTS } from '../../constants/api';
 import { login, logout, useLoginState } from '../../redux';
+import UserImage from './UserImage';
 
 const homeMenuItems = [
   {
@@ -45,6 +46,10 @@ const homeMenuItems = [
 ];
 
 const loginMenuItems = [
+  {
+    title: 'Videos',
+    to: '/videos',
+  },
   {
     title: 'Challenges',
     to: '/challenges',
@@ -110,15 +115,20 @@ function Navbar() {
               {loginState.loggedIn ? (
                 <NavItem className="nav-item-profile">
                   <UncontrolledDropdown>
-                    <DropdownToggle tag="div" className="nav-link">
-                      <img
+                    <DropdownToggle
+                      tag="div"
+                      className="nav-link d-flex align-items-center"
+                    >
+                      <UserImage
                         src={loginState.user.image_url || default_user}
                         height="36"
                         width="36"
                         className="rounded-pill"
                         alt={loginState.user.name}
                       />
-                      <span className="ml-3">{loginState.user.name}</span>
+                      <span className="ml-3 text-truncate">
+                        {loginState.user.name}
+                      </span>
                     </DropdownToggle>
                     <DropdownMenu className="nav-menu">
                       <Link to="/" className="dropdown-item">
@@ -226,13 +236,16 @@ export const ConnectWithDiscordBanner = () => {
 
   return (
     <Collapse isOpen={connectWithDiscordOpen}>
-      <div className="bg-primary px-4 py-3 ">
-        <div className="container d-flex align-items-center">
-          <div className="ml-2 text-light" style={{ flex: 1 }}>
+      <div className="bg-primary px-2 py-1">
+        <div className="container d-flex flex-wrap align-items-center">
+          <div
+            className="mx-2 text-light my-2"
+            style={{ flex: 1, minWidth: 250 }}
+          >
             Connect your account with discord to use our discord bot.
           </div>
           <button
-            className="btn bg-light text-dark rounded-lg"
+            className="btn bg-light text-dark rounded-lg mx-2 my-2"
             onClick={toggleConnectOpen}
           >
             Connect with Discord

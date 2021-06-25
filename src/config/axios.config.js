@@ -15,7 +15,6 @@ axios.interceptors.request.use(
   (config) => {
     let request = config;
     const authorization = store.getState().login.user?.authorization;
-    console.log(authorization);
     if (authorization) {
       request.headers['Authorization'] = authorization;
     }
