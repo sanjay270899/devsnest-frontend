@@ -1,5 +1,5 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import { AcademicDetails } from '../components/Dashboard/AcademicDetails';
 import { ActivityMap } from '../components/Dashboard/ActivityMap';
@@ -7,9 +7,30 @@ import { BasicDetails } from '../components/Dashboard/BasicDetails';
 import { ProblemsDetails } from '../components/Dashboard/ProblemsDetails';
 import { ProjectsComingSoon } from '../components/Dashboard/ProjectsComingSoon';
 import { ConnectWithDiscordBanner } from '../components/Layout/Navbar';
+import { useUser } from '../redux';
+import { getSessionStore, makeSessionStore } from '../utils/localStorage';
 
 export default function Dashboard() {
-  const user = useSelector((state) => state.loginState.user);
+  const user = useUser();
+  const [basicDetailsModalShow, setBasicDetailsModalShow] = useState(false);
+
+  useEffect(() => {
+    let toastId;
+    if (!getSessionStore('newUserNotification')) {
+      if (user && user.login_count <= 2) {
+        const options = {
+          onClick: () => setBasicDetailsModalShow(true),
+          closeOnClick: true,
+          autoClose: 10000,
+        };
+        toastId = toast.info(`Click here to Change Username`, options);
+        makeSessionStore('newUserNotification', true);
+      }
+    }
+    return () => {
+      toast.dismiss(toastId);
+    };
+  }, [user]);
 
   return (
     <>
@@ -28,9 +49,14 @@ export default function Dashboard() {
         >
           {/* Row 1 */}
           <div className="d-flex flex-wrap justify-content-center">
-            <BasicDetails user={user} />
+            <BasicDetails
+              user={user}
+              editable={true}
+              modalShow={basicDetailsModalShow}
+              setModalShow={setBasicDetailsModalShow}
+            />
             <div className="d-flex flex-wrap flex-fill justify-content-center">
-              <AcademicDetails user={user} />
+              <AcademicDetails user={user} editable={true} />
               <ProblemsDetails user={user} />
             </div>
           </div>

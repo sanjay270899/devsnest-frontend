@@ -1,7 +1,7 @@
 import Axios from 'axios';
 
 import { API_BASE_URL } from '../constants/api';
-import { loadStorage } from '../utils/localStorage';
+import store from '../redux/store';
 import myLog from '../utils/myLog';
 
 const axios = Axios.create({
@@ -14,14 +14,9 @@ const axios = Axios.create({
 axios.interceptors.request.use(
   (config) => {
     let request = config;
-    const state = loadStorage(`${window.origin}/state`);
-    if (
-      state &&
-      state.loginState &&
-      state.loginState.user &&
-      state.loginState.user.authorization
-    ) {
-      request.headers['Authorization'] = state.loginState.user.authorization;
+    const authorization = store.getState().login.user?.authorization;
+    if (authorization) {
+      request.headers['Authorization'] = authorization;
     }
     return request;
   },

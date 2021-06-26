@@ -1,7 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Route } from 'react-router-dom';
 
+import { useLoginState } from '../../redux';
 import RouteLoading from './RouteLoading';
 
 export default function ConditionalRoute({
@@ -9,7 +9,7 @@ export default function ConditionalRoute({
   loggedOutComponent,
   ...props
 }) {
-  const loginState = useSelector((state) => state.loginState);
+  const loginState = useLoginState();
 
   if (loginState.isLoading) {
     return <Route {...props} component={RouteLoading} />;

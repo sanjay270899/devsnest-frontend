@@ -1,18 +1,18 @@
 import '../assets/css/leaderboard.scss';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
 
 import axios from '../config/axios.config';
 import { API_ENDPOINTS } from '../constants/api';
 import useScroll from '../hooks/useScroll';
+import { useUser } from '../redux';
 
 export default function Leaderboard() {
   const [currentPage, setCurrentPage] = useState(1);
   const [leaderboardData, setLeaderboardData] = useState({});
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const user = useSelector((state) => state.loginState.user);
+  const user = useUser();
   const scrollContainerRef = useRef();
   const [, , scrollTop] = useScroll(scrollContainerRef);
 

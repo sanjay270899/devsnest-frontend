@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Table } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
+import { useUser } from '../../redux/slices/loginSlice';
 import { getScrums, saveScrum } from '../../services/scrum';
 import icons from '../../utils/getIcons';
 import TableRow from './TableRow';
@@ -17,7 +17,7 @@ const DEFAULT_SCRUM = {
 };
 
 export default function Scrums({ group, groupMembers, groupId }) {
-  const user = useSelector((state) => state.loginState.user);
+  const user = useUser();
   const isTeamOwner = group.owner_id === user.id;
   const isTeamCoOwner = group.co_owner_id === user.id;
   const [questions, setQuestions] = useState([]);

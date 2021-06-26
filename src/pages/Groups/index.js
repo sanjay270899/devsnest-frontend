@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import NoGroupData from '../../components/Groups/NoGroupData';
 import TeamCard from '../../components/Groups/TeamCard';
 import axios from '../../config/axios.config';
 import { API_ENDPOINTS } from '../../constants/api';
+import { useUser } from '../../redux';
 import myLog from '../../utils/myLog';
 
 export default function AllGroups() {
   const history = useHistory();
   const [allTeams, setAllTeams] = useState([]);
   const [myTeam, setMyTeam] = useState(null);
-  const my_group_id = useSelector((state) => state.loginState.user.group_id);
+  const user = useUser();
+  const my_group_id = user.group_id;
   const [isLoading, setIsLoading] = useState(true);
   const [noTeam, setNoTeam] = useState(false);
 

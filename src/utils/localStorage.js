@@ -18,3 +18,21 @@ export const saveStorage = (key, state) => {
     console.error(err);
   }
 };
+
+export const makeSessionStore = (key, value) => {
+  try {
+    sessionStorage.setItem(key, value);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getSessionStore = (key) => {
+  try {
+    const sessionData = sessionStorage.getItem(key);
+    if (sessionData !== null) return sessionData;
+    else return undefined;
+  } catch (err) {
+    console.log(err);
+  }
+};
