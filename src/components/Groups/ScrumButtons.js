@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { FaStar } from 'react-icons/fa';
+
 import icons from '../../utils/getIcons';
 
 export const StarRating = ({ value, onChange, size }) => {

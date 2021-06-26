@@ -1,16 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
+import React, { useState } from 'react';
 
 import default_user from '../../assets/images/default_user.png';
 import UserImage from '../Layout/UserImage';
-
-import { StarRating, YesNoButton, CheckButton } from './ScrumButtons';
-import { Table, Modal, Container, Row, Button } from 'react-bootstrap';
-import ProgressBar from 'react-bootstrap/ProgressBar';
-import icons from '../../utils/getIcons';
-import NoGroupData from './NoGroupData';
 import EditScrum from './EditScrum';
+import { CheckButton, StarRating, YesNoButton } from './ScrumButtons';
 
 const TableRow = ({
   updateQuestions,
@@ -20,6 +13,7 @@ const TableRow = ({
   postScrumData,
 }) => {
   const [modalShow, setModalShow] = useState(false);
+
   return (
     <tr>
       <td>
@@ -51,10 +45,11 @@ const TableRow = ({
           </div>
 
           <div
+            className="text-truncate"
             style={{ margin: '1px 1px', cursor: 'pointer' }}
             onClick={() => setModalShow(true)}
           >
-            {limitForStr(question.name || 'No Name', 'name')}
+            {limitForStr(question.name || 'No Name', 8)}
           </div>
         </div>
 
@@ -79,11 +74,17 @@ const TableRow = ({
         </div>
       </td>
 
-      <td>{question.tha_progress}</td>
+      <td className="text-truncate" style={{ maxWidth: '90px' }}>
+        {question.tha_progress}
+      </td>
 
-      <td>{question.topics_to_cover}</td>
+      <td className="text-truncate" style={{ maxWidth: '90px' }}>
+        {question.topics_to_cover}
+      </td>
 
-      <td>{question.backlog_reasons}</td>
+      <td className="text-truncate" style={{ maxWidth: '90px' }}>
+        {question.backlog_reasons}
+      </td>
 
       <td>
         <StarRating
@@ -98,19 +99,11 @@ const TableRow = ({
   );
 };
 
-function limitForStr(str, option) {
-  let strLength = str.length;
+function limitForStr(str, limit) {
+  const strLength = str.length;
 
-  if (strLength > 9 && option === 'name') {
-    let res = str.slice(0, 8);
-
-    return res + '...';
-  }
-
-  if (strLength > 18 && option === 'other') {
-    let res = str.slice(0, 17);
-
-    return res + '...';
+  if (strLength > limit - 3) {
+    return str.slice(0, 8) + '...';
   }
 
   return str;

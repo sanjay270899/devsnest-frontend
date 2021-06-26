@@ -11,26 +11,25 @@ import edit_outline from '../assets/images/edit_outline.svg';
 import group_assignment from '../assets/images/groups/assignment_checking.svg';
 import group_discussion_doubt from '../assets/images/groups/discussions_doubts.svg';
 import group_class_doubt from '../assets/images/groups/doubt_class.svg';
+import group_info from '../assets/images/groups/group_info.svg';
 import group_mentor_feedback from '../assets/images/groups/mentor_feedback.svg';
 import group_mentee_feedback from '../assets/images/groups/mentor_mentee_feedback.svg';
 import group_no_data from '../assets/images/groups/no_data.svg';
 import group_peer_interview from '../assets/images/groups/peer_interviews.svg';
 import group_scrums from '../assets/images/groups/scrums.svg';
-import group_leader from '../assets/images/groups/team_leader.svg';
-import group_left_arrow from '../assets/images/groups/teamCardArrow.svg';
-import group_info from '../assets/images/groups/group_info.svg';
-import hash from '../assets/images/hash.svg';
-import question_doubt from '../assets/images/question/doubt.svg';
+import scrums_attendence_false from '../assets/images/groups/scrums/attendance_absent_button.svg';
+import scrums_attendence_true from '../assets/images/groups/scrums/attendance_present_button.svg';
+import scrums_back_button from '../assets/images/groups/scrums/backward_button.svg';
 //Scrums
 import scrums_calender from '../assets/images/groups/scrums/calendar_icon.svg';
-import scrums_attendence_true from '../assets/images/groups/scrums/attendance_present_button.svg';
-import scrums_attendence_false from '../assets/images/groups/scrums/attendance_absent_button.svg';
 import scrums_cut_button from '../assets/images/groups/scrums/cut_button.svg';
-import scrums_back_button from '../assets/images/groups/scrums/backward_button.svg';
 import scrums_next_button from '../assets/images/groups/scrums/forward_button.svg';
-import scrums_thanks_icon from '../assets/images/groups/scrums/thanks_page_calender_and_clock.svg';
 import scrums_bg_img from '../assets/images/groups/scrums/scrums_bg_img.svg';
-
+import scrums_thanks_icon from '../assets/images/groups/scrums/thanks_page_calender_and_clock.svg';
+import group_leader from '../assets/images/groups/team_leader.svg';
+import group_left_arrow from '../assets/images/groups/teamCardArrow.svg';
+import hash from '../assets/images/hash.svg';
+import question_doubt from '../assets/images/question/doubt.svg';
 // Question
 import question_progress from '../assets/images/question/progress.svg';
 import question_solve from '../assets/images/question/solve.svg';

@@ -112,9 +112,7 @@ function Challenges(props) {
     try {
       const res = await axios.get(API_ENDPOINTS.REPORT);
       setReportData(transformReportData(res.data));
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
   };
 
   async function onSubmitQuestion(question_unique_id, status) {

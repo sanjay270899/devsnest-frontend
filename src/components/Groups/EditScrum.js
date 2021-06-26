@@ -1,27 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
-
-import default_user from '../../assets/images/default_user.png';
-import UserImage from '../Layout/UserImage';
-
-import { StarRating, YesNoButton, CheckButton } from './ScrumButtons';
-import { Table, Modal, Container, Row, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, Container, Modal, Row } from 'react-bootstrap';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+
 import icons from '../../utils/getIcons';
-import NoGroupData from './NoGroupData';
+import { StarRating, YesNoButton } from './ScrumButtons';
+
 const EditScrum = (props) => {
-  const [formStep, SetFormStep] = useState(0);
+  const [formStep, setFormStep] = useState(0);
 
   const nextFormStep = () => {
     if (formStep !== 5) {
-      SetFormStep((cur) => cur + 1);
+      setFormStep((cur) => cur + 1);
     }
   };
 
   const prevFormStep = () => {
     if (formStep !== 0) {
-      SetFormStep((cur) => cur - 1);
+      setFormStep((cur) => cur - 1);
     }
   };
 
@@ -39,7 +34,7 @@ const EditScrum = (props) => {
             style={{ background: 'transparent', border: 'none' }}
             onClick={props.onHide}
           >
-            <img src={icons.scrums_cut_button} />
+            <img src={icons.scrums_cut_button} alt="" />
           </button>
           <span className="ml-4 mt-1">
             <h2 style={{ color: '#707070' }}>
@@ -235,7 +230,7 @@ const EditScrum = (props) => {
                 <div className="mt-5 mb-8">
                   <div className="mt-3 mb-5">
                     <h1 style={{ color: '#301E4A' }}>
-                      How would you rate yesterday's
+                      How would you rate yesterday&apos;s
                       <br /> class?
                     </h1>
                   </div>
@@ -286,7 +281,7 @@ const EditScrum = (props) => {
             )}
           </Row>
 
-          <div class="fixed-bottom" style={{ position: 'absolute' }}>
+          <div className="fixed-bottom" style={{ position: 'absolute' }}>
             <Row className="mt-6 d-flex flex-row-reverse align-items-end">
               {formStep !== 5 && (
                 <button

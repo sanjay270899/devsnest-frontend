@@ -1,37 +1,15 @@
 import axios from '../config/axios.config';
 import { API_ENDPOINTS } from '../constants/api';
 
-
 export function transformData(data) {
-  console.log(data);
   return data.map((scrum) => {
-    const {
-      user_id,
-      group_id,
-      attendance,
-      saw_last_lecture,
-      tha_progress,
-      topics_to_cover,
-      backlog_reasons,
-      class_rating,
-      creation_date,
-    } = scrum.attributes;
     const scrum_id = scrum.id;
     return {
       scrum_id,
-      user_id,
-      group_id,
-      attendance,
-      saw_last_lecture,
-      tha_progress,
-      topics_to_cover,
-      backlog_reasons,
-      class_rating,
-      creation_date,
+      ...scrum.attributes,
     };
   });
 }
-
 
 export const getScrums = async (group_id) => {
   const params = { group_id: group_id };

@@ -6,12 +6,12 @@ import { useParams } from 'react-router-dom';
 import default_user from '../../assets/images/default_user.png';
 import team_leader from '../../assets/images/groups/team_leader.svg';
 import NoGroupData from '../../components/Groups/NoGroupData';
+import Scrums from '../../components/Groups/Scrums';
 import UserImage from '../../components/Layout/UserImage';
 import axios from '../../config/axios.config';
 import { API_ENDPOINTS } from '../../constants/api';
 import icons from '../../utils/getIcons';
 import myLog from '../../utils/myLog';
-import Scrums from '../../components/Groups/Scrums';
 
 const group_activities = [
   { title: 'Group Info', key: 'group_info', img: icons.group_info },
@@ -67,7 +67,7 @@ export default function Groups() {
           groupMembers: groupMembers.data.data.map((item) => item.attributes),
           group_id: id,
         });
-        console.log(groupMembers);
+
         setIsLoading(false);
       } catch (e) {
         myLog(e);
@@ -77,8 +77,6 @@ export default function Groups() {
 
     loadData();
   }, [slug]);
-
-  
 
   if (isLoading) {
     return (
