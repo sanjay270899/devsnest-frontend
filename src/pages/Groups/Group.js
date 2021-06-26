@@ -78,6 +78,8 @@ export default function Groups() {
     loadData();
   }, [slug]);
 
+  
+
   if (isLoading) {
     return (
       <div className="groups d-flex">

@@ -11,7 +11,7 @@ export const StarRating = ({ value, onChange, size }) => {
       {[...Array(5)].map((star, i) => {
         const ratingValue = i + 1;
         return (
-          <span style={{ cursor: 'pointer' }}>
+          <span style={{ cursor: 'pointer' }} key={i}>
             <FaStar
               onClick={(e) => {
                 onChange(ratingValue);
