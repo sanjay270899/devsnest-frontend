@@ -24,7 +24,7 @@ const TableRow = ({
               isTeamOwner={isTeamOwner}
               onChange={(newValue) => {
                 updateQuestions(index, { attendance: newValue });
-                postScrumData({ ...question, attendance: newValue });
+                postScrumData({ ...question, attendance: newValue }, index);
               }}
             ></CheckButton>
           </div>
@@ -59,6 +59,7 @@ const TableRow = ({
           show={modalShow}
           postScrumData={postScrumData}
           onHide={() => setModalShow(false)}
+          index={index}
         />
       </td>
 
@@ -67,9 +68,8 @@ const TableRow = ({
           <YesNoButton
             size={'sm'}
             value={question.saw_last_lecture || false}
-            onChange={(newValue) => {
-              updateQuestions(index, { saw_last_lecture: newValue });
-            }}
+            onChange={() => {}}
+            disabled={true}
           ></YesNoButton>
         </div>
       </td>
@@ -89,9 +89,8 @@ const TableRow = ({
       <td>
         <StarRating
           value={question.class_rating || 0}
-          onChange={(newValue) => {
-            updateQuestions(index, { class_rating: newValue });
-          }}
+          onChange={() => {}}
+          disabled={true}
           size={20}
         ></StarRating>
       </td>

@@ -349,7 +349,7 @@ const EditScrum = (props) => {
                     variant="primary"
                     size="lg"
                     onClick={(e) => {
-                      props.postScrumData(props.question);
+                      props.postScrumData(props.question, props.index);
                       props.onHide();
                     }}
                   >

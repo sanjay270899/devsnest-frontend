@@ -4,7 +4,7 @@ import { FaStar } from 'react-icons/fa';
 
 import icons from '../../utils/getIcons';
 
-export const StarRating = ({ value, onChange, size }) => {
+export const StarRating = ({ value, onChange, size, disabled }) => {
   const [hover, setHover] = useState(null);
 
   return (
@@ -20,8 +20,8 @@ export const StarRating = ({ value, onChange, size }) => {
               style={{ cursor: 'pointer' }}
               size={size}
               color={ratingValue <= (hover || value) ? '#ffc107' : '#e4e5e9'}
-              onMouseEnter={() => setHover(ratingValue)}
-              onMouseLeave={() => setHover(null)}
+              onMouseEnter={() => !disabled && setHover(ratingValue)}
+              onMouseLeave={() => !disabled && setHover(null)}
             />
           </span>
         );
@@ -30,11 +30,12 @@ export const StarRating = ({ value, onChange, size }) => {
   );
 };
 
-export const YesNoButton = ({ value, onChange, size }) => {
+export const YesNoButton = ({ value, onChange, size, disabled }) => {
   return (
     <div className="d-flex ">
       <Button
         size={size}
+        disabled={disabled}
         style={{
           backgroundColor: value ? '#58D68D' : '#ddd',
           margin: '1px 6px',
@@ -48,6 +49,7 @@ export const YesNoButton = ({ value, onChange, size }) => {
 
       <Button
         size={size}
+        disabled={disabled}
         style={{
           backgroundColor: !value ? '#F1948A' : '#ddd',
           margin: '1px 6px',

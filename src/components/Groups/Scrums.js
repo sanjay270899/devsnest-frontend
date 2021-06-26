@@ -63,9 +63,11 @@ export default function Scrums({ group, groupMembers, groupId }) {
     );
   };
 
-  const postScrumData = async (member) => {
+  const postScrumData = async (member, index) => {
     try {
-      await saveScrum(member, isTeamOwner || isTeamCoOwner);
+      const repsonse = await saveScrum(member, isTeamOwner || isTeamCoOwner);
+      const scrum_id = repsonse.data.id;
+      updateQuestions(index, { scrum_id });
       toast.success(`Scrum Saved for ${member.name}!!`);
     } catch (e) {
       toast.error(e.message);
@@ -103,7 +105,7 @@ export default function Scrums({ group, groupMembers, groupId }) {
       <Table
         responsive
         bordered
-        class="mt-3 p-0"
+        className="mt-3 p-0"
         style={{ borderCollapse: 'collapse' }}
       >
         <thead>
