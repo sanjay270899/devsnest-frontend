@@ -29,7 +29,10 @@ export default function Scrums({ group, groupMembers, groupId }) {
 
         const scrumsData = [];
         for (const group_member of groupMembers) {
-          const { user_id, name, avatar } = group_member;
+          const {
+            user_id,
+            user_details: { username: name, avatar },
+          } = group_member;
           const respData = response.find(
             (member) => member.user_id === user_id
           );
@@ -65,7 +68,7 @@ export default function Scrums({ group, groupMembers, groupId }) {
       await saveScrum(member, isTeamOwner || isTeamCoOwner);
       toast.success(`Scrum Saved for ${member.name}!!`);
     } catch (e) {
-      toast.success(e.message);
+      toast.error(e.message);
     }
   };
 
@@ -119,7 +122,7 @@ export default function Scrums({ group, groupMembers, groupId }) {
               updateQuestions={updateQuestions}
               question={question}
               index={index}
-              isTeamOwner={isTeamOwner}
+              isTeamOwner={isTeamOwner || isTeamCoOwner}
               postScrumData={postScrumData}
               key={index}
             />
