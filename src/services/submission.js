@@ -45,4 +45,23 @@ function nextStatus(number) {
   return (number + 1) % 3;
 }
 
-export { nextStatus, statusToNumber, statusToString, submitQuestion };
+function difficultyToNumber(difficulty) {
+  switch (difficulty) {
+    case 'easy':
+      return 0;
+    case 'medium':
+      return 1;
+    case 'hard':
+      return 2;
+    default:
+      return 3;
+  }
+}
+
+export {
+  difficultyToNumber,
+  nextStatus,
+  statusToNumber,
+  statusToString,
+  submitQuestion,
+};

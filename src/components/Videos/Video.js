@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import ReactPlayer from 'react-player';
 
 import styles from '../../assets/css/videos.module.scss';
+import { difficultyToNumber } from '../../services/submission';
 import icons from '../../utils/getIcons';
 import { Question } from './Question';
+
+const handleDifficultySort = (v1, v2) => {
+  return difficultyToNumber(v1.difficulty) - difficultyToNumber(v2.difficulty);
+};
 
 export const Video = ({ video, setVideos }) => {
   const [selected, setSelected] = useState(0);
@@ -61,14 +66,16 @@ export const Video = ({ video, setVideos }) => {
         <div className="mt-2 d-flex flex-column">
           {selected === 0
             ? video.questions && video.questions.length > 0
-              ? video.questions.map((q, index) => (
-                  <Question
-                    question={q}
-                    key={index}
-                    setVideos={setVideos}
-                    video_id={video.id}
-                  />
-                ))
+              ? video.questions
+                  .sort(handleDifficultySort)
+                  .map((q, index) => (
+                    <Question
+                      question={q}
+                      key={index}
+                      setVideos={setVideos}
+                      video_id={video.id}
+                    />
+                  ))
               : 'No Questions'
             : video.references && video.references.length > 0
             ? video.references.map((q, index) => (
