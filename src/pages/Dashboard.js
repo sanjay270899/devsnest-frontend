@@ -17,7 +17,7 @@ export default function Dashboard() {
   useEffect(() => {
     let toastId;
     if (!getSessionStore('newUserNotification')) {
-      if (user && user.login_count <= 2) {
+      if (user && user.login_count < 2) {
         const options = {
           onClick: () => setBasicDetailsModalShow(true),
           closeOnClick: true,

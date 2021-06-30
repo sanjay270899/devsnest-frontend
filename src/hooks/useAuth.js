@@ -24,6 +24,8 @@ export default function useAuth() {
     if (initial && user) {
       loadData();
       setInitial(false);
+    } else {
+      dispatch(setLoginLoading(false));
     }
   }, [initial, user, dispatch]);
 
