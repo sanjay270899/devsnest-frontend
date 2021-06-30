@@ -257,35 +257,12 @@ function Landing() {
           <div className="curriculum__unit">
             <div className="curriculum__left-side">
               <div className="curriculum__icon">
-                <img src={curr1} alt="Curriculum" />
-              </div>
-            </div>
-
-            <div className="curriculum__right-side">
-              <div className="curriculum__purple">Week 11-17</div>
-              <div className="curriculum__orange">WebDev - Backend</div>
-              <div className="curriculum__descp">
-                <ul>
-                  <li>Understanding Rest using NodeJS and Express.</li>
-                  <li>Building 3+ projects using Node, Mysql and Docker.</li>
-                  <li>
-                    Building and Deploying a full fledged industry grade backend
-                    Web app.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="curriculum__unit">
-            <div className="curriculum__left-side">
-              <div className="curriculum__icon">
                 <img src={curr2} alt="Curriculum" />
               </div>
             </div>
 
             <div className="curriculum__right-side">
-              <div className="curriculum__purple">Week 18-24</div>
+              <div className="curriculum__purple">Week 11-17</div>
               <div className="curriculum__orange">WebDev - Frontend</div>
               <div className="curriculum__descp">
                 <ul>
@@ -296,6 +273,29 @@ function Landing() {
                   <li>
                     Building and Deploying a full fledged Industry grade
                     frontend Web app.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="curriculum__unit">
+            <div className="curriculum__left-side">
+              <div className="curriculum__icon">
+                <img src={curr1} alt="Curriculum" />
+              </div>
+            </div>
+
+            <div className="curriculum__right-side">
+              <div className="curriculum__purple">Week 18-24</div>
+              <div className="curriculum__orange">WebDev - Backend</div>
+              <div className="curriculum__descp">
+                <ul>
+                  <li>Understanding Rest using NodeJS and Express.</li>
+                  <li>Building 3+ projects using Node, Mysql and Docker.</li>
+                  <li>
+                    Building and Deploying a full fledged industry grade backend
+                    Web app.
                   </li>
                 </ul>
               </div>
@@ -441,7 +441,7 @@ function Landing() {
 
               <div className="community__main__left-side__whatsapp__right">
                 <a
-                  href="https://chat.whatsapp.com/JuPPTZLCSYkIxOMR9FaRAr"
+                  href="https://chat.whatsapp.com/BbheAvtqwZdAayYsm5KfvM"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
