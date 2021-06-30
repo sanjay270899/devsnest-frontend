@@ -15,21 +15,17 @@ export default function Dashboard() {
   const [basicDetailsModalShow, setBasicDetailsModalShow] = useState(false);
 
   useEffect(() => {
-    let toastId;
     if (!getSessionStore('newUserNotification')) {
-      if (user && user.login_count < 2) {
+      if (user && user.login_count < 2 && user.update_count < 2) {
         const options = {
           onClick: () => setBasicDetailsModalShow(true),
           closeOnClick: true,
           autoClose: 10000,
         };
-        toastId = toast.info(`Click here to Change Username`, options);
+        toast.info(`Click here to Change Username`, options);
         makeSessionStore('newUserNotification', true);
       }
     }
-    return () => {
-      toast.dismiss(toastId);
-    };
   }, [user]);
 
   return (
